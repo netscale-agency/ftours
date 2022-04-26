@@ -1,10 +1,12 @@
+import React from 'react';
 import './App.css';
+import { FooterContainer } from './container/footer'
 
 function App() {
   return (
-    <div className="App">
-      F-Tours works
-    </div>
+    <>
+      <FooterContainer />
+    </>
   );
 }
 
