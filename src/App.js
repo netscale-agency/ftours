@@ -2,13 +2,13 @@ import { Carousel } from 'bootstrap';
 import React from 'react';
 import './App.css';
 import CarouselContainer from './components/slider/CarouselContainer';
-import { FooterContainer } from './container/footer'
+import Footer  from './components/footer/footer';
 
 function App() {
   return (
     <>
       <CarouselContainer />
-      <FooterContainer />
+      <Footer />
     </>
   );
 }
