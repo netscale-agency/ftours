@@ -1,0 +1,17 @@
+.logo {
+    max-width: 40%;
+    height: auto;
+}
+
+.navbar {
+    font-size: small;
+    text-transform: uppercase;
+}
+
+.dropdown-item {
+    font-size: small;
+}
+
+.dropdown-item:hover {
+    background-color: #F3A51E;
+}
