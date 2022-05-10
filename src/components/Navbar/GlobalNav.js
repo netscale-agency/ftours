@@ -49,13 +49,13 @@ function GlobalNav() {
                 id="collasible-nav-dropdown"
                 show={showSkolska}
               >
-                <NavDropdown.Item href="skolska-putovanja/izleti">
+                <NavDropdown.Item href="#izleti">
                   Izleti
                 </NavDropdown.Item>
-                <NavDropdown.Item href="skolska-putovanja/osnovne-skole">
+                <NavDropdown.Item href="#osnovne-skole">
                   Osnovne škole
                 </NavDropdown.Item>
-                <NavDropdown.Item href="srednje-skole">
+                <NavDropdown.Item href="#srednje-skole">
                   Srednje škole
                 </NavDropdown.Item>
               </NavDropdown>
@@ -69,13 +69,13 @@ function GlobalNav() {
                 id="collasible-nav-dropdown"
                 show={showDaleka}
               >
-                <NavDropdown.Item href="europska-putovanja">
+                <NavDropdown.Item href="#europska-putovanja">
                   Europska putovanja
                 </NavDropdown.Item>
-                <NavDropdown.Item href="daleka-putovanja">
+                <NavDropdown.Item href="#daleka-putovanja">
                   Daleka putovanja
                 </NavDropdown.Item>
-                <NavDropdown.Item href="nova-godina">
+                <NavDropdown.Item href="#nova-godina">
                   Nova godina
                 </NavDropdown.Item>
                 <NavDropdown.Item href="krstarenja">

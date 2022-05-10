@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Item() {
   return (
@@ -6,4 +6,4 @@ function Item() {
   )
 }
 
-export default Item
+export default Item;

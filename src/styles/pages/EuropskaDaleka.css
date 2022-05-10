@@ -1,4 +1,4 @@
-div.container1 {
+div.container4 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,11 +6,11 @@ div.container1 {
     text-transform: uppercase;
     color: white;
     font-size: 1.8rem;
-    background-color: #F3A51E;
+    background-color: #782a80;
     width: 100%;
 }
 
-div.container2 {
+div.container5 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,11 +18,11 @@ div.container2 {
     text-transform: uppercase;
     color: white;
     font-size: 1.8rem;
-    background-color: #b01f23;
+    background-color: #782a80;
     width: 100%;
 }
 
-div.container3 {
+div.container6 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,6 +30,18 @@ div.container3 {
     text-transform: uppercase;
     color: white;
     font-size: 1.8rem;
-    background-color: #7a2a81;
+    background-color: #25377a;
+    width: 100%;
+}
+
+div.container7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.8rem;
+    background-color: #25377a;
     width: 100%;
 }

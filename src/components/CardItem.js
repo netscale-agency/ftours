@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ItemImg from "../assets/images/bol-brac.jpg";
 import { Card } from "react-bootstrap";
+import Item from './Item';
 
 function CardItem() {
   return (
     <Card className="text-black">
-      <Card.Img variant="top" src={ ItemImg } alt="Item Image" />
-      <Card.ImgOverlay>
-        <Card.Title>Card title</Card.Title>
+      <Card.Img href={ Item } variant="top" src={ ItemImg } alt="Item Image" />
+      <Card.Body>
+        <Card.Title>Putovanje</Card.Title>
         <Card.Text>
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+          1 dan / brod i autobus
         </Card.Text>
-        <Card.Text>Last updated 3 mins ago</Card.Text>
-      </Card.ImgOverlay>
+      </Card.Body>
     </Card>
   );
 }
