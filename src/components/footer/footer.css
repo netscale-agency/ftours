@@ -1,5 +1,7 @@
 footer{
-    background-color: slategray;
+    background-color: #363948;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
     color: white;
     padding: 4rem 1rem;
 }
@@ -14,9 +16,19 @@ footer a:hover{
     color: #F3A51E;
 }
 
+span:hover{
+    cursor: pointer;
+}
+
+h3:hover{
+    cursor: pointer;
+    color: #F3A51E;
+    transition: color 0.3s;
+}
+
 .container{
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .footer-main{
@@ -42,7 +54,9 @@ footer a:hover{
 }
 
 .footer-bottom{
-    display: flex;
+    flex-basis: 200px;
+    flex-grow: 1;
+    text-align: center;
 }
 
 .copyright{

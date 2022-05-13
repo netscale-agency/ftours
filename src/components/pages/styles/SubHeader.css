@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: white;
+    font-family: helvetica;
+    font-size: 12px;
+}
+
+.number{
+    padding-left: 1rem;
+    color: #808080;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 0;
+}
+
+.mail{
+    padding-left: 1rem;
+    color: #808080;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 0;
+}
+
+.prijava{
+    padding-left: 2rem;
+    color: #F3A51E;
+    font-size: 14px;
+    font-weight: bold;
+    width: fit-content;
+    border: none;
+    padding-top: 0;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.prijava:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    transition: ease 0.3s;
+    text-shadow: none;
+    background-color: white;
+    color: #F3A51E;
+}
+
+.mail:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    color: black;
+    transition: ease 0.3s;
+}
+
+.number:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: ease 0.3s;
+    color: black;
+    text-shadow: none;
+}

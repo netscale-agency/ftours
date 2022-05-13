@@ -1,0 +1,169 @@
+.input-container{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+
+input{
+    padding: 0.3rem;
+    margin: 1.5rem;
+    border: 2px solid #DEE1EE;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus{
+    border: 2px solid #28397E;
+}
+
+button{
+    padding: 0.3rem;
+    margin: 1.5rem;
+    border: 2px solid #DEE1EE;
+    background-color: white;
+    outline: none;
+    border-radius: 8px;
+    width: 6rem;
+    height: 3rem;
+}
+
+button:hover{
+    background-color: #28397E;
+    text-shadow: 5px 7px 7px black;
+    transition: ease-in 0.3s;
+    transition: ease-out 0.3s;
+    color: white;
+    font-weight: bolder;
+}
+
+.euro-putovanja{
+    background-color: white;
+    padding: 1.4rem;
+}
+
+.euro-txt{
+    text-align: center;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.lorem-head{
+    margin: 3rem;
+}
+
+a:hover{
+    color: #F3A51E;
+    text-shadow: 7px 7px 7px #5E616F;
+    transition: ease 0.2s;
+}
+
+.destinacije-container{
+    background-color: white;
+}
+
+.top2{
+    display: flex;
+    justify-content: center;
+}
+
+.radius{
+    border-radius: 15px;
+    max-width: 35%;
+    margin-top: 10rem;
+    margin: 2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+
+.top4{
+    display: flex;
+    justify-content: center;
+}
+
+.radius2{
+    border-radius: 15px;
+    max-width: 21%;
+    margin: 2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.radius2:hover{
+    opacity: 0.5;
+    transition: ease 0.3s; 
+}
+
+.info{
+    display: flex;
+}
+
+.lorem-head{
+    font-weight: bolder;
+    margin: 3rem;
+    margin-left: 5rem;
+    margin-top: 5rem;
+    font-size: 35px;
+    color: #F3A51E;
+}
+
+.lorem{
+    margin: 3rem;
+    margin-top: auto;
+    margin-bottom: 5rem;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #5E616F;
+}
+
+.overlay:hover{
+    opacity: 1;
+}
+
+@media only screen and (max-width: 960px){
+    .input-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    button{
+        margin: auto;
+    }
+    .radius{
+        max-width: 40%;
+        margin: 1rem;
+    }
+    .radius2{
+        max-width: 19%;
+        margin: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1360px){
+    .radius{
+        max-width: 46%;
+        margin: 1rem;
+    }
+    .radius2{
+        max-width: 21.5%;
+        margin: 1rem;
+    }
+}
+
+@media only screen and (max-width: 860px){
+    .radius{
+        max-width: 47%;
+        margin: 0.2rem;
+    }
+    .radius2{
+        max-width: 23%;
+        margin: 0.2rem;
+        border-radius: 5px;
+    }
+}
