@@ -50,7 +50,7 @@ function GridLayout() {
       </div>
       <div class="col-md-12 text-center">
         <button type="button" class="btn btn-dark" onClick={() => loadMore()}>
-          LOAD MORE
+          load more
         </button>
       </div>
     </section>

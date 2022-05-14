@@ -5,9 +5,15 @@
     border-radius: 0%;
     margin: 20px;
     padding: 10px 20px;
+    text-transform: uppercase;
 }
 
 .btn-dark:hover {
     background-color: #F3A51E;
+}
 
+.card-img-top {
+    align-self: center;
+    background-size: cover;
+    min-height: 205px;
 }
