@@ -1,0 +1,116 @@
+.section-prijava {
+    background-color: #F3A51E;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 7.5rem;
+    text-transform: uppercase;
+}
+
+.container-prijava {
+    display: flex;
+    flex-direction: row;
+}
+
+.a-prijava {
+    font-size: medium;
+    text-decoration: none;
+    color: #F8F8F8;
+    font-weight: 600;
+}
+
+.a-prijava:hover {
+    color: #B11F23;
+}
+
+.row {
+    display: flex;
+}
+
+.col-prijava {
+    text-align: end;
+}
+
+.fa {
+    margin-right: 5px;
+}
+
+.div-galerija {
+    background-color: #F8F8F8;
+    height: 300px;
+}
+
+.div-putovanja {
+    display: flex;
+    justify-content: center;
+    background-color: #F3A51E;
+    height: 8rem;
+}
+
+.div-putovanja-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.h3-putovanja {
+    color: #F8F8F8;
+    font-weight: 600;
+    font-size: x-large;
+    text-align: center;
+    
+}
+
+.p-putovanja {
+    color: #F8F8F8;
+    font-weight: 200;
+    font-size: medium;
+    text-align: center;
+    
+}
+
+.div-cards-kategorije {
+    padding: 35px;
+    background-color: #F8F8F8;
+}
+
+.card-title {
+    font-size: medium;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-img {
+    border-radius: 0;
+    height: 200px;
+}
+
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.card-img-overlay:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 992px) {
+    .a-prijava {
+        font-size: smaller;
+        text-decoration: none;
+        color: #F8F8F8;
+        font-weight: 600;
+    }
+
+    .h3-putovanja {
+        font-size: large;
+    }
+
+    .p-putovanja {
+        font-size: small;
+    }
+}

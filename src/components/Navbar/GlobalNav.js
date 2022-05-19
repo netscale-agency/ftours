@@ -2,25 +2,9 @@ import React, { useState } from "react";
 import "../../styles/components/Navbar/GlobalNav.css";
 import { Navbar, NavDropdown, Nav, Container } from "react-bootstrap";
 import Logo from "../../assets/images/logo.png";
-
 function GlobalNav() {
   const [showSkolska, setShowSkolska] = useState(false);
   const [showDaleka, setShowDaleka] = useState(false);
-
-  const showDropdownSkolska = (e) => {
-    setShowSkolska(!showSkolska);
-  };
-  const hideDropdownSkolska = (e) => {
-    setShowSkolska(false);
-  };
-
-  const showDropdownDaleka = (e) => {
-    setShowDaleka(!showDaleka);
-  };
-  const hideDropdownDaleka = (e) => {
-    setShowDaleka(false);
-  };
-
   return (
     <>
       <Navbar
@@ -30,7 +14,7 @@ function GlobalNav() {
         variant="light"
         sticky="top"
       >
-        <Container>
+        <Container className="container-nav">
           <Navbar.Brand href="/">
             <img src={Logo} className="logo" alt="logo" />
           </Navbar.Brand>
@@ -40,8 +24,8 @@ function GlobalNav() {
               <Nav.Link href="/">Naslovnica</Nav.Link>
               <NavDropdown
                 className="navdropdown"
-                onMouseEnter={showDropdownSkolska}
-                onMouseLeave={hideDropdownSkolska}
+                onMouseEnter={() => setShowSkolska(true)}
+                onMouseLeave={() => setShowSkolska(false)}
                 onToggle={() => {
                   window.location.href = "skolska-putovanja";
                 }}
@@ -49,9 +33,7 @@ function GlobalNav() {
                 id="collasible-nav-dropdown"
                 show={showSkolska}
               >
-                <NavDropdown.Item href="#izleti">
-                  Izleti
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#izleti">Izleti</NavDropdown.Item>
                 <NavDropdown.Item href="#osnovne-skole">
                   Osnovne škole
                 </NavDropdown.Item>
@@ -60,8 +42,8 @@ function GlobalNav() {
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown
-                onMouseEnter={showDropdownDaleka}
-                onMouseLeave={hideDropdownDaleka}
+                onMouseEnter={() => setShowDaleka(true)}
+                onMouseLeave={() => setShowDaleka(false)}
                 onToggle={() => {
                   window.location.href = "europska-i-daleka-putovanja";
                 }}
@@ -91,5 +73,4 @@ function GlobalNav() {
     </>
   );
 }
-
 export default GlobalNav;

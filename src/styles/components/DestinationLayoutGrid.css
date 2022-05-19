@@ -14,6 +14,9 @@
 
 .card-img-top {
     align-self: center;
-    background-size: cover;
-    min-height: 205px;
+    height: 200px;
+}
+
+.card-text {
+    text-align: center;
 }

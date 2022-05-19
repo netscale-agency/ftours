@@ -1,18 +1,18 @@
 import React from "react";
-import '../styles/pages/EuropskaDaleka.css';
-import GridLayout from '../components/GridLayout';
+import '../styles/pages/Putovanja.css';
+import DestinationLayoutGrid from '../components/DestinationLayoutGrid';
 
 function EuropskaDaleka() {
   return (
     <>
-      <div class="container4">Europska putovanja</div>
-      <GridLayout />
-      <div class="container5">Daleka putovanja</div>
-      <GridLayout />
-      <div class="container6">Nova godina</div>
-      <GridLayout />
-      <div class="container7">Krstarenja</div>
-      <GridLayout />
+      <div class="ftours-yellow">Europska putovanja</div>
+      <DestinationLayoutGrid />
+      <div class="ftours-red">Daleka putovanja</div>
+      <DestinationLayoutGrid />
+      <div class="ftours-blue">Nova godina</div>
+      <DestinationLayoutGrid />
+      <div class="ftours-purple">Krstarenja</div>
+      <DestinationLayoutGrid />
     </>
   );
 }

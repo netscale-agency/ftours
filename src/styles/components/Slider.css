@@ -1,0 +1,32 @@
+.carousel-item {
+    height: 32rem;
+    position: relative;
+}
+
+.carousel-caption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.slide-heading {
+    color: #F8F8F8;
+    font-size: x-large;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.p-slide {
+    color: #F8F8F8;
+    font-size: smaller;
+}
+
+img {
+    height: 32rem;
+}

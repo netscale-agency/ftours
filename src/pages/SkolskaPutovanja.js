@@ -1,22 +1,22 @@
 import React from "react";
-import '../styles/pages/SkolskaPutovanja.css';
-import GridLayout from "../components/GridLayout";
+import '../styles/pages/Putovanja.css';
+import DestinationLayoutGrid from "../components/DestinationLayoutGrid";
 
 function SkolskaPutovanja() {
   return (
     <>
-    <div class="container1">
+    <div class="ftours-yellow">
       Izleti
     </div>
-      <GridLayout />
-    <div class="container2">
+      <DestinationLayoutGrid />
+    <div class="ftours-red">
       Osnovne škole
     </div>
-      <GridLayout />
-    <div class="container3">
+      <DestinationLayoutGrid />
+    <div class="ftours-purple">
       Srednje škole
     </div>
-      <GridLayout />
+      <DestinationLayoutGrid />
     </>
   );
 }
