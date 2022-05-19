@@ -3,17 +3,18 @@ import '../styles/pages/Putovanja.css';
 import DestinationLayoutGrid from "../components/DestinationLayoutGrid";
 
 function SkolskaPutovanja() {
+  
   return (
     <>
-    <div class="ftours-yellow">
+    <div id="izleti" class="ftours-yellow">
       Izleti
     </div>
       <DestinationLayoutGrid />
-    <div class="ftours-red">
+    <div id="osnovne-skole" class="ftours-red">
       Osnovne škole
     </div>
       <DestinationLayoutGrid />
-    <div class="ftours-purple">
+    <div id="srednje-skole" class="ftours-purple">
       Srednje škole
     </div>
       <DestinationLayoutGrid />

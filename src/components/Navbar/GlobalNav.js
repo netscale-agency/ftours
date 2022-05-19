@@ -26,41 +26,41 @@ function GlobalNav() {
                 className="navdropdown"
                 onMouseEnter={() => setShowSkolska(true)}
                 onMouseLeave={() => setShowSkolska(false)}
-                onToggle={() => {
+                /*onToggle={() => {
                   window.location.href = "skolska-putovanja";
-                }}
+                }}*/
                 title="Školska putovanja"
                 id="collasible-nav-dropdown"
                 show={showSkolska}
               >
-                <NavDropdown.Item href="#izleti">Izleti</NavDropdown.Item>
-                <NavDropdown.Item href="#osnovne-skole">
+                <NavDropdown.Item href="/skolska-putovanja#izleti">Izleti</NavDropdown.Item>
+                <NavDropdown.Item href="/skolska-putovanja#osnovne-skole">
                   Osnovne škole
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#srednje-skole">
+                <NavDropdown.Item href="/skolska-putovanja#srednje-skole">
                   Srednje škole
                 </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown
                 onMouseEnter={() => setShowDaleka(true)}
                 onMouseLeave={() => setShowDaleka(false)}
-                onToggle={() => {
+                /*onToggle={() => {
                   window.location.href = "europska-i-daleka-putovanja";
-                }}
+                }}*/
                 title="Europska i daleka putovanja"
                 id="collasible-nav-dropdown"
                 show={showDaleka}
               >
-                <NavDropdown.Item href="#europska-putovanja">
+                <NavDropdown.Item href="/europska-i-daleka-putovanja#europska-putovanja">
                   Europska putovanja
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#daleka-putovanja">
+                <NavDropdown.Item href="/europska-i-daleka-putovanja#daleka-putovanja">
                   Daleka putovanja
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#nova-godina">
+                <NavDropdown.Item href="/europska-i-daleka-putovanja#nova-godina">
                   Nova godina
                 </NavDropdown.Item>
-                <NavDropdown.Item href="krstarenja">
+                <NavDropdown.Item href="/europska-i-daleka-putovanja#krstarenja">
                   Krstarenja
                 </NavDropdown.Item>
               </NavDropdown>

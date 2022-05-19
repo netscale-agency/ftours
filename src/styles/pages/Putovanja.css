@@ -45,3 +45,39 @@ div.ftours-blue {
     background-color: #28397E;
     width: 100%;
 }
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    div.ftours-yellow {
+        font-size: 1.3rem;
+    }
+    
+    div.ftours-red {
+        font-size: 1.3rem;
+    }
+    
+    div.ftours-purple {
+        font-size: 1.3rem;
+    }
+    
+    div.ftours-blue {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    div.ftours-yellow {
+        font-size: 1.1rem;
+    }
+    
+    div.ftours-red {
+        font-size: 1.1rem;
+    }
+    
+    div.ftours-purple {
+        font-size: 1.1rem;
+    }
+    
+    div.ftours-blue {
+        font-size: 1.1rem;
+    }
+}

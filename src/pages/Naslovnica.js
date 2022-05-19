@@ -13,7 +13,7 @@ function Naslovnica() {
       <Slider />
       <section className="section-prijava">
         <Container>
-          <Row>
+          <Row className="row-prijava">
             <Col className="col-prijava">
               <a href="#" className="a-prijava">
                 <i class="fa fa-arrow-circle-right" aria-hidden="true" />
@@ -26,9 +26,6 @@ function Naslovnica() {
                 školska putovanja i jednodnevni izleti
               </a>
             </Col>
-          </Row>
-          <Row>
-            <Col />
             <Col className="col-prijava">
               <a href="#" className="a-prijava">
                 <i class="fa fa-arrow-circle-right" aria-hidden="true" />
@@ -50,7 +47,7 @@ function Naslovnica() {
         </div>
         <div className="div-cards-kategorije">
           <Container>
-            <Row>
+            <Row className="row-cards">
               <Col className="col-cards">
                 <Card className="bg-dark text-white">
                   <Card.Img src={img_skolska} alt="Card image" />
