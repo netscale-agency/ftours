@@ -45,7 +45,29 @@
     margin-bottom: 0.5rem;
 }
 
-.input-form-kreveti{
+.row-input{
     display: flex;
+    justify-content: center;
+    flex-direction: row;
     margin: auto;
+}
+
+select{
+    margin: auto;
+    background-color: #F3F6F4;
+    border: 2px solid #DEE1EE;
+    width: 80%;
+    padding: 0.5rem;
+}
+
+.suglasnost{
+    margin: auto;
+    padding: 1.5rem;
+}
+
+.prijava-botun{
+    width: fit-content;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
