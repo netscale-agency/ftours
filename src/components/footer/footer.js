@@ -26,8 +26,8 @@ export default function footer() {
 
             <div className='footer-bottom'>
                 <span className='copyright'>&copy; 2022 Netscale-Agency</span>
-                <a href='./' className='footer-social'>INSTAGRAM</a>
-                <a href='./' className='footer-social'>FACEBOOK</a>
+                <a href='./' className='footer-social'>istagram</a>
+                <a href='./' className='footer-social'>facebook</a>
             </div>
         </div>
     </footer>

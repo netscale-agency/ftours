@@ -1,7 +1,7 @@
 import React from 'react'
 import { SubHeader } from './SubHeader'
-import Footer from './../footer/footer'
-import './styles/OstalaPutovanjaForma.css'
+import Footer from './../components/footer/footer'
+import './../styles/OstalaPutovanjaForma.css'
 
 export default function OstalaPutovanjaForma() {
   return (

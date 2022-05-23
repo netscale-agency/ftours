@@ -1,7 +1,7 @@
-import Modal from '../modal/Modal'
+import Modal from '../components/modal/Modal'
 import React from 'react'
 import {useState} from 'react'
-import './styles/SubHeader.css'
+import './../styles/SubHeader.css'
 
 export const SubHeader = () => {
 
@@ -11,7 +11,7 @@ export const SubHeader = () => {
     <div className='container'>
         <p className='number'>+385 (0)21 344 842</p>
         <p className='mail'>desk@f-tours.hr</p>
-        <button className='prijava' onClick={() => {setOpenModal(true);}}>Prijava za putovanje!</button>
+        <button className='prijava' onClick={(e) => {setOpenModal(true); e.stopPropagation()}}>Prijava za putovanje!</button>
         {openModal && <Modal  closeModal={setOpenModal}/>}
     </div>
   )

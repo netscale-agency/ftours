@@ -15,7 +15,7 @@ const CarouselContainer = () => {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>DALEKA PUTOVANJA</h3>
+      <h3 className='h3-slider'>DALEKA PUTOVANJA</h3>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item >
@@ -25,7 +25,7 @@ const CarouselContainer = () => {
       alt="Second slide"
     />
     <Carousel.Caption>
-      <h3>EUROPSKA PUTOVANJA</h3>
+      <h3 className='h3-slider'>EUROPSKA PUTOVANJA</h3>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -35,7 +35,7 @@ const CarouselContainer = () => {
       alt="Third slide"
     />
     <Carousel.Caption>
-      <h3>ŠKOLSKA PUTOVANJA</h3>
+      <h3 className='h3-slider'>ŠKOLSKA PUTOVANJA</h3>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

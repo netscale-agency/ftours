@@ -9,8 +9,8 @@ function Modal({ closeModal }) {
                 <button onClick={() => closeModal(false)}> X </button>
             </div>
             <div className='modal-content'>
-                <button className='modal-btn'>PRIJAVA ZA ŠKOLSKA PUTOVANJA</button>
-                <button className='modal-btn' onClick={window.location.href = '/Ostala-putovanja-forma'}>PRIJAVA ZA OSTALA PUTOVANJA</button>
+                <button className='modal-btn' onClick={window.location.href = '/skolskaputovanja-forma'}>prijava za školska putovanja</button>
+                <button className='modal-btn' onClick={window.location.href = '/Ostala-putovanja-forma'}>prijava za ostala putovanja</button>
             </div>
         </div>
     </div>

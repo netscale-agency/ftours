@@ -1,13 +1,13 @@
 import React from 'react';
-import CarouselContainer from './../slider/CarouselContainer';
-import Footer  from './../footer/footer';
-import './styles/Naslovnica.css'
-import Top1 from './../assets/imgs/budimpesta.jpg'
-import Top2 from './../assets/imgs/ohrid.jpg'
-import greece from './../assets/imgs/greece.jpg'
-import istanbul from './../assets/imgs/istanbul.jpg'
-import venecija from './../assets/imgs/venecija.jpg'
-import prague from './../assets/imgs/prague.jpg'
+import CarouselContainer from './../components/slider/CarouselContainer';
+import Footer  from './../components/footer/footer';
+import './../styles/Naslovnica.css'
+import Top1 from './../components/assets/imgs/budimpesta.jpg'
+import Top2 from './../components/assets/imgs/ohrid.jpg'
+import greece from './../components/assets/imgs/greece.jpg'
+import istanbul from './../components/assets/imgs/istanbul.jpg'
+import venecija from './../components/assets/imgs/venecija.jpg'
+import prague from './../components/assets/imgs/prague.jpg'
 import { SubHeader } from './SubHeader'
 
 function Naslovnica() {
@@ -16,9 +16,9 @@ function Naslovnica() {
       <SubHeader />
       <CarouselContainer />
       <div className='input-container'>
-        <input type='text' placeholder='From'></input>
-        <input type='text' placeholder='To'></input>
-        <button>Check</button>
+        <input type='text' placeholder='From' className='z-index'></input>
+        <input type='text' placeholder='To' className='z-index'></input>
+        <button className='z-index'>Check</button>
       </div>
       <div className='euro-putovanja'>
           <h2 className='euro-txt'><a href='./putovanja'>Popularne destinacije</a></h2>
