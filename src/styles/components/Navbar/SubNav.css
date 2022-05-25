@@ -1,0 +1,51 @@
+.subnav {
+    background-color: #ececec;
+    height: 26px;
+}
+
+.subnav-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 2px 30px 2px 10px;
+}
+
+.a-subnav {
+    color: #808080;
+    font-size: 12px;
+    padding: 2px 10px 2px 10px;
+    text-decoration: none;
+    transition: color 400ms;
+}
+
+.a-subnav.prijava {
+    color: #F3A51E;
+    font-weight: 600;
+}
+
+.a-subnav:hover {
+    color: #F3A51E;
+    transition-duration: 400ms;
+}
+
+/*.fa-brands.subnav {
+    font-size: 16px;
+    color: #808080;
+    padding: 0px 10px 0px 10px;
+    transition: color 400ms;
+}
+
+.fa-brands.subnav:hover {
+    color: #F3A51E;
+    transition-duration: 400ms;
+}
+
+.fa-brands.subnav.fa-facebook-f {
+    font-size: 14px;
+}*/
+
+@media screen and (max-width: 992px) {
+    .subnav {
+        display: none;
+    }
+}

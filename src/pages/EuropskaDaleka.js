@@ -5,13 +5,13 @@ import DestinationLayoutGrid from '../components/DestinationLayoutGrid';
 function EuropskaDaleka() {
   return (
     <>
-      <div id="europska-putovanja" class="ftours-yellow">Europska putovanja</div>
+      <div id="europska-putovanja" className="ftours-yellow">Europska putovanja</div>
       <DestinationLayoutGrid />
-      <div id="daleka-putovanja" class="ftours-red">Daleka putovanja</div>
+      <div id="daleka-putovanja" className="ftours-red">Daleka putovanja</div>
       <DestinationLayoutGrid />
-      <div id="nova-godina" class="ftours-blue">Nova godina</div>
+      <div id="nova-godina" className="ftours-blue">Nova godina</div>
       <DestinationLayoutGrid />
-      <div id="krstarenja" class="ftours-purple">Krstarenja</div>
+      <div id="krstarenja" className="ftours-purple">Krstarenja</div>
       <DestinationLayoutGrid />
     </>
   );

@@ -1,0 +1,13 @@
+.container-slider-gallery {
+    display: flex;
+    flex-direction: row;
+}
+
+.slide-gallery-first {
+    z-index: 0;
+}
+
+.slide-gallery-second {
+    margin-left: -50px;
+    z-index: 0;
+}

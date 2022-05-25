@@ -6,15 +6,15 @@ function SkolskaPutovanja() {
   
   return (
     <>
-    <div id="izleti" class="ftours-yellow">
+    <div id="izleti" className="ftours-yellow">
       Izleti
     </div>
       <DestinationLayoutGrid />
-    <div id="osnovne-skole" class="ftours-red">
+    <div id="osnovne-skole" className="ftours-red">
       Osnovne škole
     </div>
       <DestinationLayoutGrid />
-    <div id="srednje-skole" class="ftours-purple">
+    <div id="srednje-skole" className="ftours-purple">
       Srednje škole
     </div>
       <DestinationLayoutGrid />

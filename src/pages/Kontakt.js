@@ -5,8 +5,8 @@ import { Accordion } from "react-bootstrap";
 function Kontakt() {
   return (
     <>
-      <section class="kontakt">
-        <div class="container-kontakt">Kontakt</div>
+      <section className="kontakt">
+        <div className="container-kontakt">Kontakt</div>
       </section>
       <Accordion defaultActiveKey={["0","1","2"]} alwaysOpen>
         <Accordion.Item eventKey="0">

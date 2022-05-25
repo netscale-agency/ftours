@@ -6,10 +6,12 @@
     margin: 20px;
     padding: 10px 20px;
     text-transform: uppercase;
+    transition: background-color 400ms;
 }
 
 .btn-dark:hover {
     background-color: #F3A51E;
+    transition-duration: 400ms;
 }
 
 .card-img-top {

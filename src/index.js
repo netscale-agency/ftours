@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import SubNav from "./components/Navbar/SubNav";
 import GlobalNav from "./components/Navbar/GlobalNav";
 //import App from './App';
 import Naslovnica from "./pages/Naslovnica";
@@ -10,10 +11,12 @@ import SkolskaPutovanja from "./pages/SkolskaPutovanja";
 import EuropskaDaleka from "./pages/EuropskaDaleka";
 import ONama from "./pages/ONama";
 import Kontakt from "./pages/Kontakt";
+import Footer from "./components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+    <SubNav />
     <GlobalNav />
     <Routes>
       <Route index element={<Naslovnica />} />
@@ -22,5 +25,6 @@ root.render(
       <Route path="o-nama" element={<ONama />} />
       <Route path="kontakt" element={<Kontakt />} />
     </Routes>
+    <Footer />
   </BrowserRouter>
 );

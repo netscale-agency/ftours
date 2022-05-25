@@ -14,10 +14,12 @@
 
 .dropdown-item {
     font-size: small;
+    transition: background-color 400ms;
 }
 
 .dropdown-item:hover {
     background-color: #F3A51E;
+    transition-duration: 400ms;
 }
 
 @media screen and (max-width: 992px) {

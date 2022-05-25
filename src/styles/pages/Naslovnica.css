@@ -1,5 +1,5 @@
 .section-prijava {
-    background-color: #F3A51E;
+    background-color: #FF8C00;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,10 +17,12 @@
     text-decoration: none;
     color: #F8F8F8;
     font-weight: 600;
+    transition: color 400ms;
 }
 
 .a-prijava:hover {
     color: #B11F23;
+    transition-duration: 400ms;
 }
 
 .row {
@@ -36,6 +38,10 @@
     margin-right: 5px;
 }
 
+.section-putovanja {
+    overflow-x: hidden;
+}
+
 .div-galerija {
     background-color: #F8F8F8;
     height: 300px;
@@ -44,7 +50,7 @@
 .div-putovanja {
     display: flex;
     justify-content: center;
-    background-color: #F3A51E;
+    background-color: #FF8C00;
     height: 8rem;
 }
 
@@ -68,7 +74,6 @@
     font-weight: 200;
     font-size: medium;
     text-align: center;
-    
 }
 
 .div-cards-kategorije {
@@ -118,6 +123,119 @@
     font-weight: 600;
 }
 
+.section-o-nama {
+    background-color: #FF8C00;
+    height: 25rem;
+}
+
+.row-o-nama-naslovna {
+    display: flex;
+    flex-direction: row;
+    height: 25rem;
+}
+
+.col-o-nama-naslovna {
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.h3-o-nama-naslovna {
+    color: #F8F8F8;
+    font-size: x-large;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.p-o-nama-naslovna {
+    align-self: flex-end;
+    color: #F8F8F8;
+    font-size: smaller;
+    text-align: right;
+    width: 70%;
+}
+
+.btn-info {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    color: #B11F23;
+    background-color: #F3A51E;
+    border: -3px;
+    border-color: #B11F23;
+    border-radius: 0%;
+    justify-content: center;
+    font-weight: 600;
+    height: 50px;
+    width: 120px;
+}
+
+.btn-info:hover {
+    border-color: #F8F8F8;
+    background-color: #F3A51E;
+    color: #F8F8F8;
+    transition-duration: 400ms;
+}
+
+.fa-user-group {
+    margin: 5px;
+}
+
+.col-o-nama-naslovna-icons {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-o-nama-inner {
+    color: #F8F8F8;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.h5-o-nama-icons {
+    font-size: large;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.p-o-nama-icons {
+    color: #F8F8F8;
+    font-size: smaller;
+}
+
+.fas {
+    font-size: x-large;
+}
+
+.icon-o-nama {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3A51E;
+    border-color: #B11F23;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 60px;
+    margin: 10px;
+    height: 75px;
+    width: 75px;
+}
+
+.f-tours-red {
+    background-color: #B11F23;
+    height: 40px;
+}
+
+.f-tours-purple {
+    background-color: #7C2D83;
+    height: 40px;
+}
+
 @media screen and (min-width: 767px) and (max-width: 992px) {
     .a-prijava {
         font-size: smaller;
@@ -127,7 +245,7 @@
     }
 
     .row-prijava {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .col-prijava {
@@ -149,9 +267,54 @@
         flex-direction: column;
         width: 80%;
     }
+    
+    .row-o-nama-naslovna {
+        display: flex;
+    }
+
+    .col-o-nama-naslovna {
+        margin-top: 50px;
+    }
+
+    .col-o-nama-naslovna-icons {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-left: 20px;
+    }
+
+    .h3-o-nama-naslovna {
+        font-size: larger;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    .p-o-nama-naslovna {
+        align-self: center;
+        font-size: small;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+    }
+
+    .btn-info {
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    .icon-o-nama {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        height: 65px;
+        width: 65px;
+    }
 }
 
 @media screen and (min-width: 0px) and (max-width: 768px) {
+
     .a-prijava {
         font-size: smaller;
     }
@@ -182,6 +345,66 @@
         margin-left: auto;
         margin-right: auto;
         flex-direction: column;
+        width: 100%;
+    }
+
+    .section-o-nama {
+        display: flex;
+        height: 45rem;
+    }
+
+    .row-o-nama-naslovna {
+        display: grid;
+    }
+
+    .col-o-nama-naslovna {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .h3-o-nama-naslovna {
+        font-size: larger;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    .p-o-nama-naslovna {
+        align-self: center;
+        font-size: small;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+    }
+
+    .btn-info {
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    .col-o-nama-naslovna-icons {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-left: 20px;
+    }
+    
+    .icon-o-nama {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        height: 65px;
+        width: 65px;
+    }
+
+    .h5-o-nama-icons {
+        font-size: medium;
+    }
+
+    .p-o-nama-icons {
+        font-size: small;
         width: 100%;
     }
 }
