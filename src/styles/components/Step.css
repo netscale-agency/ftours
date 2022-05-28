@@ -1,0 +1,4 @@
+.stepContainer{
+    display: flex;
+    flex-direction: column;
+}

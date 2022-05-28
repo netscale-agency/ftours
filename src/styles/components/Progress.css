@@ -1,0 +1,27 @@
+.step1 {
+    background-color: #B11F23;
+}
+
+.step2 {
+    background-color: #F3A51E;
+}
+
+.step3 {
+    background-color: #7C2D83;
+}
+
+.step4 {
+    background-color: #28397E;
+}
+
+.inactiveStep {
+    background-color: silver;
+    transition: ease-in-out background-color 500ms;
+}
+.stepContainer{
+    width: 100%;
+    padding:7px;
+    text-align: center;
+    color: #f8f8f8;
+}
+.container{display: flex;}
