@@ -14,11 +14,32 @@
     transition-duration: 400ms;
 }
 
+.card {
+    transition: all 500ms ease-in-out;
+}
+
+.card:hover {
+    transform: scale(0.9);
+}
+
 .card-img-top {
     align-self: center;
     height: 200px;
 }
 
+.card-title {
+    font-weight: 600;
+}
+
 .card-text {
     text-align: center;
+}
+
+.a-single-destination {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.a-single-destination:hover {
+    color: inherit;
 }

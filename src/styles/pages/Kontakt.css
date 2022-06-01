@@ -1,4 +1,4 @@
-.container-kontakt {
+.container-kontakt-purple {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,4 +9,31 @@
     background-color: #7a2a81;
     width: 100%;
     margin-bottom: 20px;
+}
+
+.containter-kontakt {
+    padding: 50px 0px 50px 0px;
+}
+
+.accordion-button {
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #FF8C00;
+}
+
+.h3-kontakt {
+    font-size: 16px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.p-kontakt {
+    font-size: 15px;
+}
+
+.span-kontakt {
+    font-weight: 600;
 }

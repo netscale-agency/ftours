@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import data from "../data";
+import data from "./util/DestinationGridData";
 import "../styles/components/DestinationLayoutGrid.css";
 
 function DestinationLayoutGrid() {
@@ -11,13 +11,15 @@ function DestinationLayoutGrid() {
         {slice.map((item, index) => {
           return (
             <div key={index} className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
-              <div className="card p-0 overflow-hidden h-100 shadow">
-                <img src={item.img} className="card-img-top" alt="card" />
-                <div className="card-body">
-                  <h5 className="card-title">{item.title}</h5>
-                  <p className="card-text">{item.desc}</p>
+              <a href="/single-destination" className="a-single-destination">
+                <div className="card p-0 overflow-hidden h-100 shadow">
+                  <img src={item.img} className="card-img-top" alt="card" />
+                  <div className="card-body">
+                    <h5 className="card-title">{item.title}</h5>
+                    <p className="card-text">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           );
         })}
@@ -28,7 +30,7 @@ function DestinationLayoutGrid() {
           className="btn btn-dark"
           onClick={() => setLoadMoreBtn(!loadMoreBtn)}
         >
-          {loadMoreBtn ? "load less" : "load more"}
+          {loadMoreBtn ? "vidi manje" : "vidi više"}
         </button>
       </div>
     </section>

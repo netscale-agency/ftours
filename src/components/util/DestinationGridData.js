@@ -1,10 +1,10 @@
-import img1 from './assets/images/hvar.jpg';
-import img2 from './assets/images/dubrovnik.jpg';
-import img3 from './assets/images/np-krka.jpg';
-import img4 from './assets/images/bol-brac.jpg';
-import img5 from './assets/images/grcka1.jpg';
-import img6 from './assets/images/ogulin.jpg';
-import img7 from './assets/images/dolina-neretve.jpg';
+import img1 from '../../assets/images/hvar.jpg';
+import img2 from '../../assets/images/dubrovnik.jpg';
+import img3 from '../../assets/images/np-krka.jpg';
+import img4 from '../../assets/images/bol-brac.jpg';
+import img5 from '../../assets/images/grcka1.jpg';
+import img6 from '../../assets/images/ogulin.jpg';
+import img7 from '../../assets/images/dolina-neretve.jpg';
 
 const data = {
     cardData:[

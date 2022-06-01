@@ -68,7 +68,7 @@
 }
 
 .a-contact:hover {
-    color: #000a4a;
+    color: #000215;
     font-weight: 600;
     transition-duration: 400ms;
 }
@@ -86,13 +86,13 @@
 }
 
 .fa-brands.footer:hover {
-    color: #000a4a;
+    color: #000215;
     font-size: 35px;
     padding: 5px 10px 5px 10px;
     transition-duration: 400ms;
 }
 
-.search-footer {
+/*.search-footer {
     padding-bottom: 20px;
 }
 
@@ -119,7 +119,7 @@
     border: 0px;
     height: 40px;
     width: 35px;
-}
+}*/
 
 .a-pravila-uvjeti {
     color: #F8F8F8;
@@ -128,11 +128,11 @@
     font-size: 14px;
     transition: color 400ms;
     text-decoration: none;
-    padding: 5px;
+    padding: 5px 0px 5px 0px;
 }
 
 .a-pravila-uvjeti:hover {
-    color: #000a4a;
+    color: #000215;
     font-weight: 600;
     transition-duration: 400ms;
 }
@@ -164,6 +164,10 @@
         padding-top: 10px;
         padding-bottom: 50px;
     }
+
+    .f-tours-dark-blue {
+        padding-right: 10px;
+    }
 }
 
 @media screen and (min-width: 0px) and (max-width: 768px) {
@@ -180,7 +184,6 @@
     }
 
     .f-tours-dark-blue {
-        justify-content: center;
         padding-right: 10px;
     }
     

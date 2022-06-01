@@ -59,24 +59,12 @@ function Footer() {
               </p>
             </Col>
             <Col className="col-footer">
-              <h5 className="h5-footer">traži</h5>
-              <form className="search-footer" role="search" id="form">
-                <input
-                  className="search-footer-input"
-                  type="search"
-                  id="query"
-                  name="q"
-                  placeholder="Search..."
-                />
-                <button className="btn-search">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a className="a-pravila-uvjeti">Opći podaci o agenciji</a>
-              <a className="a-pravila-uvjeti">Opći uvjeti poslovanja</a>
-              <a className="a-pravila-uvjeti">Pravila privatnosti</a>
-              <a className="a-pravila-uvjeti">Način podnošenja prigovora</a>
-              <a className="a-pravila-uvjeti">Politike kolačića</a>
+              <h5 className="h5-footer">korisni linkovi</h5>
+              <a className="a-pravila-uvjeti" href="opci-podaci-o-agenciji">Opći podaci o agenciji</a>
+              <a className="a-pravila-uvjeti" href="opci-uvjeti-poslovanja">Opći uvjeti poslovanja</a>
+              <a className="a-pravila-uvjeti" href="pravila-privatnosti">Pravila privatnosti</a>
+              <a className="a-pravila-uvjeti" href="podnosenja-prigovora">Način podnošenja prigovora</a>
+              <a className="a-pravila-uvjeti" href="politika-kolacica">Politike kolačića</a>
             </Col>
           </Row>
         </div>
