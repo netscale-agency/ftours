@@ -15,12 +15,27 @@
     padding: 50px 0px 50px 0px;
 }
 
+.col-gmap {
+    justify-content: center;
+}
+
+.col-kontakt {
+    align-self: flex-start;
+}
+
 .accordion-button {
     font-weight: 600;
 }
 
 .accordion-button:not(.collapsed) {
+    background-color: #F8F8F8;
     color: #FF8C00;
+}
+
+.accordion-button:focus {
+    border-color: 0;
+    box-shadow: none;
+    outline: none;
 }
 
 .h3-kontakt {
@@ -36,4 +51,65 @@
 
 .span-kontakt {
     font-weight: 600;
+}
+
+.a-kontakt-link {
+    color: #FF8C00;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 600ms;
+}
+
+.a-kontakt-link:hover {
+    color: #B11F23;
+    transition-duration: 600ms;
+}
+
+.gmap {
+    height: 600px;
+    width: 100%;
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+
+    .container-kontakt-purple {
+        margin-bottom: 0px;
+    }
+    
+    .containter-kontakt {
+        padding: 0px;
+    }
+
+    .row-kontakt-page {
+        display: flex;
+        flex-direction: column;
+        --bs-gutter-x: 0rem;
+    }
+
+    .gmap {
+        height: 450px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+
+    .container-kontakt-purple {
+        margin-bottom: 0px;
+    }
+
+    .containter-kontakt {
+        padding: 0px;
+    }
+
+    .row-kontakt-page {
+        display: flex;
+        flex-direction: column;
+        --bs-gutter-x: 0rem;
+    }
+
+    .gmap {
+        height: 450px;
+        width: 100%;
+    }
 }
