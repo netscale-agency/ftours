@@ -102,7 +102,13 @@ function Naslovnica() {
                 Svi sudjelujemo u tome. Generacije naših putnika govore nama u
                 prilog… uvjerite se i Vi!
               </p>
-              <button type="button" className="btn btn-info">
+              <button
+                type="button"
+                onClick={() => {
+                  window.location.href = "/o-nama";
+                }}
+                className="btn btn-info"
+              >
                 <i class="fa-solid fa-user-group" />
                 F-Team
               </button>
@@ -114,7 +120,9 @@ function Naslovnica() {
                 </div>
                 <div className="col-o-nama-text">
                   <h5 className="h5-o-nama-icons">putno osiguranje</h5>
-                  <p className="p-o-nama-icons">na svakom putovanju, za svakog putnika</p>
+                  <p className="p-o-nama-icons">
+                    na svakom putovanju, za svakog putnika
+                  </p>
                 </div>
               </div>
               <div className="col-o-nama-inner">
@@ -132,12 +140,14 @@ function Naslovnica() {
                 </div>
                 <div className="col-o-nama-text">
                   <h5 className="h5-o-nama-icons">destinacije</h5>
-                  <p className="p-o-nama-icons">najzanimljivija mjesta širom svijeta</p>
+                  <p className="p-o-nama-icons">
+                    najzanimljivija mjesta širom svijeta
+                  </p>
                 </div>
               </div>
             </Col>
           </Row>
-        </Container> 
+        </Container>
       </section>
     </>
   );

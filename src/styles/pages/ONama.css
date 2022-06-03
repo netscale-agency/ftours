@@ -1,0 +1,113 @@
+.card-o-nama {
+    background-size: cover;
+    border-radius: 0;
+    height: 22rem;
+    transition: none;
+}
+
+.card-o-nama:hover {
+    transform: none;
+    transition: none;
+}
+
+.img-o-nama {
+    height: 22rem;
+}
+
+.img-overlay-o-nama:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+.title-o-nama {
+    font-size: xx-large;
+}
+
+
+.container-o-nama-tekst {
+    padding: 40px 0px 40px 0px;
+}
+
+.row-o-nama-tekst {
+    --bs-gutter-x: 0rem;
+    justify-content: center;
+}
+
+.p-o-nama {
+    color: #5c5a5c;
+    font-size: 14px;
+}
+
+.ftours-purple.o-nama {
+    margin-bottom: 10px;
+}
+
+.container-ftours-team {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.row-ftours-team {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-ftours-team {
+    width: 20rem;
+    height: 20rem;
+}
+
+.card-body-ftours-team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.img-avatar {
+    align-self: center;
+    height: 25%;
+    width: 25%;
+    margin-top: 50px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    
+    .row-ftours-team {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        padding: 30px 0px 30px 0px;
+    }
+
+    .card-ftours-team {
+        margin: 20px 0px 20px 0px;
+    }
+
+    .container-ftours-team {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    
+    .row-ftours-team {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        padding: 0px;
+    }
+
+    .card-ftours-team {
+        margin: 20px 0px 20px 0px;
+    }
+
+    .container-ftours-team {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
