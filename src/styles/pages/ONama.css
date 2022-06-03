@@ -14,15 +14,19 @@
     height: 22rem;
 }
 
+.img-overlay-o-nama {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 .img-overlay-o-nama:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
     cursor: default;
 }
 
 .title-o-nama {
     font-size: xx-large;
+    text-shadow: 2px 2px 4px #000000;
 }
-
 
 .container-o-nama-tekst {
     padding: 40px 0px 40px 0px;

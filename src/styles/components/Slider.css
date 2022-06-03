@@ -1,5 +1,5 @@
 .carousel-item {
-    height: 38.5rem;
+    height: 31.5rem;
     position: relative;
 }
 
@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     bottom: 0;
     left: 0;
     right: 0;
@@ -18,16 +18,24 @@
 .slide-heading {
     color: #F8F8F8;
     font-size: x-large;
+    font-weight: 600;
     margin-bottom: 10px;
     text-transform: uppercase;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .p-slide {
     color: #F8F8F8;
     font-size: smaller;
+    text-shadow: 2px 2px 4px #000000;
     width: 80%;
 }
 
 img {
-    height: 38.5rem;
+    height: 31.5rem;
+    width: auto;
+}
+
+.btn.btn-dark.slider {
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
 }

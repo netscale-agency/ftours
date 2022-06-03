@@ -39,7 +39,7 @@ function Slider() {
           <p className="p-slide">
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
-          <button type="button" className="btn btn-dark">
+          <button type="button" className="btn btn-dark slider">
             vidi više
           </button>
         </Carousel.Caption>
