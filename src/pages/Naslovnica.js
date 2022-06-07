@@ -109,7 +109,7 @@ function Naslovnica() {
                 }}
                 className="btn btn-info"
               >
-                <i class="fa-solid fa-user-group" />
+                <i className="fa-solid fa-user-group" />
                 F-Team
               </button>
             </Col>

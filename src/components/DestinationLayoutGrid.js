@@ -6,12 +6,22 @@ import axios from "axios";
 function DestinationLayoutGrid() {
   const [destinations, setDestinations] = useState();
   const dataCall = () => {
-    axios.get(`http://146.190.227.241/wp-json/tour/v1/gallery/malta`).then((res) => {
+    axios.get("http://128.199.53.252/wp-json/wp/v2/posts/").then((res) => {
       setDestinations(res.data);
     });
   };
+  const destinationFormatter = () => {
+    const data = destinations
+      ? destinations.map((item) => {
+          return item.acf;
+        })
+      : [];
+    return data;
+  };
+
   useMemo(() => dataCall(), []);
-  console.log(destinations);
+  const formattedData = useMemo(() => destinationFormatter());
+console.log(formattedData)
   const [loadMoreBtn, setLoadMoreBtn] = useState(false);
   const slice = data.cardData.slice(0, loadMoreBtn ? data.cardData.length : 4);
   return (
