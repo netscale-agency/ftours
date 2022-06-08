@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 
-export default function Step2({ data, aran, setActive, active }) {
+export default function Step2({
+  data,
+  aran,
+  setActive,
+  active,
+  step2,
+  setStep2,
+}) {
   const [checked, setChecked] = useState(false);
   const [pickedRazred, setPickedRazred] = useState("");
-
   const skole = data.GrupeSkole.filter((item) => item.GrupaId === aran);
   const [pickedSchool, setPickedSchool] = useState(
     skole.length === 1 && skole[0].skolaId
   );
+  console.log(skole.filter((item)=>item.skole===step2.skolaId).skolaId,step2,)
 
   const aranData = data.GrupeRezervacije.filter(
     (item) => item.GrupaId === aran
@@ -17,20 +24,27 @@ export default function Step2({ data, aran, setActive, active }) {
     <div className="stepContainer2 ">
       <label>Škola</label>
       <select
+        id="skola"
         onChange={(e) => {
           setPickedSchool(e.target.value);
         }}
       >
         {skole.length > 1 && <option>---</option>}
-        {skole.map((item,i) => {
-          return <option key={i} value={item.skolaId}>{item.skola}</option>;
+        {skole.map((item, i) => {
+          return (
+            <option key={i}  value={item.skolaId}>
+              {item.skola}
+            </option>
+          );
         })}
-      </select>{" "}
+      </select>
       <label>Aranžman / odredište</label>
       <select>
-        {aranData.map((item,i) => {
+        {aranData.map((item, i) => {
           return (
-            <option key={i} value={item.OpisAranzmana}>{item.OpisAranzmana}</option>
+            <option key={i} value={item.OpisAranzmana}>
+              {item.OpisAranzmana}
+            </option>
           );
         })}
       </select>
@@ -38,22 +52,29 @@ export default function Step2({ data, aran, setActive, active }) {
         Razred <b>(obavezno)</b>
       </label>
       <select
+        id="razred"
         onChange={(e) => {
           setPickedRazred(e.target.value);
         }}
       >
         {<option>---</option>}
-        {razredi.map((item,i) => {
+        {razredi.map((item, i) => {
           if (item.skolaId === pickedSchool)
-            return <option key={i} value={item.Razred}>{item.Razred}</option>;
+            return (
+              <option key={i} value={item.Razred}>
+                {item.Razred}
+              </option>
+            );
         })}
       </select>
       <label>Razrednik / voditelj</label>
-      <select>
-        {data.GrupeKontaktOsobe.map((item) => {
-          if (item.skolaId === pickedSchool && item.Razred === pickedRazred)
+      <select id="razrednik">
+        {data.GrupeKontaktOsobe.map((item, i) => {
+          if (item.skolaId === pickedSchool && item.Razred === pickedRazred)                                                 
             return (
-              <option value={item.KontaktOsoba}>{item.KontaktOsoba}</option>
+              <option key={i} value={item.KontaktOsobaId}>
+                {item.KontaktOsoba}
+              </option>
             );
         })}
       </select>
@@ -75,9 +96,18 @@ export default function Step2({ data, aran, setActive, active }) {
           Prev
         </button>
         <button
-          disabled={checked && pickedRazred != "" ? false : true}
+          disabled={checked && pickedRazred !== "" ? false : true}
           className="nextPrev"
-          onClick={() => {setActive(active+1)}}
+          onClick={() => {
+            setStep2({
+              KontaktOsobaId: Number(
+                document.getElementById("razrednik").value
+              ),
+              Razred: document.getElementById("razred").value,
+            });
+            
+            setActive(active + 1);
+          }}
         >
           Next
         </button>

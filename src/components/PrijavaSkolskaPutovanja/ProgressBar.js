@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React from 'react'
 import '../../styles/components/Progress.css'
 import { steps } from './util/stepsFormater'

@@ -1,4 +1,6 @@
-export async function postData( data = {}) {
+import crypto from 'crypto';
+
+export async function postData( data) {
 
     const key = "ritam";
     let ts = Date.now();
@@ -10,7 +12,7 @@ export async function postData( data = {}) {
     let minutes = date_ob.getMinutes();
     let seconds = date_ob.getSeconds();
     
-    const data = `POST\r\n/rest/api/v1/agency/traveler/create\r\n${
+    const dataSig = `POST\r\n/rest/api/v1/agency/traveler/create\r\n${
       date + "." + month + "." + year
     } ${
       hours < 10
@@ -26,7 +28,7 @@ export async function postData( data = {}) {
       date + "." + month + "." + year
     }+${
       hours < 10 ? `0${hours}` : hours
-    }%3A${minutes}%3A${seconds}&signature=${getHash(data).toString("hex")}`;
+    }%3A${minutes}%3A${seconds}&signature=${getHash(dataSig).toString("hex")}`;
 
     const response = await fetch(requestUrl, {
         method: 'POST',

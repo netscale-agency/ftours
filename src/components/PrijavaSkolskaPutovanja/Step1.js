@@ -18,7 +18,8 @@ export default function Step1({ data, active ,setActive, setAran}) {
         <label>
           Šifra aranžmana <b>(obavezno)</b>
         </label>
-        <input
+        <input 
+        defaultValue={isString}
           onChange={(e) => {
             setIsString(e.target.value);
           }}
@@ -45,6 +46,7 @@ export default function Step1({ data, active ,setActive, setAran}) {
             if (active < 3) {
               setActive(active + 1);
             }
+          
           }}
         >
           Next
