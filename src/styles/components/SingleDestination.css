@@ -230,3 +230,207 @@
     margin: 35px;
     padding: 15px 45px 15px 45px;
 }
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    .single-fw.card {
+        height: 31.5rem;
+        width: auto;
+    }
+    
+    .img-single {
+        height: 31.5rem;
+        width: auto;
+    }
+
+    .heading-single {
+        font-size: larger;
+    }
+    
+    .short-desc {
+        font-size: medium;
+    }
+    
+    .thumb-single {
+        width: 24%;
+    }
+
+    .head-purple {
+        height: 120px;
+    }
+    
+    .head-inner {
+        text-align: center;
+        margin: 0px;
+    }
+
+    .h3-single-head {
+        font-size: 16px;
+    }
+    
+    .p-single-head {
+        font-size: 12px;
+    }
+    
+    .single-dest-info {
+        margin: 30px 0px 30px 0px;
+    }
+
+    .row-single-info {
+        flex-direction: column;
+    }
+
+    .btn-single {
+        font-size: 12px;
+        margin: 30px 0px 10px 0px;
+    }
+
+    .h3-long-info {
+        font-size: 16px;
+    }
+
+    .fa-circle-info {
+        font-size: 22px;
+    }
+
+    .tabs-single {
+        flex-wrap: nowrap;
+        margin: 5px 0px 20px 0px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+    }
+
+    .p-tab-description {
+        font-size: 12px;
+    }
+
+    .div-blue-price {
+        margin: 0px;
+        padding: 30px 0px 30px 0px;
+    }
+
+    .div-blue-price h5 {
+        font-size: 18px;
+    }
+
+    .div-blue-price h6 {
+        font-size: 14px;
+        margin-top: 40px;
+    }
+
+    .div-blue-price p {
+        font-size: 12px;
+    }
+
+    .div-btn {
+        margin-top: -30px;
+    }
+
+    .btn-single.main {
+        padding: 20px 35px 20px 35px;
+        font-size: 11px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+    .single-fw.card {
+        height: 31.5rem;
+        width: auto;
+    }
+    
+    .img-single {
+        height: 31.5rem;
+        width: auto;
+    }
+
+    .heading-single {
+        font-size: larger;
+    }
+    
+    .short-desc {
+        font-size: medium;
+    }
+    
+    .thumb-single {
+        width: 24%;
+    }
+
+    .head-purple {
+        height: 120px;
+    }
+    
+    .head-inner {
+        text-align: center;
+        margin: 0px;
+    }
+
+    .h3-single-head {
+        font-size: 16px;
+    }
+    
+    .p-single-head {
+        font-size: 12px;
+    }
+    
+    .single-dest-info {
+        margin: 30px 0px 30px 0px;
+    }
+
+    .row-single-info {
+        flex-direction: column;
+    }
+
+    .btn-single {
+        font-size: 12px;
+        margin: 30px 0px 10px 0px;
+    }
+
+    .h3-long-info {
+        font-size: 16px;
+    }
+
+    .fa-circle-info {
+        font-size: 22px;
+    }
+
+    .tabs-single {
+        flex-wrap: nowrap;
+        margin: 5px 0px 20px 0px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+    }
+
+    .p-tab-description {
+        font-size: 12px;
+    }
+
+    .div-blue-price {
+        margin: 0px;
+        padding: 30px 0px 30px 0px;
+    }
+
+    .div-blue-price h5 {
+        font-size: 18px;
+    }
+
+    .div-blue-price h6 {
+        font-size: 14px;
+        margin-top: 40px;
+    }
+
+    .div-blue-price p {
+        font-size: 12px;
+    }
+
+    .div-btn {
+        margin-top: -30px;
+    }
+
+    .btn-single.main {
+        padding: 20px 35px 20px 35px;
+        font-size: 11px;
+    }
+}

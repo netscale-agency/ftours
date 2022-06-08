@@ -56,7 +56,7 @@ function SingleDestination() {
           </div>
         </div>
         <Container className="single-dest-info">
-          <Row>
+          <Row className="row-single-info">
             <Col className="col-single-info">
               <div className="single-info-head">
                 <i className="fa-solid fa-calendar" />
@@ -148,6 +148,7 @@ function SingleDestination() {
       </section>
       <section className="section-price">
         <div className="div-blue-price">
+          <Container className="container-single-long">
           <h5>
             <i class="fa-solid fa-credit-card"></i>cijena
           </h5>
@@ -166,6 +167,7 @@ function SingleDestination() {
             lobortis sed. Proin libero lacus, eleifend ac gravida nec, dictum ut
             risus.
           </p>
+          </Container>
         </div>
         <Container className="container-single-long">
           <Tabs defaultActiveKey="program" className="tabs-single">
