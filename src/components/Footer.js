@@ -17,13 +17,13 @@ function Footer() {
               <h5 className="h5-footer">društvene mreže</h5>
               <div className="div-footer-social">
                 <a href="https://www.facebook.com/ftours/" target="_blank">
-                  <i class="fa-brands footer fa-facebook"></i>
+                  <i className="fa-brands footer fa-facebook"></i>
                 </a>
                 <a
                   href="https://www.instagram.com/ftours_split/"
                   target="_blank"
                 >
-                  <i class="fa-brands footer fa-instagram"></i>
+                  <i className="fa-brands footer fa-instagram"></i>
                 </a>
               </div>
             </Col>

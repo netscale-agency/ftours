@@ -23,7 +23,7 @@ function Naslovnica() {
             </Col>
             <Col className="col-prijava">
               <a href="#" className="a-prijava">
-                <i class="fa fa-arrow-circle-right" aria-hidden="true" />
+                <i className="fa fa-arrow-circle-right" aria-hidden="true" />
                 školska putovanja i jednodnevni izleti
               </a>
             </Col>

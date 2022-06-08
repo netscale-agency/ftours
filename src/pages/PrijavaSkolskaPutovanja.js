@@ -3,7 +3,7 @@ import React, { useMemo, useState } from "react";
 import ProgressBar from "../components/PrijavaSkolskaPutovanja/ProgressBar";
 import Step1 from "../components/PrijavaSkolskaPutovanja/Step1";
 import Step2 from "../components/PrijavaSkolskaPutovanja/Step2";
-import '../styles/components/Step.css'
+import "../styles/components/Step.css";
 import Step3 from "../components/PrijavaSkolskaPutovanja/Step3";
 import Step4 from "../components/PrijavaSkolskaPutovanja/Step4";
 import { activatedSteps } from "../components/PrijavaSkolskaPutovanja/util/stepsFormater";
@@ -11,40 +11,54 @@ import { activatedSteps } from "../components/PrijavaSkolskaPutovanja/util/steps
 export default function PrijavaSkolskaPutovanja() {
   const [active, setActive] = useState(0);
   const [data, setData] = useState();
-  function dataCall() {
-    axios.get("https://ritamapi.vsvcloud.com:8920/rest/api/v1/agency/data?username=test&date=04.03.2020 12:30:12&signature=3f818ac7fe4de736de39bb299bb5e33291513c76").then((resp) => {
-      setData(resp);
+  const [aran, setAran] = useState();
+  console.log(aran);
+  const url = "http://188.166.20.77:8000/";
+  const dataCall = () => {
+    axios.get(url).then((response) => {
+      setData(response.data);
     });
-  }
-  useMemo(() => dataCall(), []);
-  const stepComponents = [<Step1 />, <Step2 />, <Step3 />, <Step4 />];
+  };
+  const [ip, setIP] = useState("");
 
-  if (!data)
+  //creating function to load ip address from the API
+  const getData = async () => {
+    const res = await axios.get("https://geolocation-db.com/json/");
+    console.log(res.data);
+    setIP(res.data.IPv4);
+  };
+
+  console.log(data);
+  useMemo(() => {
+    dataCall();
+    getData();
+  }, []);
+  if (data)
     return (
-      <div>
+      <div className="cont">
         <h1>Prijava za školsko putovanje</h1>
         <ProgressBar activeSteps={activatedSteps(active)} />
-        {stepComponents[active]}
-        <div>
-          <button
-            onClick={() => {
-              if (active > 0) {
-                setActive(active - 1);
-              }
-            }}
-          >
-            Prev
-          </button>
-          <button
-            onClick={() => {
-              if (active < 3) {
-                setActive(active + 1);
-              }
-            }}
-          >
-            Next
-          </button>
+        <div className="containerForm">
+          {active === 0 && (
+            <Step1
+              setActive={setActive}
+              setAran={setAran}
+              active={active}
+              data={data.GrupeRezervacije}
+            />
+          )}
+          {active === 1 && (
+            <Step2
+              data={data}
+              aran={aran}
+              setActive={setActive}
+              active={active}
+            />
+          )}
+          {active === 2 && <Step3 setActive={setActive} active={active} />}
+          {active === 3 && <Step4 data={data.GrupeRezervacije} />}
         </div>
       </div>
-    );else return <></>
+    );
+  else return <></>;
 }
