@@ -6,19 +6,58 @@ export default function Step4({ data, setActive, active, step4, setStep4 }) {
   return (
     <div>
       <label>Vrsta putne isprave putnika</label>
-      <input id="dokument" type="checkbox"/> <label>Broj putne isprave putnika</label>
-      <input id="docBroj" type="text"/> <label>Putna isprava vrijedi do</label>
-      <input id="docTrajanje" type="date"/> <label>Telefon putnika</label>
-      <input id="telPutnika" type="tel"/> <label>Mobitel putnika (obavezno)</label>
-      <input id="MobPutnika" type="tel" /> <label>E-mail putnika (obavezno)</label>
-      <input id="emailPutnika" type="email"/> <label>Način plaćanja (obavezno)</label>
-      <input id="nacinPlacanja" /> <label></label>
-      <input type="checkbox"/>
+      <input id="dokument" type="checkbox" />{" "}
+      <label>Broj putne isprave putnika</label>
+      <input id="docBroj" type="text" /> <label>Putna isprava vrijedi do</label>
+      <input id="docTrajanje" type="date" /> <label>Telefon putnika</label>
+      <input id="telPutnika" type="tel" />{" "}
+      <label>Mobitel putnika (obavezno)</label>
+      <input id="MobPutnika" type="tel" />{" "}
+      <label>E-mail putnika (obavezno)</label>
+      <input id="emailPutnika" type="email" />{" "}
+      <label>Način plaćanja (obavezno)</label>
+      <span>
+        {" "}
+        A - Uplata cjelokupnog iznosa aranžmana jednokratno novčanicama,
+        internet bankarstvom ili uplatnicom koji dostavlja agencija do datuma
+        naznačenog na aranžmanu
+      </span>
+      <span>
+        {" "}
+        B - Uplata rezervacije navedene na aranžmanu, te ostatka iznosa na
+        mjesečne obroke uplatnicama do datuma naznačenog na aranžmanu (agencija
+        dostavlja uplatnice putem elektronske pošte){" "}
+      </span>
+      <span>
+        {" "}
+        C - Uplata cjelokupnog iznosa aranžmana jednokratno ili obročno debitnim
+        i kreditnim karticama, a u skladu s uvjetima koje ugovaratelj putovanja
+        ima s izdavateljima kartica{" "}
+      </span>
+      <input id="nacinPlacanja" />{" "}
+      <label> RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA</label>
+    <span>  Ja, kao nositelj roditeljske skrbi maloljetnika suglasan sam da Agencija
+      obrađuje osobne podatke putnika (ime i prezime, datum rođenja, broj putnog
+      dokumenta) mog djeteta u slučaju kada je to neophodno za realizaciju
+      usluge smještaja, prijevoza, osiguranja i ulaznica za posjete muzejima, te
+      da se osobni podaci: ime, prezime i datum rođenja mogu proslijediti
+      društvima navedenim u paket aranžmanu. Osobni podaci će se koristiti samo
+      u prethodno navedene svrhe i čuvat će se sukladno zakonskim i regulatornim
+      propisima Opće uredbe o zaštiti osobnih podataka (GDPR 2016/679), odnosno
+      u trajanju od 5 godina od završetka usluge, osim ako dulji vremenski
+      period čuvanja osobnih podataka nije određen važećim nacionalnim ili
+      europskim propisima. Izjavljujem da privolu dajem dobrovoljno, da mi je
+      detaljno pojašnjena namjera korištenja osobnih podataka djeteta u svrhe iz
+      ove privole kao i moje pravo da se predmetnoj obradi usprotivim te da ova
+      privola predstavlja izričitu privolu sukladno važećim zakonskim propisima
+      koji uređuju zaštitu osobnih podataka te da je uporaba osobnih podataka
+      djeteta dozvoljena na opisani način i u zadanom opsegu. (obavezno)
+      <input type="checkbox" /></span>
       <label>
         Suglasan sam da se fotografije/video snimke/audio snimke mog djeteta sa
         putovanja objave na društvenim mrežama Agencije (obavezno)
       </label>
-      <input id="suglasnost" type="checkbox"/>{" "}
+      <input id="suglasnost" type="checkbox" />{" "}
       <label>Pročitao/la sam i prihvaćam opće uvjete (obavezno)</label>
       <input id="općiUvjeti" />
       <div className="buttonCont">
@@ -38,12 +77,13 @@ export default function Step4({ data, setActive, active, step4, setStep4 }) {
           onClick={() => {
             setStep4({
               BrojPutneIsprave: document.getElementById("docBroj").value,
-              Cijena: '400',
+              Cijena: "400",
               Email: document.getElementById("emailPutnika").value,
               FotoVideoSuglasnost: document.getElementById("suglasnost").value,
               Mob: document.getElementById("MobPutnika").value,
               NacinPlacanja: document.getElementById("MobPutnika").value,
-              PutnaIspravaVrijediDo: document.getElementById("docTrajanje").value,
+              PutnaIspravaVrijediDo: document.getElementById("docTrajanje")
+                .value,
               Tel: document.getElementById("telPutnika").value,
               VrstaPutneIsprave: document.getElementById("dokument").value,
             });

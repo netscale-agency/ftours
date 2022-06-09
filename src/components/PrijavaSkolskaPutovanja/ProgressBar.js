@@ -5,7 +5,7 @@ export default function ProgressBar({ activeSteps }) {
 
 
     return (
-        <div className='container'>
+        <div className='container-bar'>
             {steps.map((item, i) => {
                 return <div key={i} className={`${activeSteps.includes(i) ? item.classFilled : 'inactiveStep'} stepContainer ${i}`}>{item.name
                 }</div>

@@ -7,7 +7,7 @@ import slide4 from "../assets/images/atena-gallery.jpg";
 
 function SliderGallery() {
   return (
-    <div className="container-slider-gallery">
+    <div className="container-slider-gallery animation">
       <div className="slide-first">
         <img src={slide1}></img>
       </div>

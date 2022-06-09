@@ -41,7 +41,6 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         defaultValue={defData.RoditeljSkrbnikMob}
         id="telRoditelj"
         type="tel"
-        data-mask="+385 (__) ___-____"
       />{" "}
       <label>
         E-mail ugovaratelja putovanja <b>(obavezno)</b>

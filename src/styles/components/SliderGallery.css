@@ -1,13 +1,27 @@
 .container-slider-gallery {
   display: flex;
   flex-direction: row;
-  overflow-x: hidden;
   /* animation: animatedBackgroundTall 5s ease-in-out infinite alternate; */
 }
 .slide-gallery-first {
   z-index: 0;
 }
+.animation {
 
+  position: relative;
+  animation: example 15s infinite;
+}
+
+@keyframes example {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: -1200px;
+  }
+  100%{left: 0px;}
+}
 .slide-gallery-second {
   margin-left: -50px;
   z-index: 0;
