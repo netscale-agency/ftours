@@ -14,7 +14,6 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
-  console.log(JSON.parse(localStorage.getItem("step3")).Mjesto, "ddd");
   const thisYear = new Date().getFullYear();
   return (
     <div className="stepContainer2">
@@ -100,8 +99,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <label>
         Spol <b>(obavezno)</b>
       </label>
-      <input id="spol" type="radio" name="spol" value={"M"} />
-      <input id="spol" type="radio" name="spol" value={"Ž"} />
+      <div style={{display:'flex'}}><label>M</label>
+    <input style={{width:20, marginTop:'auto'}}  id="spol" type="radio" value={"M"} /><label>Ž</label>
+      <input style={{width:20 ,marginTop:'auto'}} id="spol" type="radio" value={"Ž"} /></div>  
       <div className="buttonCont">
         <button
           className="nextPrev"

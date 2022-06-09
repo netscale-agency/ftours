@@ -14,7 +14,7 @@ export default function Step1({ data, active ,setActive, setAran}) {
     } else setIsAccepted(false);
   }, [isString]);
   return (
-    <div>
+    <div style={{width:'100%'}}>
       <div className="inputCont">
         <label>
           Šifra aranžmana <b>(obavezno)</b>

@@ -38,9 +38,9 @@ export default function PrijavaSkolskaPutovanja() {
     Tel: "",
     VrstaPutneIsprave: "",
   });
-  useEffect(() => {
-    console.log(step3, step4, step2);
-  }, [step3, step2, step4]);
+  // useEffect(() => {
+  //   console.log(step3, step4, step2);
+  // }, [step3, step2, step4]);
   const url = "http://188.166.20.77:8000/";
   const dataCall = () => {
     axios.get(url).then((response) => {
@@ -55,17 +55,53 @@ export default function PrijavaSkolskaPutovanja() {
     setIP(res.data.IPv4);
   };
 
-  console.log(data);
   useMemo(() => {
     dataCall();
     getData();
+    localStorage.setItem("schoolId", "");
+    localStorage.setItem(
+      "step2",
+      JSON.stringify({
+        KontaktOsobaId: 0,
+        Razred: "",
+      })
+    );
+    localStorage.setItem(
+      "step3",
+      JSON.stringify({
+        RoditeljIme: "",
+        roditeljPrezime: "",
+        RoditeljSkrbnikEmail: "",
+        RoditeljSkrbnikMob: "",
+        Adresa: "",
+        Spol: "",
+        Mjesto: "",
+        Prezime: "",
+        DatumRodjenja: "",
+        Ime: "",
+      })
+    );
+    localStorage.setItem(
+      "step4",
+      JSON.stringify({
+        BrojPutneIsprave: "",
+        Cijena: "",
+        Email: "",
+        FotoVideoSuglasnost: "",
+        Mob: "",
+        NacinPlacanja: "",
+        PutnaIspravaVrijediDo: "",
+        Tel: "",
+        VrstaPutneIsprave: "",
+      })
+    );
   }, []);
   if (data)
     return (
-      <div className="cont">
+      <div className="cont" style={{ width: "80%", margin: "auto" }}>
         <h1>Prijava za školsko putovanje</h1>
         <ProgressBar activeSteps={activatedSteps(active)} />
-        <div className="containerForm">
+        <div style={{ minHeight: 400 }} className="containerForm">
           {active === 0 && (
             <Step1
               setActive={setActive}
@@ -96,7 +132,9 @@ export default function PrijavaSkolskaPutovanja() {
             <Step4
               setActive={setActive}
               active={active}
+              aran={aran}
               step4={step4}
+              contentData={data.GrupeRezervacije}
               setStep4={setStep4}
               data={{
                 Signature: ip,
