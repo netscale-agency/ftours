@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { cityData } from "./util/data";
 
 export default function Step3({ setActive, active, step3, setStep3 }) {
@@ -7,11 +7,14 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [year, setYear] = useState(
     JSON.parse(localStorage.getItem("step3")).DatumRodjenja.split("-")[0]
   );
+  useEffect(() => {
+    setCity(JSON.parse(localStorage.getItem("step3")).Mjesto || "");
+  }, []);
   const [date, setDate] = useState();
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
-  console.log(JSON.parse(localStorage.getItem("step3")).Mjesto,'ddd');
+  console.log(JSON.parse(localStorage.getItem("step3")).Mjesto, "ddd");
   const thisYear = new Date().getFullYear();
   return (
     <div className="stepContainer2">
