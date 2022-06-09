@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import "../styles/pages/Naslovnica.css";
 import Slider from "../components/Slider";
@@ -7,8 +7,39 @@ import DestinationLayoutGrid from "../components/DestinationLayoutGrid";
 import img_skolska from "../assets/images/skolska.jpg";
 import img_europska from "../assets/images/europska.jpg";
 import img_novagodina from "../assets/images/novagodina.jpg";
+import axios from "axios";
 
 function Naslovnica() {
+  const [destinations, setDestinations] = useState();
+  const [imgs, setImgs] = useState();
+
+  const dataCall = () => {
+    axios.get("http://128.199.53.252/wp-json/wp/v2/posts/").then((res) => {
+      setDestinations(res.data);
+    });
+  };
+  const imgCall = () => {
+    axios.get("http://128.199.53.252/wp-json/wp/v2/media/").then((res) => {
+      setImgs(res.data);
+    });
+  };
+  const destinationFormatter = () => {
+    const data = destinations
+      ? destinations.map((item) => {
+          return item.acf;
+        })
+      : [];
+    return data;
+  };
+
+  useMemo(() => {
+    dataCall();
+    imgCall();
+   
+  }, []);
+  const formattedData = useMemo(() => destinationFormatter());
+
+  console.log(formattedData,imgs)
   return (
     <>
       <Slider />
@@ -23,7 +54,7 @@ function Naslovnica() {
             </Col>
             <Col className="col-prijava">
               <a href="#" className="a-prijava">
-                <i class="fa fa-arrow-circle-right" aria-hidden="true" />
+                <i className="fa fa-arrow-circle-right" aria-hidden="true" />
                 školska putovanja i jednodnevni izleti
               </a>
             </Col>
@@ -83,7 +114,7 @@ function Naslovnica() {
         <div className="ftours-purple">Školska putovanja</div>
         <DestinationLayoutGrid />
         <div className="ftours-blue">Nova godina</div>
-        <DestinationLayoutGrid />
+        <DestinationLayoutGrid dataDest={formattedData} imgData={imgs} />
       </section>
       <section className="section-o-nama">
         <Container>

@@ -18,6 +18,7 @@ import OpciUvjeti from "./pages/OpciUvjeti";
 import PravilaPrivatnosti from "./pages/PravilaPrivatnosti";
 import PodnosenjaPrigovora from "./pages/PodnosenjaPrigovora";
 import PolitikaKolacica from "./pages/PolitikaKolacica";
+import PrijavaSkolskaPutovanja from "./pages/PrijavaSkolskaPutovanja";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,7 +27,7 @@ root.render(
     <GlobalNav />
     <Routes>
       <Route index element={<Naslovnica />} />
-      <Route path="/skolska-putovanja" element={<SkolskaPutovanja />} />
+      <Route path="skolska-putovanja" element={<SkolskaPutovanja />} />
       <Route path="europska-i-daleka-putovanja" element={<EuropskaDaleka />} />
       <Route path="single-destination" element={<SingleDestination />} />
       <Route path="o-nama" element={<ONama />} />
@@ -36,6 +37,7 @@ root.render(
       <Route path="pravila-privatnosti" element={<PravilaPrivatnosti />} />
       <Route path="podnosenja-prigovora" element={<PodnosenjaPrigovora />} />
       <Route path="politika-kolacica" element={<PolitikaKolacica />} />
+      <Route path="prijava-skolska-putovanja" element={<PrijavaSkolskaPutovanja />} />
     </Routes>
     <Footer />
   </BrowserRouter>
