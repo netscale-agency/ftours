@@ -9,12 +9,15 @@ export default function Step2({
   setStep2,
 }) {
   const [checked, setChecked] = useState(false);
-  const [pickedRazred, setPickedRazred] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const [pickedRazred, setPickedRazred] = useState(
+    JSON.parse(localStorage.getItem("step2")).Razred
+  );
   const skole = data.GrupeSkole.filter((item) => item.GrupaId === aran);
   const [pickedSchool, setPickedSchool] = useState(
-    skole.length === 1 && skole[0].skolaId
+    localStorage.getItem("schoolId") || (skole.length === 1 && skole[0].skolaId)
   );
-  console.log(skole.filter((item)=>item.skole===step2.skolaId).skolaId,step2,)
 
   const aranData = data.GrupeRezervacije.filter(
     (item) => item.GrupaId === aran
@@ -25,6 +28,7 @@ export default function Step2({
       <label>Škola</label>
       <select
         id="skola"
+        defaultValue={pickedSchool}
         onChange={(e) => {
           setPickedSchool(e.target.value);
         }}
@@ -32,7 +36,7 @@ export default function Step2({
         {skole.length > 1 && <option>---</option>}
         {skole.map((item, i) => {
           return (
-            <option key={i}  value={item.skolaId}>
+            <option key={i} value={item.skolaId}>
               {item.skola}
             </option>
           );
@@ -52,7 +56,9 @@ export default function Step2({
         Razred <b>(obavezno)</b>
       </label>
       <select
+        defaultValue={pickedRazred}
         id="razred"
+        defaultChecked={pickedRazred}
         onChange={(e) => {
           setPickedRazred(e.target.value);
         }}
@@ -70,7 +76,7 @@ export default function Step2({
       <label>Razrednik / voditelj</label>
       <select id="razrednik">
         {data.GrupeKontaktOsobe.map((item, i) => {
-          if (item.skolaId === pickedSchool && item.Razred === pickedRazred)                                                 
+          if (item.skolaId === pickedSchool && item.Razred === pickedRazred)
             return (
               <option key={i} value={item.KontaktOsobaId}>
                 {item.KontaktOsoba}
@@ -85,7 +91,28 @@ export default function Step2({
         }}
         type="checkbox"
       />
-      {checked && <i className="fa-pdf" />}
+      {checked && (
+        <i
+          onClick={() => setModalOpen(true)}
+          className="fa fa-file-pdf-o fa-2x"
+        />
+      )}
+      {modalOpen && (
+        <div>
+          <i
+            onClick={() => setModalOpen(false)}
+            className="fa fa-file-pdf-o fa-2x"
+          />{" "}
+          <i></i>
+          <iframe
+            src={
+              data.GrupeRezervacije.filter((item) => item.GrupaId === aran)[0]
+                .FileProgramPutovanja
+            }
+          ></iframe>
+        </div>
+      )}
+
       <div className="buttonCont">
         <button
           className="nextPrev"
@@ -105,7 +132,18 @@ export default function Step2({
               ),
               Razred: document.getElementById("razred").value,
             });
-            
+            localStorage.setItem("schoolId", pickedSchool);
+
+            localStorage.setItem(
+              "step2",
+              JSON.stringify({
+                KontaktOsobaId: Number(
+                  document.getElementById("razrednik").value
+                ),
+                Razred: document.getElementById("razred").value,
+              })
+            );
+
             setActive(active + 1);
           }}
         >
