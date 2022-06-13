@@ -11,35 +11,17 @@ import axios from "axios";
 
 function Naslovnica() {
   const [destinations, setDestinations] = useState();
-  const [imgs, setImgs] = useState();
 
   const dataCall = () => {
-    axios.get("http://128.199.53.252/wp-json/wp/v2/posts/").then((res) => {
+    axios.get("http://localhost:8000/").then((res) => {
       setDestinations(res.data);
     });
-  };
-  const imgCall = () => {
-    axios.get("http://128.199.53.252/wp-json/wp/v2/media/").then((res) => {
-      setImgs(res.data);
-    });
-  };
-  const destinationFormatter = () => {
-    const data = destinations
-      ? destinations.map((item) => {
-          return item.acf;
-        })
-      : [];
-    return data;
   };
 
   useMemo(() => {
     dataCall();
-    imgCall();
-   
   }, []);
-  const formattedData = useMemo(() => destinationFormatter());
 
-  console.log(formattedData,imgs)
   return (
     <>
       <Slider />
@@ -114,7 +96,7 @@ function Naslovnica() {
         <div className="ftours-purple">Školska putovanja</div>
         <DestinationLayoutGrid />
         <div className="ftours-blue">Nova godina</div>
-        <DestinationLayoutGrid dataDest={formattedData} imgData={imgs} />
+        <DestinationLayoutGrid />
       </section>
       <section className="section-o-nama">
         <Container>
