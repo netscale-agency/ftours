@@ -1,15 +1,14 @@
-import React, { useMemo, useState } from "react";
-import data from "./util/DestinationGridData";
+import React, { useState } from "react";
 import "../styles/components/DestinationLayoutGrid.css";
 
 function DestinationLayoutGrid({ destinationscards }) {
   const [loadMoreBtn, setLoadMoreBtn] = useState(false);
-  const slice = data.cardData.slice(0, loadMoreBtn ? data.cardData.length : 4);
+  const slice = destinationscards && loadMoreBtn ? destinationscards.lenght : 4;
   return (
     <section className="py-4 container">
       <div className="row justify-content-center">
         {destinationscards &&
-          destinationscards.map((item, index) => {
+          destinationscards.slice(0, slice).map((item, index) => {
             return (
               <div key={index} className="col-11 col-md-6 col-lg-3 mx-0 mb-4">
                 <a href={`/${item.slug}`} className="a-single-destination">
@@ -33,15 +32,17 @@ function DestinationLayoutGrid({ destinationscards }) {
             );
           })}
       </div>
-      <div className="col-md-12 text-center">
-        <button
-          type="button"
-          className="btn btn-dark"
-          onClick={() => setLoadMoreBtn(!loadMoreBtn)}
-        >
-          {loadMoreBtn ? "vidi manje" : "vidi više"}
-        </button>
-      </div>
+      {destinationscards.length > 4 ? (
+        <div className="col-md-12 text-center">
+          <button
+            type="button"
+            className="btn btn-dark"
+            onClick={() => setLoadMoreBtn(!loadMoreBtn)}
+          >
+            {loadMoreBtn ? "vidi manje" : "vidi više"}
+          </button>
+        </div>
+      ) : null}
     </section>
   );
 }

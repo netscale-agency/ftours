@@ -21,7 +21,7 @@ function Naslovnica() {
   useMemo(async () => {
     await dataCall();
   }, []);
-  let current_cat;
+
   const category = (cat) => {
     if (
       cat === "Skolska putovanja" ||
@@ -29,10 +29,8 @@ function Naslovnica() {
       cat === "Srednje skole" ||
       cat === "Izleti"
     ) {
-      current_cat = "Skolska putovanja";
       return "Skolska putovanja";
     } else {
-      current_cat = "Europska i daleka putovanja";
       return "Europska i daleka putovanja";
     }
   };
@@ -77,96 +75,73 @@ function Naslovnica() {
           <Container>
             <Row className="row-cards">
               <Col className="col-cards">
-                <Card className="bg-dark text-white">
-                  <Card.Img src={img_skolska} alt="Card image" />
-                  <Card.ImgOverlay>
-                    <Card.Title>školska putovanja</Card.Title>
-                  </Card.ImgOverlay>
-                </Card>
+                <a href="skolska-putovanja">
+                  <Card className="bg-dark text-white">
+                    <Card.Img src={img_skolska} alt="Card image" />
+                    <Card.ImgOverlay>
+                      <Card.Title>školska putovanja</Card.Title>
+                    </Card.ImgOverlay>
+                  </Card>
+                </a>
               </Col>
               <Col className="col-cards">
-                <Card className="bg-dark text-white">
-                  <Card.Img src={img_europska} alt="Card image" />
-                  <Card.ImgOverlay>
-                    <Card.Title>europska putovanja</Card.Title>
-                  </Card.ImgOverlay>
-                </Card>
+                <a href="europska-i-daleka-putovanja">
+                  <Card className="bg-dark text-white">
+                    <Card.Img src={img_europska} alt="Card image" />
+                    <Card.ImgOverlay>
+                      <Card.Title>europska putovanja</Card.Title>
+                    </Card.ImgOverlay>
+                  </Card>
+                </a>
               </Col>
               <Col className="col-cards">
-                <Card className="bg-dark text-white">
-                  <Card.Img src={img_novagodina} alt="Card image" />
-                  <Card.ImgOverlay>
-                    <Card.Title>nova godina</Card.Title>
-                  </Card.ImgOverlay>
-                </Card>
+                <a href="europska-i-daleka-putovanja#nova-godina">
+                  <Card className="bg-dark text-white">
+                    <Card.Img src={img_novagodina} alt="Card image" />
+                    <Card.ImgOverlay>
+                      <Card.Title>nova godina</Card.Title>
+                    </Card.ImgOverlay>
+                  </Card>
+                </a>
               </Col>
             </Row>
           </Container>
         </div>
       </section>
       <section className="section-cards">
-        {destinations.map((item, i) => {
-          if (current_cat === item.categories) return item;
-          else return "";
-        })}
-
         {destinations &&
-          destinations.filter(
-            (item) =>
-              item.categories === "Skolska putovanja" ||
-              "Osnovne skole" ||
-              "Srednje skole" ||
-              "Izleti"
-          ).length && <div className="ftours-red">školska putovanja</div>}
+        destinations.filter(
+          (item) => category(item.categories) === "Skolska putovanja"
+        ).length ? (
+          <div className="ftours-red">školska putovanja</div>
+        ) : null}
         {destinations &&
-          destinations.filter(
-            (item) =>
-              item.categories === "Skolska putovanja" ||
-              "Osnovne skole" ||
-              "Srednje skole" ||
-              "Izleti"
-          ).length && (
-            <DestinationLayoutGrid
-              destinationscards={destinations.filter(
-                (item) =>
-                  item.categories === "Skolska putovanja" ||
-                  "Osnovne skole" ||
-                  "Srednje skole" ||
-                  "Izleti"
-              )}
-            />
-          )}
+        destinations.filter(
+          (item) => category(item.categories) === "Skolska putovanja"
+        ).length ? (
+          <DestinationLayoutGrid
+            destinationscards={destinations.filter(
+              (item) => category(item.categories) === "Skolska putovanja"
+            )}
+          />
+        ) : null}
         {destinations &&
-          destinations.filter(
-            (item) =>
-              item.categories === "Europska i daleka putovanja" ||
-              "Europska putovanja" ||
-              "Daleka putovanja" ||
-              "Nova godina" ||
-              "Krstarenja"
-          ).length && (
-            <div className="ftours-blue">europska i daleka putovanja</div>
-          )}
+        destinations.filter(
+          (item) => category(item.categories) === "Europska i daleka putovanja"
+        ).length ? (
+          <div className="ftours-blue">europska i daleka putovanja</div>
+        ) : null}
         {destinations &&
-          destinations.filter(
-            (item) =>
-              category(item.categories) === "Europska i daleka putovanja" ||
-              "Europska putovanja" ||
-              "Daleka putovanja" ||
-              "Nova godina" ||
-              "Krstarenja"
-          ).length && (
-            <DestinationLayoutGrid
-              destinationscards={destinations.filter(
-                (item) =>
-                  item.categories === "Europska i daleka putovanja" ||
-                  "Europska putovanja" ||
-                  "Daleka putovanja" ||
-                  "Nova godina" ||
-                  "Krstarenja"
-              )}
-            />
-          )}
+        destinations.filter(
+          (item) => category(item.categories) === "Europska i daleka putovanja"
+        ).length ? (
+          <DestinationLayoutGrid
+            destinationscards={destinations.filter(
+              (item) =>
+                category(item.categories) === "Europska i daleka putovanja"
+            )}
+          />
+        ) : null}
       </section>
       <section className="section-o-nama">
         <Container>

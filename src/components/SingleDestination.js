@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react";
-//import data from '../components/util/SinglePostData';
 import "../styles/components/SingleDestination.css";
 import { Tabs, Tab, Card, Col, Container, Image, Row } from "react-bootstrap";
 import axios from "axios";
