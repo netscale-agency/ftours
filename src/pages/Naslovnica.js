@@ -10,7 +10,7 @@ import img_novagodina from "../assets/images/novagodina.jpg";
 import axios from "axios";
 
 function Naslovnica() {
-  const [destinations, setDestinations] = useState();
+  const [destinations, setDestinations] = useState([]);
 
   const dataCall = () => {
     axios.get("http://localhost:8000/").then((res) => {
@@ -18,10 +18,24 @@ function Naslovnica() {
     });
   };
 
-  useMemo(() => {
-    dataCall();
+  useMemo(async () => {
+    await dataCall();
   }, []);
-
+  let current_cat;
+  const category = (cat) => {
+    if (
+      cat === "Skolska putovanja" ||
+      cat === "Osnovne skole" ||
+      cat === "Srednje skole" ||
+      cat === "Izleti"
+    ) {
+      current_cat = "Skolska putovanja";
+      return "Skolska putovanja";
+    } else {
+      current_cat = "Europska i daleka putovanja";
+      return "Europska i daleka putovanja";
+    }
+  };
   return (
     <>
       <Slider />
@@ -91,12 +105,68 @@ function Naslovnica() {
         </div>
       </section>
       <section className="section-cards">
-        <div className="ftours-red">Europska putovanja</div>
-        <DestinationLayoutGrid />
-        <div className="ftours-purple">Školska putovanja</div>
-        <DestinationLayoutGrid />
-        <div className="ftours-blue">Nova godina</div>
-        <DestinationLayoutGrid />
+        {destinations.map((item, i) => {
+          if (current_cat === item.categories) return item;
+          else return "";
+        })}
+
+        {destinations &&
+          destinations.filter(
+            (item) =>
+              item.categories === "Skolska putovanja" ||
+              "Osnovne skole" ||
+              "Srednje skole" ||
+              "Izleti"
+          ).length && <div className="ftours-red">školska putovanja</div>}
+        {destinations &&
+          destinations.filter(
+            (item) =>
+              item.categories === "Skolska putovanja" ||
+              "Osnovne skole" ||
+              "Srednje skole" ||
+              "Izleti"
+          ).length && (
+            <DestinationLayoutGrid
+              destinationscards={destinations.filter(
+                (item) =>
+                  item.categories === "Skolska putovanja" ||
+                  "Osnovne skole" ||
+                  "Srednje skole" ||
+                  "Izleti"
+              )}
+            />
+          )}
+        {destinations &&
+          destinations.filter(
+            (item) =>
+              item.categories === "Europska i daleka putovanja" ||
+              "Europska putovanja" ||
+              "Daleka putovanja" ||
+              "Nova godina" ||
+              "Krstarenja"
+          ).length && (
+            <div className="ftours-blue">europska i daleka putovanja</div>
+          )}
+        {destinations &&
+          destinations.filter(
+            (item) =>
+              category(item.categories) === "Europska i daleka putovanja" ||
+              "Europska putovanja" ||
+              "Daleka putovanja" ||
+              "Nova godina" ||
+              "Krstarenja"
+          ).length && (
+            <DestinationLayoutGrid
+              destinationscards={destinations.filter(
+                (item) =>
+                  item.categories === "Europska i daleka putovanja" ||
+                  "Europska putovanja" ||
+                  "Daleka putovanja" ||
+                  "Nova godina" ||
+                  "Krstarenja"
+              )}
+            />
+          )}
       </section>
       <section className="section-o-nama">
         <Container>

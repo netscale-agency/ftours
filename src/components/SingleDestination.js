@@ -6,16 +6,17 @@ import axios from "axios";
 
 function SingleDestination() {
   const [destination, setDestination] = useState();
-
-  const dataCall = () => {
-    axios.get("http://localhost:8000/fddd").then((res) => {
+  const href = window.location.href.split("/").filter(Boolean);
+  const slug = href[2];
+  const dataCall = (slug) => {
+    axios.get(`http://localhost:8000/${slug}`).then((res) => {
       setDestination(res.data);
     });
   };
   useMemo(() => {
-    dataCall();
-  }, []);
-  console.log(destination);
+    dataCall(slug);
+  }, [slug]);
+  console.log(slug);
   if (destination)
     return (
       <>
@@ -167,9 +168,7 @@ function SingleDestination() {
                 </ul>
               </p>
               <h6>Načini plaćanja putovanja:</h6>
-              <p>
-                {destination.data.price.nacini_placanja}
-              </p>
+              <p>{destination.data.price.nacini_placanja}</p>
             </Container>
           </div>
           <Container className="container-single-long">
