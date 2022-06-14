@@ -38,6 +38,7 @@ root.render(
       <Route path="podnosenja-prigovora" element={<PodnosenjaPrigovora />} />
       <Route path="politika-kolacica" element={<PolitikaKolacica />} />
       <Route path="prijava-skolska-putovanja" element={<PrijavaSkolskaPutovanja />} />
+      <Route path="/:slug" element={<SingleDestination/>} />
     </Routes>
     <Footer />
   </BrowserRouter>

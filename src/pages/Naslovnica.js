@@ -10,7 +10,7 @@ import img_novagodina from "../assets/images/novagodina.jpg";
 import axios from "axios";
 
 function Naslovnica() {
-  const [destinations, setDestinations] = useState();
+  const [destinations, setDestinations] = useState([]);
 
   const dataCall = () => {
     axios.get("http://localhost:8000/").then((res) => {
@@ -18,10 +18,22 @@ function Naslovnica() {
     });
   };
 
-  useMemo(() => {
-    dataCall();
+  useMemo(async () => {
+    await dataCall();
   }, []);
 
+  const category = (cat) => {
+    if (
+      cat === "Skolska putovanja" ||
+      cat === "Osnovne skole" ||
+      cat === "Srednje skole" ||
+      cat === "Izleti"
+    ) {
+      return "Skolska putovanja";
+    } else {
+      return "Europska i daleka putovanja";
+    }
+  };
   return (
     <>
       <Slider />
@@ -63,40 +75,73 @@ function Naslovnica() {
           <Container>
             <Row className="row-cards">
               <Col className="col-cards">
-                <Card className="bg-dark text-white">
-                  <Card.Img src={img_skolska} alt="Card image" />
-                  <Card.ImgOverlay>
-                    <Card.Title>školska putovanja</Card.Title>
-                  </Card.ImgOverlay>
-                </Card>
+                <a href="skolska-putovanja">
+                  <Card className="bg-dark text-white">
+                    <Card.Img src={img_skolska} alt="Card image" />
+                    <Card.ImgOverlay>
+                      <Card.Title>školska putovanja</Card.Title>
+                    </Card.ImgOverlay>
+                  </Card>
+                </a>
               </Col>
               <Col className="col-cards">
-                <Card className="bg-dark text-white">
-                  <Card.Img src={img_europska} alt="Card image" />
-                  <Card.ImgOverlay>
-                    <Card.Title>europska putovanja</Card.Title>
-                  </Card.ImgOverlay>
-                </Card>
+                <a href="europska-i-daleka-putovanja">
+                  <Card className="bg-dark text-white">
+                    <Card.Img src={img_europska} alt="Card image" />
+                    <Card.ImgOverlay>
+                      <Card.Title>europska putovanja</Card.Title>
+                    </Card.ImgOverlay>
+                  </Card>
+                </a>
               </Col>
               <Col className="col-cards">
-                <Card className="bg-dark text-white">
-                  <Card.Img src={img_novagodina} alt="Card image" />
-                  <Card.ImgOverlay>
-                    <Card.Title>nova godina</Card.Title>
-                  </Card.ImgOverlay>
-                </Card>
+                <a href="europska-i-daleka-putovanja#nova-godina">
+                  <Card className="bg-dark text-white">
+                    <Card.Img src={img_novagodina} alt="Card image" />
+                    <Card.ImgOverlay>
+                      <Card.Title>nova godina</Card.Title>
+                    </Card.ImgOverlay>
+                  </Card>
+                </a>
               </Col>
             </Row>
           </Container>
         </div>
       </section>
       <section className="section-cards">
-        <div className="ftours-red">Europska putovanja</div>
-        <DestinationLayoutGrid />
-        <div className="ftours-purple">Školska putovanja</div>
-        <DestinationLayoutGrid />
-        <div className="ftours-blue">Nova godina</div>
-        <DestinationLayoutGrid />
+        {destinations &&
+        destinations.filter(
+          (item) => category(item.categories) === "Skolska putovanja"
+        ).length ? (
+          <div className="ftours-red">školska putovanja</div>
+        ) : null}
+        {destinations &&
+        destinations.filter(
+          (item) => category(item.categories) === "Skolska putovanja"
+        ).length ? (
+          <DestinationLayoutGrid
+            destinationscards={destinations.filter(
+              (item) => category(item.categories) === "Skolska putovanja"
+            )}
+          />
+        ) : null}
+        {destinations &&
+        destinations.filter(
+          (item) => category(item.categories) === "Europska i daleka putovanja"
+        ).length ? (
+          <div className="ftours-blue">europska i daleka putovanja</div>
+        ) : null}
+        {destinations &&
+        destinations.filter(
+          (item) => category(item.categories) === "Europska i daleka putovanja"
+        ).length ? (
+          <DestinationLayoutGrid
+            destinationscards={destinations.filter(
+              (item) =>
+                category(item.categories) === "Europska i daleka putovanja"
+            )}
+          />
+        ) : null}
       </section>
       <section className="section-o-nama">
         <Container>
