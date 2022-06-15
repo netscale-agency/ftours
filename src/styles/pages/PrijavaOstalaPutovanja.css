@@ -1,0 +1,73 @@
+.form-container {
+  display: flex;
+  padding: 10px;
+}
+
+.title {
+  text-align: start;
+  padding: 30px;
+  margin: 1rem;
+  color: #5c5a5c;
+}
+
+.paragraf {
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #5c5a5c;
+}
+
+.form-prijava {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+}
+
+.input-form {
+  margin: auto;
+  border-radius: 0;
+  background-color: #f3f6f4;
+  width: 80%;
+  padding: 0.5rem;
+}
+
+.input-form:focus {
+  border-color: #dee1ee;
+  box-shadow: 1px 1px 1px 1px #dee1ee;
+}
+
+.input-form-gender {
+  margin: auto;
+  border-radius: 0;
+  background-color: #f3f6f4;
+  width: 80%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.row-input {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin: auto;
+}
+
+select {
+  margin: auto;
+  background-color: #f3f6f4;
+  border: 2px solid #dee1ee;
+  width: 80%;
+  padding: 0.5rem;
+}
+
+.suglasnost {
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.prijava-botun {
+  width: fit-content;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

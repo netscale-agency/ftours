@@ -15,7 +15,13 @@ function Slider() {
           <p className="p-slide">
             Nulla vitae elit libero, a pharetra augue mollis interdum.
           </p>
-          <button type="button" className="btn btn-dark slider">
+          <button
+            onClick={() => {
+              window.location.href = "/skolska-putovanja";
+            }}
+            type="button"
+            className="btn btn-dark slider"
+          >
             vidi više
           </button>
         </Carousel.Caption>
@@ -27,7 +33,13 @@ function Slider() {
           <p className="p-slide">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <button type="button" className="btn btn-dark">
+          <button
+            onClick={() => {
+              window.location.href = "/europska-i-daleka-putovanja";
+            }}
+            type="button"
+            className="btn btn-dark"
+          >
             vidi više
           </button>
         </Carousel.Caption>
@@ -39,7 +51,13 @@ function Slider() {
           <p className="p-slide">
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
-          <button type="button" className="btn btn-dark slider">
+          <button
+            onClick={() => {
+              window.location.href = "/europska-i-daleka-putovanja";
+            }}
+            type="button"
+            className="btn btn-dark"
+          >
             vidi više
           </button>
         </Carousel.Caption>

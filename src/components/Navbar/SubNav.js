@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/components/Navbar/SubNav.css";
+import FormSelectorModal from "./FormSelectorModal";
 
 function SubNav() {
   return (
@@ -12,10 +13,7 @@ function SubNav() {
           <a className="a-subnav" href="mailto:desk@f-tours.hr">
           desk@f-tours.hr
           </a>
-          <a className="a-subnav prijava" href="/">
-            Prijava za putovanje!
-          </a>
-          
+          <FormSelectorModal />
         </div>
       </div>
     </div>
