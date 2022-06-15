@@ -19,6 +19,7 @@ import PravilaPrivatnosti from "./pages/PravilaPrivatnosti";
 import PodnosenjaPrigovora from "./pages/PodnosenjaPrigovora";
 import PolitikaKolacica from "./pages/PolitikaKolacica";
 import PrijavaSkolskaPutovanja from "./pages/PrijavaSkolskaPutovanja";
+import PrijavaOstalaPutovanja from "./pages/PrijavaOstalaPutovanja";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -39,6 +40,7 @@ root.render(
       <Route path="politika-kolacica" element={<PolitikaKolacica />} />
       <Route path="prijava-skolska-putovanja" element={<PrijavaSkolskaPutovanja />} />
       <Route path="/:slug" element={<SingleDestination/>} />
+      <Route path="prijava-ostala-putovanja" element={<PrijavaOstalaPutovanja />} />
     </Routes>
     <Footer />
   </BrowserRouter>

@@ -14,6 +14,11 @@
     transition-duration: 400ms;
 }
 
+.btn-dark:focus {
+    background-color: #b01f23;
+    box-shadow: none;
+}
+
 .card {
     transition: all 500ms ease-in-out;
 }
@@ -32,6 +37,7 @@
 }
 
 .card-text {
+    font-size: 13px;
     text-align: center;
 }
 
@@ -42,4 +48,10 @@
 
 .a-single-destination:hover {
     color: inherit;
+}
+
+@media screen and (max-width: 767px) {
+    .justify-content-start {
+        justify-content: center!important;
+    }
 }

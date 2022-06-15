@@ -6,7 +6,7 @@ function DestinationLayoutGrid({ destinationscards }) {
   const slice = destinationscards && loadMoreBtn ? destinationscards.lenght : 4;
   return (
     <section className="py-4 container">
-      <div className="row justify-content-center">
+      <div className="row justify-content-start lg-justify-content-center">
         {destinationscards &&
           destinationscards.slice(0, slice).map((item, index) => {
             return (

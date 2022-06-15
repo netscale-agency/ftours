@@ -1,0 +1,98 @@
+.btn-subnav.prijava {
+    background-color: #F3A51E;
+    border-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    color: #F8F8F8;
+    font-size: 13px;
+    padding: 0px 10px 0px 10px;
+    transition: background-color 400ms;
+}
+
+.btn-subnav.prijava:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: #F3A51E;
+    font-weight: 600;
+    outline-color: none;
+    transition-duration: 400ms;
+}
+
+.btn-subnav.prijava:focus {
+    box-shadow: none;
+}
+
+.modal-header {
+    height: 50px;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 120px;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 18px;
+    width: 95%;
+}
+
+.btn-close:focus {
+    box-shadow: none;
+}
+
+.btn-modal-prijava {
+    background-color: #F3A51E;
+    border-style: none;
+    align-self: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    height: fit-content;
+    width: fit-content;
+}
+
+.btn-modal-prijava:hover {
+    background-color: #B11F23;
+}
+
+.btn-modal-prijava:focus {
+    background-color: #B11F23;
+}
+
+.btn-modal-prijava:active {
+    background-color: #B11F23;
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    
+    .modal-content {
+        width: 95%;
+    }
+    
+    .modal-body {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+
+    .modal-content {
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+    }
+
+    .modal-title {
+        font-size: 16px;
+    }
+
+    .modal-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-modal-prijava {
+        font-size: 12px;
+    }
+}

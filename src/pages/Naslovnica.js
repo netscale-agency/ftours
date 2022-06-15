@@ -41,19 +41,19 @@ function Naslovnica() {
         <Container>
           <Row className="row-prijava">
             <Col className="col-prijava">
-              <a href="#" className="a-prijava">
+              <a href="/prijava-skolska-putovanja" className="a-prijava">
                 <i className="fa fa-arrow-circle-right" aria-hidden="true" />
                 prijava za putovanje!
               </a>
             </Col>
             <Col className="col-prijava">
-              <a href="#" className="a-prijava">
+              <a href="/skolska-putovanja" className="a-prijava">
                 <i className="fa fa-arrow-circle-right" aria-hidden="true" />
                 školska putovanja i jednodnevni izleti
               </a>
             </Col>
             <Col className="col-prijava">
-              <a href="#" className="a-prijava">
+              <a href="/prijava-ostala-putovanja" className="a-prijava">
                 <i className="fa fa-arrow-circle-right" aria-hidden="true" />
                 ostala putovanja
               </a>

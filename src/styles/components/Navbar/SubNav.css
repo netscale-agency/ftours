@@ -18,11 +18,6 @@
     transition: color 400ms;
 }
 
-.a-subnav.prijava {
-    color: #F3A51E;
-    font-weight: 600;
-}
-
 .a-subnav:hover {
     color: #F3A51E;
     transition-duration: 400ms;
