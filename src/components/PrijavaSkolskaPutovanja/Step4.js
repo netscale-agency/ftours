@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { postData } from "./util/post";
 
 export default function Step4({
@@ -13,7 +13,49 @@ export default function Step4({
   const [activeAran, setActiveAran] = useState(
     contentData.filter((item) => item.GrupaId === aran)[0]
   );
+  const [checked, setChecked] = useState(false);
+  const [checked1, setChecked1] = useState(false);
+  const [checked2, setChecked2] = useState(false);
 
+  useEffect(() => {
+  
+    if (
+      data.Adresa &&
+      data.Email &&
+      data.Cijena &&
+      data.Prezime &&
+      data.DatumRodjenja &&
+      data.BrojPutneIsprave &&
+      data.Tel
+    )
+      postData({
+        zaglavlje: {
+          Adresa: data.Adresa,
+          BrojPutneIsprave: data.BrojPutneIsprave,
+          Cijena: data.Cijena,
+          DatumRodjenja: data.DatumRodjenja,
+          Drzava: "HR",
+          Email: data.Email,
+          FotoVideoSuglasnost: data.FotoVideoSuglasnost,
+          GrupaId: data.GrupaId,
+          Ime: data.Ime,
+          KontaktOsobaId: data.KontaktOsobaId,
+          Mjesto: data.Mjesto,
+          Mob: data.Mob,
+          NacinPlacanja: data.NacinPlacanja,
+          Prezime: data.Prezime,
+          PutnaIspravaVrijediDo: data.PutnaIspravaVrijediDo,
+          Razred: data.Razred,
+          RoditeljSkrbnik: data.RoditeljSkrbnik,
+          RoditeljSkrbnikEmail: data.RoditeljSkrbnikEmail,
+          RoditeljSkrbnikMob: data.RoditeljSkrbnikMob,
+          Signature: data.Signature,
+          Spol: data.BrojPutneIsprave,
+          Tel: data.Tel,
+          VrstaPutneIsprave: data.VrstaPutneIsprave,
+        },
+      });
+  }, [step4]);
   const NacinPlacanja = (str) => {
     if (str === activeAran.CijenaA) {
       return "A";
@@ -27,15 +69,28 @@ export default function Step4({
   return (
     <div>
       <label>Vrsta putne isprave putnika</label>
-    <div style={{display:'flex'}}><label>Osobna iskaznica</label>
-    <input style={{width:20, marginTop:'auto'}}  id="dokument" type="radio" value={"Osobna iskaznica"} /><label>Putovnica</label>
-      <input style={{width:20 ,marginTop:'auto'}} id="dokument" type="radio" value={"Putovnica"} /></div>  
+      <div style={{ display: "flex" }}>
+        <label>Osobna iskaznica</label>
+        <input
+          style={{ width: 20, marginTop: "auto" }}
+          id="dokument"
+          type="radio"
+          value={"Osobna iskaznica"}
+        />
+        <label>Putovnica</label>
+        <input
+          style={{ width: 20, marginTop: "auto" }}
+          id="dokument"
+          type="radio"
+          value={"Putovnica"}
+        />
+      </div>
       <label>Broj putne isprave putnika</label>
       <input id="docBroj" type="text" /> <label>Putna isprava vrijedi do</label>
       <input id="docTrajanje" type="date" /> <label>Telefon putnika</label>
-      <input id="telPutnika" type="tel" />{" "}
+      <input id="telPutnika" placeholder="+385 (0) (__) ___-____" data-mask="+385 (0) (__) ___-____" type="tel" />{" "}
       <label>Mobitel putnika (obavezno)</label>
-      <input id="MobPutnika" type="tel" />{" "}
+      <input id="MobPutnika" placeholder="+385 (0) (__) ___-____" data-mask="+385 (0) (__) ___-____" type="tel" />{" "}
       <label>E-mail putnika (obavezno)</label>
       <input id="emailPutnika" type="email" />{" "}
       <label>Način plaćanja (obavezno)</label>
@@ -64,13 +119,13 @@ export default function Step4({
       </div>
       <select id="nacinPlacanja">
         {activeAran.CijenaAWebPrikaz === "True" && (
-          <option value={activeAran.CijenaA}>A -</option>
+          <option value={activeAran.CijenaA}>{`A - ${activeAran.CijenaA} do (${activeAran.DatumZaCijenuA})`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
-          <option value={activeAran.CijenaB}>B -</option>
+          <option value={activeAran.CijenaB}>{`B - ${activeAran.CijenaB} do (${activeAran.DatumZaCijenuB})`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
-          <option value={activeAran.CijenaC}>C -</option>
+          <option value={activeAran.CijenaC}>{`C - ${activeAran.CijenaC} do (${activeAran.DatumZaCijenuC})`}</option>
         )}
       </select>
       <label> RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA</label>
@@ -93,15 +148,27 @@ export default function Step4({
         izričitu privolu sukladno važećim zakonskim propisima koji uređuju
         zaštitu osobnih podataka te da je uporaba osobnih podataka djeteta
         dozvoljena na opisani način i u zadanom opsegu. (obavezno)
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          id="uvjeti"
+          onChange={() => setChecked(!checked)}
+        />
       </span>
       <label>
         Suglasan sam da se fotografije/video snimke/audio snimke mog djeteta sa
         putovanja objave na društvenim mrežama Agencije (obavezno)
       </label>
-      <input id="suglasnost" type="checkbox" />{" "}
+      <input
+        id="suglasnost"
+        type="checkbox"
+        onChange={() => setChecked1(!checked1)}
+      />{" "}
       <label>Pročitao/la sam i prihvaćam opće uvjete (obavezno)</label>
-      <input id="općiUvjeti" type="checkbox" />
+      <input
+        id="općiUvjeti"
+        type="checkbox"
+        onChange={() => setChecked2(!checked2)}
+      />
       <div className="buttonCont" style={{ marginBottom: 20 }}>
         <button
           disabled={active === 0 ? true : false}
@@ -117,31 +184,15 @@ export default function Step4({
         <button
           className="nextPrev"
           disabled={
-         
-            document.getElementById("MobPutnika").value &&
-            document.getElementById("emailPutnika").value &&
-            document.getElementById("nacinPlacanja").value 
+            checked &&
+            checked1 &&
+            checked2
               ? false
               : true
           }
           onClick={() => {
-            setStep4({
-              BrojPutneIsprave: document.getElementById("docBroj").value,
-              Cijena: document.getElementById("nacinPlacanja").value,
-              Email: document.getElementById("emailPutnika").value,
-              FotoVideoSuglasnost: document.getElementById("suglasnost").value,
-              Mob: document.getElementById("MobPutnika").value,
-              NacinPlacanja: NacinPlacanja(
-                document.getElementById("nacinPlacanja").value
-              ),
-              PutnaIspravaVrijediDo: document.getElementById("docTrajanje")
-                .value,
-              Tel: document.getElementById("telPutnika").value,
-              VrstaPutneIsprave: document.getElementById("dokument").value,
-            });
-            localStorage.setItem(
-              "step4",
-              JSON.stringify({
+            if (document.getElementById("MobPutnika").value) {
+              setStep4({
                 BrojPutneIsprave: document.getElementById("docBroj").value,
                 Cijena: document.getElementById("nacinPlacanja").value,
                 Email: document.getElementById("emailPutnika").value,
@@ -155,36 +206,28 @@ export default function Step4({
                   .value,
                 Tel: document.getElementById("telPutnika").value,
                 VrstaPutneIsprave: document.getElementById("dokument").value,
-              })
-            );
-            postData({
-              zaglavlje: {
-                Adresa: data.Adresa,
-                BrojPutneIsprave: data.BrojPutneIsprave,
-                Cijena: data.Cijena,
-                DatumRodjenja: data.DatumRodjenja,
-                Drzava: "HR",
-                Email: data.Email,
-                FotoVideoSuglasnost: data.FotoVideoSuglasnost,
-                GrupaId: data.GrupaId,
-                Ime: data.Ime,
-                KontaktOsobaId: data.KontaktOsobaId,
-                Mjesto: data.Mjesto,
-                Mob: data.Mob,
-                NacinPlacanja: data.NacinPlacanja,
-                Prezime: data.Prezime,
-                PutnaIspravaVrijediDo: data.PutnaIspravaVrijediDo,
-                Razred: data.Razred,
-                RoditeljSkrbnik: data.RoditeljSkrbnik,
-                RoditeljSkrbnikEmail: data.RoditeljSkrbnikEmail,
-                RoditeljSkrbnikMob: data.RoditeljSkrbnikMob,
-                Signature: data.Signature,
-                Spol: data.BrojPutneIsprave,
-                Tel: data.Tel,
-                VrstaPutneIsprave: data.VrstaPutneIsprave,
-              },
-            });
-            window.localStorage.clear();
+              });
+              localStorage.setItem(
+                "step4",
+                JSON.stringify({
+                  BrojPutneIsprave: document.getElementById("docBroj").value,
+                  Cijena: document.getElementById("nacinPlacanja").value,
+                  Email: document.getElementById("emailPutnika").value,
+                  FotoVideoSuglasnost: document.getElementById("suglasnost")
+                    .value,
+                  Mob: document.getElementById("MobPutnika").value,
+                  NacinPlacanja: NacinPlacanja(
+                    document.getElementById("nacinPlacanja").value
+                  ),
+                  PutnaIspravaVrijediDo: document.getElementById("docTrajanje")
+                    .value,
+                  Tel: document.getElementById("telPutnika").value,
+                  VrstaPutneIsprave: document.getElementById("dokument").value,
+                })
+              );
+
+              window.localStorage.clear();
+            }
           }}
         >
           Pošalji

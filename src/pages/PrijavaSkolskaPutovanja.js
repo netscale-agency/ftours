@@ -41,7 +41,7 @@ export default function PrijavaSkolskaPutovanja() {
   // useEffect(() => {
   //   console.log(step3, step4, step2);
   // }, [step3, step2, step4]);
-  const url = "http://188.166.20.77:8000/";
+  const url = "http://167.71.12.125:8001/";
   const dataCall = () => {
     axios.get(url).then((response) => {
       setData(response.data);
@@ -54,6 +54,7 @@ export default function PrijavaSkolskaPutovanja() {
     const res = await axios.get("https://geolocation-db.com/json/");
     setIP(res.data.IPv4);
   };
+  console.log(data)
 
   useMemo(() => {
     dataCall();
@@ -138,7 +139,7 @@ export default function PrijavaSkolskaPutovanja() {
               setStep4={setStep4}
               data={{
                 Signature: ip,
-                GrupaId: aran,
+                GrupaId: Number(aran),
                 ...step2,
                 ...step3,
                 ...step4,
