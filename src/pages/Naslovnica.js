@@ -11,17 +11,23 @@ import axios from "axios";
 
 function Naslovnica() {
   const [destinations, setDestinations] = useState([]);
+  const [page, setPage] = useState([]);
 
   const dataCall = () => {
     axios.get("http://localhost:8000/").then((res) => {
       setDestinations(res.data);
     });
   };
-
+  const pageCall = () => {
+    axios.get("http://localhost:8000/pages/naslovna").then((res) => {
+      setPage(res.data);
+    });
+  };
   useMemo(async () => {
     await dataCall();
+     pageCall();
   }, []);
-
+console.log(page.data)
   const category = (cat) => {
     if (
       cat === "Skolska putovanja" ||
@@ -62,7 +68,7 @@ function Naslovnica() {
         </Container>
       </section>
       <section className="section-putovanja">
-        <SliderGallery />
+        <SliderGallery data={page.data}/>
         <div className="div-putovanja">
           <div className="div-putovanja-inner">
             <h1 className="h3-putovanja">

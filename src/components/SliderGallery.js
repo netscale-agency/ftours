@@ -1,27 +1,39 @@
-import React from 'react';
+import React from "react";
 import "../styles/components/SliderGallery.css";
-import slide1 from "../assets/images/toskana-gallery.jpg";
-import slide2 from "../assets/images/venecija-gallery.jpg";
-import slide3 from "../assets/images/istanbul-gallery.jpg";
-import slide4 from "../assets/images/atena-gallery.jpg";
 
-function SliderGallery() {
-  return (
-    <div className="container-slider-gallery animation">
-      <div className="slide-first">
-        <img src={slide1}></img>
-      </div>
-      <div className="slide-second">
-        <img src={slide2}></img>
-      </div>
-      <div className="slide-third">
-        <img src={slide3}></img>
-      </div>
-      <div className="slide-fourth">
-        <img src={slide4}></img>
-      </div>
-    </div>
-  )
+function SliderGallery({ data }) {
+  if (data)
+    if (data.showcase)
+      return (
+        <div className="container-slider-gallery animation">
+          {data.showcase.map((item, i) => {
+            return (
+              <div key={i} className={"slide"}>
+                <div
+                onClick={()=>{window.location.href=`/${item.slug}`}}
+                  style={{
+                    position: "absolute",
+                    display:'flex',
+                    flexDirection:'column',
+                    height: "100%",
+                    paddingLeft:10,
+                    justifyContent:'center',
+                    width: "100%",
+                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                    color: "white",
+                  }}
+                >
+                  <h3>{item.title}</h3>
+                  <p>{item.durationAndTransportation}</p>
+                  <p>{item.polasci}</p>
+
+                </div>
+                <img src={item.image}></img>
+              </div>
+            );
+          })}
+        </div>
+      );
 }
 
 export default SliderGallery;

@@ -6,19 +6,26 @@
 .slide-gallery-first {
   z-index: 0;
 }
+.slide div h3{font-size: 45px;}
+.slide div p{font-size: 25px; margin-bottom: 0px;}
+
 .animation {
 
   position: relative;
-  animation: example 15s infinite;
+  animation: example 30s infinite;
+  
 }
-
+.animation:hover {
+  animation-play-state: paused;
+}
+.slide{position: relative;}
 @keyframes example {
   0% {
     left: 0;
   }
 
   50% {
-    left: -1200px;
+    left: -1000px;
   }
   100%{left: 0px;}
 }
