@@ -5,12 +5,16 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [city, setCity] = useState();
 
   const [year, setYear] = useState(
-    JSON.parse(localStorage.getItem("step3")).DatumRodjenja.split("-")[0]
+    Number(
+      JSON.parse(localStorage.getItem("step3")).DatumRodjenja.split("-")[0]
+    ) || 2022
   );
   useEffect(() => {
     setCity(JSON.parse(localStorage.getItem("step3")).Mjesto || "");
   }, []);
   const [date, setDate] = useState();
+  const [spol, setSpol] = useState();
+
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
@@ -41,7 +45,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         id="telRoditelj"
         type="tel"
       />{" "}
-      <label>
+ <label>
         E-mail ugovaratelja putovanja <b>(obavezno)</b>
       </label>
       <input
@@ -99,9 +103,28 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <label>
         Spol <b>(obavezno)</b>
       </label>
-      <div style={{display:'flex'}}><label>M</label>
-    <input style={{width:20, marginTop:'auto'}}  id="spol" type="radio" value={"M"} /><label>Ž</label>
-      <input style={{width:20 ,marginTop:'auto'}} id="spol" type="radio" value={"Ž"} /></div>  
+      <div style={{ display: "flex" }}>
+        <label>M</label>
+        <input
+          style={{ width: 20, marginTop: "auto" }}
+          id="spol"
+          name="spol"
+          type="radio"
+          defaultChecked={spol}
+          onChange={() => setSpol("M")}
+          value={"M"}
+        />
+        <label>Ž</label>
+        <input
+          style={{ width: 20, marginTop: "auto" }}
+          id="spol"
+          name="spol"
+          type="radio"
+          defaultChecked={spol}
+          onChange={() => setSpol("Ž")}
+          value={"Ž"}
+        />
+      </div>
       <div className="buttonCont">
         <button
           className="nextPrev"
@@ -121,7 +144,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             document.getElementById("emailRoditelj").value &&
             document.getElementById("telRoditelj").value &&
             document.getElementById("adresaPutnika").value &&
-            document.getElementById("spol").value &&
+            spol &&
             document.getElementById("prezimePutnika").value &&
             document.getElementById("imePutnika").value
               ? false
@@ -140,7 +163,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
                 RoditeljSkrbnikMob: document.getElementById("telRoditelj")
                   .value,
                 Adresa: document.getElementById("adresaPutnika").value,
-                Spol: document.getElementById("spol").value,
+                Spol: spol,
                 Mjesto: document.getElementById("mjesto").value,
                 Prezime: document.getElementById("prezimePutnika").value,
                 DatumRodjenja: document.getElementById("datumRodenja").value,
@@ -155,7 +178,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
                 .value,
               RoditeljSkrbnikMob: document.getElementById("telRoditelj").value,
               Adresa: document.getElementById("adresaPutnika").value,
-              Spol: document.getElementById("spol").value,
+              Spol: spol,
               Mjesto: document.getElementById("mjesto").value,
               Prezime: document.getElementById("prezimePutnika").value,
               DatumRodjenja: date,

@@ -56,9 +56,9 @@ export default function Step2({
         Razred <b>(obavezno)</b>
       </label>
       <select
-        defaultValue={pickedRazred||''}
+        defaultValue={pickedRazred || ""}
         id="razred"
-        defaultChecked={pickedRazred||''}
+        defaultChecked={pickedRazred || ""}
         onChange={(e) => {
           setPickedRazred(e.target.value);
         }}
@@ -85,30 +85,46 @@ export default function Step2({
         })}
       </select>
       <div>
-      <span>Označite polje i pročitajte/preuzmite program putovanja</span>
-     <div style={{display:'flex',marginTop:20,marginBottom:20}}> <input
-     style={{width:'20px'}}
-        onChange={() => {
-          setChecked(!checked);
-        }}
-        type="checkbox"
-      />
-      {checked && (
-        <i
-          onClick={() => setModalOpen(true)}
-          className="fa fa-file-pdf-o fa-2x"
-        />
-      )}</div></div>
+        <span>Označite polje i pročitajte/preuzmite program putovanja</span>
+        <div style={{ display: "flex", marginTop: 20, marginBottom: 20 }}>
+          {" "}
+          <input
+            style={{ width: "20px" }}
+            onChange={() => {
+              setChecked(!checked);
+            }}
+            onClick={() => {
+              if (checked === false) {
+                setModalOpen(true);
+              }
+            }}
+            type="checkbox"
+          />
+          {checked && (
+            <i
+              onClick={() => setModalOpen(true)}
+              className="fa fa-file-pdf-o fa-2x"
+            />
+          )}
+        </div>
+      </div>
       {modalOpen && (
-        <div style={{position:'absolute',top:'20%',bottom:0,left:0,right:0}}>
+        <div
+          style={{
+            position: "absolute",
+            top: "20%",
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
+        >
           <i
             onClick={() => setModalOpen(false)}
             className="fa  fa-solid fa-x fa-2x"
-          />{" "}
-          <i></i>
+          />
           <iframe
-          height={'70%'}
-          width={'100%'}
+            height={"70%"}
+            width={"100%"}
             src={
               data.GrupeRezervacije.filter((item) => item.GrupaId === aran)[0]
                 .FileProgramPutovanja
