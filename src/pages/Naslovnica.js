@@ -19,7 +19,7 @@ function Naslovnica() {
     });
   };
   const pageCall = () => {
-    axios.get("http://64.225.64.125:8000/pages/nasl").then((res) => {
+    axios.get("http://64.225.64.125:8000/pages/naslovna").then((res) => {
       setPage(res.data);
     });
   };
