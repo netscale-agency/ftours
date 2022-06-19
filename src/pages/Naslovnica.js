@@ -23,11 +23,12 @@ function Naslovnica() {
       setPage(res.data);
     });
   };
+  console.log(destinations, "ss");
   useMemo(async () => {
     await dataCall();
-     pageCall();
+    pageCall();
   }, []);
-console.log(page.data)
+  console.log(page.data);
   const category = (cat) => {
     if (
       cat === "Skolska putovanja" ||
@@ -68,7 +69,7 @@ console.log(page.data)
         </Container>
       </section>
       <section className="section-putovanja">
-        <SliderGallery data={page.data}/>
+        <SliderGallery data={page.data} />
         <div className="div-putovanja">
           <div className="div-putovanja-inner">
             <h1 className="h3-putovanja">
@@ -114,41 +115,45 @@ console.log(page.data)
           </Container>
         </div>
       </section>
-      <section className="section-cards">
-        {destinations &&
-        destinations.filter(
-          (item) => category(item.categories) === "Skolska putovanja"
-        ).length ? (
-          <div className="ftours-red">školska putovanja</div>
-        ) : null}
-        {destinations &&
-        destinations.filter(
-          (item) => category(item.categories) === "Skolska putovanja"
-        ).length ? (
-          <DestinationLayoutGrid
-            destinationscards={destinations.filter(
-              (item) => category(item.categories) === "Skolska putovanja"
-            )}
-          />
-        ) : null}
-        {destinations &&
-        destinations.filter(
-          (item) => category(item.categories) === "Europska i daleka putovanja"
-        ).length ? (
-          <div className="ftours-blue">europska i daleka putovanja</div>
-        ) : null}
-        {destinations &&
-        destinations.filter(
-          (item) => category(item.categories) === "Europska i daleka putovanja"
-        ).length ? (
-          <DestinationLayoutGrid
-            destinationscards={destinations.filter(
-              (item) =>
-                category(item.categories) === "Europska i daleka putovanja"
-            )}
-          />
-        ) : null}
-      </section>
+      {destinations && (
+        <section className="section-cards">
+          {destinations &&
+          destinations.filter(
+            (item) => category(item.categories) === "Skolska putovanja"
+          ).length ? (
+            <div className="ftours-red">školska putovanja</div>
+          ) : null}
+          {destinations &&
+          destinations.filter(
+            (item) => category(item.categories) === "Skolska putovanja"
+          ).length ? (
+            <DestinationLayoutGrid
+              destinationscards={destinations.filter(
+                (item) => category(item.categories) === "Skolska putovanja"
+              )}
+            />
+          ) : null}
+          {destinations &&
+          destinations.filter(
+            (item) =>
+              category(item.categories) === "Europska i daleka putovanja"
+          ).length ? (
+            <div className="ftours-blue">europska i daleka putovanja</div>
+          ) : null}
+          {destinations &&
+          destinations.filter(
+            (item) =>
+              category(item.categories) === "Europska i daleka putovanja"
+          ).length ? (
+            <DestinationLayoutGrid
+              destinationscards={destinations.filter(
+                (item) =>
+                  category(item.categories) === "Europska i daleka putovanja"
+              )}
+            />
+          ) : null}
+        </section>
+      )}
       <section className="section-o-nama">
         <Container>
           <Row className="row-o-nama-naslovna">
