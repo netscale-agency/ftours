@@ -14,12 +14,12 @@ function Naslovnica() {
   const [page, setPage] = useState([]);
 
   const dataCall = () => {
-    axios.get("http://localhost:8000/").then((res) => {
+    axios.get("http://64.225.64.125:8000/").then((res) => {
       setDestinations(res.data);
     });
   };
   const pageCall = () => {
-    axios.get("http://localhost:8000/pages/naslovna").then((res) => {
+    axios.get("http://64.225.64.125:8000/pages/naslovna").then((res) => {
       setPage(res.data);
     });
   };

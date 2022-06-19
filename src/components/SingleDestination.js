@@ -2,23 +2,30 @@ import React, { useMemo, useState } from "react";
 import "../styles/components/SingleDestination.css";
 import { Tabs, Tab, Card, Col, Container, Image, Row } from "react-bootstrap";
 import axios from "axios";
+import Gallery from "./Gallery";
+import Modal from "./Modal";
 
 function SingleDestination() {
   const [destination, setDestination] = useState();
+  const [active, setActive] = useState(0);
+  const [open, setOpen] = useState(false);
   const href = window.location.href.split("/").filter(Boolean);
   const slug = href[2];
   const dataCall = (slug) => {
-    axios.get(`http://localhost:8000/${slug}`).then((res) => {
+    axios.get(`http://64.225.64.125:8000/${slug}`).then((res) => {
       setDestination(res.data);
     });
   };
   useMemo(() => {
     dataCall(slug);
   }, [slug]);
-  console.log(slug);
   if (destination)
     return (
       <>
+        {" "}
+        {open && (
+          <Modal  data={destination.data.gallery} setOpen={setOpen} setActive={setActive} active={active} />
+        )}
         <section className="single-dest-img">
           <Card className="single-fw">
             <Card.Img
@@ -35,28 +42,7 @@ function SingleDestination() {
               </Card.Text>
             </Card.ImgOverlay>
           </Card>
-          <div className="div-gallery-single">
-            <Image
-              thumbnail
-              className="thumb-single"
-              src="https://www.f-tours.hr/wp-content/uploads/2018/09/House-in-the-Tuscany-000016780387_Large-705x469.jpg"
-            />
-            <Image
-              thumbnail
-              className="thumb-single"
-              src="https://www.f-tours.hr/wp-content/uploads/2018/09/Siena-000001641306_Large-705x462.jpg"
-            />
-            <Image
-              thumbnail
-              className="thumb-single"
-              src="https://www.f-tours.hr/wp-content/uploads/2018/09/Medieval-town-of-San-Gimignano-Tuscany-Italy-000052577256_Large-1030x686.jpg"
-            />
-            <Image
-              thumbnail
-              className="thumb-single"
-              src="https://www.f-tours.hr/wp-content/uploads/2018/09/Cathedral-and-Duomo-on-the-Florence-City-Skyline-in-Italy-000016333499_Large-1030x765.jpg"
-            />
-          </div>
+          <Gallery data={destination.data.gallery} setOpen={setOpen} setActive={setActive} />
         </section>
         <section className="destionation-content">
           <div className="head-purple">

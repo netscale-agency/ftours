@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/components/SliderGallery.css";
 
 function SliderGallery({ data }) {
+  console.log(data)
   if (data)
     if (data.showcase)
       return (
