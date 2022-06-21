@@ -50,7 +50,7 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .row-ftours-team {
@@ -75,6 +75,15 @@
     height: 25%;
     width: 25%;
     margin-top: 50px;
+}
+
+.contact-action {
+    color: #FF8C00;
+    text-decoration: none;
+}
+
+.contact-action:hover {
+    color: #B11F23;
 }
 
 @media screen and (min-width: 767px) and (max-width: 992px) {

@@ -16,6 +16,7 @@
 }
 
 .col-gmap {
+    align-self: start;
     justify-content: center;
 }
 
@@ -70,6 +71,42 @@
     width: 100%;
 }
 
+.form-upit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.p-upit {
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.input-upit {
+    border-color: gray;
+    margin-bottom: 0px;
+    width: 90%;
+}
+
+.textarea-upit {
+    border-color: gray;
+    resize: none;
+    width: 90%;
+}
+
+.span-btn-upit {
+    text-align: center;
+    margin: 0px;
+}
+
+.btn.btn-dark.form-upit {
+    text-align: center;
+    margin: 20px 0px 0px 0px!important;
+    font-size: 14px;
+}
+
 @media screen and (min-width: 767px) and (max-width: 992px) {
 
     .container-kontakt-purple {
@@ -111,5 +148,11 @@
     .gmap {
         height: 450px;
         width: 100%;
+    }
+
+    .btn.btn-dark.form-upit {
+        text-align: center;
+        margin: 20px 0px 40px 0px!important;
+        font-size: 12px;
     }
 }

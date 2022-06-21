@@ -7,7 +7,7 @@ function EuropskaDaleka() {
   const [destinations, setDestinations] = useState([]);
 
   const dataCall = () => {
-    axios.get("http://localhost:8000/").then((res) => {
+    axios.get("http://64.225.64.125:8000/").then((res) => {
       setDestinations(res.data);
     });
   };

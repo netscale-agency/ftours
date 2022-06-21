@@ -60,41 +60,41 @@ function ONama() {
                   direktor, član uprave
                 </Card.Subtitle>
                 <Card.Text>
-                  Telefon: +385 21 360 085
+                  <strong>Telefon: </strong><a className="contact-action" href="tel:+38521360085">+385 21 360 085</a>
                   <br />
-                  Email: maja@f-tours.hr
+                  <strong>Email: </strong><a className="contact-action" href="mailto:maja@f-tours.hr">maja@f-tours.hr</a>
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
           <Col>
             <Card className="card-ftours-team shadow">
-            <Card.Img className="img-avatar" src={avatar}></Card.Img>
+              <Card.Img className="img-avatar" src={avatar}></Card.Img>
               <Card.Body className="card-body-ftours-team">
                 <Card.Title>Mario Miočić</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted text-center">
                   direktor, član uprave
                 </Card.Subtitle>
                 <Card.Text>
-                  Telefon: +385 21 339 611
+                  <strong>Telefon: </strong><a className="contact-action" href="tel:+38521339611">+385 21 339 611</a>
                   <br />
-                  Email: mario@f-tours.hr
+                  <strong>Email: </strong><a className="contact-action" href="mailto:mario@f-tours.hr">mario@f-tours.hr</a>
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
           <Col>
             <Card className="card-ftours-team shadow">
-            <Card.Img className="img-avatar" src={avatar}></Card.Img>
+              <Card.Img className="img-avatar" src={avatar}></Card.Img>
               <Card.Body className="card-body-ftours-team">
                 <Card.Title>Marko Mandušić</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted text-center">
-                voditelj računovodstva
+                  voditelj računovodstva
                 </Card.Subtitle>
                 <Card.Text>
-                  Telefon: +385 21 339 608
+                  <strong>Telefon: </strong><a className="contact-action" href="tel:+38521339608">+385 21 339 608</a>
                   <br />
-                  Email: marko@f-tours.hr
+                  <strong>Email: </strong><a className="contact-action" href="mailto:marko@f-tours.hr">marko@f-tours.hr</a>
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -105,48 +105,48 @@ function ONama() {
         <Row className="row-ftours-team">
           <Col>
             <Card className="card-ftours-team shadow">
-            <Card.Img className="img-avatar" src={avatar}></Card.Img>
+              <Card.Img className="img-avatar" src={avatar}></Card.Img>
               <Card.Body className="card-body-ftours-team">
                 <Card.Title>Egidio Košta</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted text-center">
                   prodajni predstavnik
                 </Card.Subtitle>
                 <Card.Text>
-                  Telefon: +385 21 339 612
+                  <strong>Telefon: </strong><a className="contact-action" href="tel:+38521339612">+385 21 339 612</a>
                   <br />
-                  Email: kole@f-tours.hr
+                  <strong>Email: </strong><a className="contact-action" href="mailto:kole@f-tours.hr">kole@f-tours.hr</a>
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
           <Col>
             <Card className="card-ftours-team shadow">
-            <Card.Img className="img-avatar" src={avatar}></Card.Img>
+              <Card.Img className="img-avatar" src={avatar}></Card.Img>
               <Card.Body className="card-body-ftours-team">
                 <Card.Title>Mate Božiković</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted text-center">
                   prodajni predstavnik
                 </Card.Subtitle>
                 <Card.Text>
-                  Telefon: +385 21 339 607
+                  <strong>Telefon: </strong><a className="contact-action" href="tel:+38521339607">+385 21 339 607</a>
                   <br />
-                  Email: mate.bozikovic@f-tours.hr
+                  <strong>Email: </strong><a className="contact-action" href="mailto:mate.bozikovic@f-tours.hr">mate.bozikovic@f-tours.hr</a>
                 </Card.Text>
               </Card.Body>
             </Card>
           </Col>
           <Col>
             <Card className="card-ftours-team shadow">
-            <Card.Img className="img-avatar" src={avatar}></Card.Img>
+              <Card.Img className="img-avatar" src={avatar}></Card.Img>
               <Card.Body className="card-body-ftours-team">
                 <Card.Title>Ivana Olujić</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted text-center">
                   predstavnica u poslovnici
                 </Card.Subtitle>
                 <Card.Text>
-                  Telefon: +385 21 344 842
+                  <strong>Telefon: </strong><a className="contact-action" href="tel:+38521344842">+385 21 344 842</a>
                   <br />
-                  Email: ivana@f-tours.hr
+                  <strong>Email: </strong><a className="contact-action" href="mailto:ivana@f-tours.hr">ivana@f-tours.hr</a>
                 </Card.Text>
               </Card.Body>
             </Card>
