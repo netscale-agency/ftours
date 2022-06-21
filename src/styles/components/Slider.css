@@ -39,3 +39,25 @@ img {
 .btn.btn-dark.slider {
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
 }
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+
+    .slide-heading {
+        font-size: x-large!important;
+    }
+    
+    .p-slide {
+        font-size: medium!important;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+
+    .slide-heading {
+        font-size: x-large!important;
+    }
+    
+    .p-slide {
+        font-size: medium!important;
+    }
+}

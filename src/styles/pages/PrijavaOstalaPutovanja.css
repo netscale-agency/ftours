@@ -1,73 +1,107 @@
-.form-container {
-  display: flex;
-  padding: 10px;
-}
-
-.title {
-  text-align: start;
-  padding: 30px;
-  margin: 1rem;
-  color: #5c5a5c;
-}
-
-.paragraf {
-  font-size: large;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #5c5a5c;
-}
-
-.form-prijava {
+.container-prijava-ostala {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  padding: 10px;
 }
 
-.input-form {
-  margin: auto;
-  border-radius: 0;
-  background-color: #f3f6f4;
-  width: 80%;
-  padding: 0.5rem;
+.div-prijava-ostala-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3A51E;
+  height: 10rem;
+  margin: 10px 0px 30px 0px;
+  padding: 0px 60px 20px 60px;
 }
 
-.input-form:focus {
-  border-color: #dee1ee;
-  box-shadow: 1px 1px 1px 1px #dee1ee;
+.h1-prijava-ostala {
+  color: #f8f8f8;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.input-form-gender {
-  margin: auto;
-  border-radius: 0;
-  background-color: #f3f6f4;
-  width: 80%;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
+.p-prijava-ostala {
+  font-size: 14px;
+  color: #f8f8f8;
 }
 
-.row-input {
+.a-prijava-skolska {
+  color: #f8f8f8;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 400ms;
+}
+
+.a-prijava-skolska:hover {
+  color: #B11F23;
+  cursor: pointer;
+  transition-duration: 400ms;
+}
+
+.div-radio {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-radio {
+  width: min-content;
+  float: left;
+  margin: 5px 20px 0px 0px;
+}
+
+.span-btn {
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  margin: auto;
+  margin: 25px 0px 25px 0px;
 }
 
-select {
-  margin: auto;
-  background-color: #f3f6f4;
-  border: 2px solid #dee1ee;
-  width: 80%;
-  padding: 0.5rem;
+.p-form {
+  font-size: 16px;
 }
 
-.suglasnost {
-  margin: auto;
-  padding: 1.5rem;
+@media screen and (min-width: 767px) and (max-width: 992px) {
+
+  
+  
 }
 
-.prijava-botun {
-  width: fit-content;
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+@media screen and (min-width: 0px) and (max-width: 768px) {
+
+  .div-prijava-ostala-head {
+    height: 12rem;
+    margin-bottom: 30px;
+    padding: 0px;
+  }
+
+  .h1-prijava-ostala {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .p-prijava-ostala {
+    text-align: center;
+    font-size: 13px;
+    margin: 0px 20px 0px 20px;
+  }
+
+  .container-prijava-ostala {
+    width: 90%;
+  }
+
+  .p-form {
+    font-size: 14px;
+  }
+
+  .label-radio {
+    font-size: 14px;
+  }
+
+  .input-form {
+    height: 35px;
+  }
+
+  .btn.btn-dark.prijava-ostalo {
+    font-size: 13px;
+  }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/pages/Kontakt.css";
+import ContactForm from "../components/ContactForm";
 import { Row, Col, Accordion, Container } from "react-bootstrap";
 
 function Kontakt() {
@@ -90,6 +91,7 @@ function Kontakt() {
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
+            <ContactForm />
           </Col>
           <Col className="col-gmap">
             <iframe
