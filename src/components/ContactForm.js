@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(
-  "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"
-);
+sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
 
 function ContactForm() {
   const [fullName, setFullName] = useState("");
