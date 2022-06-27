@@ -14,7 +14,9 @@ function Naslovnica() {
   const [page, setPage] = useState([]);
 
   const dataCall = () => {
-    axios.get(process.env.REACT_APP_API_WP_KEY).then((res) => {
+    axios.get(process.env.REACT_APP_API_WP_KEY,{
+      'Access-Control-Allow-Origin': '*'
+    }).then((res) => {
       setDestinations(res.data);
     });
   };
