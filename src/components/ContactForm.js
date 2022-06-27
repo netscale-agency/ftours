@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
+// sgMail.setApiKey(process.env.API_SANGRID_KEY);
 
 function ContactForm() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [formMessage, setFormMessage] = useState("");
-
+console.log(process.env)
   const message = {
     to: "ogi.bulj@netscale.agency",
     from: email,
@@ -16,11 +15,11 @@ function ContactForm() {
       <p>${formMessage}</p>`,
   };
 
-  const sendMail = () => {
-    sgMail.send(message).then(() => {
-      ContactForm.resetFields();
-    });
-  };
+  // const sendMail = () => {
+  //   sgMail.send(message).then(() => {
+  //     ContactForm.resetFields();
+  //   });
+  // };
 
   return (
     <div>
@@ -43,7 +42,7 @@ function ContactForm() {
           <button
             className="btn btn-dark form-upit"
             onClick={() => {
-              sendMail();
+              // sendMail();
             }}
           >
             Pošalji upit

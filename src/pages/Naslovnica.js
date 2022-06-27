@@ -14,21 +14,19 @@ function Naslovnica() {
   const [page, setPage] = useState([]);
 
   const dataCall = () => {
-    axios.get("http://64.225.64.125:8000/").then((res) => {
+    axios.get(process.env.REACT_APP_API_WP_KEY).then((res) => {
       setDestinations(res.data);
     });
   };
   const pageCall = () => {
-    axios.get("http://64.225.64.125:8000/pages/naslovna").then((res) => {
+    axios.get(`${process.env.REACT_APP_API_WP_KEY}pages/naslovna`).then((res) => {
       setPage(res.data);
     });
   };
-  console.log(destinations, "ss");
   useMemo(async () => {
     await dataCall();
     pageCall();
   }, []);
-  console.log(page.data);
   const category = (cat) => {
     if (
       cat === "Skolska putovanja" ||
