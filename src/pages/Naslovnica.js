@@ -21,7 +21,7 @@ console.log(process.env)
     });
   };
   const pageCall = () => {
-    axios.get(`${process.env.REACT_APP_API_WP_KEY}pages/naslovna`).then((res) => {
+    axios.get(`${process.env.REACT_APP_API_WP_KEY}/pages/naslovna`).then((res) => {
       setPage(res.data);
     });
   };
