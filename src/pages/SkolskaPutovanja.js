@@ -7,7 +7,7 @@ function SkolskaPutovanja() {
   const [destinations, setDestinations] = useState([]);
 
   const dataCall = () => {
-    axios.get(process.env.REACT_APP_API_RITAM_KEY).then((res) => {
+    axios.get(process.env.REACT_APP_API_WP_KEY).then((res) => {
       setDestinations(res.data);
     });
   };

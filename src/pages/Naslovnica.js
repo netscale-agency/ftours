@@ -12,7 +12,6 @@ import axios from "axios";
 function Naslovnica() {
   const [destinations, setDestinations] = useState([]);
   const [page, setPage] = useState([]);
-console.log(process.env)
   const dataCall = () => {
     axios.get(process.env.REACT_APP_API_WP_KEY,{
       'Access-Control-Allow-Origin': '*'
