@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 export default function Step1({ data, active, setActive, setAran }) {
   const [isAccepted, setIsAccepted] = useState(false);
 
-  const [isString, setIsString] = useState(localStorage.getItem("aran"));
+  const [isString, setIsString] = useState(localStorage.getItem("aran") || "");
   let filtered = [];
-  const defAran = localStorage.getItem("aran");
+  const defAran = localStorage.getItem("aran") || "";
   useEffect(() => {
-    filtered = data.filter((item) => item.BrojAranzmana === isString);
+if(data){    filtered = data.filter((item) => item.BrojAranzmana === isString);
     if (filtered.length === 1) {
       setIsAccepted(true);
       setAran(filtered[0].GrupaId);
-    } else setIsAccepted(false);
+    } else setIsAccepted(false);}
   }, [isString]);
   return (
     <div style={{ width: "100%" }}>
@@ -27,7 +27,8 @@ export default function Step1({ data, active, setActive, setAran }) {
           placeholder="Popunite šifru aranžmana i potvrdite „enter/OK“"
           type="text"
         />
-        {data.filter((item) => item.BrojAranzmana === isString).length === 0 &&
+        {data &&
+          data.filter((item) => item.BrojAranzmana === isString).length === 0 &&
           isString && (
             <span>
               Pogrešan unos / ili šifra aranžmana trenutno nije aktivna!
