@@ -7,11 +7,13 @@ export default function Step1({ data, active, setActive, setAran }) {
   let filtered = [];
   const defAran = localStorage.getItem("aran") || "";
   useEffect(() => {
-if(data){    filtered = data.filter((item) => item.BrojAranzmana === isString);
-    if (filtered.length === 1) {
-      setIsAccepted(true);
-      setAran(filtered[0].GrupaId);
-    } else setIsAccepted(false);}
+    if (data) {
+      filtered = data.filter((item) => item.BrojAranzmana === isString);
+      if (filtered.length === 1) {
+        setIsAccepted(true);
+        setAran(filtered[0].GrupaId);
+      } else setIsAccepted(false);
+    }
   }, [isString]);
   return (
     <div style={{ width: "100%" }}>
