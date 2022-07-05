@@ -16,7 +16,7 @@ function SkolskaPutovanja() {
     await dataCall();
   }, []);
 
-  if (destinations)
+  if (destinations) {
     return (
       <>
         {destinations &&
@@ -67,7 +67,7 @@ function SkolskaPutovanja() {
         ) : null}
       </>
     );
-  else {
+  } else {
     return <></>;
   }
 }
