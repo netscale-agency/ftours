@@ -5,7 +5,7 @@ export default function Step1({ data, active ,setActive, setAran}) {
 
   const [isString, setIsString] = useState(localStorage.getItem('aran'));
   let filtered = [];
-  const defAran=localStorage.getItem('aran')
+  const defAran=localStorage.getItem('aran')||''
   useEffect(() => {
     filtered = data.filter((item) => item.BrojAranzmana === isString);
     if (filtered.length === 1) {
