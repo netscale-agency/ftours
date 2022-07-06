@@ -4,11 +4,11 @@ import DestinationLayoutGrid from "../components/DestinationLayoutGrid";
 import axios from "axios";
 
 function SkolskaPutovanja() {
-  const [destinations, setDestinations] = useState([]);
+  const [destinations, setDestinations] = useState([{}]);
 
   const dataCall = () => {
     axios.get(process.env.REACT_APP_API_WP_KEY).then((res) => {
-      setDestinations(res.data);
+      setDestinations(res.data||[]);
     });
   };
 
@@ -16,17 +16,17 @@ function SkolskaPutovanja() {
     await dataCall();
   }, []);
 
-  if (destinations) {
+  if (destinations!=undefined) {
     return (
       <>
         {destinations &&
-        destinations.filter((item) => item.categories === "Izleti").length ? (
+        destinations.filter(item => item.categories === "Izleti").length ? (
           <div id="izleti" className="ftours-yellow">
             izleti
           </div>
         ) : null}
         {destinations &&
-        destinations.filter((item) => item.categories === "Izleti").length ? (
+        destinations.filter(item => item.categories === "Izleti").length ? (
           <DestinationLayoutGrid
             destinationscards={destinations.filter(
               (item) => item.categories === "Izleti"
@@ -34,18 +34,18 @@ function SkolskaPutovanja() {
           />
         ) : null}
         {destinations &&
-        destinations.filter((item) => item.categories === "Osnovne skole")
+        destinations.filter(item => item.categories === "Osnovne skole")
           .length ? (
           <div id="osnovne-skole" className="ftours-red">
             osnovne škole
           </div>
         ) : null}
         {destinations &&
-        destinations.filter((item) => item.categories === "Osnovne skole")
+        destinations.filter(item => item.categories === "Osnovne skole")
           .length ? (
           <DestinationLayoutGrid
             destinationscards={destinations.filter(
-              (item) => item.categories === "Osnovne skole"
+              item => item.categories === "Osnovne skole"
             )}
           />
         ) : null}

@@ -23,6 +23,7 @@ export default function Step1({ data, active, setActive, setAran }) {
         </label>
         <input
           defaultValue={defAran}
+          style={{textTransform:"uppercase"}}
           onChange={(e) => {
             setIsString(e.target.value);
           }}
