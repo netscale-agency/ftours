@@ -54,6 +54,7 @@ export default function PrijavaSkolskaPutovanja() {
     const res = await axios.get("https://geolocation-db.com/json/");
     setIP(res.data.IPv4);
   };
+  console.log(data)
 
   useMemo(() => {
     dataCall();
