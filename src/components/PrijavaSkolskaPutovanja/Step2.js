@@ -140,7 +140,7 @@ export default function Step2({
             setActive(active - 1);
           }}
         >
-          Prev
+          Prethodni korak
         </button>
         <button
           disabled={checked && pickedRazred !== "" ? false : true}
@@ -167,7 +167,7 @@ export default function Step2({
             setActive(active + 1);
           }}
         >
-          Next
+          Sljedeći korak
         </button>
       </div>
     </div>

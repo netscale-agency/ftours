@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { postData } from "./util/post";
+import InputMask from "react-input-mask";
 
 export default function Step4({
   data,
@@ -18,7 +19,6 @@ export default function Step4({
   const [checked2, setChecked2] = useState(false);
 
   useEffect(() => {
-  
     if (
       data.Adresa &&
       data.Email &&
@@ -86,46 +86,69 @@ export default function Step4({
         />
       </div>
       <label>Broj putne isprave putnika</label>
-      <input id="docBroj" type="text" /> <label>Putna isprava vrijedi do</label>
+      <input id="docBroj" type="text" placeholder="Popunite broj putne isprave"/> <label>Putna isprava vrijedi do</label>
       <input id="docTrajanje" type="date" /> <label>Telefon putnika</label>
-      <input id="telPutnika" placeholder="+385 (0) (__) ___-____" data-mask="+385 (0) (__) ___-____" type="tel" />{" "}
+      <InputMask
+        mask="+(385) 99/999/9999"
+        id="telPutnika"
+        alwaysShowMask={true}
+        type="tel"
+      />
       <label>Mobitel putnika (obavezno)</label>
-      <input id="MobPutnika" placeholder="+385 (0) (__) ___-____" data-mask="+385 (0) (__) ___-____" type="tel" />{" "}
+      <input
+        id="MobPutnika"
+        placeholder="+385 (0) (__) ___-____"
+        data-mask="+385 (0) (__) ___-____"
+        type="tel"
+      />{" "}
+      <InputMask
+        mask="+(385) 99/999/9999"
+        id="MobPutnika"
+        alwaysShowMask={true}
+        type="tel"
+      />
       <label>E-mail putnika (obavezno)</label>
-      <input id="emailPutnika" type="email" />{" "}
+      <input placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)" id="emailPutnika" type="email" />{" "}
       <label>Način plaćanja (obavezno)</label>
       <div style={{ display: "flex", flexDirection: "column" }}>
         {activeAran.CijenaAWebPrikaz === "True" && (
           <span>
-            A - Uplata cjelokupnog iznosa aranžmana jednokratno novčanicama,
-            internet bankarstvom ili uplatnicom koji dostavlja agencija do
-            datuma naznačenog na aranžmanu
+            A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
+            jednokratno novčanicama, internet/mobilnim bankarstvom ili
+            uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
+            dospijeća naznačenim na aranžmanu
           </span>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <span>
-            B - Uplata rezervacije navedene na aranžmanu, te ostatka iznosa na
-            mjesečne obroke uplatnicama do datuma naznačenog na aranžmanu
-            (agencija dostavlja uplatnice putem elektronske pošte){" "}
+            B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
+            mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
+            poštom) s datumom dospijeća naznačenim na aranžmanu
           </span>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <span>
-            C - Uplata cjelokupnog iznosa aranžmana jednokratno ili obročno
-            debitnim i kreditnim karticama, a u skladu s uvjetima koje
-            ugovaratelj putovanja ima s izdavateljima kartica{" "}
+            C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana jednokratno
+            ili obročno debitnim ili kreditnim karticama (max 12 obroka) do
+            datuma naznačenog na aranžmanu
           </span>
         )}
       </div>
       <select id="nacinPlacanja">
         {activeAran.CijenaAWebPrikaz === "True" && (
-          <option value={activeAran.CijenaA}>{`A - ${activeAran.CijenaA} do (${activeAran.DatumZaCijenuA})`}</option>
+          <option
+            value={activeAran.CijenaA}
+          >{`A - ${activeAran.CijenaA} do (${activeAran.DatumZaCijenuA})`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
-          <option value={activeAran.CijenaB}>{`B - ${activeAran.CijenaB} do (${activeAran.DatumZaCijenuB})`}</option>
+          <option
+            value={activeAran.CijenaB}
+          >{`B - ${activeAran.CijenaB} do (${activeAran.DatumZaCijenuB})`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
-          <option value={activeAran.CijenaC}>{`C - ${activeAran.CijenaC} do (${activeAran.DatumZaCijenuC})`}</option>
+          <option
+            value={activeAran.CijenaC}
+          >{`C - ${activeAran.CijenaC} do (${activeAran.DatumZaCijenuC})`}</option>
         )}
       </select>
       <label> RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA</label>
@@ -163,7 +186,7 @@ export default function Step4({
         type="checkbox"
         onChange={() => setChecked1(!checked1)}
       />{" "}
-      <label>Pročitao/la sam i prihvaćam opće uvjete (obavezno)</label>
+     <a href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE"> <label>Pročitao/la sam i prihvaćam opće uvjete (obavezno)</label></a>
       <input
         id="općiUvjeti"
         type="checkbox"
@@ -179,17 +202,11 @@ export default function Step4({
             }
           }}
         >
-          Prev
+          Prethodni korak
         </button>
         <button
           className="nextPrev"
-          disabled={
-            checked &&
-            checked1 &&
-            checked2
-              ? false
-              : true
-          }
+          disabled={checked && checked1 && checked2 ? false : true}
           onClick={() => {
             if (document.getElementById("MobPutnika").value) {
               setStep4({

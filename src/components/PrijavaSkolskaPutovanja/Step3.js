@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import InputMask from "react-input-mask";
 import { cityData } from "./util/data";
 
 export default function Step3({ setActive, active, step3, setStep3 }) {
@@ -25,6 +26,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Prezime ugovaratelja putovanja (roditelj/staratelj) <b>(obavezno)</b>
       </label>
       <input
+        placeholder="Popunite Prezime (npr. Horvat)"
+        style={{ textTransform: "capitalize" }}
         defaultValue={defData.RoditeljIme}
         id="prezimeRoditelj"
         type="text"
@@ -33,38 +36,67 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Ime ugovaratelja putovanja (roditelj/staratelj)<b>(obavezno)</b>
       </label>
       <input
+        placeholder="Popunite Ime (npr. Ante)"
         defaultValue={defData.roditeljPrezime}
+        style={{ textTransform: "capitalize" }}
         id="imeRoditelj"
         type="text"
       />{" "}
       <label>
         Mobitel ugovaratelja putovanja <b>(obavezno)</b>
       </label>
-      <input
-        defaultValue={defData.RoditeljSkrbnikMob}
+      <InputMask
+        mask="+(385) 99/999/9999"
         id="telRoditelj"
+        alwaysShowMask={true}
+        defaultValue={defData.RoditeljSkrbnikMob}
         type="tel"
-      />{" "}
- <label>
+      />
+      <label>
         E-mail ugovaratelja putovanja <b>(obavezno)</b>
       </label>
       <input
         defaultValue={defData.RoditeljSkrbnikEmail}
         id="emailRoditelj"
+        placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
         type="email"
       />{" "}
       <label>
         Prezime putnika <b>(obavezno)</b>
       </label>
-      <input defaultValue={defData.Prezime} id="prezimePutnika" type="text" />{" "}
+      <input
+        style={{ textTransform: "uppercase" }}
+        defaultValue={defData.Prezime}
+        id="prezimePutnika"
+        placeholder="Popunite prezime (npr. HORVAT)"
+        type="text"
+      />{" "}
+      <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
+        Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
+      </p>
       <label>
         Ime putnika <b>(obavezno)</b>
       </label>
-      <input defaultValue={defData.Ime} id="imePutnika" type="text" />{" "}
+      <input
+        style={{ textTransform: "uppercase" }}
+        defaultValue={defData.Ime}
+        id="imePutnika"
+        placeholder="Popunite ime (npr. ANTE)"
+        type="text"
+      />{" "}
+      <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
+        Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
+      </p>
       <label>
         Adresa putnika <b>(obavezno)</b>
       </label>
-      <input defaultValue={defData.Adresa} id="adresaPutnika" type="text" />{" "}
+      <input
+        style={{ textTransform: "capitalize" }}
+        defaultValue={defData.Adresa}
+        id="adresaPutnika"
+        type="text"
+        placeholder="Popunite svoju adresu (npr. Horvatova 1)"
+      />{" "}
       <label>
         Grad/mjesto putnika <b>(obavezno)</b>
       </label>
@@ -82,6 +114,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           return <option key={i} value={item} />;
         })}
       </datalist>
+      <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
+        Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
+      </p>
       <label>
         Država putnika <b>(ako je drugačije od dolje navedenog - obavezno)</b>
       </label>
@@ -99,7 +134,10 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
 
           setDate(`${date[2]}.${date[1]}.${date[0]}`);
         }}
-      />
+      />{" "}
+      <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
+        Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
+      </p>
       <label>
         Spol <b>(obavezno)</b>
       </label>
@@ -132,7 +170,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             setActive(active - 1);
           }}
         >
-          Prev
+          Prethodni korak
         </button>
         <button
           type="submit"
@@ -187,7 +225,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             setActive(active + 1);
           }}
         >
-          Next
+          Sljedeći korak
         </button>
       </div>
     </div>

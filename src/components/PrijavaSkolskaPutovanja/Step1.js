@@ -48,7 +48,7 @@ export default function Step1({ data, active, setActive, setAran }) {
             }
           }}
         >
-          Prev
+          Prethodni korak
         </button>
         <button
           disabled={!isAccepted}
@@ -61,7 +61,7 @@ export default function Step1({ data, active, setActive, setAran }) {
             }
           }}
         >
-          Next
+          Sljedeći korak
         </button>
       </div>
     </div>
