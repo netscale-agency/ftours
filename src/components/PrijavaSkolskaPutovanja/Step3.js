@@ -72,7 +72,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />{" "}
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
-        Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
+        Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
         Ime putnika <b>(obavezno)</b>
@@ -85,7 +85,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />{" "}
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
-        Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
+        Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
         Adresa putnika <b>(obavezno)</b>
