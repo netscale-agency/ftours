@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Step1({ data, active, setActive, setAran }) {
   const [isAccepted, setIsAccepted] = useState(false);
+  const [isFull, setIsFull] = useState(false);
 
   const [isString, setIsString] = useState(localStorage.getItem("aran") || "");
   let filtered = [];
@@ -10,8 +11,10 @@ export default function Step1({ data, active, setActive, setAran }) {
     if (data) {
       filtered = data.filter((item) => item.BrojAranzmana === isString);
       if (filtered.length === 1) {
-        setIsAccepted(true);
-        setAran(filtered[0].GrupaId);
+        if (filtered[0].GrupaPopunjena === "False") {
+          setIsAccepted(true);
+          setAran(filtered[0].GrupaId);
+        }
       } else setIsAccepted(false);
     }
   }, [isString]);
@@ -23,7 +26,7 @@ export default function Step1({ data, active, setActive, setAran }) {
         </label>
         <input
           defaultValue={defAran}
-          style={{textTransform:"uppercase"}}
+          style={{ textTransform: "uppercase" }}
           onChange={(e) => {
             setIsString(e.target.value.toUpperCase());
           }}
@@ -37,19 +40,15 @@ export default function Step1({ data, active, setActive, setAran }) {
               Pogrešan unos / ili šifra aranžmana trenutno nije aktivna!
             </span>
           )}
+        {data &&
+          data.filter((item) => item.BrojAranzmana === isString).length !== 0 &&
+          data.filter((item) => item.BrojAranzmana === isString)[0]
+            .GrupaPopunjena === "True" && (
+            <span>Grupa popunjena kontaktirajte nas na info@f-tours.hr</span>
+          )}
       </div>
       <div className="buttonCont">
-        <button
-          disabled={active === 0 ? true : false}
-          className="nextPrev"
-          onClick={() => {
-            if (active > 0) {
-              setActive(active - 1);
-            }
-          }}
-        >
-          Prethodni korak
-        </button>
+        <div></div>
         <button
           disabled={!isAccepted}
           className="nextPrev"
