@@ -89,7 +89,7 @@ export default function Step4({
       <input id="docBroj" type="text" placeholder="Popunite broj putne isprave"/> <label>Putna isprava vrijedi do</label>
       <input id="docTrajanje" type="date" /> <label>Telefon putnika</label>
       <InputMask
-        mask="+(385) 99/999/9999"
+        mask="+(385)(0) 99/999/9999"
         id="telPutnika"
         alwaysShowMask={true}
         type="tel"
@@ -102,7 +102,7 @@ export default function Step4({
         type="tel"
       />{" "}
       <InputMask
-        mask="+(385) 99/999/9999"
+        mask="+(385)(0) 99/999/9999"
         id="MobPutnika"
         alwaysShowMask={true}
         type="tel"
