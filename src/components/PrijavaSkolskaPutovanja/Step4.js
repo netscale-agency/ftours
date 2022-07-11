@@ -195,7 +195,7 @@ export default function Step4({
       <div className="buttonCont" style={{ marginBottom: 20 }}>
         <button
           disabled={active === 0 ? true : false}
-          className="nextPrev"
+          className="prev"
           onClick={() => {
             if (active > 0) {
               setActive(active - 1);

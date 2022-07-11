@@ -165,7 +165,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       </div>
       <div className="buttonCont">
         <button
-          className="nextPrev"
+          className="prev"
           onClick={() => {
             setActive(active - 1);
           }}

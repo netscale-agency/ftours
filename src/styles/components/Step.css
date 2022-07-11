@@ -69,3 +69,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 25px;
   border-width: thin
 }
+.prev{
+  background-color:transparent;
+  color: #b11f23;
+  padding: 8px 24px 8px 24px;
+  border: 1px solid #b11f23;
+
+}
