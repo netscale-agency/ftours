@@ -66,7 +66,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Mobitel ugovaratelja putovanja <b>(obavezno)</b>
       </label>
       <InputMask
-        mask="+(385)(0) 99/999/9999"
+        mask="+385 (0) 99/999/9999"
         id="telRoditelj"
         alwaysShowMask={true}
         onChange={(e) => {

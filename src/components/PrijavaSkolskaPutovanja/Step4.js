@@ -89,20 +89,14 @@ export default function Step4({
       <input id="docBroj" type="text" placeholder="Popunite broj putne isprave"/> <label>Putna isprava vrijedi do</label>
       <input id="docTrajanje" type="date" /> <label>Telefon putnika</label>
       <InputMask
-        mask="+(385)(0) 99/999/9999"
+        mask="+385 (0) 99/999/9999"
         id="telPutnika"
         alwaysShowMask={true}
         type="tel"
       />
       <label>Mobitel putnika (obavezno)</label>
-      <input
-        id="MobPutnika"
-        placeholder="+385 (0) (__) ___-____"
-        data-mask="+385 (0) (__) ___-____"
-        type="tel"
-      />{" "}
       <InputMask
-        mask="+(385)(0) 99/999/9999"
+        mask="+385 (0) 99/999/9999"
         id="MobPutnika"
         alwaysShowMask={true}
         type="tel"
@@ -138,17 +132,17 @@ export default function Step4({
         {activeAran.CijenaAWebPrikaz === "True" && (
           <option
             value={activeAran.CijenaA}
-          >{`A - ${activeAran.CijenaA} do (${activeAran.DatumZaCijenuA})`}</option>
+          >{`A - ${activeAran.CijenaA},00 do (${activeAran.DatumZaCijenuA})`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
             value={activeAran.CijenaB}
-          >{`B - ${activeAran.CijenaB} do (${activeAran.DatumZaCijenuB})`}</option>
+          >{`B - ${activeAran.CijenaB},00 do (${activeAran.DatumZaCijenuB})`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
             value={activeAran.CijenaC}
-          >{`C - ${activeAran.CijenaC} do (${activeAran.DatumZaCijenuC})`}</option>
+          >{`C - ${activeAran.CijenaC},00 do (${activeAran.DatumZaCijenuC})`}</option>
         )}
       </select>
       <label> RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA</label>
