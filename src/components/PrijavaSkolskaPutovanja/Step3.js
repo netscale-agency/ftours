@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import InputMask from "react-input-mask";
+import { check } from "./util/check";
 import { cityData } from "./util/data";
 
 export default function Step3({ setActive, active, step3, setStep3 }) {
-  const [city, setCity] = useState();
+  const [city, setCity] = useState("");
 
   const [year, setYear] = useState(
     Number(
@@ -14,6 +15,13 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
     setCity(JSON.parse(localStorage.getItem("step3")).Mjesto || "");
   }, []);
   const [date, setDate] = useState();
+  const [imeRoditelj, setImeRoditelj] = useState("");
+  const [prezimeRoditelj, setPrezimeRoditelj] = useState("");
+  const [telRoditelj, setTelRoditelj] = useState("");
+  const [email, setEmail] = useState("");
+  const [prezimePutnika, setPrezimePutnika] = useState("");
+  const [imePutnika, setImePutnika] = useState("");
+  const [adresaPutnika, setAdresaPutnika] = useState("");
   const [spol, setSpol] = useState();
 
   const [defData, setDefData] = useState(
@@ -29,9 +37,15 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite Prezime (npr. Horvat)"
         style={{ textTransform: "capitalize" }}
         defaultValue={defData.RoditeljIme}
+        onChange={(e) => {
+          setPrezimeRoditelj(e.target.value);
+        }}
         id="prezimeRoditelj"
         type="text"
       />
+      <span style={{ color: "red", marginTop: -8 }}>
+        {check(prezimeRoditelj, "prezimeRoditelj")}
+      </span>
       <label>
         Ime ugovaratelja putovanja (roditelj/staratelj)<b>(obavezno)</b>
       </label>
@@ -39,9 +53,15 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite Ime (npr. Ante)"
         defaultValue={defData.roditeljPrezime}
         style={{ textTransform: "capitalize" }}
+        onChange={(e) => {
+          setImeRoditelj(e.target.value);
+        }}
         id="imeRoditelj"
         type="text"
       />{" "}
+      <span style={{ color: "red", marginTop: -8 }}>
+        {check(imeRoditelj, "imeRoditelj")}
+      </span>
       <label>
         Mobitel ugovaratelja putovanja <b>(obavezno)</b>
       </label>
@@ -49,18 +69,30 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         mask="+(385)(0) 99/999/9999"
         id="telRoditelj"
         alwaysShowMask={true}
+        onChange={(e) => {
+          setTelRoditelj(e.target.value);
+        }}
         defaultValue={defData.RoditeljSkrbnikMob}
         type="tel"
       />
+      <span style={{ color: "red", marginTop: -8 }}>
+        {check(telRoditelj, "telRoditelj")}
+      </span>
       <label>
         E-mail ugovaratelja putovanja <b>(obavezno)</b>
       </label>
       <input
         defaultValue={defData.RoditeljSkrbnikEmail}
         id="emailRoditelj"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
         placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
         type="email"
       />{" "}
+      <span style={{ color: "red", marginTop: -8 }}>
+        {check(email, "emailRoditelj")}
+      </span>
       <label>
         Prezime putnika <b>(obavezno)</b>
       </label>
@@ -68,9 +100,15 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         style={{ textTransform: "uppercase" }}
         defaultValue={defData.Prezime}
         id="prezimePutnika"
+        onChange={(e) => {
+          setPrezimePutnika(e.target.value);
+        }}
         placeholder="Popunite prezime (npr. HORVAT)"
         type="text"
       />{" "}
+      <span style={{ color: "red", marginTop: -8 ,marginBottom:3}}>
+        {check(prezimePutnika, "prezimePutnika")}
+      </span>
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
@@ -81,9 +119,15 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         style={{ textTransform: "uppercase" }}
         defaultValue={defData.Ime}
         id="imePutnika"
+        onChange={(e) => {
+          setImePutnika(e.target.value);
+        }}
         placeholder="Popunite ime (npr. ANTE)"
         type="text"
       />{" "}
+      <span style={{ color: "red", marginTop: -8 ,marginBottom:3}}>
+        {check(imePutnika, "imePutnika")}
+      </span>
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
@@ -94,9 +138,15 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         style={{ textTransform: "capitalize" }}
         defaultValue={defData.Adresa}
         id="adresaPutnika"
+        onChange={(e) => {
+          setAdresaPutnika(e.target.value);
+        }}
         type="text"
         placeholder="Popunite svoju adresu (npr. Horvatova 1)"
       />{" "}
+      <span style={{ color: "red", marginTop: -8 }}>
+        {check(adresaPutnika, "adresaPutnika")}
+      </span>
       <label>
         Grad/mjesto putnika <b>(obavezno)</b>
       </label>
@@ -114,6 +164,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           return <option key={i} value={item} />;
         })}
       </datalist>
+      <span style={{ color: "red", marginTop: -8 ,marginBottom:3}}>
+        {check(city, "mjesto")}
+      </span>
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
         Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
       </p>
@@ -131,7 +184,6 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         onChange={(e) => {
           setYear(Number(e.target.value.slice(0, 4)));
           let date = document.getElementById("datumRodenja").value.split("-");
-
           setDate(`${date[2]}.${date[1]}.${date[0]}`);
         }}
       />{" "}
