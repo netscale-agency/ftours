@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { postData } from "./util/post";
 import InputMask from "react-input-mask";
+import { dateData } from "./util/check";
 
 export default function Step4({
   data,
@@ -17,7 +18,13 @@ export default function Step4({
   const [checked, setChecked] = useState(false);
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
-
+  const [day, setday] = useState("");
+  const [year, setYear] = useState();
+  const [date, setDate] = useState();
+  const [month, setmonth] = useState("");
+  useEffect(() => {
+    setDate(`${day}.${month}.${year}`);
+  }, [year, month, day]);
   useEffect(() => {
     if (
       data.Adresa &&
@@ -86,8 +93,85 @@ export default function Step4({
         />
       </div>
       <label>Broj putne isprave putnika</label>
-      <input id="docBroj" type="text" placeholder="Popunite broj putne isprave"/> <label>Putna isprava vrijedi do</label>
-      <input id="docTrajanje" type="date" /> <label>Telefon putnika</label>
+      <input
+        id="docBroj"
+        type="text"
+        placeholder="Popunite broj putne isprave"
+      />{" "}
+      <label>Putna isprava vrijedi do</label>
+      <input type="date" /> <label>Telefon putnika</label>
+      <div id="docTrajanje" style={{ display: "flex" }}>
+        <select
+          style={{ maxWidth: "158px" }}
+          id="god"
+          onChange={(e) => {
+            setYear(e.target.value);
+          }}
+        >
+          <option value={""}>Godina</option>
+          {dateData.years.map((item, i) => {
+            return (
+              <option key={i} value={item}>
+                {item}
+              </option>
+            );
+          })}
+        </select>
+        <select
+          style={{ maxWidth: "158px" }}
+          id="month"
+          onChange={(e) => {
+            setmonth(e.target.value);
+          }}
+        >
+          <option value={""}>Mjesec</option>
+          {year &&
+            dateData.months.map((item, i) => {
+              return (
+                <option key={i} value={item.val}>
+                  {item.ime}
+                </option>
+              );
+            })}
+        </select>
+        <select
+          style={{ maxWidth: "158px" }}
+          id="day"
+          onChange={(e) => {
+            setday(e.target.value);
+          }}
+        >
+          <option value={""}>Dan</option>
+          {month &&
+            month != "02" &&
+            (dateData.months31.includes(month)
+              ? dateData.days31.map((item, i) => {
+                  return (
+                    <option key={i} value={item}>
+                      {item}
+                    </option>
+                  );
+                })
+              : dateData.days30.map((item, i) => {
+                  return (
+                    <option key={i} value={item}>
+                      {item}
+                    </option>
+                  );
+                }))}
+          {month &&
+            month === "02" &&
+            dateData.days31
+              .slice(0, dateData.years.includes(year) ? 29 : 28)
+              .map((item, i) => {
+                return (
+                  <option key={i} value={item}>
+                    {item}
+                  </option>
+                );
+              })}
+        </select>
+      </div>
       <InputMask
         mask="+385 (0) 99/999/9999"
         id="telPutnika"
@@ -102,7 +186,11 @@ export default function Step4({
         type="tel"
       />
       <label>E-mail putnika (obavezno)</label>
-      <input placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)" id="emailPutnika" type="email" />{" "}
+      <input
+        placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
+        id="emailPutnika"
+        type="email"
+      />{" "}
       <label>Način plaćanja (obavezno)</label>
       <div style={{ display: "flex", flexDirection: "column" }}>
         {activeAran.CijenaAWebPrikaz === "True" && (
@@ -180,7 +268,10 @@ export default function Step4({
         type="checkbox"
         onChange={() => setChecked1(!checked1)}
       />{" "}
-     <a href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE"> <label>Pročitao/la sam i prihvaćam opće uvjete (obavezno)</label></a>
+      <a href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE">
+        {" "}
+        <label>Pročitao/la sam i prihvaćam opće uvjete (obavezno)</label>
+      </a>
       <input
         id="općiUvjeti"
         type="checkbox"
@@ -204,7 +295,7 @@ export default function Step4({
           onClick={() => {
             if (document.getElementById("MobPutnika").value) {
               setStep4({
-                BrojPutneIsprave: document.getElementById("docBroj").value,
+                BrojPutneIsprave: data,
                 Cijena: document.getElementById("nacinPlacanja").value,
                 Email: document.getElementById("emailPutnika").value,
                 FotoVideoSuglasnost: document.getElementById("suglasnost")
@@ -230,8 +321,7 @@ export default function Step4({
                   NacinPlacanja: NacinPlacanja(
                     document.getElementById("nacinPlacanja").value
                   ),
-                  PutnaIspravaVrijediDo: document.getElementById("docTrajanje")
-                    .value,
+                  PutnaIspravaVrijediDo: date,
                   Tel: document.getElementById("telPutnika").value,
                   VrstaPutneIsprave: document.getElementById("dokument").value,
                 })

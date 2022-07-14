@@ -6,17 +6,15 @@ import { cityData } from "./util/data";
 export default function Step3({ setActive, active, step3, setStep3 }) {
   const [city, setCity] = useState("");
 
-  const [year, setYear] = useState(
-    Number(
-      JSON.parse(localStorage.getItem("step3")).DatumRodjenja.split("-")[0]
-    ) || 0
-  );
   useEffect(() => {
     setCity(JSON.parse(localStorage.getItem("step3")).Mjesto || "");
   }, []);
   const [day, setday] = useState("");
+  const [year, setYear] = useState();
   const [date, setDate] = useState();
   const [month, setmonth] = useState("");
+  const thisYear = new Date().getFullYear();
+
   const [imeRoditelj, setImeRoditelj] = useState("");
   const [prezimeRoditelj, setPrezimeRoditelj] = useState("");
   const [telRoditelj, setTelRoditelj] = useState("");
@@ -31,7 +29,6 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
-  const thisYear = new Date().getFullYear();
   return (
     <div className="stepContainer2">
       <label>
@@ -253,7 +250,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
               })}
         </select>
       </div>
-      {!day&&
+      {!day && (
         <p
           style={{
             color: "red",
@@ -264,7 +261,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         >
           Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
         </p>
-      }
+      )}
       <label>
         Spol <b>(obavezno)</b>
       </label>
