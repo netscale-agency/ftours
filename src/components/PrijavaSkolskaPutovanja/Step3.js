@@ -262,6 +262,18 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
         </p>
       )}
+      {(year === "2022" || year === "2021" || year === "2020") && (
+        <p
+          style={{
+            color: "red",
+            marginTop: -12,
+            fontSize: 13.8,
+            maxWidth: 490,
+          }}
+        >
+          Provjerite godinu rođenja
+        </p>
+      )}
       <label>
         Spol <b>(obavezno)</b>
       </label>
