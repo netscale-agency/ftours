@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InputMask from "react-input-mask";
-import { check } from "./util/check";
+import { check, dateData } from "./util/check";
 import { cityData } from "./util/data";
 
 export default function Step3({ setActive, active, step3, setStep3 }) {
@@ -9,12 +9,14 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [year, setYear] = useState(
     Number(
       JSON.parse(localStorage.getItem("step3")).DatumRodjenja.split("-")[0]
-    ) || 2022
+    ) || 0
   );
   useEffect(() => {
     setCity(JSON.parse(localStorage.getItem("step3")).Mjesto || "");
   }, []);
+  const [day, setday] = useState("");
   const [date, setDate] = useState();
+  const [month, setmonth] = useState("");
   const [imeRoditelj, setImeRoditelj] = useState("");
   const [prezimeRoditelj, setPrezimeRoditelj] = useState("");
   const [telRoditelj, setTelRoditelj] = useState("");
@@ -23,7 +25,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [imePutnika, setImePutnika] = useState("");
   const [adresaPutnika, setAdresaPutnika] = useState("");
   const [spol, setSpol] = useState();
-
+  useEffect(() => {
+    setDate(`${day}.${month}.${year}`);
+  }, [year, month, day]);
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
@@ -36,7 +40,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <input
         placeholder="Popunite Prezime (npr. Horvat)"
         style={{ textTransform: "capitalize" }}
-        defaultValue={defData.RoditeljIme}
+        defaultValue={defData.RoditeljIme || ""}
         onChange={(e) => {
           setPrezimeRoditelj(e.target.value);
         }}
@@ -106,7 +110,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite prezime (npr. HORVAT)"
         type="text"
       />{" "}
-      <span style={{ color: "red", marginTop: -8 ,marginBottom:3}}>
+      <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
         {check(prezimePutnika, "prezimePutnika")}
       </span>
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
@@ -125,7 +129,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite ime (npr. ANTE)"
         type="text"
       />{" "}
-      <span style={{ color: "red", marginTop: -8 ,marginBottom:3}}>
+      <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
         {check(imePutnika, "imePutnika")}
       </span>
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
@@ -164,7 +168,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           return <option key={i} value={item} />;
         })}
       </datalist>
-      <span style={{ color: "red", marginTop: -8 ,marginBottom:3}}>
+      <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
         {check(city, "mjesto")}
       </span>
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
@@ -177,19 +181,90 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <label>
         Datum rođenja putnika <b>(obavezno)</b>
       </label>
-      <input
-        defaultValue={defData.DatumRodjenja}
-        id="datumRodenja"
-        type="date"
-        onChange={(e) => {
-          setYear(Number(e.target.value.slice(0, 4)));
-          let date = document.getElementById("datumRodenja").value.split("-");
-          setDate(`${date[2]}.${date[1]}.${date[0]}`);
-        }}
-      />{" "}
-      <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
-        Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
-      </p>
+      <div style={{ display: "flex" }}>
+        <select
+          style={{ maxWidth: "158px" }}
+          id="god"
+          onChange={(e) => {
+            setYear(e.target.value);
+          }}
+        >
+          <option value={""}>Godina</option>
+          {dateData.years.map((item, i) => {
+            return (
+              <option key={i} value={item}>
+                {item}
+              </option>
+            );
+          })}
+        </select>
+        <select
+          style={{ maxWidth: "158px" }}
+          id="month"
+          onChange={(e) => {
+            setmonth(e.target.value);
+          }}
+        >
+          <option value={""}>Mjesec</option>
+          {year &&
+            dateData.months.map((item, i) => {
+              return (
+                <option key={i} value={item.val}>
+                  {item.ime}
+                </option>
+              );
+            })}
+        </select>
+        <select
+          style={{ maxWidth: "158px" }}
+          id="day"
+          onChange={(e) => {
+            setday(e.target.value);
+          }}
+        >
+          <option value={""}>Dan</option>
+          {month &&
+            month != "02" &&
+            (dateData.months31.includes(month)
+              ? dateData.days31.map((item, i) => {
+                  return (
+                    <option key={i} value={item}>
+                      {item}
+                    </option>
+                  );
+                })
+              : dateData.days30.map((item, i) => {
+                  return (
+                    <option key={i} value={item}>
+                      {item}
+                    </option>
+                  );
+                }))}
+          {month &&
+            month === "02" &&
+            dateData.days31
+              .slice(0, dateData.years.includes(year) ? 29 : 28)
+              .map((item, i) => {
+                return (
+                  <option key={i} value={item}>
+                    {item}
+                  </option>
+                );
+              })}
+        </select>
+      </div>
+      {!day&&
+        <p
+          style={{
+            color: "red",
+            marginTop: -12,
+            fontSize: 13.8,
+            maxWidth: 490,
+          }}
+        >
+          Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
+        </p>
+      }
       <label>
         Spol <b>(obavezno)</b>
       </label>
