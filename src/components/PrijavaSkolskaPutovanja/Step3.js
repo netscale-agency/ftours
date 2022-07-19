@@ -29,6 +29,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
+
   return (
     <div className="stepContainer2">
       <label>
@@ -340,7 +341,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
                 Spol: spol,
                 Mjesto: document.getElementById("mjesto").value,
                 Prezime: document.getElementById("prezimePutnika").value,
-                DatumRodjenja: document.getElementById("datumRodenja").value,
+                DatumRodjenja: date,
                 Ime: document.getElementById("imePutnika").value,
               })
             );
