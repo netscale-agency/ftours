@@ -165,6 +165,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Grad/mjesto putnika <b>(obavezno)</b>
       </label>
       <input
+      style={{maxWidth:'474px'}}
         defaultValue={defData.Mjesto}
         list="mjesta"
         name="mjesto"
