@@ -22,14 +22,14 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [prezimePutnika, setPrezimePutnika] = useState("");
   const [imePutnika, setImePutnika] = useState("");
   const [adresaPutnika, setAdresaPutnika] = useState("");
-  const [spol, setSpol] = useState();
+  const [spol, setSpol] = useState(step3.Spol);
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
-
+console.log(step3)
   return (
     <div className="stepContainer2">
       <label>
