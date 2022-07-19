@@ -180,7 +180,7 @@ export default function Step4({
             maxWidth: 490,
           }}
         >
-          Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
+          Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan do kada vrijedi putna isprava.
         </p>
       )}
        <label>Telefon putnika</label>
