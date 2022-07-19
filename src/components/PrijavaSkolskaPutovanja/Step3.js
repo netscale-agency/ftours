@@ -179,7 +179,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         })}
       </datalist>
       <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
-        {!defData.Mjesto || (city === "" && check(city, "mjesto"))}
+        {(!defData.Mjesto || city === "") && check(city, "mjesto")}
       </span>
       {!cityData.includes(city) && (
         <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
