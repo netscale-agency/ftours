@@ -99,7 +99,6 @@ export default function Step4({
         placeholder="Popunite broj putne isprave"
       />{" "}
       <label>Putna isprava vrijedi do</label>
-      <input type="date" /> <label>Telefon putnika</label>
       <div id="docTrajanje" style={{ display: "flex" }}>
         <select
           style={{ maxWidth: "158px" }}
@@ -172,6 +171,8 @@ export default function Step4({
               })}
         </select>
       </div>
+       <label>Telefon putnika</label>
+    
       <InputMask
         mask="+385 (0) 99/999/9999"
         id="telPutnika"
@@ -246,13 +247,13 @@ export default function Step4({
         zakonskim i regulatornim propisima Opće uredbe o zaštiti osobnih
         podataka (GDPR 2016/679), odnosno u trajanju od 5 godina od završetka
         usluge, osim ako dulji vremenski period čuvanja osobnih podataka nije
-        određen važećim nacionalnim ili europskim propisima. Izjavljujem da
+        određen važećim nacionalnim ili europskim propisima. <br/><br/><b>Izjavljujem da
         privolu dajem dobrovoljno, da mi je detaljno pojašnjena namjera
         korištenja osobnih podataka djeteta u svrhe iz ove privole kao i moje
         pravo da se predmetnoj obradi usprotivim te da ova privola predstavlja
         izričitu privolu sukladno važećim zakonskim propisima koji uređuju
         zaštitu osobnih podataka te da je uporaba osobnih podataka djeteta
-        dozvoljena na opisani način i u zadanom opsegu. (obavezno)
+        dozvoljena na opisani način i u zadanom opsegu. (obavezno)</b>
         <input
           type="checkbox"
           id="uvjeti"
