@@ -9,10 +9,10 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   useEffect(() => {
     setCity(JSON.parse(localStorage.getItem("step3")).Mjesto || "");
   }, []);
-  const [day, setday] = useState("");
-  const [year, setYear] = useState();
+  const [day, setday] = useState(step3.DatumRodjenja.split(".")[0]);
+  const [year, setYear] = useState(step3.DatumRodjenja.split(".")[2]);
   const [date, setDate] = useState();
-  const [month, setmonth] = useState("");
+  const [month, setmonth] = useState(step3.DatumRodjenja.split(".")[1]);
   const thisYear = new Date().getFullYear();
 
   const [imeRoditelj, setImeRoditelj] = useState("");
@@ -29,7 +29,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
-console.log(step3)
+
+  console.log(step3, step3.DatumRodjenja.split(".")[0]);
   return (
     <div className="stepContainer2">
       <label>
@@ -111,7 +112,7 @@ console.log(step3)
       <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
         {check(prezimePutnika, "prezimePutnika")}
       </span>
-      <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
+      <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
@@ -130,7 +131,7 @@ console.log(step3)
       <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
         {check(imePutnika, "imePutnika")}
       </span>
-      <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
+      <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
@@ -181,6 +182,7 @@ console.log(step3)
       </label>
       <div style={{ display: "flex" }}>
         <select
+          defaultValue={year}
           style={{ maxWidth: "158px" }}
           id="god"
           onChange={(e) => {
@@ -197,6 +199,7 @@ console.log(step3)
           })}
         </select>
         <select
+          defaultValue={month}
           style={{ maxWidth: "158px" }}
           id="month"
           onChange={(e) => {
@@ -214,6 +217,7 @@ console.log(step3)
             })}
         </select>
         <select
+          defaultValue={day}
           style={{ maxWidth: "158px" }}
           id="day"
           onChange={(e) => {
