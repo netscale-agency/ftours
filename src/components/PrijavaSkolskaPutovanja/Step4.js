@@ -171,6 +171,18 @@ export default function Step4({
               })}
         </select>
       </div>
+      {!day && (
+        <p
+          style={{
+            color: "red",
+            marginTop: -12,
+            fontSize: 13.8,
+            maxWidth: 490,
+          }}
+        >
+          Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
+        </p>
+      )}
        <label>Telefon putnika</label>
     
       <InputMask
