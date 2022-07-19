@@ -4,7 +4,7 @@ import { check, dateData } from "./util/check";
 import { cityData } from "./util/data";
 
 export default function Step3({ setActive, active, step3, setStep3 }) {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(step3.Mjesto || "");
 
   useEffect(() => {
     setCity(JSON.parse(localStorage.getItem("step3")).Mjesto || "");
@@ -15,13 +15,19 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [month, setmonth] = useState(step3.DatumRodjenja.split(".")[1]);
   const thisYear = new Date().getFullYear();
 
-  const [imeRoditelj, setImeRoditelj] = useState("");
-  const [prezimeRoditelj, setPrezimeRoditelj] = useState("");
-  const [telRoditelj, setTelRoditelj] = useState("");
-  const [email, setEmail] = useState("");
-  const [prezimePutnika, setPrezimePutnika] = useState("");
-  const [imePutnika, setImePutnika] = useState("");
-  const [adresaPutnika, setAdresaPutnika] = useState("");
+  const [imeRoditelj, setImeRoditelj] = useState(
+    step3.RoditeljSkrbnik.split(" ")[0] || ""
+  );
+  const [prezimeRoditelj, setPrezimeRoditelj] = useState(
+    step3.RoditeljSkrbnik.split(" ")[1] || ""
+  );
+  const [telRoditelj, setTelRoditelj] = useState(
+    step3.RoditeljSkrbnikMob || ""
+  );
+  const [email, setEmail] = useState(step3.RoditeljSkrbnikEmail || "");
+  const [prezimePutnika, setPrezimePutnika] = useState(step3.Prezime || "");
+  const [imePutnika, setImePutnika] = useState(step3.Ime || "");
+  const [adresaPutnika, setAdresaPutnika] = useState(step3.Adresa || "");
   const [spol, setSpol] = useState(step3.Spol);
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
@@ -30,7 +36,6 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
     JSON.parse(localStorage.getItem("step3"))
   );
 
-  console.log(step3, step3.DatumRodjenja.split(".")[0]);
   return (
     <div className="stepContainer2">
       <label>
@@ -47,7 +52,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />
       <span style={{ color: "red", marginTop: -8 }}>
-        {check(prezimeRoditelj, "prezimeRoditelj")}
+        {(!defData.RoditeljIme || prezimeRoditelj === "") &&
+          check(prezimeRoditelj, "prezimeRoditelj")}
       </span>
       <label>
         Ime ugovaratelja putovanja (roditelj/staratelj)<b>(obavezno)</b>
@@ -63,7 +69,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />{" "}
       <span style={{ color: "red", marginTop: -8 }}>
-        {check(imeRoditelj, "imeRoditelj")}
+        {(!defData.roditeljPrezime || imeRoditelj === "") &&
+          check(imeRoditelj, "imeRoditelj")}
       </span>
       <label>
         Mobitel ugovaratelja putovanja <b>(obavezno)</b>
@@ -79,7 +86,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="tel"
       />
       <span style={{ color: "red", marginTop: -8 }}>
-        {check(telRoditelj, "telRoditelj")}
+        {(!defData.RoditeljSkrbnikMob || telRoditelj === "") &&
+          check(telRoditelj, "telRoditelj")}
       </span>
       <label>
         E-mail ugovaratelja putovanja <b>(obavezno)</b>
@@ -94,7 +102,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="email"
       />{" "}
       <span style={{ color: "red", marginTop: -8 }}>
-        {check(email, "emailRoditelj")}
+        {(!defData.RoditeljSkrbnikEmail || email === "") &&
+          check(email, "emailRoditelj")}
       </span>
       <label>
         Prezime putnika <b>(obavezno)</b>
@@ -110,7 +119,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />{" "}
       <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
-        {check(prezimePutnika, "prezimePutnika")}
+        {(!defData.Prezime || prezimePutnika === "") &&
+          check(prezimePutnika, "prezimePutnika")}
       </span>
       <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
@@ -129,7 +139,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />{" "}
       <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
-        {check(imePutnika, "imePutnika")}
+        {(!defData.Ime || imePutnika === "") && check(imePutnika, "imePutnika")}
       </span>
       <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
@@ -148,7 +158,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite svoju adresu (npr. Horvatova 1)"
       />{" "}
       <span style={{ color: "red", marginTop: -8 }}>
-        {check(adresaPutnika, "adresaPutnika")}
+        {(!defData.Adresa || adresaPutnika === "") &&
+          check(adresaPutnika, "adresaPutnika")}
       </span>
       <label>
         Grad/mjesto putnika <b>(obavezno)</b>
@@ -168,7 +179,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         })}
       </datalist>
       <span style={{ color: "red", marginTop: -8, marginBottom: 3 }}>
-        {check(city, "mjesto")}
+        {!defData.Mjesto || (city === "" && check(city, "mjesto"))}
       </span>
       <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
         Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
@@ -318,14 +329,14 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           disabled={
             cityData.includes(city) &&
             year < thisYear &&
-            document.getElementById("imeRoditelj").value &&
-            document.getElementById("prezimeRoditelj").value &&
-            document.getElementById("emailRoditelj").value &&
-            document.getElementById("telRoditelj").value &&
-            document.getElementById("adresaPutnika").value &&
+            imeRoditelj &&
+            prezimeRoditelj &&
+            email &&
+            telRoditelj &&
+            adresaPutnika &&
             spol &&
-            document.getElementById("prezimePutnika").value &&
-            document.getElementById("imePutnika").value
+            prezimePutnika &&
+            imePutnika
               ? false
               : true
           }
