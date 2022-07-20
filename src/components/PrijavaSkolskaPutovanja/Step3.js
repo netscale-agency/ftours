@@ -165,7 +165,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Grad/mjesto putnika <b>(obavezno)</b>
       </label>
       <input
-      style={{maxWidth:'474px'}}
+        style={{ maxWidth: "474px" }}
         defaultValue={defData.Mjesto}
         list="mjesta"
         name="mjesto"
@@ -190,7 +190,12 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <label>
         Država putnika <b>(ako je drugačije od dolje navedenog - obavezno)</b>
       </label>
-      <input id="drzava" type="text" defaultValue={"HRVATSKA"} />{" "}
+      <input
+        style={{ maxWidth: "474px" }}
+        id="drzava"
+        type="text"
+        defaultValue={"HRVATSKA"}
+      />{" "}
       <label>
         Datum rođenja putnika <b>(obavezno)</b>
       </label>
@@ -203,7 +208,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             setYear(e.target.value);
           }}
         >
-          <option value={""}>Godina</option>
+          <option style={{ backgroundColor: "lightgray" }} value={""}>
+            Godina
+          </option>
           {dateData.years.map((item, i) => {
             return (
               <option key={i} value={item}>
@@ -220,7 +227,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             setmonth(e.target.value);
           }}
         >
-          <option value={""}>Mjesec</option>
+          <option style={{ backgroundColor: "lightgray" }} value={""}>
+            Mjesec
+          </option>
           {year &&
             dateData.months.map((item, i) => {
               return (
@@ -238,7 +247,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             setday(e.target.value);
           }}
         >
-          <option value={""}>Dan</option>
+          <option style={{ backgroundColor: "lightgray" }} value={""}>
+            Dan
+          </option>
           {month &&
             month != "02" &&
             (dateData.months31.includes(month)
@@ -333,6 +344,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             cityData.includes(city) &&
             year < thisYear &&
             imeRoditelj &&
+            day &&
             prezimeRoditelj &&
             email &&
             telRoditelj &&
