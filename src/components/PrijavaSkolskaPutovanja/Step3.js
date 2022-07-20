@@ -183,7 +183,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         {(!defData.Mjesto || city === "") && check(city, "mjesto")}
       </span>
       {!cityData.includes(city) && (
-        <p style={{ color: "red", marginTop: -12, fontSize: 13.8 }}>
+        <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
           Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
         </p>
       )}
