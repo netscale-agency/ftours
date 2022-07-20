@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { postData } from "./util/post";
 import InputMask from "react-input-mask";
-import { dateData } from "./util/check";
+import { dateData, putovnicaYears } from "./util/check";
 
 export default function Step4({
   data,
@@ -108,7 +108,7 @@ export default function Step4({
           }}
         >
           <option value={""}>Godina</option>
-          {dateData.years.map((item, i) => {
+          {putovnicaYears.years.map((item, i) => {
             return (
               <option key={i} value={item}>
                 {item}
