@@ -13,6 +13,7 @@ export default function PrijavaSkolskaPutovanja() {
   const [active, setActive] = useState(0);
   const [data, setData] = useState();
   const [aran, setAran] = useState();
+  const [activateCheck, setactivateCheck] = useState(false);
   const [step2, setStep2] = useState({
     KontaktOsobaId: 0,
     Razred: "",
@@ -96,65 +97,76 @@ export default function PrijavaSkolskaPutovanja() {
       })
     );
   }, []);
+  console.log(activateCheck);
   if (data)
     return (
       <>
-  {false&&    <Overview data={{
-                  Signature: ip,
-                  GrupaId: Number(aran),
-                  ...step2,
-                  ...step3,
-                  ...step4,
-                }}/>}
-        <div className="cont" style={{ width: "80%", margin: "auto" }}>
-          <h1>Prijava za školsko putovanje</h1>
-          <ProgressBar activeSteps={activatedSteps(active)} />
-          <div style={{ minHeight: 400 }} className="containerForm">
-            {active === 0 && (
-              <Step1
-                setActive={setActive}
-                setAran={setAran}
-                active={active}
-                data={data.GrupeRezervacije}
-              />
-            )}
-            {active === 1 && (
-              <Step2
-                data={data}
-                aran={aran}
-                setActive={setActive}
-                active={active}
-                setStep2={setStep2}
-                step2={step2}
-              />
-            )}
-            {active === 2 && (
-              <Step3
-                setStep3={setStep3}
-                step3={step3}
-                setActive={setActive}
-                active={active}
-              />
-            )}
-            {active === 3 && (
-              <Step4
-                setActive={setActive}
-                active={active}
-                aran={aran}
-                step4={step4}
-                contentData={data.GrupeRezervacije}
-                setStep4={setStep4}
-                data={{
-                  Signature: ip,
-                  GrupaId: Number(aran),
-                  ...step2,
-                  ...step3,
-                  ...step4,
-                }}
-              />
-            )}
+        {activateCheck && (
+          <Overview
+            aran={aran}
+            contentData={data.GrupeRezervacije}
+            setStep4={setStep4}
+            data={{
+              Signature: ip,
+              GrupaId: Number(aran),
+              ...step2,
+              ...step3,
+              ...step4,
+            }}
+          />
+        )}
+        {!activateCheck && (
+          <div className="cont" style={{ width: "80%", margin: "auto" }}>
+            <h1>Prijava za školsko putovanje</h1>
+            <ProgressBar activeSteps={activatedSteps(active)} />
+            <div style={{ minHeight: 400 }} className="containerForm">
+              {active === 0 && (
+                <Step1
+                  setActive={setActive}
+                  setAran={setAran}
+                  active={active}
+                  data={data.GrupeRezervacije}
+                />
+              )}
+              {active === 1 && (
+                <Step2
+                  data={data}
+                  aran={aran}
+                  setActive={setActive}
+                  active={active}
+                  setStep2={setStep2}
+                  step2={step2}
+                />
+              )}
+              {active === 2 && (
+                <Step3
+                  setStep3={setStep3}
+                  step3={step3}
+                  setActive={setActive}
+                  active={active}
+                />
+              )}
+              {active === 3 && (
+                <Step4
+                  setactivateCheck={setactivateCheck}
+                  setActive={setActive}
+                  active={active}
+                  aran={aran}
+                  step4={step4}
+                  contentData={data.GrupeRezervacije}
+                  setStep4={setStep4}
+                  data={{
+                    Signature: ip,
+                    GrupaId: Number(aran),
+                    ...step2,
+                    ...step3,
+                    ...step4,
+                  }}
+                />
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </>
     );
   else return <></>;

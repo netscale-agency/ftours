@@ -11,8 +11,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   }, []);
   const [day, setday] = useState(step3.DatumRodjenja.split(".")[0]);
   const [year, setYear] = useState(step3.DatumRodjenja.split(".")[2]);
-  const [date, setDate] = useState();
   const [month, setmonth] = useState(step3.DatumRodjenja.split(".")[1]);
+  const [date, setDate] = useState();
   const thisYear = new Date().getFullYear();
 
   const [imeRoditelj, setImeRoditelj] = useState(
@@ -51,7 +51,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         id="prezimeRoditelj"
         type="text"
       />
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14 }}>
+      <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
         {(!defData.RoditeljIme || prezimeRoditelj === "") &&
           check(prezimeRoditelj, "prezimeRoditelj")}
       </span>
@@ -68,7 +68,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         id="imeRoditelj"
         type="text"
       />{" "}
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14 }}>
+      <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
         {(!defData.roditeljPrezime || imeRoditelj === "") &&
           check(imeRoditelj, "imeRoditelj")}
       </span>
@@ -85,7 +85,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         defaultValue={defData.RoditeljSkrbnikMob}
         type="tel"
       />
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14 }}>
+      <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
         {(!defData.RoditeljSkrbnikMob || telRoditelj === "") &&
           check(telRoditelj, "telRoditelj")}
       </span>
@@ -101,7 +101,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
         type="email"
       />{" "}
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14 }}>
+      <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
         {(!defData.RoditeljSkrbnikEmail || email === "") &&
           check(email, "emailRoditelj")}
       </span>
@@ -118,11 +118,25 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite prezime (npr. HORVAT)"
         type="text"
       />{" "}
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14 ,marginBottom:3}}>
-        {(!defData.Prezime || prezimePutnika === "") &&
-          check(prezimePutnika, "prezimePutnika")}
-      </span>
-      <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
+      {(!defData.Prezime || prezimePutnika === "") && (
+        <span
+          style={{
+            color: "red",
+            marginTop: -16,
+            fontSize: 14,
+            marginBottom: 3,
+          }}
+        >
+          {check(prezimePutnika, "prezimePutnika")}
+        </span>
+      )}
+      <p
+        style={{
+          color: "#0d6efd",
+          marginTop: defData.Prezime || prezimePutnika !== "" ? 0 : -10,
+          fontSize: 13.8,
+        }}
+      >
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
@@ -138,10 +152,25 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite ime (npr. ANTE)"
         type="text"
       />{" "}
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14 ,marginBottom:3}}>
-        {(!defData.Ime || imePutnika === "") && check(imePutnika, "imePutnika")}
-      </span>
-      <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
+      {(!defData.Ime || imePutnika === "") && (
+        <span
+          style={{
+            color: "red",
+            marginTop: -16,
+            fontSize: 14,
+            marginBottom: 3,
+          }}
+        >
+          {check(imePutnika, "imePutnika")}
+        </span>
+      )}
+      <p
+        style={{
+          color: "#0d6efd",
+          marginTop: defData.Ime || imePutnika !== "" ? 0 : -10,
+          fontSize: 13.8,
+        }}
+      >
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
@@ -157,7 +186,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
         placeholder="Popunite svoju adresu (npr. Horvatova 1)"
       />{" "}
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14 }}>
+      <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
         {(!defData.Adresa || adresaPutnika === "") &&
           check(adresaPutnika, "adresaPutnika")}
       </span>
@@ -179,11 +208,26 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           return <option key={i} value={item} />;
         })}
       </datalist>
-      <span style={{ color: "red", marginTop: -16 ,fontSize:14,marginBottom:3 }}>
-        {(!defData.Mjesto || city === "") && check(city, "mjesto")}
-      </span>
+      {(!defData.Mjesto || city === "") && (
+        <span
+          style={{
+            color: "red",
+            marginTop: -16,
+            fontSize: 14,
+            marginBottom: 3,
+          }}
+        >
+          {check(city, "mjesto")}
+        </span>
+      )}
       {!cityData.includes(city) && (
-        <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
+        <p
+          style={{
+            color: "#0d6efd",
+            marginTop: defData.Mjesto || city !== "" ? 0 : -10,
+            fontSize: 13.8,
+          }}
+        >
           Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
         </p>
       )}
@@ -284,7 +328,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         <p
           style={{
             color: "red",
-            marginTop: -12,
+            marginTop: -10,
             fontSize: 13.8,
             maxWidth: 490,
           }}
@@ -296,7 +340,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         <p
           style={{
             color: "red",
-            marginTop: -12,
+            marginTop: -10,
             fontSize: 13.8,
             maxWidth: 490,
           }}
