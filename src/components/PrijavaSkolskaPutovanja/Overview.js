@@ -415,6 +415,7 @@ export default function Overview(data) {
           <input
             id="docBroj"
             type="text"
+            defaultValue={data.data.BrojPutneIsprave}
             placeholder="Popunite broj putne isprave"
           />{" "}
           <label>Putna isprava vrijedi do</label>
@@ -506,6 +507,7 @@ export default function Overview(data) {
           <label>Telefon putnika</label>
           <InputMask
             mask="+385 (0) 99/999/9999"
+            defaultValue={data.data.Tel}
             id="telPutnika"
             alwaysShowMask={true}
             type="tel"
@@ -516,6 +518,7 @@ export default function Overview(data) {
           <InputMask
             mask="+385 (0) 99/999/9999"
             id="MobPutnika"
+            defaultValue={data.data.Mob}
             alwaysShowMask={true}
             type="tel"
           />
@@ -527,6 +530,7 @@ export default function Overview(data) {
             placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
             id="emailPutnika"
             type="email"
+            defaultValue={data.data.Email}
           />{" "}
           <label>
             Način plaćanja <b style={{ color: "#B11F23" }}>(obavezno)</b>
@@ -556,7 +560,7 @@ export default function Overview(data) {
               </span>
             )}
           </div>
-          <select id="nacinPlacanja">
+          <select id="nacinPlacanja" defaultValue={data.data.Cijena}>
             {activeAran.CijenaAWebPrikaz === "True" && (
               <option
                 value={activeAran.CijenaA}
