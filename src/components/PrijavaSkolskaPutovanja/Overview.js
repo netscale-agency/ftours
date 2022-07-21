@@ -564,17 +564,17 @@ export default function Overview(data) {
             {activeAran.CijenaAWebPrikaz === "True" && (
               <option
                 value={activeAran.CijenaA}
-              >{`A - ${activeAran.CijenaA},00 do (${activeAran.DatumZaCijenuA})`}</option>
+              >{`A - ${activeAran.CijenaA},00 do ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
             )}
             {activeAran.CijenaBWebPrikaz === "True" && (
               <option
                 value={activeAran.CijenaB}
-              >{`B - ${activeAran.CijenaB},00 do (${activeAran.DatumZaCijenuB})`}</option>
+              >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
             )}
             {activeAran.CijenaCWebPrikaz === "True" && (
               <option
                 value={activeAran.CijenaC}
-              >{`C - ${activeAran.CijenaC},00 do (${activeAran.DatumZaCijenuC})`}</option>
+              >{`C - ${activeAran.CijenaC},00 do ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
             )}
           </select>
           <div className="buttonCont" style={{ marginBottom: 20 }}>
