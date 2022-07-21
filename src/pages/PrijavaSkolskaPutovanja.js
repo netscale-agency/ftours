@@ -97,7 +97,6 @@ export default function PrijavaSkolskaPutovanja() {
       })
     );
   }, []);
-  console.log(activateCheck);
   if (data)
     return (
       <>

@@ -53,7 +53,7 @@ export default function Step2({
         })}
       </select>
       <label>
-        Razred <b>(obavezno)</b>
+        Razred <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <select
         defaultValue={pickedRazred || ""}

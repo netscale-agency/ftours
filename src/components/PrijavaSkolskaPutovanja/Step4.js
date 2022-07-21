@@ -192,21 +192,27 @@ export default function Step4({
         alwaysShowMask={true}
         type="tel"
       />
-      <label>Mobitel putnika (obavezno)</label>
+      <label>
+        Mobitel putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
+      </label>
       <InputMask
         mask="+385 (0) 99/999/9999"
         id="MobPutnika"
         alwaysShowMask={true}
         type="tel"
       />
-      <label>E-mail putnika (obavezno)</label>
+      <label>
+        E-mail putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
+      </label>
       <input
         style={{ textTransform: "none" }}
         placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
         id="emailPutnika"
         type="email"
       />{" "}
-      <label>Način plaćanja (obavezno)</label>
+      <label>
+        Način plaćanja <b style={{ color: "#B11F23" }}>(obavezno)</b>
+      </label>
       <div style={{ display: "flex", flexDirection: "column" }}>
         {activeAran.CijenaAWebPrikaz === "True" && (
           <span>
@@ -214,6 +220,7 @@ export default function Step4({
             jednokratno novčanicama, internet/mobilnim bankarstvom ili
             uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
             dospijeća naznačenim na aranžmanu
+            <br />{" "}
           </span>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
@@ -235,20 +242,24 @@ export default function Step4({
         {activeAran.CijenaAWebPrikaz === "True" && (
           <option
             value={activeAran.CijenaA}
-          >{`A - ${activeAran.CijenaA},00 do (${activeAran.DatumZaCijenuA})`}</option>
+          >{`A - ${activeAran.CijenaA},00 do ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
             value={activeAran.CijenaB}
-          >{`B - ${activeAran.CijenaB},00 do (${activeAran.DatumZaCijenuB})`}</option>
+          >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
             value={activeAran.CijenaC}
-          >{`C - ${activeAran.CijenaC},00 do (${activeAran.DatumZaCijenuC})`}</option>
+          >{`C - ${activeAran.CijenaC},00 do ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
         )}
       </select>
-      <label> RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA</label>
+      <label>
+        {" "}
+        <b>RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA</b>
+      </label>
+      <br />
       <span>
         {" "}
         Ja, kao nositelj roditeljske skrbi maloljetnika suglasan sam da Agencija
@@ -269,32 +280,57 @@ export default function Step4({
           i moje pravo da se predmetnoj obradi usprotivim te da ova privola
           predstavlja izričitu privolu sukladno važećim zakonskim propisima koji
           uređuju zaštitu osobnih podataka te da je uporaba osobnih podataka
-          djeteta dozvoljena na opisani način i u zadanom opsegu. (obavezno)
+          djeteta dozvoljena na opisani način i u zadanom opsegu.{" "}
+          <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </b>
         <input
+          style={{ alignItems: "start", width: 30, height: 17 }}
           type="checkbox"
           id="uvjeti"
           onChange={() => setChecked(!checked)}
         />
       </span>
+      <br />
+      <p>
+        Opoziv suglasnosti je moguće ostvariti na način da se pošalje obavijest
+        o opozivu na e-mail adresu desk@f-tours.hr ili na adresu Destinations
+        F-tours d.o.o., Trg Hrvatske bratske zajednice 2, 21000 Split.
+      </p>
+      <br />
       <label>
-        Suglasan sam da se fotografije/video snimke/audio snimke mog djeteta sa
-        putovanja objave na društvenim mrežama Agencije (obavezno)
+        <b>
+          {" "}
+          Suglasan sam da se fotografije/video snimke/audio snimke mog djeteta
+          sa putovanja objave na društvenim mrežama Agencije{" "}
+        </b>
+        <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         id="suglasnost"
         type="checkbox"
+        style={{ width: 30, height: 17 }}
         onChange={() => setChecked1(!checked1)}
       />{" "}
       <a href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE">
         {" "}
-        <label>Pročitao/la sam i prihvaćam opće uvjete (obavezno)</label>
+        <br />
+        <label>
+          Pročitao/la sam i prihvaćam opće uvjete{" "}
+          <b style={{ color: "#B11F23" }}>(obavezno)</b>
+        </label>
       </a>
       <input
         id="općiUvjeti"
         type="checkbox"
+        style={{ width: 30, height: 17 }}
         onChange={() => setChecked2(!checked2)}
       />
+      <p>
+        <b>Slanjem ove prijave Pošiljatelj je potvrdio da je upoznat sa detaljima
+        aranžmana i Općim uvjetima poslovanja putničke agencije Destinations
+        F-tours d.o.o. i dao je osobnu/roditeljsku privolu za upravljanje
+        osobnim podacima te je potvrdio da su dostavljeni podaci istiniti.</b>
+      </p>
       <div className="buttonCont" style={{ marginBottom: 20 }}>
         <button
           disabled={active === 0 ? true : false}
@@ -352,7 +388,7 @@ export default function Step4({
             }
           }}
         >
-          Pošalji
+          Sljedeći korak
         </button>
       </div>
     </div>

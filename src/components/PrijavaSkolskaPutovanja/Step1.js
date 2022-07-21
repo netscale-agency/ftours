@@ -22,7 +22,7 @@ export default function Step1({ data, active, setActive, setAran }) {
     <div style={{ width: "100%" }}>
       <div className="inputCont">
         <label>
-          Šifra aranžmana <b>(obavezno)</b>
+          Šifra aranžmana <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </label>
         <input
           defaultValue={defAran}

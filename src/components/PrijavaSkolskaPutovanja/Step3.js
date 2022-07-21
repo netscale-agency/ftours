@@ -28,7 +28,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [prezimePutnika, setPrezimePutnika] = useState(step3.Prezime || "");
   const [imePutnika, setImePutnika] = useState(step3.Ime || "");
   const [adresaPutnika, setAdresaPutnika] = useState(step3.Adresa || "");
-  const [spol, setSpol] = useState(step3.Spol);
+  const [spol, setSpol] = useState(step3.Spol || "");
+  console.log(spol);
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
@@ -39,7 +40,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   return (
     <div className="stepContainer2">
       <label>
-        Prezime ugovaratelja putovanja (roditelj/staratelj) <b>(obavezno)</b>
+        Prezime ugovaratelja putovanja (roditelj/staratelj){" "}
+        <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         placeholder="Popunite Prezime (npr. Horvat)"
@@ -56,7 +58,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           check(prezimeRoditelj, "prezimeRoditelj")}
       </span>
       <label>
-        Ime ugovaratelja putovanja (roditelj/staratelj)<b>(obavezno)</b>
+        Ime ugovaratelja putovanja (roditelj/staratelj){" "}
+        <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         placeholder="Popunite Ime (npr. Ante)"
@@ -73,7 +76,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           check(imeRoditelj, "imeRoditelj")}
       </span>
       <label>
-        Mobitel ugovaratelja putovanja <b>(obavezno)</b>
+        Mobitel ugovaratelja putovanja{" "}
+        <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <InputMask
         mask="+385 (0) 99/999/9999"
@@ -90,7 +94,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           check(telRoditelj, "telRoditelj")}
       </span>
       <label>
-        E-mail ugovaratelja putovanja <b>(obavezno)</b>
+        E-mail ugovaratelja putovanja{" "}
+        <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         defaultValue={defData.RoditeljSkrbnikEmail}
@@ -106,7 +111,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           check(email, "emailRoditelj")}
       </span>
       <label>
-        Prezime putnika <b>(obavezno)</b>
+        Prezime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         style={{ textTransform: "uppercase" }}
@@ -140,7 +145,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
-        Ime putnika <b>(obavezno)</b>
+        Ime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         style={{ textTransform: "uppercase" }}
@@ -174,7 +179,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
       </p>
       <label>
-        Adresa putnika <b>(obavezno)</b>
+        Adresa putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         style={{ textTransform: "capitalize" }}
@@ -191,7 +196,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           check(adresaPutnika, "adresaPutnika")}
       </span>
       <label>
-        Grad/mjesto putnika <b>(obavezno)</b>
+        Grad/mjesto putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
         style={{ maxWidth: "474px" }}
@@ -241,7 +246,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         defaultValue={"HRVATSKA"}
       />{" "}
       <label>
-        Datum rođenja putnika <b>(obavezno)</b>
+        Datum rođenja putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <div style={{ display: "flex" }}>
         <select
@@ -349,7 +354,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         </p>
       )}
       <label>
-        Spol <b>(obavezno)</b>
+        Spol <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <div style={{ display: "flex" }}>
         <label>M</label>
@@ -358,8 +363,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           id="spol"
           name="spol"
           type="radio"
-          defaultChecked={spol}
-          onChange={() => setSpol("M")}
+          defaultChecked={spol === "M" ? true : false}
+          onClick={() => setSpol("M")}
           value={"M"}
         />
         <label>Ž</label>
@@ -368,8 +373,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           id="spol"
           name="spol"
           type="radio"
-          defaultChecked={spol}
-          onChange={() => setSpol("Ž")}
+          defaultChecked={spol === "Ž" ? true : false}
+          onClick={() => setSpol("Ž")}
           value={"Ž"}
         />
       </div>

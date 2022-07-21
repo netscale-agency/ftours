@@ -93,9 +93,15 @@ export default function Overview(data) {
           }}
         >
           <h2>Provjera podataka</h2>
+          <br />
+          <p>
+            Ovo je zadnji korak vaše prijave tu vam prikazujemo već prije
+            ispunjena polja molimo vas potvrdite valjanost podataka i kliknite
+            Pošalji prijavu
+          </p>
           <label>
             Prezime ugovaratelja putovanja (roditelj/staratelj){" "}
-            <b>(obavezno)</b>
+            <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
             placeholder="Popunite Prezime (npr. Horvat)"
@@ -112,7 +118,8 @@ export default function Overview(data) {
               check(prezimeRoditelj, "prezimeRoditelj")}
           </span>
           <label>
-            Ime ugovaratelja putovanja (roditelj/staratelj)<b>(obavezno)</b>
+            Ime ugovaratelja putovanja (roditelj/staratelj){" "}
+            <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
             placeholder="Popunite Ime (npr. Ante)"
@@ -129,7 +136,8 @@ export default function Overview(data) {
               check(imeRoditelj, "imeRoditelj")}
           </span>
           <label>
-            Mobitel ugovaratelja putovanja <b>(obavezno)</b>
+            Mobitel ugovaratelja putovanja{" "}
+            <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <InputMask
             mask="+385 (0) 99/999/9999"
@@ -146,7 +154,8 @@ export default function Overview(data) {
               check(telRoditelj, "telRoditelj")}
           </span>
           <label>
-            E-mail ugovaratelja putovanja <b>(obavezno)</b>
+            E-mail ugovaratelja putovanja{" "}
+            <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
             defaultValue={data.data.RoditeljSkrbnikEmail}
@@ -162,7 +171,7 @@ export default function Overview(data) {
               check(email, "emailRoditelj")}
           </span>
           <label>
-            Prezime putnika <b>(obavezno)</b>
+            Prezime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
             style={{ textTransform: "uppercase" }}
@@ -189,7 +198,7 @@ export default function Overview(data) {
             Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
           </p>
           <label>
-            Ime putnika <b>(obavezno)</b>
+            Ime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
             style={{ textTransform: "uppercase" }}
@@ -216,7 +225,7 @@ export default function Overview(data) {
             Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
           </p>
           <label>
-            Adresa putnika <b>(obavezno)</b>
+            Adresa putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
             style={{ textTransform: "capitalize" }}
@@ -233,7 +242,7 @@ export default function Overview(data) {
               check(adresaPutnika, "adresaPutnika")}
           </span>
           <label>
-            Grad/mjesto putnika <b>(obavezno)</b>
+            Grad/mjesto putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
             style={{ maxWidth: "474px" }}
@@ -277,7 +286,7 @@ export default function Overview(data) {
             defaultValue={"HRVATSKA"}
           />{" "}
           <label>
-            Datum rođenja putnika <b>(obavezno)</b>
+            Datum rođenja putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <div style={{ display: "flex" }}>
             <select
@@ -361,7 +370,7 @@ export default function Overview(data) {
             </select>
           </div>
           <label>
-            Spol <b>(obavezno)</b>
+            Spol <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <div style={{ display: "flex" }}>
             <label>M</label>
@@ -370,8 +379,8 @@ export default function Overview(data) {
               id="spol"
               name="spol"
               type="radio"
-              defaultChecked={spol}
-              onChange={() => setSpol("M")}
+              defaultChecked={spol === "M" ? true : false}
+              onClick={() => setSpol("M")}
               value={"M"}
             />
             <label>Ž</label>
@@ -380,8 +389,8 @@ export default function Overview(data) {
               id="spol"
               name="spol"
               type="radio"
-              defaultChecked={spol}
-              onChange={() => setSpol("Ž")}
+              defaultChecked={spol === "Ž" ? true : false}
+              onClick={() => setSpol("Ž")}
               value={"Ž"}
             />
           </div>
@@ -501,21 +510,27 @@ export default function Overview(data) {
             alwaysShowMask={true}
             type="tel"
           />
-          <label>Mobitel putnika (obavezno)</label>
+          <label>
+            Mobitel putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
+          </label>
           <InputMask
             mask="+385 (0) 99/999/9999"
             id="MobPutnika"
             alwaysShowMask={true}
             type="tel"
           />
-          <label>E-mail putnika (obavezno)</label>
+          <label>
+            E-mail putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
+          </label>
           <input
             style={{ textTransform: "none" }}
             placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
             id="emailPutnika"
             type="email"
           />{" "}
-          <label>Način plaćanja (obavezno)</label>
+          <label>
+            Način plaćanja <b style={{ color: "#B11F23" }}>(obavezno)</b>
+          </label>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {activeAran.CijenaAWebPrikaz === "True" && (
               <span>
@@ -606,7 +621,7 @@ export default function Overview(data) {
                 }
               }}
             >
-              Pošalji
+              Pošalji prijavu
             </button>
           </div>
         </div>
