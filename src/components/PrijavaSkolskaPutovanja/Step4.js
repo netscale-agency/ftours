@@ -253,7 +253,7 @@ export default function Step4({
           djeteta dozvoljena na opisani način i u zadanom opsegu.{" "}
           <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </b>
-        <br/>
+        <br />
         <input
           style={{ alignItems: "start", width: 17, height: 17 }}
           type="checkbox"
@@ -283,7 +283,7 @@ export default function Step4({
         style={{ width: 17, height: 17 }}
         onChange={() => setChecked1(!checked1)}
       />{" "}
-      <a href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE">
+      <a target='blank' href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE">
         {" "}
         <br />
         <label>
@@ -335,7 +335,7 @@ export default function Step4({
                 ),
                 PutnaIspravaVrijediDo: date,
                 Tel: document.getElementById("telPutnika").value,
-                VrstaPutneIsprave: document.getElementById("dokument").value,
+                VrstaPutneIsprave: dokument,
               });
               localStorage.setItem(
                 "step4",

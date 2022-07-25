@@ -12,6 +12,8 @@ export default function Overview(data) {
   const [yearDoc, setYearDoc] = useState(data.data.PutnaIspravaVrijediDo.split(".")[2] || '');
   const [monthDoc, setmonthDoc] = useState(data.data.PutnaIspravaVrijediDo.split(".")[1] || '');
   const [spol, setSpol] = useState(data.data.Spol);
+  const [dokument, setDokument] = useState(data.data.VrstaPutneIsprave);
+  console.log(dokument)
   const [date, setDate] = useState();
   const [city, setCity] = useState(data.data.Mjesto || "");
 
@@ -431,7 +433,10 @@ export default function Overview(data) {
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
               className="inputOver"
+              name="dokument"
               type="radio"
+              onClick={() => setDokument('Osobna iskaznica')}
+              defaultChecked={dokument === 'Osobna iskaznica' ? true : false}
               value={"Osobna iskaznica"}
             />
             <label>Putovnica</label>
@@ -440,8 +445,11 @@ export default function Overview(data) {
               id="dokument"
               name="dokument"
               type="radio"
+              onClick={() => setDokument('Putovnica')}
               className="inputOver"
               value={"Putovnica"}
+              defaultChecked={dokument === 'Putovnica' ? true : false}
+
             />
           </div>
           <label>Broj putne isprave putnika</label>
@@ -666,8 +674,7 @@ export default function Overview(data) {
                       ),
                       PutnaIspravaVrijediDo: date,
                       Tel: document.getElementById("telPutnika").value,
-                      VrstaPutneIsprave: document.getElementById("dokument")
-                        .value,
+                      VrstaPutneIsprave: '',
                     })
                   );
                   window.localStorage.clear();
