@@ -46,7 +46,7 @@ export default function Step1({ data, active, setActive, setAran }) {
           data.filter((item) => item.BrojAranzmana === isString).length !== 0 &&
           data.filter((item) => item.BrojAranzmana === isString)[0]
             .GrupaPopunjena === "True" && (
-            <span>Grupa popunjena kontaktirajte nas na info@f-tours.hr</span>
+            <span>Grupa je trenutno popunjena. Pošaljite upit na (desk@f-tours.hr)</span>
           )}
       </div>
       <div className="buttonCont">

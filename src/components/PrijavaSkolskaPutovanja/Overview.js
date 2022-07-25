@@ -16,6 +16,24 @@ export default function Overview(data) {
   const [date, setDate] = useState();
   const [city, setCity] = useState(data.data.Mjesto || "");
   const [price, setPrice] = useState(data.data.NacinPlacanja)
+  const [uredi1, seturedi1] = useState(false)
+  const [uredi2, seturedi2] = useState(false)
+  const [uredi3, seturedi3] = useState(false)
+  const [uredi4, seturedi4] = useState(false)
+  const [uredi5, seturedi5] = useState(false)
+  const [uredi6, seturedi6] = useState(false)
+  const [uredi7, seturedi7] = useState(false)
+  const [uredi8, seturedi8] = useState(false)
+  const [uredi9, seturedi9] = useState(false)
+  const [uredi10, seturedi10] = useState(false)
+  const [uredi11, seturedi11] = useState(false)
+  const [uredi12, seturedi12] = useState(false)
+  const [uredi13, seturedi13] = useState(false)
+  const [uredi14, seturedi14] = useState(false)
+  const [uredi15, seturedi15] = useState(false)
+  const [uredi16, seturedi16] = useState(false)
+  const [uredi17, seturedi17] = useState(false)
+  const [uredi18, seturedi18] = useState(false)
 
   const thisYear = new Date().getFullYear();
   const NacinPlacanja = (str) => {
@@ -110,7 +128,8 @@ export default function Overview(data) {
             Prezime ugovaratelja putovanja (roditelj/staratelj){" "}
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
+          <div className="inputContOver">  <input
+            disabled={uredi1 ? false : true}
             className="inputOver"
             placeholder="Popunite Prezime (npr. Horvat)"
             style={{ textTransform: "capitalize" }}
@@ -120,7 +139,8 @@ export default function Overview(data) {
             }}
             id="prezimeRoditelj"
             type="text"
-          />
+          /><button onClick={() => seturedi1(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.RoditeljIme || prezimeRoditelj === "") &&
               check(prezimeRoditelj, "prezimeRoditelj")}
@@ -129,17 +149,19 @@ export default function Overview(data) {
             Ime ugovaratelja putovanja (roditelj/staratelj){" "}
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
-            placeholder="Popunite Ime (npr. Ante)" className="inputOver"
-
-            defaultValue={data.data.RoditeljSkrbnik.split(" ")[0]}
-            style={{ textTransform: "capitalize" }}
-            onChange={(e) => {
-              setImeRoditelj(e.target.value);
-            }}
-            id="imeRoditelj"
-            type="text"
-          />{" "}
+          <div className="inputContOver">
+            <input
+              placeholder="Popunite Ime (npr. Ante)" className="inputOver"
+              disabled={uredi2 ? false : true}
+              defaultValue={data.data.RoditeljSkrbnik.split(" ")[0]}
+              style={{ textTransform: "capitalize" }}
+              onChange={(e) => {
+                setImeRoditelj(e.target.value);
+              }}
+              id="imeRoditelj"
+              type="text"
+            />{" "}<button onClick={() => seturedi2(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.roditeljPrezime || imeRoditelj === "") &&
               check(imeRoditelj, "imeRoditelj")}
@@ -148,17 +170,20 @@ export default function Overview(data) {
             Mobitel ugovaratelja putovanja{" "}
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <InputMask
-            mask="+385 (0) 99/999/9999"
-            id="telRoditelj"
-            className="inputOver"
-            alwaysShowMask={true}
-            onChange={(e) => {
-              setTelRoditelj(e.target.value);
-            }}
-            defaultValue={data.data.RoditeljSkrbnikMob}
-            type="tel"
-          />
+          <div className="inputContOver">
+            <InputMask
+              mask="+385 (0) 99/999/9999"
+              id="telRoditelj"
+              disabled={uredi3 ? false : true}
+              className="inputOver"
+              alwaysShowMask={true}
+              onChange={(e) => {
+                setTelRoditelj(e.target.value);
+              }}
+              defaultValue={data.data.RoditeljSkrbnikMob}
+              type="tel"
+            /><button onClick={() => seturedi3(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.RoditeljSkrbnikMob || telRoditelj === "") &&
               check(telRoditelj, "telRoditelj")}
@@ -167,16 +192,19 @@ export default function Overview(data) {
             E-mail ugovaratelja putovanja{" "}
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
-            className="inputOver"
-            defaultValue={data.data.RoditeljSkrbnikEmail}
-            id="emailRoditelj"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
-            type="email"
-          />{" "}
+          <div className="inputContOver">
+            <input
+              className="inputOver"
+              disabled={uredi4 ? false : true}
+              defaultValue={data.data.RoditeljSkrbnikEmail}
+              id="emailRoditelj"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
+              type="email"
+            />{" "}<button onClick={() => seturedi4(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.RoditeljSkrbnikEmail || email === "") &&
               check(email, "emailRoditelj")}
@@ -184,17 +212,20 @@ export default function Overview(data) {
           <label>
             Prezime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
-            style={{ textTransform: "uppercase" }}
-            defaultValue={data.data.Prezime}
-            id="prezimePutnika"
-            className="inputOver"
-            onChange={(e) => {
-              setPrezimePutnika(e.target.value);
-            }}
-            placeholder="Popunite prezime (npr. HORVAT)"
-            type="text"
-          />{" "}
+          <div className="inputContOver">
+            <input
+              style={{ textTransform: "uppercase" }}
+              defaultValue={data.data.Prezime}
+              id="prezimePutnika"
+              className="inputOver"
+              disabled={uredi5 ? false : true}
+              onChange={(e) => {
+                setPrezimePutnika(e.target.value);
+              }}
+              placeholder="Popunite prezime (npr. HORVAT)"
+              type="text"
+            />{" "}<button onClick={() => seturedi5(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <span
             style={{
               color: "red",
@@ -218,17 +249,20 @@ export default function Overview(data) {
           <label>
             Ime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
-            style={{ textTransform: "uppercase" }}
-            defaultValue={data.data.Ime}
-            className="inputOver"
-            id="imePutnika"
-            onChange={(e) => {
-              setImePutnika(e.target.value);
-            }}
-            placeholder="Popunite ime (npr. ANTE)"
-            type="text"
-          />{" "}
+          <div className="inputContOver">
+            <input
+              style={{ textTransform: "uppercase" }}
+              defaultValue={data.data.Ime}
+              className="inputOver"
+              disabled={uredi6 ? false : true}
+              id="imePutnika"
+              onChange={(e) => {
+                setImePutnika(e.target.value);
+              }}
+              placeholder="Popunite ime (npr. ANTE)"
+              type="text"
+            />{" "}<button onClick={() => seturedi6(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <span
             style={{
               color: "red",
@@ -252,17 +286,20 @@ export default function Overview(data) {
           <label>
             Adresa putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
-            style={{ textTransform: "capitalize" }}
-            defaultValue={data.data.Adresa}
-            className="inputOver"
-            id="adresaPutnika"
-            onChange={(e) => {
-              setAdresaPutnika(e.target.value);
-            }}
-            type="text"
-            placeholder="Popunite svoju adresu (npr. Horvatova 1)"
-          />{" "}
+          <div className="inputContOver">
+            <input
+              style={{ textTransform: "capitalize" }}
+              defaultValue={data.data.Adresa}
+              className="inputOver"
+              id="adresaPutnika"
+              disabled={uredi7 ? false : true}
+              onChange={(e) => {
+                setAdresaPutnika(e.target.value);
+              }}
+              type="text"
+              placeholder="Popunite svoju adresu (npr. Horvatova 1)"
+            /><button onClick={() => seturedi7(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.Adresa || adresaPutnika === "") &&
               check(adresaPutnika, "adresaPutnika")}
@@ -270,22 +307,26 @@ export default function Overview(data) {
           <label>
             Grad/mjesto putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
-            style={{ maxWidth: "474px" }}
-            defaultValue={data.data.Mjesto}
-            list="mjesta"
-            className="inputOver"
-            name="mjesto"
-            id="mjesto"
-            onChange={(e) => {
-              setCity(e.target.value);
-            }}
-          />
-          <datalist id="mjesta">
-            {cityData.map((item, i) => {
-              return <option key={i} value={item} />;
-            })}
-          </datalist>
+          <div className="inputContOver">
+            <input
+              style={{ maxWidth: "474px" }}
+              defaultValue={data.data.Mjesto}
+              list="mjesta"
+              className="inputOver"
+              disabled={uredi8 ? false : true}
+              name="mjesto"
+              id="mjesto"
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
+            /><button onClick={() => seturedi8(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <datalist id="mjesta">
+              {cityData.map((item, i) => {
+                return <option key={i} value={item} />;
+              })}
+            </datalist>
+          </div>
           <span
             style={{
               color: "red",
@@ -306,20 +347,24 @@ export default function Overview(data) {
             Država putnika{" "}
             <b>(ako je drugačije od dolje navedenog - obavezno)</b>
           </label>
-          <input
-            style={{ maxWidth: "474px" }}
-            id="drzava"
-            type="text"
-            className="inputOver"
-            defaultValue={"HRVATSKA"}
-          />{" "}
+          <div className="inputContOver">
+            <input
+              style={{ maxWidth: "474px" }}
+              id="drzava"
+              type="text"
+              disabled={uredi9 ? false : true}
+              className="inputOver"
+              defaultValue={"HRVATSKA"}
+            />{" "}<button onClick={() => seturedi9(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>
             Datum rođenja putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <div style={{ display: "flex" }}>
+          <div className="inputContOver" style={{ display: "flex" }}>
             <select
               className="selectOver"
               defaultValue={year}
+              disabled={true}
               style={{ maxWidth: "158px" }}
               id="god"
               onChange={(e) => {
@@ -342,6 +387,7 @@ export default function Overview(data) {
               style={{ maxWidth: "158px" }}
               className="selectOver"
               id="month"
+              disabled={true}
               onChange={(e) => {
                 setmonth(e.target.value);
               }}
@@ -363,6 +409,7 @@ export default function Overview(data) {
               className="selectOver"
               style={{ maxWidth: "158px" }}
               id="day"
+              disabled={uredi10 ? false : true}
               onChange={(e) => {
                 setday(e.target.value);
               }}
@@ -399,16 +446,19 @@ export default function Overview(data) {
                     );
                   })}
             </select>
-          </div>
+
+            <button onClick={() => seturedi10(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>
             Spol <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <div style={{ display: "flex" }}>
+          <div className="inputContOver" style={{ display: "flex" }}>
             <label>M</label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="spol"
               name="spol"
+              disabled={uredi11 ? false : true}
               className="inputOver"
               type="radio"
               defaultChecked={spol === "M" ? true : false}
@@ -421,19 +471,22 @@ export default function Overview(data) {
               id="spol"
               name="spol"
               className="inputOver"
+              disabled={uredi11 ? false : true}
               type="radio"
               defaultChecked={spol === "Ž" ? true : false}
               onClick={() => setSpol("Ž")}
               value={"Ž"}
             />
-          </div>
+            <button onClick={() => seturedi11(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>Vrsta putne isprave putnika</label>
-          <div style={{ display: "flex" }}>
+          <div className="inputContOver" style={{ display: "flex" }}>
             <label>Osobna iskaznica</label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
               className="inputOver"
+              disabled={uredi12 ? false : true}
               name="dokument"
               type="radio"
               onClick={() => setDokument('Osobna iskaznica')}
@@ -446,27 +499,32 @@ export default function Overview(data) {
               id="dokument"
               name="dokument"
               type="radio"
+              disabled={uredi12 ? false : true}
               onClick={() => setDokument('Putovnica')}
               className="inputOver"
               value={"Putovnica"}
               defaultChecked={dokument === 'Putovnica' ? true : false}
 
             />
-          </div>
+            <button onClick={() => seturedi12(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>Broj putne isprave putnika</label>
-          <input
-            id="docBroj"
-            type="text"
-            name="dokument"
-            className="inputOver"
-            defaultValue={data.data.BrojPutneIsprave}
-            placeholder="Popunite broj putne isprave"
-          />{" "}
+          <div className="inputContOver">
+            <input
+              id="docBroj"
+              type="text"
+              name="dokument"
+              className="inputOver"
+              disabled={uredi13 ? false : true}
+              defaultValue={data.data.BrojPutneIsprave}
+              placeholder="Popunite broj putne isprave"
+            />{" "}<button onClick={() => seturedi13(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>Putna isprava vrijedi do</label>
-          <div id="docTrajanje" style={{ display: "flex" }}>
+          <div id="docTrajanje" className="inputContOver" style={{ display: "flex" }}>
             <select
               className="selectOver"
-
+              disabled={true}
               style={{ maxWidth: "158px" }}
               id="god"
               defaultValue={yearDoc}
@@ -485,7 +543,7 @@ export default function Overview(data) {
             </select>
             <select
               className="selectOver"
-
+              disabled={uredi14 ? false : true}
               style={{ maxWidth: "158px" }}
               id="month"
               defaultValue={monthDoc}
@@ -505,7 +563,7 @@ export default function Overview(data) {
             </select>
             <select
               className="selectOver"
-
+              disabled={true}
               style={{ maxWidth: "158px" }}
               id="day"
               defaultValue={dayDoc}
@@ -543,6 +601,8 @@ export default function Overview(data) {
                     );
                   })}
             </select>
+            <button onClick={() => seturedi14(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
           </div>
           {!day && (
             <p
@@ -558,86 +618,105 @@ export default function Overview(data) {
             </p>
           )}
           <label>Telefon putnika</label>
-          <InputMask
-            mask="+385 (0) 99/999/9999"
-            defaultValue={data.data.Tel}
-            className="inputOver"
-            id="telPutnika"
-            alwaysShowMask={true}
-            type="tel"
-          />
+          <div className="inputContOver">
+
+            <InputMask
+              disabled={uredi15 ? false : true}
+
+              mask="+385 (0) 99/999/9999"
+              defaultValue={data.data.Tel}
+              className="inputOver"
+              id="telPutnika"
+              alwaysShowMask={true}
+              type="tel"
+            /><button onClick={() => seturedi15(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>
             Mobitel putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <InputMask
-            mask="+385 (0) 99/999/9999"
-            id="MobPutnika"
-            defaultValue={data.data.Mob}
-            className="inputOver"
-            alwaysShowMask={true}
-            type="tel"
-          />
+          <div className="inputContOver">
+
+            <InputMask
+              disabled={uredi16 ? false : true}
+
+              mask="+385 (0) 99/999/9999"
+              id="MobPutnika"
+              defaultValue={data.data.Mob}
+              className="inputOver"
+              alwaysShowMask={true}
+              type="tel"
+            /><button onClick={() => seturedi16(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>
             E-mail putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
-          <input
-            style={{ textTransform: "none" }}
-            placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
-            id="emailPutnika"
-            type="email"
-            className="inputOver"
-            defaultValue={data.data.Email}
-          />{" "}
+          <div className="inputContOver">
+
+            <input
+              disabled={uredi17 ? false : true}
+
+              style={{ textTransform: "none" }}
+              placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
+              id="emailPutnika"
+              type="email"
+              className="inputOver"
+              defaultValue={data.data.Email}
+            />{" "}<button onClick={() => seturedi17(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <label>
             Način plaćanja <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <div style={{ display: "flex", flexDirection: "column" }}>
-        {activeAran.CijenaAWebPrikaz === "True" && (
-          <span style={{ fontWeight: price === 'A' ? 600 : 400 }}>
-            A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
-            jednokratno novčanicama, internet/mobilnim bankarstvom ili
-            uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
-            dospijeća naznačenim na aranžmanu
-            <br />{" "}
-          </span>
-        )}
-        {activeAran.CijenaBWebPrikaz === "True" && (
-          <span style={{ fontWeight: `${price === 'B' ? 600 : 400}` }}>
-            B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
-            mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
-            poštom) s datumom dospijeća naznačenim na aranžmanu
-          </span>
-        )}
-        {activeAran.CijenaCWebPrikaz === "True" && (
-          <span style={{ fontWeight: price === 'C' ? 600 : 400 }}>
-            C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana jednokratno
-            ili obročno debitnim ili kreditnim karticama (max 12 obroka) do
-            datuma naznačenog na aranžmanu
-          </span>
-        )}
-      </div>
-      <select id="nacinPlacanja"
-      defaultValue={price}
-        onChange={(e) => {
-          setPrice(e.target.value)
-        }}>
-        <option>---</option>
-        {activeAran.CijenaAWebPrikaz === "True" && (
-          <option
-            value={'A'}
-          >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
-        )}
-        {activeAran.CijenaBWebPrikaz === "True" && (
-          <option
-            value={'B'}
-          >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
-        )}
-        {activeAran.CijenaCWebPrikaz === "True" && (
-          <option
-            value={'C'}
-          >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
-        )}
-      </select>
+            {activeAran.CijenaAWebPrikaz === "True" && (
+              <span style={{ fontWeight: price === 'A' ? 600 : 400 }}>
+                A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
+                jednokratno novčanicama, internet/mobilnim bankarstvom ili
+                uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
+                dospijeća naznačenim na aranžmanu
+                <br />{" "}
+              </span>
+            )}
+            {activeAran.CijenaBWebPrikaz === "True" && (
+              <span style={{ fontWeight: `${price === 'B' ? 600 : 400}` }}>
+                B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
+                mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
+                poštom) s datumom dospijeća naznačenim na aranžmanu
+              </span>
+            )}
+            {activeAran.CijenaCWebPrikaz === "True" && (
+              <span style={{ fontWeight: price === 'C' ? 600 : 400 }}>
+                C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana jednokratno
+                ili obročno debitnim ili kreditnim karticama (max 12 obroka) do
+                datuma naznačenog na aranžmanu
+              </span>
+            )}
+          </div>
+          <div className="inputContOver">
+
+            <select id="nacinPlacanja"
+              defaultValue={price}
+              disabled={uredi18 ? false : true}
+              onChange={(e) => {
+                setPrice(e.target.value)
+              }}>
+              <option>---</option>
+              {activeAran.CijenaAWebPrikaz === "True" && (
+                <option
+                  value={'A'}
+                >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
+              )}
+              {activeAran.CijenaBWebPrikaz === "True" && (
+                <option
+                  value={'B'}
+                >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
+              )}
+              {activeAran.CijenaCWebPrikaz === "True" && (
+                <option
+                  value={'C'}
+                >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
+              )}
+            </select><button onClick={() => seturedi18(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button></div>
           <div className="buttonCont" style={{ marginBottom: 20 }}>
             <></>
             <button
