@@ -199,7 +199,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Grad/mjesto putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
-        style={{ maxWidth: "360px",textTransform:'capitalize' }}
+        style={{ maxWidth: "300px",textTransform:'capitalize' }}
         defaultValue={defData.Mjesto}
         list="mjesta"
         name="mjesto"
@@ -241,7 +241,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Država putnika <b>(ako je drugačije od dolje navedenog - obavezno)</b>
       </label>
       <input
-        style={{ maxWidth: "360px" }}
+        style={{ maxWidth: "300px" }}
         id="drzava"
         type="text"
         defaultValue={"HRVATSKA"}
@@ -252,7 +252,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <div style={{ display: "flex" }}>
         <select
           defaultValue={year}
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "100px" }}
           id="god"
           onChange={(e) => {
             setYear(e.target.value);
@@ -271,7 +271,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         </select>
         <select
           defaultValue={month}
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "100px" }}
           id="month"
           onChange={(e) => {
             setmonth(e.target.value);
@@ -291,7 +291,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         </select>
         <select
           defaultValue={day}
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "100px" }}
           id="day"
           onChange={(e) => {
             setday(e.target.value);

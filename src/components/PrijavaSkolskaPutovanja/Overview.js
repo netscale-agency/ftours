@@ -422,7 +422,7 @@ export default function Overview(data) {
               <i class="fa fa-pencil" aria-hidden="true"></i>
             </button>
             <button onClick={() => seturedi9(false)}>
-              <i class="fas fa-save"></i>
+              <i class="fa fa-save"></i>
             </button>
           </div>
           <label>
@@ -597,7 +597,7 @@ export default function Overview(data) {
               type="text"
               name="dokument"
               className="inputOver"
-              style={{maxWidth:300}}
+              style={{ maxWidth: 300 }}
               disabled={uredi13 ? false : true}
               defaultValue={data.data.BrojPutneIsprave}
               placeholder="Popunite broj putne isprave"
@@ -609,6 +609,17 @@ export default function Overview(data) {
               <i class="fa fa-save"></i>
             </button>
           </div>
+          {day && (
+        <p
+          style={{
+            color: "#0d6efd",
+            fontSize: 13.8,
+          }}
+        >
+          Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
+          najkasnije mjesec dana prije polaska!
+        </p>
+      )}
           <label>Putna isprava vrijedi do</label>
           <div
             id="docTrajanje"
@@ -701,7 +712,7 @@ export default function Overview(data) {
               <i class="fa fa-save"></i>
             </button>
           </div>
-          {!day && (
+          {!dayDoc && (
             <p
               style={{
                 color: "red",
@@ -831,6 +842,9 @@ export default function Overview(data) {
             </select>
             <button onClick={() => seturedi18(true)}>
               <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi17(false)}>
+              <i class="fa fa-save"></i>
             </button>
           </div>
           <div className="buttonCont" style={{ marginBottom: 20 }}>

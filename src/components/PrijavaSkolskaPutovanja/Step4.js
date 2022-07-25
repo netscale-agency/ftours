@@ -21,18 +21,18 @@ export default function Step4({
   const [checked2, setChecked2] = useState(false);
   const [day, setday] = useState("");
   const [year, setYear] = useState();
-  const [dokument, setDokument] = useState('');
-  const [price, setPrice] = useState('')
-  const [date, setDate] = useState('');
+  const [dokument, setDokument] = useState("");
+  const [price, setPrice] = useState("");
+  const [date, setDate] = useState("");
   const [month, setmonth] = useState("");
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
 
   const NacinPlacanja = (str) => {
-    if (str === 'A') {
+    if (str === "A") {
       return activeAran.CijenaA;
-    } else if (str === 'B') {
+    } else if (str === "B") {
       return activeAran.CijenaB;
     } else {
       return activeAran.CijenaB;
@@ -70,6 +70,17 @@ export default function Step4({
         type="text"
         placeholder="Popunite broj putne isprave"
       />{" "}
+      {day && (
+        <p
+          style={{
+            color: "#0d6efd",
+            fontSize: 13.8,
+          }}
+        >
+          Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
+          najkasnije mjesec dana prije polaska!
+        </p>
+      )}
       <label>Putna isprava vrijedi do</label>
       <div id="docTrajanje" style={{ display: "flex" }}>
         <select
@@ -117,19 +128,19 @@ export default function Step4({
             month != "02" &&
             (dateData.months31.includes(month)
               ? dateData.days31.map((item, i) => {
-                return (
-                  <option key={i} value={item}>
-                    {item}
-                  </option>
-                );
-              })
+                  return (
+                    <option key={i} value={item}>
+                      {item}
+                    </option>
+                  );
+                })
               : dateData.days30.map((item, i) => {
-                return (
-                  <option key={i} value={item}>
-                    {item}
-                  </option>
-                );
-              }))}
+                  return (
+                    <option key={i} value={item}>
+                      {item}
+                    </option>
+                  );
+                }))}
           {month &&
             month === "02" &&
             dateData.days31
@@ -186,7 +197,7 @@ export default function Step4({
       </label>
       <div style={{ display: "flex", flexDirection: "column" }}>
         {activeAran.CijenaAWebPrikaz === "True" && (
-          <span style={{ fontWeight: price === 'A' ? 600 : 400 }}>
+          <span style={{ fontWeight: price === "A" ? 600 : 400 }}>
             A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
             jednokratno novčanicama, internet/mobilnim bankarstvom ili
             uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
@@ -195,38 +206,40 @@ export default function Step4({
           </span>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
-          <span style={{ fontWeight: `${price === 'B' ? 600 : 400}` }}>
+          <span style={{ fontWeight: `${price === "B" ? 600 : 400}` }}>
             B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
             mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
             poštom) s datumom dospijeća naznačenim na aranžmanu
           </span>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
-          <span style={{ fontWeight: price === 'C' ? 600 : 400 }}>
+          <span style={{ fontWeight: price === "C" ? 600 : 400 }}>
             C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana jednokratno
             ili obročno debitnim ili kreditnim karticama (max 12 obroka) do
             datuma naznačenog na aranžmanu
           </span>
         )}
       </div>
-      <select id="nacinPlacanja"
+      <select
+        id="nacinPlacanja"
         onChange={(e) => {
-          setPrice(e.target.value)
-        }}>
+          setPrice(e.target.value);
+        }}
+      >
         <option>---</option>
         {activeAran.CijenaAWebPrikaz === "True" && (
           <option
-            value={'A'}
+            value={"A"}
           >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
-            value={'B'}
+            value={"B"}
           >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
-            value={'C'}
+            value={"C"}
           >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
         )}
       </select>
@@ -255,8 +268,7 @@ export default function Step4({
           i moje pravo da se predmetnoj obradi usprotivim te da ova privola
           predstavlja izričitu privolu sukladno važećim zakonskim propisima koji
           uređuju zaštitu osobnih podataka te da je uporaba osobnih podataka
-          djeteta dozvoljena na opisani način i u zadanom opsegu.{" "}
-          <br />
+          djeteta dozvoljena na opisani način i u zadanom opsegu. <br />
           <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </b>
         <br />
@@ -265,8 +277,8 @@ export default function Step4({
           type="checkbox"
           id="uvjeti"
           onChange={() => setChecked(!checked)}
-        /><br />
-       
+        />
+        <br />
       </span>
       <br />
       <p>
@@ -291,12 +303,15 @@ export default function Step4({
         style={{ width: 17, height: 17 }}
         onChange={() => setChecked1(!checked1)}
       />{" "}
-      <a style={{cursor:'pointer'}} target='blank' href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE">
+      <a
+        style={{ cursor: "pointer" }}
+        target="blank"
+        href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE"
+      >
         {" "}
         <br />
-        <label>
-          Pročitao/la sam i prihvaćam opće uvjete{" "}
-          <br />
+        <label style={{ cursor: "pointer" }}>
+          Pročitao/la sam i prihvaćam opće uvjete <br />
           <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </label>
       </a>
@@ -308,10 +323,12 @@ export default function Step4({
         onChange={() => setChecked2(!checked2)}
       />
       <p>
-        <b>Slanjem ove prijave Pošiljatelj je potvrdio da je upoznat sa detaljima
+        <b>
+          Slanjem ove prijave Pošiljatelj je potvrdio da je upoznat sa detaljima
           aranžmana i Općim uvjetima poslovanja putničke agencije Destinations
           F-tours d.o.o. i dao je osobnu/roditeljsku privolu za upravljanje
-          osobnim podacima te je potvrdio da su dostavljeni podaci istiniti.</b>
+          osobnim podacima te je potvrdio da su dostavljeni podaci istiniti.
+        </b>
       </p>
       <div className="buttonCont" style={{ marginBottom: 20 }}>
         <button
@@ -359,7 +376,7 @@ export default function Step4({
                   VrstaPutneIsprave: dokument,
                 })
               );
-              console.log(step4)
+              console.log(step4);
               window.scrollTo(0, 0);
               setactivateCheck(true);
               // window.localStorage.clear();
