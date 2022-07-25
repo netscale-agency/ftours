@@ -256,6 +256,7 @@ export default function Step4({
           predstavlja izričitu privolu sukladno važećim zakonskim propisima koji
           uređuju zaštitu osobnih podataka te da je uporaba osobnih podataka
           djeteta dozvoljena na opisani način i u zadanom opsegu.{" "}
+          <br />
           <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </b>
         <br />
@@ -265,8 +266,7 @@ export default function Step4({
           id="uvjeti"
           onChange={() => setChecked(!checked)}
         /><br />
-        RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA
-        Ja, kao nositelj roditeljske skrbi
+       
       </span>
       <br />
       <p>
@@ -281,6 +281,7 @@ export default function Step4({
           Suglasan sam da se fotografije/video snimke/audio snimke mog djeteta
           sa putovanja objave na društvenim mrežama Agencije{" "}
         </b>
+        <br />
         <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <br />
@@ -295,6 +296,7 @@ export default function Step4({
         <br />
         <label>
           Pročitao/la sam i prihvaćam opće uvjete{" "}
+          <br />
           <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </label>
       </a>
