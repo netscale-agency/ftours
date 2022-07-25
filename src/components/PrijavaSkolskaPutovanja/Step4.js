@@ -22,6 +22,7 @@ export default function Step4({
   const [day, setday] = useState("");
   const [year, setYear] = useState();
   const [dokument, setDokument] = useState('');
+  const [price, setPrice] = useState('')
   const [date, setDate] = useState('');
   const [month, setmonth] = useState("");
   useEffect(() => {
@@ -29,12 +30,12 @@ export default function Step4({
   }, [year, month, day]);
 
   const NacinPlacanja = (str) => {
-    if (str === activeAran.CijenaA) {
-      return "A";
-    } else if (str === activeAran.CijenaB) {
-      return "B";
+    if (str === 'A') {
+      return activeAran.CijenaA;
+    } else if (str === 'B') {
+      return activeAran.CijenaB;
     } else {
-      return "C";
+      return activeAran.CijenaB;
     }
   };
 
@@ -185,7 +186,7 @@ export default function Step4({
       </label>
       <div style={{ display: "flex", flexDirection: "column" }}>
         {activeAran.CijenaAWebPrikaz === "True" && (
-          <span>
+          <span style={{ fontWeight: price === 'A' ? 600 : 400 }}>
             A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
             jednokratno novčanicama, internet/mobilnim bankarstvom ili
             uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
@@ -194,35 +195,39 @@ export default function Step4({
           </span>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
-          <span>
+          <span style={{ fontWeight: `${price === 'B' ? 600 : 400}` }}>
             B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
             mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
             poštom) s datumom dospijeća naznačenim na aranžmanu
           </span>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
-          <span>
+          <span style={{ fontWeight: price === 'C' ? 600 : 400 }}>
             C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana jednokratno
             ili obročno debitnim ili kreditnim karticama (max 12 obroka) do
             datuma naznačenog na aranžmanu
           </span>
         )}
       </div>
-      <select id="nacinPlacanja">
+      <select id="nacinPlacanja"
+        onChange={(e) => {
+          setPrice(e.target.value)
+        }}>
+        <option>---</option>
         {activeAran.CijenaAWebPrikaz === "True" && (
           <option
-            value={activeAran.CijenaA}
-          >{`A - ${activeAran.CijenaA},00 do ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
+            value={'A'}
+          >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
-            value={activeAran.CijenaB}
+            value={'B'}
           >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
-            value={activeAran.CijenaC}
-          >{`C - ${activeAran.CijenaC},00 do ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
+            value={'C'}
+          >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
         )}
       </select>
       <label>
@@ -259,7 +264,9 @@ export default function Step4({
           type="checkbox"
           id="uvjeti"
           onChange={() => setChecked(!checked)}
-        />
+        /><br />
+        RODITELJSKA PRIVOLA ZA UPRAVLJANJE OSOBNIM PODACIMA
+        Ja, kao nositelj roditeljske skrbi
       </span>
       <br />
       <p>
@@ -323,16 +330,14 @@ export default function Step4({
             if (document.getElementById("MobPutnika").value) {
               setStep4({
                 BrojPutneIsprave: document.getElementById("docBroj").value,
-                Cijena: document.getElementById("nacinPlacanja").value,
+                Cijena: NacinPlacanja(price),
                 Email: document.getElementById("emailPutnika").value,
                 FotoVideoSuglasnost:
                   document.getElementById("suglasnost").value == "on"
                     ? "Da"
                     : "Ne",
                 Mob: document.getElementById("MobPutnika").value,
-                NacinPlacanja: NacinPlacanja(
-                  document.getElementById("nacinPlacanja").value
-                ),
+                NacinPlacanja: price,
                 PutnaIspravaVrijediDo: date,
                 Tel: document.getElementById("telPutnika").value,
                 VrstaPutneIsprave: dokument,
@@ -341,14 +346,12 @@ export default function Step4({
                 "step4",
                 JSON.stringify({
                   BrojPutneIsprave: document.getElementById("docBroj").value,
-                  Cijena: document.getElementById("nacinPlacanja").value,
+                  Cijena: NacinPlacanja(price),
                   Email: document.getElementById("emailPutnika").value,
                   FotoVideoSuglasnost: document.getElementById("suglasnost")
                     .value,
                   Mob: document.getElementById("MobPutnika").value,
-                  NacinPlacanja: NacinPlacanja(
-                    document.getElementById("nacinPlacanja").value
-                  ),
+                  NacinPlacanja: price,
                   PutnaIspravaVrijediDo: date,
                   Tel: document.getElementById("telPutnika").value,
                   VrstaPutneIsprave: dokument,

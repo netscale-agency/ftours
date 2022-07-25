@@ -13,20 +13,21 @@ export default function Overview(data) {
   const [monthDoc, setmonthDoc] = useState(data.data.PutnaIspravaVrijediDo.split(".")[1] || '');
   const [spol, setSpol] = useState(data.data.Spol);
   const [dokument, setDokument] = useState(data.data.VrstaPutneIsprave);
-  console.log(dokument)
   const [date, setDate] = useState();
   const [city, setCity] = useState(data.data.Mjesto || "");
+  const [price, setPrice] = useState(data.data.NacinPlacanja)
 
   const thisYear = new Date().getFullYear();
   const NacinPlacanja = (str) => {
-    if (str === activeAran.CijenaA) {
-      return "A";
-    } else if (str === activeAran.CijenaB) {
-      return "B";
+    if (str === 'A') {
+      return activeAran.CijenaA;
+    } else if (str === 'B') {
+      return activeAran.CijenaB;
     } else {
-      return "C";
+      return activeAran.CijenaB;
     }
   };
+
   const [imeRoditelj, setImeRoditelj] = useState();
 
   const activeAran = data.contentData.filter(
@@ -591,48 +592,52 @@ export default function Overview(data) {
             Način plaćanja <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            {activeAran.CijenaAWebPrikaz === "True" && (
-              <span>
-                A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
-                jednokratno novčanicama, internet/mobilnim bankarstvom ili
-                uplatnicom koju dostavlja agencija (elektronskom poštom) s
-                datumom dospijeća naznačenim na aranžmanu
-              </span>
-            )}
-            {activeAran.CijenaBWebPrikaz === "True" && (
-              <span>
-                B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
-                mjesečne obroke uplatnicama koje dostavlja agencija
-                (elektronskom poštom) s datumom dospijeća naznačenim na
-                aranžmanu
-              </span>
-            )}
-            {activeAran.CijenaCWebPrikaz === "True" && (
-              <span>
-                C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana
-                jednokratno ili obročno debitnim ili kreditnim karticama (max 12
-                obroka) do datuma naznačenog na aranžmanu
-              </span>
-            )}
-          </div>
-          <select className="selectOver"
-            id="nacinPlacanja" defaultValue={data.data.Cijena}>
-            {activeAran.CijenaAWebPrikaz === "True" && (
-              <option
-                value={activeAran.CijenaA}
-              >{`A - ${activeAran.CijenaA},00 do ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
-            )}
-            {activeAran.CijenaBWebPrikaz === "True" && (
-              <option
-                value={activeAran.CijenaB}
-              >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
-            )}
-            {activeAran.CijenaCWebPrikaz === "True" && (
-              <option
-                value={activeAran.CijenaC}
-              >{`C - ${activeAran.CijenaC},00 do ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
-            )}
-          </select>
+        {activeAran.CijenaAWebPrikaz === "True" && (
+          <span style={{ fontWeight: price === 'A' ? 600 : 400 }}>
+            A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
+            jednokratno novčanicama, internet/mobilnim bankarstvom ili
+            uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
+            dospijeća naznačenim na aranžmanu
+            <br />{" "}
+          </span>
+        )}
+        {activeAran.CijenaBWebPrikaz === "True" && (
+          <span style={{ fontWeight: `${price === 'B' ? 600 : 400}` }}>
+            B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
+            mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
+            poštom) s datumom dospijeća naznačenim na aranžmanu
+          </span>
+        )}
+        {activeAran.CijenaCWebPrikaz === "True" && (
+          <span style={{ fontWeight: price === 'C' ? 600 : 400 }}>
+            C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana jednokratno
+            ili obročno debitnim ili kreditnim karticama (max 12 obroka) do
+            datuma naznačenog na aranžmanu
+          </span>
+        )}
+      </div>
+      <select id="nacinPlacanja"
+      defaultValue={price}
+        onChange={(e) => {
+          setPrice(e.target.value)
+        }}>
+        <option>---</option>
+        {activeAran.CijenaAWebPrikaz === "True" && (
+          <option
+            value={'A'}
+          >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
+        )}
+        {activeAran.CijenaBWebPrikaz === "True" && (
+          <option
+            value={'B'}
+          >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
+        )}
+        {activeAran.CijenaCWebPrikaz === "True" && (
+          <option
+            value={'C'}
+          >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
+        )}
+      </select>
           <div className="buttonCont" style={{ marginBottom: 20 }}>
             <></>
             <button
@@ -642,16 +647,14 @@ export default function Overview(data) {
                   data.setStep4({
                     BrojPutneIsprave: document.getElementById("docTrajanje")
                       .value,
-                    Cijena: document.getElementById("nacinPlacanja").value,
+                    Cijena: NacinPlacanja(price),
                     Email: document.getElementById("emailPutnika").value,
                     FotoVideoSuglasnost:
                       document.getElementById("suglasnost").value == "on"
                         ? "Da"
                         : "Ne",
                     Mob: document.getElementById("MobPutnika").value,
-                    NacinPlacanja: NacinPlacanja(
-                      document.getElementById("nacinPlacanja").value
-                    ),
+                    NacinPlacanja: price,
                     PutnaIspravaVrijediDo: document.getElementById(
                       "docTrajanje"
                     ).value,
@@ -664,14 +667,12 @@ export default function Overview(data) {
                     JSON.stringify({
                       BrojPutneIsprave: document.getElementById("docBroj")
                         .value,
-                      Cijena: document.getElementById("nacinPlacanja").value,
+                      Cijena: NacinPlacanja(price),
                       Email: document.getElementById("emailPutnika").value,
                       FotoVideoSuglasnost: document.getElementById("suglasnost")
                         .value,
                       Mob: document.getElementById("MobPutnika").value,
-                      NacinPlacanja: NacinPlacanja(
-                        document.getElementById("nacinPlacanja").value
-                      ),
+                      NacinPlacanja: price,
                       PutnaIspravaVrijediDo: date,
                       Tel: document.getElementById("telPutnika").value,
                       VrstaPutneIsprave: '',
