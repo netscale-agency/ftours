@@ -140,6 +140,7 @@ export default function Overview(data) {
             id="prezimeRoditelj"
             type="text"
           /><button onClick={() => seturedi1(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button><button onClick={() => seturedi1(false)}><i class="fa fa-save" ></i>
             </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.RoditeljIme || prezimeRoditelj === "") &&
@@ -161,6 +162,7 @@ export default function Overview(data) {
               id="imeRoditelj"
               type="text"
             />{" "}<button onClick={() => seturedi2(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button><button onClick={() => seturedi2(false)}><i class="fa fa-save" ></i>
             </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.roditeljPrezime || imeRoditelj === "") &&
@@ -183,6 +185,7 @@ export default function Overview(data) {
               defaultValue={data.data.RoditeljSkrbnikMob}
               type="tel"
             /><button onClick={() => seturedi3(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button><button onClick={() => seturedi3(false)}><i class="fa fa-save" ></i>
             </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.RoditeljSkrbnikMob || telRoditelj === "") &&
@@ -204,6 +207,7 @@ export default function Overview(data) {
               placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
               type="email"
             />{" "}<button onClick={() => seturedi4(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button><button onClick={() => seturedi4(false)}><i class="fa fa-save" ></i>
             </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.RoditeljSkrbnikEmail || email === "") &&
@@ -225,6 +229,8 @@ export default function Overview(data) {
               placeholder="Popunite prezime (npr. HORVAT)"
               type="text"
             />{" "}<button onClick={() => seturedi5(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi5(false)}><i class="fa fa-save" ></i>
             </button></div>
           <span
             style={{
@@ -262,6 +268,8 @@ export default function Overview(data) {
               placeholder="Popunite ime (npr. ANTE)"
               type="text"
             />{" "}<button onClick={() => seturedi6(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi6(false)}><i class="fa fa-save" ></i>
             </button></div>
           <span
             style={{
@@ -299,6 +307,8 @@ export default function Overview(data) {
               type="text"
               placeholder="Popunite svoju adresu (npr. Horvatova 1)"
             /><button onClick={() => seturedi7(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi7(false)}><i class="fa fa-save" ></i>
             </button></div>
           <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
             {(!data.data.Adresa || adresaPutnika === "") &&
@@ -320,6 +330,8 @@ export default function Overview(data) {
                 setCity(e.target.value);
               }}
             /><button onClick={() => seturedi8(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi8(false)}><i class="fa fa-save" ></i>
             </button>
             <datalist id="mjesta">
               {cityData.map((item, i) => {
@@ -356,6 +368,7 @@ export default function Overview(data) {
               className="inputOver"
               defaultValue={"HRVATSKA"}
             />{" "}<button onClick={() => seturedi9(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button><button onClick={() => seturedi9(false)}><i class="fas fa-save"></i>
             </button></div>
           <label>
             Datum rođenja putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
@@ -364,7 +377,7 @@ export default function Overview(data) {
             <select
               className="selectOver"
               defaultValue={year}
-              disabled={true}
+              disabled={uredi10 ? false : true}
               style={{ maxWidth: "158px" }}
               id="god"
               onChange={(e) => {
@@ -387,7 +400,7 @@ export default function Overview(data) {
               style={{ maxWidth: "158px" }}
               className="selectOver"
               id="month"
-              disabled={true}
+              disabled={uredi10 ? false : true}
               onChange={(e) => {
                 setmonth(e.target.value);
               }}
@@ -448,6 +461,8 @@ export default function Overview(data) {
             </select>
 
             <button onClick={() => seturedi10(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi10(false)}><i class="fa fa-save" ></i>
             </button></div>
           <label>
             Spol <b style={{ color: "#B11F23" }}>(obavezno)</b>
@@ -478,6 +493,8 @@ export default function Overview(data) {
               value={"Ž"}
             />
             <button onClick={() => seturedi11(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi11(false)}><i class="fa fa-save" ></i>
             </button></div>
           <label>Vrsta putne isprave putnika</label>
           <div className="inputContOver" style={{ display: "flex" }}>
@@ -507,6 +524,8 @@ export default function Overview(data) {
 
             />
             <button onClick={() => seturedi12(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi12(false)}><i class="fa fa-save" ></i>
             </button></div>
           <label>Broj putne isprave putnika</label>
           <div className="inputContOver">
@@ -519,12 +538,14 @@ export default function Overview(data) {
               defaultValue={data.data.BrojPutneIsprave}
               placeholder="Popunite broj putne isprave"
             />{" "}<button onClick={() => seturedi13(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi13(false)}><i class="fa fa-save" ></i>
             </button></div>
           <label>Putna isprava vrijedi do</label>
           <div id="docTrajanje" className="inputContOver" style={{ display: "flex" }}>
             <select
               className="selectOver"
-              disabled={true}
+              disabled={uredi14 ? false : true}
               style={{ maxWidth: "158px" }}
               id="god"
               defaultValue={yearDoc}
@@ -563,7 +584,7 @@ export default function Overview(data) {
             </select>
             <select
               className="selectOver"
-              disabled={true}
+              disabled={uredi14 ? false : true}
               style={{ maxWidth: "158px" }}
               id="day"
               defaultValue={dayDoc}
@@ -603,6 +624,8 @@ export default function Overview(data) {
             </select>
             <button onClick={() => seturedi14(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
             </button>
+            <button onClick={() => seturedi14(false)}><i class="fa fa-save" ></i>
+            </button>
           </div>
           {!day && (
             <p
@@ -630,6 +653,8 @@ export default function Overview(data) {
               alwaysShowMask={true}
               type="tel"
             /><button onClick={() => seturedi15(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi15(false)}><i class="fa fa-save" ></i>
             </button></div>
           <label>
             Mobitel putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
@@ -646,7 +671,9 @@ export default function Overview(data) {
               alwaysShowMask={true}
               type="tel"
             /><button onClick={() => seturedi16(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
-            </button></div>
+            </button>  <button onClick={() => seturedi16(false)}><i class="fa fa-save" ></i>
+            </button>
+          </div>
           <label>
             E-mail putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
@@ -662,6 +689,8 @@ export default function Overview(data) {
               className="inputOver"
               defaultValue={data.data.Email}
             />{" "}<button onClick={() => seturedi17(true)}><i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button onClick={() => seturedi17(false)}><i class="fa fa-save" ></i>
             </button></div>
           <label>
             Način plaćanja <b style={{ color: "#B11F23" }}>(obavezno)</b>

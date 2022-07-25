@@ -32,12 +32,13 @@ input {
 }
 .inputContOver button i{
  margin-right: 0px;
+ color:rgb(36, 36, 36)
 }
 .inputOver:disabled{
   width: 100%;
   padding: 3px;
   font-size: 12;
-  background-color: #b4b4b4;
+  background-color: #c5c3c3;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
@@ -52,7 +53,7 @@ input {
   width: 100%;
   padding: 3px;
   font-size: 12;
-  background-color: #b4b4b4;
+  background-color: #c5c3c3;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
