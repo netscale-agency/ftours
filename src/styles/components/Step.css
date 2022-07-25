@@ -23,6 +23,19 @@ input {
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
+.inputOver {
+  width: 100%;
+  padding: 3px;
+  border: 1px solid #9b9a9a;
+  margin-bottom: 8px;
+}
+.selectOver{
+  width: 100%;
+  padding: 3px;
+  background-color: transparent;
+  border: 1px solid #9b9a9a;
+  margin-bottom: 8px;
+}
 select {
   width: 100%;
   padding: 6px;

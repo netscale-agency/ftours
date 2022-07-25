@@ -8,6 +8,9 @@ export default function Overview(data) {
   const [day, setday] = useState(data.data.DatumRodjenja.split(".")[0]);
   const [year, setYear] = useState(data.data.DatumRodjenja.split(".")[2]);
   const [month, setmonth] = useState(data.data.DatumRodjenja.split(".")[1]);
+  const [dayDoc, setdayDoc] = useState(data.data.PutnaIspravaVrijediDo.split(".")[0] || '');
+  const [yearDoc, setYearDoc] = useState(data.data.PutnaIspravaVrijediDo.split(".")[2] || '');
+  const [monthDoc, setmonthDoc] = useState(data.data.PutnaIspravaVrijediDo.split(".")[1] || '');
   const [spol, setSpol] = useState(data.data.Spol);
   const [date, setDate] = useState();
   const [city, setCity] = useState(data.data.Mjesto || "");
@@ -37,6 +40,7 @@ export default function Overview(data) {
   const [imePutnika, setImePutnika] = useState(data.data.Ime || "");
   const [adresaPutnika, setAdresaPutnika] = useState(data.data.Adresa || "");
   const [submit, setsubmit] = useState(false);
+  console.log(data, 'over')
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
@@ -104,6 +108,7 @@ export default function Overview(data) {
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
+            className="inputOver"
             placeholder="Popunite Prezime (npr. Horvat)"
             style={{ textTransform: "capitalize" }}
             defaultValue={data.data.RoditeljSkrbnik.split(" ")[1]}
@@ -122,7 +127,8 @@ export default function Overview(data) {
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
-            placeholder="Popunite Ime (npr. Ante)"
+            placeholder="Popunite Ime (npr. Ante)" className="inputOver"
+
             defaultValue={data.data.RoditeljSkrbnik.split(" ")[0]}
             style={{ textTransform: "capitalize" }}
             onChange={(e) => {
@@ -142,6 +148,7 @@ export default function Overview(data) {
           <InputMask
             mask="+385 (0) 99/999/9999"
             id="telRoditelj"
+            className="inputOver"
             alwaysShowMask={true}
             onChange={(e) => {
               setTelRoditelj(e.target.value);
@@ -158,6 +165,7 @@ export default function Overview(data) {
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <input
+            className="inputOver"
             defaultValue={data.data.RoditeljSkrbnikEmail}
             id="emailRoditelj"
             onChange={(e) => {
@@ -177,6 +185,7 @@ export default function Overview(data) {
             style={{ textTransform: "uppercase" }}
             defaultValue={data.data.Prezime}
             id="prezimePutnika"
+            className="inputOver"
             onChange={(e) => {
               setPrezimePutnika(e.target.value);
             }}
@@ -194,7 +203,13 @@ export default function Overview(data) {
             {(!data.data.Prezime || prezimePutnika === "") &&
               check(prezimePutnika, "prezimePutnika")}
           </span>
-          <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
+          <p
+            style={{
+              color: "#0d6efd",
+              marginTop: data.data.Prezime || prezimePutnika !== "" ? 0 : -10,
+              fontSize: 13.8,
+            }}
+          >
             Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
           </p>
           <label>
@@ -203,6 +218,7 @@ export default function Overview(data) {
           <input
             style={{ textTransform: "uppercase" }}
             defaultValue={data.data.Ime}
+            className="inputOver"
             id="imePutnika"
             onChange={(e) => {
               setImePutnika(e.target.value);
@@ -221,7 +237,13 @@ export default function Overview(data) {
             {(!data.data.Ime || imePutnika === "") &&
               check(imePutnika, "imePutnika")}
           </span>
-          <p style={{ color: "#0d6efd", marginTop: -12, fontSize: 13.8 }}>
+          <p
+            style={{
+              color: "#0d6efd",
+              marginTop: data.data.Ime || imePutnika !== "" ? 0 : -10,
+              fontSize: 13.8,
+            }}
+          >
             Koristite hrvatske dijakritičke znakove (č, ć, dž, đ, š, ž){" "}
           </p>
           <label>
@@ -230,6 +252,7 @@ export default function Overview(data) {
           <input
             style={{ textTransform: "capitalize" }}
             defaultValue={data.data.Adresa}
+            className="inputOver"
             id="adresaPutnika"
             onChange={(e) => {
               setAdresaPutnika(e.target.value);
@@ -248,6 +271,7 @@ export default function Overview(data) {
             style={{ maxWidth: "474px" }}
             defaultValue={data.data.Mjesto}
             list="mjesta"
+            className="inputOver"
             name="mjesto"
             id="mjesto"
             onChange={(e) => {
@@ -283,6 +307,7 @@ export default function Overview(data) {
             style={{ maxWidth: "474px" }}
             id="drzava"
             type="text"
+            className="inputOver"
             defaultValue={"HRVATSKA"}
           />{" "}
           <label>
@@ -290,6 +315,7 @@ export default function Overview(data) {
           </label>
           <div style={{ display: "flex" }}>
             <select
+              className="selectOver"
               defaultValue={year}
               style={{ maxWidth: "158px" }}
               id="god"
@@ -311,6 +337,7 @@ export default function Overview(data) {
             <select
               defaultValue={month}
               style={{ maxWidth: "158px" }}
+              className="selectOver"
               id="month"
               onChange={(e) => {
                 setmonth(e.target.value);
@@ -330,6 +357,7 @@ export default function Overview(data) {
             </select>
             <select
               defaultValue={day}
+              className="selectOver"
               style={{ maxWidth: "158px" }}
               id="day"
               onChange={(e) => {
@@ -343,19 +371,19 @@ export default function Overview(data) {
                 month != "02" &&
                 (dateData.months31.includes(month)
                   ? dateData.days31.map((item, i) => {
-                      return (
-                        <option key={i} value={item}>
-                          {item}
-                        </option>
-                      );
-                    })
+                    return (
+                      <option key={i} value={item}>
+                        {item}
+                      </option>
+                    );
+                  })
                   : dateData.days30.map((item, i) => {
-                      return (
-                        <option key={i} value={item}>
-                          {item}
-                        </option>
-                      );
-                    }))}
+                    return (
+                      <option key={i} value={item}>
+                        {item}
+                      </option>
+                    );
+                  }))}
               {month &&
                 month === "02" &&
                 dateData.days31
@@ -378,6 +406,7 @@ export default function Overview(data) {
               style={{ width: 20, marginTop: "auto" }}
               id="spol"
               name="spol"
+              className="inputOver"
               type="radio"
               defaultChecked={spol === "M" ? true : false}
               onClick={() => setSpol("M")}
@@ -388,6 +417,7 @@ export default function Overview(data) {
               style={{ width: 20, marginTop: "auto" }}
               id="spol"
               name="spol"
+              className="inputOver"
               type="radio"
               defaultChecked={spol === "Ž" ? true : false}
               onClick={() => setSpol("Ž")}
@@ -400,6 +430,7 @@ export default function Overview(data) {
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
+              className="inputOver"
               type="radio"
               value={"Osobna iskaznica"}
             />
@@ -407,7 +438,9 @@ export default function Overview(data) {
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
+              name="dokument"
               type="radio"
+              className="inputOver"
               value={"Putovnica"}
             />
           </div>
@@ -415,16 +448,21 @@ export default function Overview(data) {
           <input
             id="docBroj"
             type="text"
+            name="dokument"
+            className="inputOver"
             defaultValue={data.data.BrojPutneIsprave}
             placeholder="Popunite broj putne isprave"
           />{" "}
           <label>Putna isprava vrijedi do</label>
           <div id="docTrajanje" style={{ display: "flex" }}>
             <select
+              className="selectOver"
+
               style={{ maxWidth: "158px" }}
               id="god"
+              defaultValue={yearDoc}
               onChange={(e) => {
-                setYear(e.target.value);
+                setYearDoc(e.target.value);
               }}
             >
               <option value={""}>Godina</option>
@@ -437,14 +475,17 @@ export default function Overview(data) {
               })}
             </select>
             <select
+              className="selectOver"
+
               style={{ maxWidth: "158px" }}
               id="month"
+              defaultValue={monthDoc}
               onChange={(e) => {
-                setmonth(e.target.value);
+                setmonthDoc(e.target.value);
               }}
             >
               <option value={""}>Mjesec</option>
-              {year &&
+              {yearDoc &&
                 dateData.months.map((item, i) => {
                   return (
                     <option key={i} value={item.val}>
@@ -454,34 +495,37 @@ export default function Overview(data) {
                 })}
             </select>
             <select
+              className="selectOver"
+
               style={{ maxWidth: "158px" }}
               id="day"
+              defaultValue={dayDoc}
               onChange={(e) => {
-                setday(e.target.value);
+                setdayDoc(e.target.value);
               }}
             >
               <option value={""}>Dan</option>
-              {month &&
-                month != "02" &&
-                (dateData.months31.includes(month)
+              {monthDoc &&
+                monthDoc != "02" &&
+                (dateData.months31.includes(monthDoc)
                   ? dateData.days31.map((item, i) => {
-                      return (
-                        <option key={i} value={item}>
-                          {item}
-                        </option>
-                      );
-                    })
+                    return (
+                      <option key={i} value={item}>
+                        {item}
+                      </option>
+                    );
+                  })
                   : dateData.days30.map((item, i) => {
-                      return (
-                        <option key={i} value={item}>
-                          {item}
-                        </option>
-                      );
-                    }))}
-              {month &&
-                month === "02" &&
+                    return (
+                      <option key={i} value={item}>
+                        {item}
+                      </option>
+                    );
+                  }))}
+              {monthDoc &&
+                monthDoc === "02" &&
                 dateData.days31
-                  .slice(0, dateData.years.includes(year) ? 29 : 28)
+                  .slice(0, dateData.years.includes(yearDoc) ? 29 : 28)
                   .map((item, i) => {
                     return (
                       <option key={i} value={item}>
@@ -508,6 +552,7 @@ export default function Overview(data) {
           <InputMask
             mask="+385 (0) 99/999/9999"
             defaultValue={data.data.Tel}
+            className="inputOver"
             id="telPutnika"
             alwaysShowMask={true}
             type="tel"
@@ -519,6 +564,7 @@ export default function Overview(data) {
             mask="+385 (0) 99/999/9999"
             id="MobPutnika"
             defaultValue={data.data.Mob}
+            className="inputOver"
             alwaysShowMask={true}
             type="tel"
           />
@@ -530,6 +576,7 @@ export default function Overview(data) {
             placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
             id="emailPutnika"
             type="email"
+            className="inputOver"
             defaultValue={data.data.Email}
           />{" "}
           <label>
@@ -560,7 +607,8 @@ export default function Overview(data) {
               </span>
             )}
           </div>
-          <select id="nacinPlacanja" defaultValue={data.data.Cijena}>
+          <select className="selectOver"
+            id="nacinPlacanja" defaultValue={data.data.Cijena}>
             {activeAran.CijenaAWebPrikaz === "True" && (
               <option
                 value={activeAran.CijenaA}
@@ -584,7 +632,8 @@ export default function Overview(data) {
               onClick={() => {
                 if (document.getElementById("MobPutnika").value) {
                   data.setStep4({
-                    BrojPutneIsprave: data,
+                    BrojPutneIsprave: document.getElementById("docTrajanje")
+                      .value,
                     Cijena: document.getElementById("nacinPlacanja").value,
                     Email: document.getElementById("emailPutnika").value,
                     FotoVideoSuglasnost:

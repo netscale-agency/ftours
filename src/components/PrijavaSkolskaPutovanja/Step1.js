@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export default function Step1({ data, active, setActive, setAran }) {
   const [isAccepted, setIsAccepted] = useState(false);
-  const [isFull, setIsFull] = useState(false);
 
   const [isString, setIsString] = useState(localStorage.getItem("aran") || "");
   let filtered = [];
@@ -14,8 +13,11 @@ export default function Step1({ data, active, setActive, setAran }) {
         if (filtered[0].GrupaPopunjena === "False") {
           setIsAccepted(true);
           setAran(filtered[0].GrupaId);
+
         }
-      } else setIsAccepted(false);
+      } else {
+
+        setIsAccepted(false);}
     }
   }, [isString]);
   return (

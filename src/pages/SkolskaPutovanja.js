@@ -16,7 +16,7 @@ function SkolskaPutovanja() {
     await dataCall();
   }, []);
 
-  if (destinations!=undefined) {
+  if (destinations!==undefined) {
     return (
       <>
         {destinations &&

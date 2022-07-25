@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import ProgressBar from "../components/PrijavaSkolskaPutovanja/ProgressBar";
 import Step1 from "../components/PrijavaSkolskaPutovanja/Step1";
 import Step2 from "../components/PrijavaSkolskaPutovanja/Step2";

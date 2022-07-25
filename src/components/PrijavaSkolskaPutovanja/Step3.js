@@ -199,10 +199,11 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Grad/mjesto putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
-        style={{ maxWidth: "474px" }}
+        style={{ maxWidth: "360px",textTransform:'capitalize' }}
         defaultValue={defData.Mjesto}
         list="mjesta"
         name="mjesto"
+
         id="mjesto"
         onChange={(e) => {
           setCity(e.target.value);
@@ -240,7 +241,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Država putnika <b>(ako je drugačije od dolje navedenog - obavezno)</b>
       </label>
       <input
-        style={{ maxWidth: "474px" }}
+        style={{ maxWidth: "360px" }}
         id="drzava"
         type="text"
         defaultValue={"HRVATSKA"}
@@ -251,7 +252,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <div style={{ display: "flex" }}>
         <select
           defaultValue={year}
-          style={{ maxWidth: "158px" }}
+          style={{ maxWidth: "120px" }}
           id="god"
           onChange={(e) => {
             setYear(e.target.value);
@@ -270,7 +271,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         </select>
         <select
           defaultValue={month}
-          style={{ maxWidth: "158px" }}
+          style={{ maxWidth: "120px" }}
           id="month"
           onChange={(e) => {
             setmonth(e.target.value);
@@ -290,7 +291,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         </select>
         <select
           defaultValue={day}
-          style={{ maxWidth: "158px" }}
+          style={{ maxWidth: "120px" }}
           id="day"
           onChange={(e) => {
             setday(e.target.value);
@@ -335,7 +336,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             color: "red",
             marginTop: -10,
             fontSize: 13.8,
-            maxWidth: 490,
+            maxWidth: 360,
           }}
         >
           Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
@@ -347,7 +348,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             color: "red",
             marginTop: -10,
             fontSize: 13.8,
-            maxWidth: 490,
+            maxWidth: 360,
           }}
         >
           Provjerite godinu rođenja
