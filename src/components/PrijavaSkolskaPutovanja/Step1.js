@@ -13,11 +13,10 @@ export default function Step1({ data, active, setActive, setAran }) {
         if (filtered[0].GrupaPopunjena === "False") {
           setIsAccepted(true);
           setAran(filtered[0].GrupaId);
-
         }
       } else {
-
-        setIsAccepted(false);}
+        setIsAccepted(false);
+      }
     }
   }, [isString]);
   return (
@@ -28,7 +27,7 @@ export default function Step1({ data, active, setActive, setAran }) {
         </label>
         <input
           defaultValue={defAran}
-          style={{ textTransform: "uppercase"}}
+          style={{ textTransform: "uppercase" }}
           onChange={(e) => {
             setIsString(e.target.value.toUpperCase());
           }}
@@ -46,7 +45,9 @@ export default function Step1({ data, active, setActive, setAran }) {
           data.filter((item) => item.BrojAranzmana === isString).length !== 0 &&
           data.filter((item) => item.BrojAranzmana === isString)[0]
             .GrupaPopunjena === "True" && (
-            <span>Grupa je trenutno popunjena. Pošaljite upit na (desk@f-tours.hr)</span>
+            <span>
+              Grupa je trenutno popunjena. Pošaljite upit na (desk@f-tours.hr)
+            </span>
           )}
       </div>
       <div className="buttonCont">

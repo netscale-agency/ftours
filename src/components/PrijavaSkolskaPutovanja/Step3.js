@@ -199,11 +199,10 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Grad/mjesto putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
-        style={{ maxWidth: "300px",textTransform:'capitalize' }}
+        style={{ maxWidth: "300px", textTransform: "capitalize" }}
         defaultValue={defData.Mjesto}
         list="mjesta"
         name="mjesto"
-
         id="mjesto"
         onChange={(e) => {
           setCity(e.target.value);

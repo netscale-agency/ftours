@@ -113,9 +113,7 @@ export default function Overview(data) {
   }, [submit]);
   if (data)
     return (
-      <div
-      className="contOver"
-      >
+      <div className="contOver">
         <div
           style={{
             display: "flex",
@@ -126,14 +124,26 @@ export default function Overview(data) {
           <h2>Provjera podataka</h2>
           <br />
           <p>
-            Molimo Vas provjerite ispravnost prethodno popunjenih podataka.
-            <br />
-            Ako ste suglasni sa popunjenim podacima označite na dnu stranice
-            Pošalji prijavu.
-            <br />
+            <b>
+              Molimo Vas provjerite ispravnost prethodno popunjenih podataka.
+            </b>
+            <br /> <br />
+            <p
+              style={{
+                color: "#0d6efd",
+              }}
+            >
+              Ako ste suglasni sa popunjenim podacima označite na dnu stranice
+              Pošalji prijavu.
+            </p>
+            <br /> <br />
+            <p style={{ color: "red" }} />
             Ako neki od podataka nije ispravan možete ga izmijeniti sa desne
             strane polja.
-            <br />
+          </p>
+          <br />
+          <br />
+          <p style={{ color: "red" }}>
             Ugovaratelj/Putnik je odgovoran za ispravnost popunjenih podataka.
           </p>
           <label>
