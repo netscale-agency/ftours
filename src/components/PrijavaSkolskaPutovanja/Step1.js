@@ -21,7 +21,7 @@ export default function Step1({ data, active, setActive, setAran }) {
   }, [isString]);
   return (
     <div style={{ width: "100%" }}>
-      <div className="inputCont">
+      <div className="inputCont input100" >
         <label>
           Šifra aranžmana <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </label>
@@ -50,7 +50,7 @@ export default function Step1({ data, active, setActive, setAran }) {
             </span>
           )}
       </div>
-      <div className="buttonCont">
+      <div className="buttonContstep12">
         <div></div>
         <button
           disabled={!isAccepted}

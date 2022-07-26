@@ -133,7 +133,7 @@ export default function Step2({
         </div>
       )}
 
-      <div className="buttonCont">
+      <div className="buttonContstep12">
         <button
           className="prev"
           onClick={() => {

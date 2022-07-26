@@ -8,7 +8,7 @@
   color: black;
   flex-direction: column;
   width: 100%;
-padding: 12px;
+  padding: 12px;
 }
 .containerForm {
   width: 100%;
@@ -17,37 +17,44 @@ padding: 12px;
   margin-top: 16px;
   align-items: center;
 }
+.stepAlign {
+  display: flex;
+  flex-direction: column;
+}
 input {
-  width: 100%;
+  width: 75%;
   padding: 6px;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
-.inputContOver{
+.inputContOver {
   display: flex;
+}
+.input100 input {
+  width: 100% !important;
 }
 .inputContOver button {
   height: 32px;
   width: 32px;
-  border: 0.5px solid #9b9a9a ;
+  border: 0.5px solid #9b9a9a;
 }
 .inputContOver button:focus {
- outline: none;
+  outline: none;
 }
-.contOver{
+.contOver {
   display: flex;
   justify-content: center;
   padding: 15px;
 }
-.contOver label{
-font-size: 13px;
+.contOver label {
+  font-size: 13px;
 }
-.inputContOver button i{
- margin-right: 0px;
- color:rgb(102, 102, 102)
+.inputContOver button i {
+  margin-right: 0px;
+  color: rgb(102, 102, 102);
 }
-.inputOver:disabled{
-  width: 100%;
+.inputOver:disabled {
+  width: 75%;
   padding: 3px;
   font-size: 12;
   background-color: #dbdada;
@@ -55,13 +62,13 @@ font-size: 13px;
   margin-bottom: 16px;
 }
 .inputOver {
-  width: 100%;
+  width: 75%;
   padding: 3px;
   font-size: 12;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
-.selectOver:disabled{
+.selectOver:disabled {
   width: 100%;
   padding: 3px;
   font-size: 12;
@@ -69,7 +76,7 @@ font-size: 13px;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
-.selectOver{
+.selectOver {
   width: 100%;
   padding: 3px;
   font-size: 12;
@@ -102,9 +109,12 @@ input:focus {
   background-color: #9b9a9a;
 }
 .buttonCont {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+.buttonContstep12{
   width: 100%;
-  padding-left: 12px;
-  padding-right: 12px;
   display: flex;
   justify-content: space-between;
 }
@@ -112,21 +122,31 @@ input:focus {
   margin-bottom: 32px;
 }
 h1 {
- text-align: center;
- margin-top: 24px;
- margin-bottom: 24px;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   color: rgba(0, 0, 0, 0);
 
   width: 25px;
   height: 25px;
-  border-width: thin
+  border-width: thin;
 }
-.prev{
-  background-color:transparent;
+.prev {
+  background-color: transparent;
   color: #b11f23;
   padding: 8px 24px 8px 24px;
   border: 1px solid #b11f23;
-
+}
+@media only screen and (max-width: 1000px) {
+  input {
+    width: 100%;
+  }
+  .inputOver {
+    width: 100%;
+  }
+  .inputOver:disabled {
+    width: 100%;
+  }
 }

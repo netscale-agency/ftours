@@ -236,7 +236,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           Popunite početna slova Grada/Mjesta i onda ga odaberite iz izbornika
         </p>
       )}
-      <label>
+      <label style={{ maxWidth: 300 }}>
         Država putnika <b>(ako je drugačije od dolje navedenog - obavezno)</b>
       </label>
       <input
@@ -335,7 +335,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             color: "red",
             marginTop: -10,
             fontSize: 13.8,
-            maxWidth: 360,
+            maxWidth: 300,
           }}
         >
           Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan rođenja.
@@ -347,7 +347,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             color: "red",
             marginTop: -10,
             fontSize: 13.8,
-            maxWidth: 360,
+            maxWidth: 300,
           }}
         >
           Provjerite godinu rođenja

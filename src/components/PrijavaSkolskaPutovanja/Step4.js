@@ -40,7 +40,7 @@ export default function Step4({
   };
 
   return (
-    <div>
+    <div className="stepAlign">
       <label>Vrsta putne isprave putnika</label>
       <div style={{ display: "flex" }}>
         <label>Osobna iskaznica</label>
