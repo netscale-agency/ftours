@@ -609,17 +609,7 @@ export default function Overview(data) {
               <i class="fa fa-save"></i>
             </button>
           </div>
-          {day && (
-        <p
-          style={{
-            color: "#0d6efd",
-            fontSize: 13.8,
-          }}
-        >
-          Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
-          najkasnije mjesec dana prije polaska!
-        </p>
-      )}
+
           <label>Putna isprava vrijedi do</label>
           <div
             id="docTrajanje"
