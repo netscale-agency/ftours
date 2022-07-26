@@ -34,6 +34,14 @@ input {
 .inputContOver button:focus {
  outline: none;
 }
+.contOver{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+.contOver label{
+font-size: 13px;
+}
 .inputContOver button i{
  margin-right: 0px;
  color:rgb(102, 102, 102)

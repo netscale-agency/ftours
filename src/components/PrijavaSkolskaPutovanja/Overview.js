@@ -114,7 +114,7 @@ export default function Overview(data) {
   if (data)
     return (
       <div
-        style={{ display: "flex", justifyContent: "center", padding: "15px" }}
+      className="contOver"
       >
         <div
           style={{

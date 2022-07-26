@@ -84,7 +84,7 @@ export default function Step4({
       <label>Putna isprava vrijedi do</label>
       <div id="docTrajanje" style={{ display: "flex" }}>
         <select
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "100px" }}
           id="god"
           onChange={(e) => {
             setYear(e.target.value);
@@ -100,7 +100,7 @@ export default function Step4({
           })}
         </select>
         <select
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "100px" }}
           id="month"
           onChange={(e) => {
             setmonth(e.target.value);
@@ -117,7 +117,7 @@ export default function Step4({
             })}
         </select>
         <select
-          style={{ maxWidth: "120px" }}
+          style={{ maxWidth: "100px" }}
           id="day"
           onChange={(e) => {
             setday(e.target.value);
@@ -160,7 +160,7 @@ export default function Step4({
             color: "red",
             marginTop: -12,
             fontSize: 13.8,
-            maxWidth: 360,
+            maxWidth: 300,
           }}
         >
           Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan do kada
@@ -169,6 +169,9 @@ export default function Step4({
       )}
       <label>Telefon putnika</label>
       <InputMask
+        style={{
+          maxWidth: 300,
+        }}
         mask="+385 (0) 99/999/9999"
         id="telPutnika"
         alwaysShowMask={true}
@@ -178,6 +181,9 @@ export default function Step4({
         Mobitel putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <InputMask
+        style={{
+          maxWidth: 300,
+        }}
         mask="+385 (0) 99/999/9999"
         id="MobPutnika"
         alwaysShowMask={true}
