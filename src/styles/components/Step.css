@@ -80,14 +80,14 @@ input {
   width: 100%;
   padding: 3px;
   font-size: 12;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
 select {
   width: 100%;
   padding: 6px;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }

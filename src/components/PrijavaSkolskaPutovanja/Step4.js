@@ -68,9 +68,10 @@ export default function Step4({
       <input
         id="docBroj"
         type="text"
+        style={{ maxWidth: 300 }}
         placeholder="Popunite broj putne isprave"
       />{" "}
-      {day && (
+      {!day && (
         <p
           style={{
             color: "#0d6efd",

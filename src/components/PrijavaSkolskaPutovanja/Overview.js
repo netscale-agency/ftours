@@ -114,6 +114,7 @@ export default function Overview(data) {
   if (data)
     return (
       <div className="contOver">
+        <div className="tekst">
         <div
           style={{
             display: "flex",
@@ -121,33 +122,32 @@ export default function Overview(data) {
             maxWidth: "800px",
           }}
         >
-          <h2>Provjera podataka</h2>
+          <h2>PROVJERA PODATAKA</h2>
           <br />
           <p>
             <b>
               *Ugovaratelj/Putnik je odgovoran za ispravnost popunjenih
               podataka*
             </b>
-            <br /> <br />
             <p
               style={{
                 color: "#0d6efd",
+                maxWidth:'75%'
               }}
             >
               Molimo Vas provjerite ispravnost prethodno popunjenih podataka.
             </p>
-            <br /> <br />
             <p style={{ color: "red" }} />
             Ako neki od podataka nije ispravan možete ga izmijeniti sa desne
-            strane polja <i class="fa fa-pencil" aria-hidden="true"></i> i zatim
+            strane polja <i class="fa fa-pencil" aria-hidden="true"></i><br /> i zatim
             ga odmah pohranite <i class="fa fa-save"></i>.
           </p>
-          <br />
-          <br />
+          
           <p style={{ color: "#0d6efd" }}>
             Ako ste suglasni sa popunjenim podacima označite na dnu stranice
             Pošalji prijavu.{" "}
           </p>
+          </div>
           <label>
             Prezime ugovaratelja putovanja (roditelj/staratelj){" "}
             <b style={{ color: "#B11F23" }}>(obavezno)</b>
