@@ -125,7 +125,8 @@ export default function Overview(data) {
           <br />
           <p>
             <b>
-              Molimo Vas provjerite ispravnost prethodno popunjenih podataka.
+              *Ugovaratelj/Putnik je odgovoran za ispravnost popunjenih
+              podataka*
             </b>
             <br /> <br />
             <p
@@ -133,18 +134,19 @@ export default function Overview(data) {
                 color: "#0d6efd",
               }}
             >
-              Ako ste suglasni sa popunjenim podacima označite na dnu stranice
-              Pošalji prijavu.
+              Molimo Vas provjerite ispravnost prethodno popunjenih podataka.
             </p>
             <br /> <br />
             <p style={{ color: "red" }} />
             Ako neki od podataka nije ispravan možete ga izmijeniti sa desne
-            strane polja.
+            strane polja <i class="fa fa-pencil" aria-hidden="true"></i> i zatim
+            ga odmah pohranite <i class="fa fa-save"></i>.
           </p>
           <br />
           <br />
-          <p style={{ color: "red" }}>
-            Ugovaratelj/Putnik je odgovoran za ispravnost popunjenih podataka.
+          <p style={{ color: "#0d6efd" }}>
+            Ako ste suglasni sa popunjenim podacima označite na dnu stranice
+            Pošalji prijavu.{" "}
           </p>
           <label>
             Prezime ugovaratelja putovanja (roditelj/staratelj){" "}
