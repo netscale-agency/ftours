@@ -34,8 +34,8 @@ input {
   width: 100% !important;
 }
 .inputContOver button {
-  height: 32px;
-  width: 32px;
+  height: 28px;
+  width: 28px;
   border: 0.5px solid #9b9a9a;
 }
 .inputContOver button:focus {
@@ -54,22 +54,22 @@ input {
   color: rgb(102, 102, 102);
 }
 .inputOver:disabled {
-  width: 75%;
+  width: 50%;
   padding: 3px;
-  font-size: 12;
+  font-size: 12!important;
   background-color: #dbdada;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
 .inputOver {
-  width: 75%;
+  width: 50%;
   padding: 3px;
-  font-size: 12;
+  font-size: 12!important;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
 .selectOver:disabled {
-  width: 100%;
+  width: 50%;
   padding: 3px;
   font-size: 12;
   background-color: #dbdada;
@@ -77,9 +77,9 @@ input {
   margin-bottom: 16px;
 }
 .selectOver {
-  width: 100%;
+  width: 50%;
   padding: 3px;
-  font-size: 12;
+  font-size: 12!important;
   background-color: white;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
@@ -126,6 +126,9 @@ h1 {
   margin-top: 24px;
   margin-bottom: 24px;
 }
+.selectOverLast{
+  width: 50% !important;
+}
 input[type="date"]::-webkit-calendar-picker-indicator {
   color: rgba(0, 0, 0, 0);
 
@@ -149,4 +152,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .inputOver:disabled {
     width: 100%;
   }
+  .selectOver:disabled {
+    width: 100%;
+    padding: 3px;
+    font-size: 12;
+    background-color: #dbdada;
+    border: 1px solid #9b9a9a;
+    margin-bottom: 16px;
+  }
+  .selectOver {
+    width: 100%;
+    padding: 3px;
+    font-size: 12!important;
+    background-color: white;
+    border: 1px solid #9b9a9a;
+    margin-bottom: 16px;
+  }
+  .selectOverLast{width:100%}
 }

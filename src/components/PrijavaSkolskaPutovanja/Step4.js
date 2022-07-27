@@ -74,12 +74,13 @@ export default function Step4({
       {!day && (
         <p
           style={{
+            marginTop: -8,
             color: "#0d6efd",
             fontSize: 13.8,
           }}
         >
-          Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
-          najkasnije mjesec dana prije polaska!
+          Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave s kojom će se putovati
+          i do kada vrijedi - najkasnije 30 dana prije polaska!
         </p>
       )}
       <label>Putna isprava vrijedi do</label>
@@ -228,6 +229,7 @@ export default function Step4({
         )}
       </div>
       <select
+        style={{ width: "75%" }}
         id="nacinPlacanja"
         onChange={(e) => {
           setPrice(e.target.value);
