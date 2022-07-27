@@ -79,8 +79,9 @@ export default function Step4({
             fontSize: 13.8,
           }}
         >
-          Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave s kojom će se putovati
-          i do kada vrijedi - najkasnije 30 dana prije polaska!
+          Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
+          s kojom će se putovati i do kada vrijedi - najkasnije 30 dana prije
+          polaska!
         </p>
       )}
       <label>Putna isprava vrijedi do</label>
@@ -306,12 +307,25 @@ export default function Step4({
         <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <br />
+      <div style={{display:'flex'}}>
+      <label>DA</label>
       <input
         id="suglasnost"
-        type="checkbox"
+        type="radio"
+        name="suglasnost"
         style={{ width: 17, height: 17 }}
-        onChange={() => setChecked1(!checked1)}
+        value={"Da"}
       />{" "}
+      <label>NE</label>
+      <input
+        id="suglasnost"
+        type="radio"
+        name="suglasnost"
+        value={"Ne"}
+        style={{ width: 17, height: 17 }}
+      />
+      </div>
+      
       <a
         style={{ cursor: "pointer" }}
         target="blank"
@@ -353,7 +367,7 @@ export default function Step4({
         </button>
         <button
           className="nextPrev"
-          disabled={checked && checked1 && checked2 ? false : true}
+          disabled={checked && checked2 ? false : true}
           onClick={() => {
             if (document.getElementById("MobPutnika").value) {
               setStep4({

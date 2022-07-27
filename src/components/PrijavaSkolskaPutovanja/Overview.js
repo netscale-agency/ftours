@@ -137,11 +137,13 @@ export default function Overview(data) {
               >
                 Molimo Vas provjerite ispravnost prethodno popunjenih podataka.
               </p>
-              <p style={{ color: "red" }} />
-              Ako neki od podataka nije ispravan možete ga izmijeniti
-              označivanjem na <i class="fa fa-pencil" aria-hidden="true"></i>
-              <br />, zatim izmjenite u pripadajućem polju i odmah ga pohranite
-              označavanjem na <i class="fa fa-save"></i> pripadajućeg polja.
+              <p style={{ color: "red" }}>
+                Ako neki od podataka nije ispravan možete ga izmijeniti
+                označivanjem na <i class="fa fa-pencil" aria-hidden="true"></i>
+                <br />, zatim izmjenite u pripadajućem polju i odmah ga
+                pohranite označavanjem na <i class="fa fa-save"></i>{" "}
+                pripadajućeg polja.
+              </p>
             </p>
 
             <p style={{ color: "#0d6efd" }}>
@@ -269,7 +271,7 @@ export default function Overview(data) {
           </label>
           <div className="inputContOver">
             <input
-              style={{ textTransform: "uppercase",fontSize:13 }}
+              style={{ textTransform: "uppercase", fontSize: 13 }}
               defaultValue={data.data.Prezime}
               id="prezimePutnika"
               className="inputOver"
@@ -312,7 +314,7 @@ export default function Overview(data) {
           </label>
           <div className="inputContOver">
             <input
-              style={{ textTransform: "uppercase",fontSize:13 }}
+              style={{ textTransform: "uppercase", fontSize: 13 }}
               defaultValue={data.data.Ime}
               className="inputOver"
               disabled={uredi6 ? false : true}
@@ -355,7 +357,7 @@ export default function Overview(data) {
           </label>
           <div className="inputContOver">
             <input
-              style={{ textTransform: "capitalize",fontSize:13 }}
+              style={{ textTransform: "capitalize", fontSize: 13 }}
               defaultValue={data.data.Adresa}
               className="inputOver"
               id="adresaPutnika"
@@ -382,7 +384,7 @@ export default function Overview(data) {
           </label>
           <div className="inputContOver">
             <input
-              style={{ maxWidth: "300px",fontSize:13 }}
+              style={{ maxWidth: "300px", fontSize: 13 }}
               defaultValue={data.data.Mjesto}
               list="mjesta"
               className="inputOver"
@@ -427,7 +429,7 @@ export default function Overview(data) {
           </label>
           <div className="inputContOver">
             <input
-              style={{ maxWidth: "300px",fontSize:13 }}
+              style={{ maxWidth: "300px", fontSize: 13 }}
               id="drzava"
               type="text"
               disabled={uredi9 ? false : true}
@@ -449,7 +451,7 @@ export default function Overview(data) {
               className="selectOver"
               defaultValue={year}
               disabled={uredi10 ? false : true}
-              style={{ maxWidth: "100px",fontSize:13 }}
+              style={{ maxWidth: "100px", fontSize: 13 }}
               id="god"
               onChange={(e) => {
                 setYear(e.target.value);
@@ -468,7 +470,7 @@ export default function Overview(data) {
             </select>
             <select
               defaultValue={month}
-              style={{ maxWidth: "100px" ,fontSize:13}}
+              style={{ maxWidth: "100px", fontSize: 13 }}
               className="selectOver"
               id="month"
               disabled={uredi10 ? false : true}
@@ -491,7 +493,7 @@ export default function Overview(data) {
             <select
               defaultValue={day}
               className="selectOver"
-              style={{ maxWidth: "100px" ,fontSize:13}}
+              style={{ maxWidth: "100px", fontSize: 13 }}
               id="day"
               disabled={uredi10 ? false : true}
               onChange={(e) => {
@@ -542,7 +544,7 @@ export default function Overview(data) {
             Spol <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <div className="inputContOver" style={{ display: "flex" }}>
-            <label style={{fontSize:13}}>M</label>
+            <label style={{ fontSize: 13 }}>M</label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="spol"
@@ -554,7 +556,7 @@ export default function Overview(data) {
               onClick={() => setSpol("M")}
               value={"M"}
             />
-            <label style={{fontSize:13}}>Ž</label>
+            <label style={{ fontSize: 13 }}>Ž</label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="spol"
@@ -575,7 +577,7 @@ export default function Overview(data) {
           </div>
           <label>Vrsta putne isprave putnika</label>
           <div className="inputContOver" style={{ display: "flex" }}>
-            <label style={{fontSize:13}}>Osobna iskaznica</label>
+            <label style={{ fontSize: 13 }}>Osobna iskaznica</label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
@@ -587,7 +589,7 @@ export default function Overview(data) {
               defaultChecked={dokument === "Osobna iskaznica" ? true : false}
               value={"Osobna iskaznica"}
             />
-            <label style={{fontSize:13}}>Putovnica</label>
+            <label style={{ fontSize: 13 }}>Putovnica</label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
@@ -613,7 +615,7 @@ export default function Overview(data) {
               type="text"
               name="dokument"
               className="inputOver"
-              style={{ maxWidth: 218.59 ,fontSize:13 }}
+              style={{ maxWidth: 218.59, fontSize: 13 }}
               disabled={uredi13 ? false : true}
               defaultValue={data.data.BrojPutneIsprave}
               placeholder="Popunite broj putne isprave"
@@ -635,7 +637,7 @@ export default function Overview(data) {
             <select
               className="selectOver"
               disabled={uredi14 ? false : true}
-              style={{ maxWidth: "100px" ,fontSize:13}}
+              style={{ maxWidth: "100px", fontSize: 13 }}
               id="god"
               defaultValue={yearDoc}
               onChange={(e) => {
@@ -654,7 +656,7 @@ export default function Overview(data) {
             <select
               className="selectOver"
               disabled={uredi14 ? false : true}
-              style={{ maxWidth: "100px",fontSize:13 }}
+              style={{ maxWidth: "100px", fontSize: 13 }}
               id="month"
               defaultValue={monthDoc}
               onChange={(e) => {
@@ -674,7 +676,7 @@ export default function Overview(data) {
             <select
               className="selectOver"
               disabled={uredi14 ? false : true}
-              style={{ maxWidth: "100px",fontSize:13 }}
+              style={{ maxWidth: "100px", fontSize: 13 }}
               id="day"
               defaultValue={dayDoc}
               onChange={(e) => {
@@ -735,7 +737,7 @@ export default function Overview(data) {
           <div className="inputContOver">
             <InputMask
               disabled={uredi15 ? false : true}
-              style={{ maxWidth: 300,fontSize:13 }}
+              style={{ maxWidth: 300, fontSize: 13 }}
               mask="+385 (0) 99/999/9999"
               defaultValue={data.data.Tel}
               className="inputOver"
@@ -757,7 +759,7 @@ export default function Overview(data) {
             <InputMask
               disabled={uredi16 ? false : true}
               mask="+385 (0) 99/999/9999"
-              style={{ maxWidth: 300 ,fontSize:13}}
+              style={{ maxWidth: 300, fontSize: 13 }}
               id="MobPutnika"
               defaultValue={data.data.Mob}
               className="inputOver"
@@ -777,7 +779,7 @@ export default function Overview(data) {
           <div className="inputContOver">
             <input
               disabled={uredi17 ? false : true}
-              style={{ textTransform: "none",fontSize:13 }}
+              style={{ textTransform: "none", fontSize: 13 }}
               placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
               id="emailPutnika"
               type="email"
@@ -824,7 +826,7 @@ export default function Overview(data) {
             <select
               className="selectOverLast"
               id="nacinPlacanja"
-              style={{fontSize:13}}
+              style={{ fontSize: 13 }}
               defaultValue={price}
               disabled={uredi18 ? false : true}
               onChange={(e) => {

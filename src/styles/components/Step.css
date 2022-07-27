@@ -59,6 +59,7 @@ input {
   font-size: 12!important;
   background-color: #dbdada;
   border: 1px solid #9b9a9a;
+  color: black;
   margin-bottom: 16px;
 }
 .inputOver {
@@ -72,6 +73,7 @@ input {
   width: 50%;
   padding: 3px;
   font-size: 12;
+  color: black;
   background-color: #dbdada;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
@@ -168,5 +170,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border: 1px solid #9b9a9a;
     margin-bottom: 16px;
   }
-  .selectOverLast{width:100%}
+  .selectOverLast{width: 100% !important;}
 }
