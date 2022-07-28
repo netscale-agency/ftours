@@ -56,7 +56,7 @@ input {
 .inputOver:disabled {
   width: 50%;
   padding: 3px;
-  font-size: 14!important;
+  font-size: 14 !important;
   background-color: #dbdada;
   font-weight: 600;
   border: 1px solid #9b9a9a;
@@ -66,7 +66,7 @@ input {
 .inputOver {
   width: 50%;
   padding: 3px;
-  font-size: 14!important;
+  font-size: 14 !important;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
@@ -84,7 +84,7 @@ input {
 .selectOver {
   width: 50%;
   padding: 3px;
-  font-size: 14!important;
+  font-size: 14 !important;
   background-color: white;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
@@ -118,7 +118,11 @@ input:focus {
   display: flex;
   justify-content: space-between;
 }
-.buttonContstep12{
+.priceExpl {
+  width: 50%;
+}
+
+.buttonContstep12 {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -131,7 +135,7 @@ h1 {
   margin-top: 24px;
   margin-bottom: 24px;
 }
-.selectOverLast{
+.selectOverLast {
   width: 50% !important;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -168,10 +172,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .selectOver {
     width: 100%;
     padding: 3px;
-    font-size: 14!important;
+    font-size: 14 !important;
     background-color: white;
     border: 1px solid #9b9a9a;
     margin-bottom: 16px;
   }
-  .selectOverLast{width: 100% !important;}
+  .selectOverLast {
+    width: 100% !important;
+  }
+  .priceExpl {
+    width: 100%;
+  }
 }

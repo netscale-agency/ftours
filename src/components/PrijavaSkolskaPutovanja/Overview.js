@@ -278,12 +278,13 @@ export default function Overview(data) {
               check(email, "emailRoditelj")}
           </span>
           <br />
+          <br/>
           <label>
             Prezime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <div className="inputContOver">
             <input
-              style={{ textTransform: "uppercase", fontSize: 13 }}
+              style={{ textTransform: "uppercase", fontSize: 13,marginBottom:0 }}
               defaultValue={data.data.Prezime}
               id="prezimePutnika"
               className="inputOver"
@@ -326,7 +327,7 @@ export default function Overview(data) {
           </label>
           <div className="inputContOver">
             <input
-              style={{ textTransform: "uppercase", fontSize: 13 }}
+              style={{ textTransform: "uppercase", fontSize: 13,marginBottom:0 }}
               defaultValue={data.data.Ime}
               className="inputOver"
               disabled={uredi6 ? false : true}
@@ -556,7 +557,11 @@ export default function Overview(data) {
             Spol <b style={{ color: "#B11F23" }}>(obavezno)</b>
           </label>
           <div className="inputContOver" style={{ display: "flex" }}>
-            <label style={{ fontSize: 13 }}>M</label>
+            <label
+              style={{ fontSize: 13, fontWeight: uredi1 === false ? 600 : 400 }}
+            >
+              M
+            </label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="spol"
@@ -568,7 +573,14 @@ export default function Overview(data) {
               onClick={() => setSpol("M")}
               value={"M"}
             />
-            <label style={{ fontSize: 13 }}>Ž</label>
+            <label
+              style={{
+                fontSize: 13,
+                fontWeight: uredi11 === false ? 600 : 400,
+              }}
+            >
+              Ž
+            </label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="spol"
@@ -589,7 +601,14 @@ export default function Overview(data) {
           </div>
           <label>Vrsta putne isprave putnika</label>
           <div className="inputContOver" style={{ display: "flex" }}>
-            <label style={{ fontSize: 13 }}>Osobna iskaznica</label>
+            <label
+              style={{
+                fontSize: 13,
+                fontWeight: uredi12 === false ? 600 : 400,
+              }}
+            >
+              Osobna iskaznica
+            </label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
@@ -601,7 +620,14 @@ export default function Overview(data) {
               defaultChecked={dokument === "Osobna iskaznica" ? true : false}
               value={"Osobna iskaznica"}
             />
-            <label style={{ fontSize: 13 }}>Putovnica</label>
+            <label
+              style={{
+                fontSize: 13,
+                fontWeight: uredi12 === false ? 600 : 400,
+              }}
+            >
+              Putovnica
+            </label>
             <input
               style={{ width: 20, marginTop: "auto" }}
               id="dokument"
@@ -791,7 +817,7 @@ export default function Overview(data) {
           <div className="inputContOver">
             <input
               disabled={uredi17 ? false : true}
-              style={{ textTransform: "none", fontSize: 13 }}
+              style={{ textTransform: "none", fontSize: 13 ,fontWeight:uredi17===false?600:400}}
               placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
               id="emailPutnika"
               type="email"
@@ -810,7 +836,10 @@ export default function Overview(data) {
           </label>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {activeAran.CijenaAWebPrikaz === "True" && (
-              <span style={{ fontWeight: price === "A" ? 600 : 400 }}>
+              <span
+                style={{ fontWeight: price === "A" ? 600 : 400 }}
+                className="priceExpl"
+              >
                 A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
                 jednokratno novčanicama, internet/mobilnim bankarstvom ili
                 uplatnicom koju dostavlja agencija (elektronskom poštom) s
@@ -819,7 +848,10 @@ export default function Overview(data) {
               </span>
             )}
             {activeAran.CijenaBWebPrikaz === "True" && (
-              <span style={{ fontWeight: `${price === "B" ? 600 : 400}` }}>
+              <span
+                style={{ fontWeight: `${price === "B" ? 600 : 400}` }}
+                className="priceExpl"
+              >
                 B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
                 mjesečne obroke uplatnicama koje dostavlja agencija
                 (elektronskom poštom) s datumom dospijeća naznačenim na
@@ -827,7 +859,10 @@ export default function Overview(data) {
               </span>
             )}
             {activeAran.CijenaCWebPrikaz === "True" && (
-              <span style={{ fontWeight: price === "C" ? 600 : 400 }}>
+              <span
+                style={{ fontWeight: price === "C" ? 600 : 400 }}
+                className="priceExpl"
+              >
                 C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana
                 jednokratno ili obročno debitnim ili kreditnim karticama (max 12
                 obroka) do datuma naznačenog na aranžmanu
@@ -838,7 +873,10 @@ export default function Overview(data) {
             <select
               className="selectOverLast"
               id="nacinPlacanja"
-              style={{ fontSize: 13 }}
+              style={{
+                fontSize: 13,
+                fontWeight: uredi18 === false ? 600 : 400,
+              }}
               defaultValue={price}
               disabled={uredi18 ? false : true}
               onChange={(e) => {

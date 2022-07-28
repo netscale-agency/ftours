@@ -80,7 +80,7 @@ export default function Step4({
           }}
         >
           Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
-          s kojom će se putovati i do kada vrijedi - najkasnije 30 dana prije
+          s kojom će se putovati i do kada vrijedi <br/>- najkasnije 30 dana prije
           polaska!
         </p>
       )}
@@ -316,7 +316,7 @@ export default function Step4({
         style={{ width: 17, height: 17 }}
         value={"Da"}
       />{" "}
-      <label>Ne</label>
+      <label style={{marginLeft:8}}>Ne</label>
       <input
         id="suglasnost"
         type="radio"
