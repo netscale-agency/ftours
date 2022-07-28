@@ -72,6 +72,12 @@ export default function Overview(data) {
     setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
   useEffect(() => {
+    if (window) {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
+  useEffect(() => {
     if (
       data.data.Adresa &&
       data.data.Email &&

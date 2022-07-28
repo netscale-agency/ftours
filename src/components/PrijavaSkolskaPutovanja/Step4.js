@@ -399,8 +399,6 @@ export default function Step4({
                   VrstaPutneIsprave: dokument,
                 })
               );
-              console.log(step4);
-              window.scrollTo(0, 0);
               setactivateCheck(true);
               // window.localStorage.clear();
             }
