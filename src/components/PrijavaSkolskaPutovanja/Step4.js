@@ -308,7 +308,7 @@ export default function Step4({
       </label>
       <br />
       <div style={{display:'flex'}}>
-      <label>DA</label>
+      <label>Da</label>
       <input
         id="suglasnost"
         type="radio"
@@ -316,7 +316,7 @@ export default function Step4({
         style={{ width: 17, height: 17 }}
         value={"Da"}
       />{" "}
-      <label>NE</label>
+      <label>Ne</label>
       <input
         id="suglasnost"
         type="radio"

@@ -139,9 +139,15 @@ export default function Overview(data) {
               </p>
               <p style={{ color: "red" }}>
                 Ako neki od podataka nije ispravan možete ga izmijeniti
-                označivanjem na <i class="fa fa-pencil" aria-hidden="true"></i>
-                <br />, zatim izmjenite u pripadajućem polju i odmah ga
-                pohranite označavanjem na <i class="fa fa-save"></i>{" "}
+                koristeći{" "}
+                <i
+                  style={{ color: "black" }}
+                  class="fa fa-pencil"
+                  aria-hidden="true"
+                ></i>
+                , <br />
+                zatim podatak izmijenite i odmah ga pohranite na{" "}
+                <i style={{ color: "black" }} class="fa fa-save"></i>{" "}
                 pripadajućeg polja.
               </p>
             </p>
