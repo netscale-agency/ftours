@@ -121,7 +121,7 @@ input:focus {
 .priceExpl {
   width: 50%;
 }
-.selectLast{
+.selectLast {
   width: 75%;
 }
 .buttonContstep12 {
@@ -139,6 +139,17 @@ h1 {
 }
 .selectOverLast {
   width: 50% !important;
+}
+.selectOverLast:disabled {
+  width: 50%;
+  padding: 3px;
+  font-size: 14;
+  font-weight: 600;
+
+  color: black;
+  background-color: #dbdada;
+  border: 1px solid #9b9a9a;
+  margin-bottom: 16px;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   color: rgba(0, 0, 0, 0);
@@ -185,7 +196,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .priceExpl {
     width: 100%;
   }
-  .selectLast{
+  .selectLast {
+    width: 100%;
+  }
+  .selectOverLast:disabled {
     width: 100%;
   }
 }
