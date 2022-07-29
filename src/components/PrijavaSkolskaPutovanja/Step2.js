@@ -88,27 +88,51 @@ export default function Step2({
         <span>Označite polje i pročitajte/preuzmite program putovanja</span>
         <div style={{ display: "flex", marginTop: 20, marginBottom: 20 }}>
           {" "}
-          <input
-            style={{ width: "20px" }}
-            onChange={() => {
-              setChecked(!checked);
-            }}
-            onClick={() => {
-              if (checked === false) {
-                setModalOpen(true);
-              }
-            }}
-            type="checkbox"
-          />
-          {checked && (
-            <i
-              onClick={() => setModalOpen(true)}
-              className="fa fa-file-pdf-o fa-2x"
+          <a
+            target="blank"
+            href={
+              data.GrupeRezervacije.filter((item) => item.GrupaId === aran)[0]
+                .FileProgramPutovanja
+            }
+          >
+            <input
+              style={{ width: "20px" }}
+              onChange={() => {
+                setChecked(!checked);
+              }}
+              onClick={() => {
+                if (checked === false) {
+                  setModalOpen(true);
+                  window.open(
+                    data.GrupeRezervacije.filter(
+                      (item) => item.GrupaId === aran
+                    )[0].FileProgramPutovanja,
+                    "_blank"
+                  );
+                }
+              }}
+              type="checkbox"
             />
+          </a>
+          {checked && (
+            <a
+              style={{ color: "black" }}
+              target="blank"
+              href={
+                data.GrupeRezervacije.filter((item) => item.GrupaId === aran)[0]
+                  .FileProgramPutovanja
+              }
+            >
+              {" "}
+              <i
+                onClick={() => setModalOpen(true)}
+                className="fa fa-file-pdf-o fa-2x"
+              />
+            </a>
           )}
         </div>
       </div>
-      {modalOpen && (
+      {/* {modalOpen && (
         <div
           style={{
             position: "absolute",
@@ -131,7 +155,7 @@ export default function Step2({
             }
           ></iframe>
         </div>
-      )}
+      )} */}
 
       <div className="buttonContstep12">
         <button

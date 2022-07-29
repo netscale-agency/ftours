@@ -123,6 +123,7 @@ export default function Overview(data) {
         <div className="tekst">
           <div
             style={{
+              marginTop:100,
               display: "flex",
               flexDirection: "column",
               maxWidth: "800px",
@@ -576,6 +577,7 @@ export default function Overview(data) {
             <label
               style={{
                 fontSize: 13,
+                marginLeft:16,
                 fontWeight: uredi11 === false ? 600 : 400,
               }}
             >
@@ -603,9 +605,9 @@ export default function Overview(data) {
           <div className="inputContOver" style={{ display: "flex" }}>
             <label
               style={{
-                fontSize: 13,
+                fontSize: 12,
                 fontWeight: uredi12 === false ? 600 : 400,
-              }}
+              }}Oso
             >
               Osobna iskaznica
             </label>
@@ -622,7 +624,7 @@ export default function Overview(data) {
             />
             <label
               style={{
-                fontSize: 13,
+                fontSize: 12,
                 fontWeight: uredi12 === false ? 600 : 400,
               }}
             >

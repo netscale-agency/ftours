@@ -121,7 +121,9 @@ input:focus {
 .priceExpl {
   width: 50%;
 }
-
+.selectLast{
+  width: 75%;
+}
 .buttonContstep12 {
   width: 100%;
   display: flex;
@@ -181,6 +183,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100% !important;
   }
   .priceExpl {
+    width: 100%;
+  }
+  .selectLast{
     width: 100%;
   }
 }

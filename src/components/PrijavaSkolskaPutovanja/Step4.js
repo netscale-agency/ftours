@@ -80,8 +80,8 @@ export default function Step4({
           }}
         >
           Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
-          s kojom će se putovati i do kada vrijedi <br/>- najkasnije 30 dana prije
-          polaska!
+          s kojom će se putovati i do kada vrijedi <br />- najkasnije 30 dana
+          prije polaska!
         </p>
       )}
       <label>Putna isprava vrijedi do</label>
@@ -230,7 +230,7 @@ export default function Step4({
         )}
       </div>
       <select
-        style={{ width: "75%" }}
+        className="selectLast"
         id="nacinPlacanja"
         onChange={(e) => {
           setPrice(e.target.value);
@@ -307,25 +307,24 @@ export default function Step4({
         <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <br />
-      <div style={{display:'flex'}}>
-      <label>Da</label>
-      <input
-        id="suglasnost"
-        type="radio"
-        name="suglasnost"
-        style={{ width: 17, height: 17 }}
-        value={"Da"}
-      />{" "}
-      <label style={{marginLeft:8}}>Ne</label>
-      <input
-        id="suglasnost"
-        type="radio"
-        name="suglasnost"
-        value={"Ne"}
-        style={{ width: 17, height: 17 }}
-      />
+      <div style={{ display: "flex" }}>
+        <label>Da</label>
+        <input
+          id="suglasnost"
+          type="radio"
+          name="suglasnost"
+          style={{ width: 17, height: 17 }}
+          value={"Da"}
+        />{" "}
+        <label style={{ marginLeft: 8 }}>Ne</label>
+        <input
+          id="suglasnost"
+          type="radio"
+          name="suglasnost"
+          value={"Ne"}
+          style={{ width: 17, height: 17 }}
+        />
       </div>
-      
       <a
         style={{ cursor: "pointer" }}
         target="blank"

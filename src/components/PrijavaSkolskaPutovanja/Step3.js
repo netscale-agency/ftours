@@ -367,7 +367,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           onClick={() => setSpol("M")}
           value={"M"}
         />
-        <label>Ž</label>
+        <label style={{ marginLeft: 16 }}>Ž</label>
         <input
           style={{ width: 20, marginTop: "auto" }}
           id="spol"
