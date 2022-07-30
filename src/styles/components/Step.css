@@ -54,7 +54,7 @@ input {
   color: rgb(102, 102, 102);
 }
 .inputOver:disabled {
-  width: 50%;
+  width: 100%;
   padding: 3px;
   font-size: 14 !important;
   background-color: #dbdada;
@@ -64,14 +64,14 @@ input {
   margin-bottom: 16px;
 }
 .inputOver {
-  width: 50%;
+  width: 100%;
   padding: 3px;
   font-size: 14 !important;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
 .selectOver:disabled {
-  width: 50%;
+  width: 100%;
   padding: 3px;
   font-size: 14;
   font-weight: 600;
@@ -82,7 +82,7 @@ input {
   margin-bottom: 16px;
 }
 .selectOver {
-  width: 50%;
+  width: 100%;
   padding: 3px;
   font-size: 14 !important;
   background-color: white;
@@ -119,7 +119,7 @@ input:focus {
   justify-content: space-between;
 }
 .priceExpl {
-  width: 50%;
+  width: 100%;
 }
 .selectLast {
   width: 75%;
@@ -138,10 +138,10 @@ h1 {
   margin-bottom: 24px;
 }
 .selectOverLast {
-  width: 50% !important;
+  width: 100%;
 }
 .selectOverLast:disabled {
-  width: 50%;
+  width: 100%;
   padding: 3px;
   font-size: 14;
   font-weight: 600;
