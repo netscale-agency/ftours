@@ -96,7 +96,7 @@ export default function Step2({
             }
           >
             <input
-              style={{ width: 27 ,height:27 }}
+              style={{ width: 27 ,height:27 , marginRight:8}}
               onChange={() => {
                 setChecked(!checked);
               }}

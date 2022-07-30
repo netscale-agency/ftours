@@ -18,6 +18,9 @@ export const check = (val, id) => {
 
       break;
     case "emailRoditelj":
+      if(val.includes(' ')){
+        return "Polje nije popunjeno ili nije ispravan format";
+      }
       if (!val.includes("@")) {
         return "Polje nije popunjeno ili nije ispravan format";
       }

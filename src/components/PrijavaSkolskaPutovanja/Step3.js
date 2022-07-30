@@ -16,20 +16,21 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const thisYear = new Date().getFullYear();
 
   const [imeRoditelj, setImeRoditelj] = useState(
-    step3.RoditeljSkrbnik.split(" ")[0] || ""
+    step3.RoditeljSkrbnik.split(" ")[0] || undefined
   );
   const [prezimeRoditelj, setPrezimeRoditelj] = useState(
-    step3.RoditeljSkrbnik.split(" ")[1] || ""
+    step3.RoditeljSkrbnik.split(" ")[1] || undefined
   );
   const [telRoditelj, setTelRoditelj] = useState(
-    step3.RoditeljSkrbnikMob || ""
+    step3.RoditeljSkrbnikMob || undefined
   );
-  const [email, setEmail] = useState(step3.RoditeljSkrbnikEmail || "");
-  const [prezimePutnika, setPrezimePutnika] = useState(step3.Prezime || "");
-  const [imePutnika, setImePutnika] = useState(step3.Ime || "");
-  const [adresaPutnika, setAdresaPutnika] = useState(step3.Adresa || "");
-  const [spol, setSpol] = useState(step3.Spol || "");
-  console.log(spol);
+  const [email, setEmail] = useState(step3.RoditeljSkrbnikEmail || undefined);
+  const [prezimePutnika, setPrezimePutnika] = useState(
+    step3.Prezime || undefined
+  );
+  const [imePutnika, setImePutnika] = useState(step3.Ime || undefined);
+  const [adresaPutnika, setAdresaPutnika] = useState(step3.Adresa || undefined);
+  const [spol, setSpol] = useState(step3.Spol || undefined);
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
@@ -54,7 +55,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {(!defData.RoditeljIme || prezimeRoditelj === "") &&
+        {prezimeRoditelj &&
+          (!defData.RoditeljIme || prezimeRoditelj === "") &&
           check(prezimeRoditelj, "prezimeRoditelj")}
       </span>
       <label>
@@ -72,7 +74,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />{" "}
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {(!defData.roditeljPrezime || imeRoditelj === "") &&
+        {imeRoditelj &&
+          (!defData.roditeljPrezime || imeRoditelj === "") &&
           check(imeRoditelj, "imeRoditelj")}
       </span>
       <label>
@@ -90,7 +93,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="tel"
       />
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {(!defData.RoditeljSkrbnikMob || telRoditelj === "") &&
+        {telRoditelj &&
+          (!defData.RoditeljSkrbnikMob || telRoditelj === "") &&
           check(telRoditelj, "telRoditelj")}
       </span>
       <label>
@@ -107,9 +111,12 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="email"
       />{" "}
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {(!defData.RoditeljSkrbnikEmail || email === "") &&
+        {email !== undefined &&
+          (!defData.RoditeljSkrbnikEmail || email === "") &&
           check(email, "emailRoditelj")}
       </span>
+      <br />
+      <br />
       <label>
         Prezime putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
@@ -123,7 +130,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite prezime (npr. HORVAT)"
         type="text"
       />{" "}
-      {(!defData.Prezime || prezimePutnika === "") && (
+      {prezimePutnika && (!defData.Prezime || prezimePutnika === "") && (
         <span
           style={{
             color: "red",
@@ -157,7 +164,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite ime (npr. ANTE)"
         type="text"
       />{" "}
-      {(!defData.Ime || imePutnika === "") && (
+      {imePutnika && (!defData.Ime || imePutnika === "") && (
         <span
           style={{
             color: "red",
@@ -192,7 +199,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite svoju adresu (npr. Horvatova 1)"
       />{" "}
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {(!defData.Adresa || adresaPutnika === "") &&
+        {adresaPutnika &&
+          (!defData.Adresa || adresaPutnika === "") &&
           check(adresaPutnika, "adresaPutnika")}
       </span>
       <label>
@@ -213,7 +221,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           return <option key={i} value={item} />;
         })}
       </datalist>
-      {(!defData.Mjesto || city === "") && (
+      {city&&(!defData.Mjesto || city === "") && (
         <span
           style={{
             color: "red",

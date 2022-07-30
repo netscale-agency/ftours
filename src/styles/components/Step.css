@@ -22,7 +22,7 @@
   flex-direction: column;
 }
 input {
-  width: 75%;
+  width: 100%;
   padding: 6px;
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
