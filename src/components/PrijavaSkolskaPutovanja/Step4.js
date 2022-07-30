@@ -41,7 +41,9 @@ export default function Step4({
 
   return (
     <div className="stepAlign">
-      <label>Vrsta putne isprave putnika</label>
+      <b>
+        <label>Vrsta putne isprave putnika</label>
+      </b>
       <div style={{ display: "flex" }}>
         <label>Osobna iskaznica</label>
         <input
@@ -80,8 +82,8 @@ export default function Step4({
           }}
         >
           Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
-          s kojom će se putovati i do kada vrijedi <br />- najkasnije 30 dana
-          prije polaska!
+          s kojom će se putovati i do kada vrijedi - najkasnije 30 dana prije
+          polaska!
         </p>
       )}
       <label>Putna isprava vrijedi do</label>
@@ -163,7 +165,6 @@ export default function Step4({
             color: "red",
             marginTop: -12,
             fontSize: 13.8,
-            maxWidth: 300,
           }}
         >
           Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan do kada
@@ -207,7 +208,7 @@ export default function Step4({
       <div style={{ display: "flex", flexDirection: "column" }}>
         {activeAran.CijenaAWebPrikaz === "True" && (
           <span style={{ fontWeight: price === "A" ? 600 : 400 }}>
-            A (cijena s popustom) -Uplata cjelokupnog iznosa aranžmana
+            <b>A (cijena s popustom)</b> -Uplata cjelokupnog iznosa aranžmana
             jednokratno novčanicama, internet/mobilnim bankarstvom ili
             uplatnicom koju dostavlja agencija (elektronskom poštom) s datumom
             dospijeća naznačenim na aranžmanu
@@ -216,16 +217,16 @@ export default function Step4({
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <span style={{ fontWeight: `${price === "B" ? 600 : 400}` }}>
-            B (cijena s popustom) -Uplata rezervacije, te ostatka iznosa na
-            mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
+            <b>B (cijena s popustom)</b> -Uplata rezervacije, te ostatka iznosa
+            na mjesečne obroke uplatnicama koje dostavlja agencija (elektronskom
             poštom) s datumom dospijeća naznačenim na aranžmanu
           </span>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <span style={{ fontWeight: price === "C" ? 600 : 400 }}>
-            C (osnovna cijena) -Uplata cjelokupnog iznosa aranžmana jednokratno
-            ili obročno debitnim ili kreditnim karticama (max 12 obroka) do
-            datuma naznačenog na aranžmanu
+            <b>C (osnovna cijena)</b> -Uplata cjelokupnog iznosa aranžmana
+            jednokratno ili obročno debitnim ili kreditnim karticama (max 12
+            obroka) do datuma naznačenog na aranžmanu
           </span>
         )}
       </div>
@@ -271,7 +272,6 @@ export default function Step4({
         podataka (GDPR 2016/679), odnosno u trajanju od 5 godina od završetka
         usluge, osim ako dulji vremenski period čuvanja osobnih podataka nije
         određen važećim nacionalnim ili europskim propisima. <br />
-        <br />
         <b>
           Izjavljujem da privolu dajem dobrovoljno, da mi je detaljno pojašnjena
           namjera korištenja osobnih podataka djeteta u svrhe iz ove privole kao
@@ -290,13 +290,11 @@ export default function Step4({
         />
         <br />
       </span>
-      <br />
       <p>
         Opoziv suglasnosti je moguće ostvariti na način da se pošalje obavijest
         o opozivu na e-mail adresu desk@f-tours.hr ili na adresu Destinations
         F-tours d.o.o., Trg Hrvatske bratske zajednice 2, 21000 Split.
       </p>
-      <br />
       <label>
         <b>
           {" "}
@@ -306,7 +304,6 @@ export default function Step4({
         <br />
         <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
-      <br />
       <div style={{ display: "flex" }}>
         <label>Da</label>
         <input
@@ -331,13 +328,11 @@ export default function Step4({
         href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE"
       >
         {" "}
-        <br />
         <label style={{ cursor: "pointer" }}>
           Pročitao/la sam i prihvaćam opće uvjete <br />
           <b style={{ color: "#B11F23" }}>(obavezno)</b>
         </label>
       </a>
-      <br />
       <input
         id="općiUvjeti"
         type="checkbox"
