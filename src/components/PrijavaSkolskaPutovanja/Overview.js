@@ -167,7 +167,7 @@ export default function Overview(data) {
               Pošalji prijavu.{" "}
             </p>
           </div>
-          <div style={{maxWidth:800}}>
+          <div style={{ maxWidth: 800 }}>
             <label>
               Prezime ugovaratelja putovanja (roditelj/staratelj){" "}
               <b style={{ color: "#B11F23" }}>(obavezno)</b>
@@ -575,12 +575,14 @@ export default function Overview(data) {
                 style={{
                   fontSize: 13,
                   fontWeight: uredi1 === false ? 600 : 400,
+                  marginTop: "auto",
+                  marginBottom: "auto",
                 }}
               >
                 M
               </label>
               <input
-                style={{ width: 20, marginTop: "auto" }}
+                style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
                 id="spol"
                 name="spol"
                 disabled={uredi11 ? false : true}
@@ -595,12 +597,14 @@ export default function Overview(data) {
                   fontSize: 13,
                   marginLeft: 16,
                   fontWeight: uredi11 === false ? 600 : 400,
+                  marginTop: "auto",
+                  marginBottom: "auto",
                 }}
               >
                 Ž
               </label>
               <input
-                style={{ width: 20, marginTop: "auto" }}
+                style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
                 id="spol"
                 name="spol"
                 className="inputOver"
@@ -623,13 +627,14 @@ export default function Overview(data) {
                 style={{
                   fontSize: 12,
                   fontWeight: uredi12 === false ? 600 : 400,
+                  marginTop: "auto",
+                  marginBottom: "auto",
                 }}
-                Oso
               >
                 Osobna iskaznica
               </label>
               <input
-                style={{ width: 20, marginTop: "auto" }}
+                style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
                 id="dokument"
                 className="inputOver"
                 disabled={uredi12 ? false : true}
@@ -643,12 +648,14 @@ export default function Overview(data) {
                 style={{
                   fontSize: 12,
                   fontWeight: uredi12 === false ? 600 : 400,
+                  marginTop: "auto",
+                  marginBottom: "auto",
                 }}
               >
                 Putovnica
               </label>
               <input
-                style={{ width: 20, marginTop: "auto" }}
+                style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
                 id="dokument"
                 name="dokument"
                 type="radio"
@@ -783,7 +790,6 @@ export default function Overview(data) {
                   color: "red",
                   marginTop: -12,
                   fontSize: 13.8,
-                  maxWidth: 490,
                 }}
               >
                 Prvo odaberite iz izbornika Godinu, zatim Mjesec i onda Dan do

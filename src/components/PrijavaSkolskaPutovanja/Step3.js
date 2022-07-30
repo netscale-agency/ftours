@@ -145,7 +145,10 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <p
         style={{
           color: "#0d6efd",
-          marginTop: defData.Prezime || prezimePutnika !== "" ? 0 : -10,
+          marginTop:
+            prezimePutnika && (defData.Prezime || prezimePutnika !== "")
+              ? 0
+              : -10,
           fontSize: 13.8,
         }}
       >
@@ -179,7 +182,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <p
         style={{
           color: "#0d6efd",
-          marginTop: defData.Ime || imePutnika !== "" ? 0 : -10,
+          marginTop: imePutnika && (defData.Ime || imePutnika !== "") ? 0 : -10,
           fontSize: 13.8,
         }}
       >
@@ -381,7 +384,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           Ž
         </label>
         <input
-          style={{ width: 20, marginTop: "auto" }}
+          style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
           id="spol"
           name="spol"
           type="radio"
