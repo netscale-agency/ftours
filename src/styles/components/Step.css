@@ -7,7 +7,7 @@
   text-align: start;
   color: black;
   flex-direction: column;
-  width: 100%;
+  width: 75%;
   padding: 12px;
 }
 .containerForm {
@@ -158,6 +158,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 25px;
   border-width: thin;
 }
+.step1Cont {
+  width: 75%;
+}
+
 .prev {
   background-color: transparent;
   color: #b11f23;
@@ -168,6 +172,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   input {
     width: 100%;
   }
+  .step1Cont {
+    width: 100%;
+  }
+
   .inputOver {
     width: 100%;
   }
@@ -200,6 +208,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 100%;
   }
   .selectOverLast:disabled {
+    width: 100%;
+  }
+  .stepContainer2 {
     width: 100%;
   }
 }

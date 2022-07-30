@@ -20,7 +20,7 @@ export default function Step1({ data, active, setActive, setAran }) {
     }
   }, [isString]);
   return (
-    <div style={{ width: "75%" }}>
+    <div className="step1Cont" >
       <div className="inputCont input100" >
         <label>
           Šifra aranžmana <b style={{ color: "#B11F23" }}>(obavezno)</b>
