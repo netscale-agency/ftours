@@ -86,7 +86,7 @@ export default function Step2({
       </select>
       <div>
         <span>Označite polje i pročitajte/preuzmite program putovanja</span>
-        <div style={{ display: "flex", marginTop: 20, marginBottom: 20 }}>
+        <div style={{ display: "flex", marginTop: 20, marginBottom: 10 }}>
           {" "}
           <a
             target="blank"

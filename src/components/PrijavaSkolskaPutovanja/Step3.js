@@ -221,7 +221,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           return <option key={i} value={item} />;
         })}
       </datalist>
-      {city&&(!defData.Mjesto || city === "") && (
+      {city && (!defData.Mjesto || city === "") && (
         <span
           style={{
             color: "red",
@@ -365,9 +365,9 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         Spol <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <div style={{ display: "flex" }}>
-        <label>M</label>
+        <label style={{ marginTop: "auto", marginBottom: "auto" }}>M</label>
         <input
-          style={{ width: 20, marginTop: "auto" }}
+          style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
           id="spol"
           name="spol"
           type="radio"
@@ -375,7 +375,11 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           onClick={() => setSpol("M")}
           value={"M"}
         />
-        <label style={{ marginLeft: 16 }}>Ž</label>
+        <label
+          style={{ marginLeft: 16, marginTop: "auto", marginBottom: "auto" }}
+        >
+          Ž
+        </label>
         <input
           style={{ width: 20, marginTop: "auto" }}
           id="spol"
