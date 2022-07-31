@@ -37,7 +37,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
-
+  console.log("data", imePutnika);
   return (
     <div className="stepContainer2">
       <label>
@@ -55,7 +55,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {prezimeRoditelj &&
+        {prezimeRoditelj !== undefined &&
           (!defData.RoditeljIme || prezimeRoditelj === "") &&
           check(prezimeRoditelj, "prezimeRoditelj")}
       </span>
@@ -74,7 +74,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="text"
       />{" "}
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {imeRoditelj &&
+        {imeRoditelj !== undefined &&
           (!defData.roditeljPrezime || imeRoditelj === "") &&
           check(imeRoditelj, "imeRoditelj")}
       </span>
@@ -93,7 +93,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         type="tel"
       />
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {telRoditelj &&
+        {telRoditelj !== undefined &&
           (!defData.RoditeljSkrbnikMob || telRoditelj === "") &&
           check(telRoditelj, "telRoditelj")}
       </span>
@@ -130,23 +130,25 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite prezime (npr. HORVAT)"
         type="text"
       />{" "}
-      {prezimePutnika && (!defData.Prezime || prezimePutnika === "") && (
-        <span
-          style={{
-            color: "red",
-            marginTop: -16,
-            fontSize: 14,
-            marginBottom: 3,
-          }}
-        >
-          {check(prezimePutnika, "prezimePutnika")}
-        </span>
-      )}
+      {prezimePutnika !== undefined &&
+        (!defData.Prezime || prezimePutnika === "") && (
+          <span
+            style={{
+              color: "red",
+              marginTop: -16,
+              fontSize: 14,
+              marginBottom: 3,
+            }}
+          >
+            {check(prezimePutnika, "prezimePutnika")}
+          </span>
+        )}
       <p
         style={{
           color: "#0d6efd",
           marginTop:
-            prezimePutnika && (defData.Prezime || prezimePutnika !== "")
+            prezimePutnika !== undefined &&
+            (defData.Prezime || prezimePutnika !== "")
               ? 0
               : -10,
           fontSize: 13.8,
@@ -167,7 +169,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite ime (npr. ANTE)"
         type="text"
       />{" "}
-      {imePutnika && (!defData.Ime || imePutnika === "") && (
+      {imePutnika !== undefined && (!defData.Ime || imePutnika === "") && (
         <span
           style={{
             color: "red",
@@ -182,7 +184,10 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
       <p
         style={{
           color: "#0d6efd",
-          marginTop: imePutnika && (defData.Ime || imePutnika !== "") ? 0 : -10,
+          marginTop:
+            imePutnika !== undefined && (defData.Ime || imePutnika !== "")
+              ? 0
+              : -10,
           fontSize: 13.8,
         }}
       >
@@ -202,7 +207,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         placeholder="Popunite svoju adresu (npr. Horvatova 1)"
       />{" "}
       <span style={{ color: "red", marginTop: -16, fontSize: 14 }}>
-        {adresaPutnika &&
+        {adresaPutnika !== undefined &&
           (!defData.Adresa || adresaPutnika === "") &&
           check(adresaPutnika, "adresaPutnika")}
       </span>
@@ -224,7 +229,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           return <option key={i} value={item} />;
         })}
       </datalist>
-      {city && (!defData.Mjesto || city === "") && (
+      {city !== undefined && (!defData.Mjesto || city === "") && (
         <span
           style={{
             color: "red",
@@ -240,7 +245,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
         <p
           style={{
             color: "#0d6efd",
-            marginTop: defData.Mjesto || city !== "" ? 0 : -10,
+            marginTop:
+              city !== undefined && (defData.Mjesto || city !== "") ? 0 : -10,
             fontSize: 13.8,
           }}
         >
