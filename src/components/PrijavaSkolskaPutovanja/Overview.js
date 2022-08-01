@@ -3,19 +3,37 @@ import { check, dateData, putovnicaYears } from "./util/check";
 import { cityData } from "./util/data";
 import { postData } from "./util/post";
 import InputMask from "react-input-mask";
+import emailjs from "@emailjs/browser";
 
 export default function Overview(data) {
-  const [day, setday] = useState(data.data.DatumRodjenja.split(".")[0]);
-  const [year, setYear] = useState(data.data.DatumRodjenja.split(".")[2]);
-  const [month, setmonth] = useState(data.data.DatumRodjenja.split(".")[1]);
+  const [day, setday] = useState(
+    (data.data.DatumRodjenja !== undefined &&
+      data.data.DatumRodjenja.split(".")[0]) ||
+      ""
+  );
+  const [year, setYear] = useState(
+    (data.data.DatumRodjenja !== undefined &&
+      data.data.DatumRodjenja.split(".")[2]) ||
+      ""
+  );
+  const [month, setmonth] = useState(
+    data.data.DatumRodjenja !== undefined &&
+      data.data.DatumRodjenja.split(".")[1]
+  );
   const [dayDoc, setdayDoc] = useState(
-    data.data.PutnaIspravaVrijediDo.split(".")[0] || ""
+    (data.data.PutnaIspravaVrijediDo !== undefined &&
+      data.data.PutnaIspravaVrijediDo.split(".")[0]) ||
+      ""
   );
   const [yearDoc, setYearDoc] = useState(
-    data.data.PutnaIspravaVrijediDo.split(".")[2] || ""
+    (data.data.PutnaIspravaVrijediDo !== undefined &&
+      data.data.PutnaIspravaVrijediDo.split(".")[2]) ||
+      ""
   );
   const [monthDoc, setmonthDoc] = useState(
-    data.data.PutnaIspravaVrijediDo.split(".")[1] || ""
+    (data.data.PutnaIspravaVrijediDo !== undefined &&
+      data.data.PutnaIspravaVrijediDo.split(".")[1]) ||
+      ""
   );
   const [spol, setSpol] = useState(data.data.Spol);
   const [dokument, setDokument] = useState(data.data.VrstaPutneIsprave);
@@ -67,7 +85,6 @@ export default function Overview(data) {
   const [imePutnika, setImePutnika] = useState(data.data.Ime || "");
   const [adresaPutnika, setAdresaPutnika] = useState(data.data.Adresa || "");
   const [submit, setsubmit] = useState(false);
-  console.log(data, "over");
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
@@ -78,17 +95,7 @@ export default function Overview(data) {
   }, []);
 
   useEffect(() => {
-    if (
-      data.data.Adresa &&
-      data.data.Email &&
-      data.data.Cijena &&
-      data.data.Prezime &&
-      cityData.includes(city) &&
-      year < thisYear &&
-      data.data.DatumRodjenja &&
-      data.data.BrojPutneIsprave &&
-      data.data.Tel
-    )
+    if (submit === true) {
       postData({
         zaglavlje: {
           Adresa: data.data.Adresa,
@@ -116,6 +123,81 @@ export default function Overview(data) {
           VrstaPutneIsprave: data.data.VrstaPutneIsprave,
         },
       });
+      emailjs
+        .send(
+          "service_650o6of",
+          "template_9cj5ue9",
+          {
+            adresa: data.data.Adresa,
+            brPutne: data.data.BrojPutneIsprave,
+            placanje: data.data.NacinPlacanja,
+            datumRodjenja: data.data.DatumRodjenja,
+            država: "HR",
+            emailPutnik: data.data.Email,
+            fotoSugl: data.data.FotoVideoSuglasnost,
+            imePutnika: data.data.Ime,
+            voditelj: data.data.KontaktOsobaId,
+            grad: data.data.Mjesto,
+            brMobPutnik: data.data.Mob,
+            prezimePutnika: data.data.Prezime,
+            ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
+            razred: data.data.Razred,
+            prezimeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[1],
+            imeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[0],
+            emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
+            mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
+            spol: data.data.BrojPutneIsprave,
+            brMobPutnik: data.data.Tel,
+            vrstaPutne: data.data.VrstaPutneIsprave,
+          },
+          "86zfbFOOLfvWJuFWM"
+        )
+        .then(
+          function(response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function(error) {
+            console.log("FAILED...", error);
+          }
+        );
+        emailjs
+        .send(
+          "service_650o6of",
+          "template_hkdcyir",
+          {
+            adresa: data.data.Adresa,
+            brPutne: data.data.BrojPutneIsprave,
+            placanje: data.data.NacinPlacanja,
+            datumRodjenja: data.data.DatumRodjenja,
+            država: "HR",
+            emailPutnik: data.data.Email,
+            fotoSugl: data.data.FotoVideoSuglasnost,
+            imePutnika: data.data.Ime,
+            voditelj: data.data.KontaktOsobaId,
+            grad: data.data.Mjesto,
+            brMobPutnik: data.data.Mob,
+            prezimePutnika: data.data.Prezime,
+            ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
+            razred: data.data.Razred,
+            prezimeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[1],
+            imeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[0],
+            emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
+            mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
+            spol: data.data.BrojPutneIsprave,
+            brMobPutnik: data.data.Tel,
+            vrstaPutne: data.data.VrstaPutneIsprave,
+          },
+          "86zfbFOOLfvWJuFWM"
+        )
+        .then(
+          function(response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function(error) {
+            console.log("FAILED...", error);
+          }
+        );
+    }
   }, [submit]);
   if (data)
     return (
@@ -942,43 +1024,34 @@ export default function Overview(data) {
             <button
               className="nextPrev"
               onClick={() => {
-                if (document.getElementById("MobPutnika").value) {
-                  data.setStep4({
-                    BrojPutneIsprave: document.getElementById("docTrajanje")
-                      .value,
-                    Cijena: NacinPlacanja(price),
-                    Email: document.getElementById("emailPutnika").value,
-                    FotoVideoSuglasnost:
-                      document.getElementById("suglasnost").value == "on"
-                        ? "Da"
-                        : "Ne",
-                    Mob: document.getElementById("MobPutnika").value,
-                    NacinPlacanja: price,
-                    PutnaIspravaVrijediDo: document.getElementById(
-                      "docTrajanje"
-                    ).value,
-                    Tel: document.getElementById("telPutnika").value,
-                    VrstaPutneIsprave: document.getElementById("dokument")
-                      .value,
-                  });
-                  localStorage.setItem(
-                    "step4",
-                    JSON.stringify({
-                      BrojPutneIsprave: document.getElementById("docBroj")
-                        .value,
-                      Cijena: NacinPlacanja(price),
-                      Email: document.getElementById("emailPutnika").value,
-                      FotoVideoSuglasnost: document.getElementById("suglasnost")
-                        .value,
-                      Mob: document.getElementById("MobPutnika").value,
-                      NacinPlacanja: price,
-                      PutnaIspravaVrijediDo: date,
-                      Tel: document.getElementById("telPutnika").value,
-                      VrstaPutneIsprave: "",
-                    })
-                  );
-                  window.localStorage.clear();
-                }
+                data.setStep3({
+                  RoditeljSkrbnik: `${imeRoditelj} ${prezimeRoditelj}`,
+                  RoditeljSkrbnikEmail: document.getElementById("emailRoditelj")
+                    .value,
+                  RoditeljSkrbnikMob: document.getElementById("telRoditelj")
+                    .value,
+                  Adresa: document.getElementById("adresaPutnika").value,
+                  Spol: spol,
+                  Mjesto: document.getElementById("mjesto").value,
+                  Prezime: document.getElementById("prezimePutnika").value,
+                  DatumRodjenja: date,
+                  Ime: document.getElementById("imePutnika").value,
+                });
+                data.setStep4({
+                  BrojPutneIsprave: document.getElementById("docTrajanje")
+                    .value,
+                  Cijena: NacinPlacanja(price),
+                  Email: document.getElementById("emailPutnika").value,
+                  FotoVideoSuglasnost: data.data.FotoVideoSuglasnost,
+                  Mob: document.getElementById("MobPutnika").value,
+                  NacinPlacanja: price,
+                  PutnaIspravaVrijediDo: document.getElementById("docTrajanje")
+                    .value,
+                  Tel: document.getElementById("telPutnika").value,
+                  VrstaPutneIsprave: document.getElementById("dokument").value,
+                });
+                setsubmit(true);
+                window.localStorage.clear();
               }}
             >
               Pošalji prijavu

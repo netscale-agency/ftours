@@ -368,10 +368,8 @@ export default function Step4({
                 BrojPutneIsprave: document.getElementById("docBroj").value,
                 Cijena: NacinPlacanja(price),
                 Email: document.getElementById("emailPutnika").value,
-                FotoVideoSuglasnost:
-                  document.getElementById("suglasnost").value == "on"
-                    ? "Da"
-                    : "Ne",
+                FotoVideoSuglasnost: JSON.parse(localStorage.getItem("step3"))
+                  .FotoVideoSuglasnost,
                 Mob: document.getElementById("MobPutnika").value,
                 NacinPlacanja: price,
                 PutnaIspravaVrijediDo: date,

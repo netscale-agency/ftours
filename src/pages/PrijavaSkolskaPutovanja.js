@@ -105,6 +105,7 @@ export default function PrijavaSkolskaPutovanja() {
             aran={aran}
             contentData={data.GrupeRezervacije}
             setStep4={setStep4}
+            setStep3={setStep3}
             data={{
               Signature: ip,
               GrupaId: Number(aran),

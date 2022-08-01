@@ -1,7 +1,7 @@
 import crypto from "crypto";
 
 export async function postData(data) {
-  const key = "ritam";
+  const key = "41ftrav81";
   let ts = Date.now();
   let date_ob = new Date(ts);
   let date = date_ob.getDate();
