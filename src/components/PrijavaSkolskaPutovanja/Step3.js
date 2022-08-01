@@ -37,7 +37,6 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
   const [defData, setDefData] = useState(
     JSON.parse(localStorage.getItem("step3"))
   );
-  console.log("data", imePutnika);
   return (
     <div className="stepContainer2">
       <label>
@@ -151,6 +150,8 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             (defData.Prezime || prezimePutnika !== "")
               ? 0
               : -10,
+          marginBottom: 0,
+
           fontSize: 13.8,
         }}
       >
@@ -188,6 +189,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
             imePutnika !== undefined && (defData.Ime || imePutnika !== "")
               ? 0
               : -10,
+          marginBottom: 0,
           fontSize: 13.8,
         }}
       >
