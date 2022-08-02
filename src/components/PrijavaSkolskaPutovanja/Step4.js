@@ -55,7 +55,7 @@ export default function Step4({
           onClick={() => setDokument("Osobna iskaznica")}
           value={"Osobna iskaznica"}
         />
-        <label>Putovnica</label>
+        <label style={{ marginLeft: 16 }}>Putovnica</label>
         <input
           style={{ width: 20, marginTop: "auto" }}
           id="dokument"
@@ -82,8 +82,8 @@ export default function Step4({
           }}
         >
           Za putovanja u inozemstvo potrebno dostaviti broj važeće putne isprave
-          s kojom će se putovati i do kada vrijedi - najkasnije 30 dana prije
-          polaska!
+          s kojom će se putovati i do kada vrijedi <br />
+          (najkasnije 30 dana prije polaska!)
         </p>
       )}
       <label>Putna isprava vrijedi do</label>
@@ -197,6 +197,7 @@ export default function Step4({
         E-mail putnika <b style={{ color: "#B11F23" }}>(obavezno)</b>
       </label>
       <input
+        className="selectLast"
         style={{ textTransform: "none" }}
         placeholder="Popunite E-mail (npr. ivo.ivic@gmail.com)"
         id="emailPutnika"
@@ -313,7 +314,7 @@ export default function Step4({
           style={{ width: 17, height: 17 }}
           value={"Da"}
         />{" "}
-        <label style={{ marginLeft: 8 }}>Ne</label>
+        <label style={{ marginLeft: 32}}>Ne</label>
         <input
           id="suglasnost"
           type="radio"

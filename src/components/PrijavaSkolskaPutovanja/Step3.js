@@ -387,7 +387,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
           value={"M"}
         />
         <label
-          style={{ marginLeft: 16, marginTop: "auto", marginBottom: "auto" }}
+          style={{ marginLeft: 32, marginTop: "auto", marginBottom: "auto" }}
         >
           Ž
         </label>
@@ -448,9 +448,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
               })
             );
             setStep3({
-              RoditeljSkrbnik: `${
-                document.getElementById("imeRoditelj").value
-              } ${document.getElementById("prezimeRoditelj").value}`,
+              RoditeljSkrbnik: `${imeRoditelj} ${prezimeRoditelj}`,
               RoditeljSkrbnikEmail: document.getElementById("emailRoditelj")
                 .value,
               RoditeljSkrbnikMob: document.getElementById("telRoditelj").value,

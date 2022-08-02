@@ -707,7 +707,7 @@ export default function Overview(data) {
               <label
                 style={{
                   fontSize: 13,
-                  marginLeft: 16,
+                  marginLeft: 32,
                   fontWeight: uredi11 === false ? 600 : 400,
                   marginTop: "auto",
                   marginBottom: "auto",
@@ -759,6 +759,7 @@ export default function Overview(data) {
               <label
                 style={{
                   fontSize: 12,
+                  marginLeft:16,
                   fontWeight: uredi12 === false ? 600 : 400,
                   marginTop: "auto",
                   marginBottom: "auto",
