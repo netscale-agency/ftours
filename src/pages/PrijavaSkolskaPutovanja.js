@@ -8,9 +8,12 @@ import Step3 from "../components/PrijavaSkolskaPutovanja/Step3";
 import Step4 from "../components/PrijavaSkolskaPutovanja/Step4";
 import { activatedSteps } from "../components/PrijavaSkolskaPutovanja/util/stepsFormater";
 import Overview from "../components/PrijavaSkolskaPutovanja/Overview";
+import SuccessPop from "../components/PrijavaSkolskaPutovanja/SuccessPop";
 
 export default function PrijavaSkolskaPutovanja() {
   const [active, setActive] = useState(0);
+  const [isOpen, setisOpen] = useState(false);
+  const [isErr, setIsErr] = useState(false);
   const [data, setData] = useState();
   const [aran, setAran] = useState();
   const [activateCheck, setactivateCheck] = useState(false);
@@ -100,11 +103,14 @@ export default function PrijavaSkolskaPutovanja() {
   if (data)
     return (
       <>
+        <SuccessPop  isOpen={isOpen} isErr={isErr} />
         {activateCheck && (
           <Overview
             aran={aran}
             contentData={data.GrupeRezervacije}
             setStep4={setStep4}
+            setIsErr={setIsErr}
+            setisOpen={setisOpen}
             setStep3={setStep3}
             data={{
               Signature: ip,

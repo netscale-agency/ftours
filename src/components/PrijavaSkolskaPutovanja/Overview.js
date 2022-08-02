@@ -155,12 +155,14 @@ export default function Overview(data) {
         .then(
           function(response) {
             console.log("SUCCESS!", response.status, response.text);
+            data.setIsErr(false);
           },
           function(error) {
             console.log("FAILED...", error);
+            data.setIsErr(true);
           }
         );
-        emailjs
+      emailjs
         .send(
           "service_650o6of",
           "template_hkdcyir",
@@ -192,11 +194,14 @@ export default function Overview(data) {
         .then(
           function(response) {
             console.log("SUCCESS!", response.status, response.text);
+            data.setIsErr(false);
           },
           function(error) {
             console.log("FAILED...", error);
+            data.setIsErr(true);
           }
         );
+      data.setisOpen(true);
     }
   }, [submit]);
   if (data)
@@ -1051,6 +1056,7 @@ export default function Overview(data) {
                   VrstaPutneIsprave: document.getElementById("dokument").value,
                 });
                 setsubmit(true);
+
                 window.localStorage.clear();
               }}
             >
