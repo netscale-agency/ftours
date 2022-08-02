@@ -93,7 +93,6 @@ export default function Overview(data) {
       window.scrollTo(0, 0);
     }
   }, []);
-
   useEffect(() => {
     if (submit === true) {
       postData({
@@ -109,17 +108,31 @@ export default function Overview(data) {
           Ime: data.data.Ime,
           KontaktOsobaId: data.data.KontaktOsobaId,
           Mjesto: data.data.Mjesto,
-          Mob: data.data.Mob,
+          Mob:
+            data.data.Mob[data.data.Mob.length - 2] != "_"
+              ? data.data.Mob.replace("(0) ", "").replace("_", "")
+              : "",
           NacinPlacanja: data.data.NacinPlacanja,
           Prezime: data.data.Prezime,
           PutnaIspravaVrijediDo: data.data.PutnaIspravaVrijediDo,
           Razred: data.data.Razred,
           RoditeljSkrbnik: data.data.RoditeljSkrbnik,
           RoditeljSkrbnikEmail: data.data.RoditeljSkrbnikEmail,
-          RoditeljSkrbnikMob: data.data.RoditeljSkrbnikMob,
+          RoditeljSkrbnikMob:
+            data.data.RoditeljSkrbnikMob[
+              data.data.RoditeljSkrbnikMob.length - 2
+            ] != "_"
+              ? data.data.RoditeljSkrbnikMob.replace("(0) ", "").replace(
+                  "_",
+                  ""
+                )
+              : "",
           Signature: data.data.Signature,
-          Spol: data.data.BrojPutneIsprave,
-          Tel: data.data.Tel,
+          Spol: data.data.Spol,
+          Tel:
+            data.data.Tel[data.data.Tel.length - 2] != "_"
+              ? data.data.Tel.replace("(0) ", "").replace("_", "")
+              : "",
           VrstaPutneIsprave: data.data.VrstaPutneIsprave,
         },
       });
@@ -128,26 +141,32 @@ export default function Overview(data) {
           "service_650o6of",
           "template_9cj5ue9",
           {
+            aran: data.SchoolMailData.aranIme,
             adresa: data.data.Adresa,
             brPutne: data.data.BrojPutneIsprave,
             placanje: data.data.NacinPlacanja,
+            skola: data.SchoolMailData.skola,
             datumRodjenja: data.data.DatumRodjenja,
             država: "HR",
             emailPutnik: data.data.Email,
             fotoSugl: data.data.FotoVideoSuglasnost,
             imePutnika: data.data.Ime,
-            voditelj: data.data.KontaktOsobaId,
+            voditelj: data.SchoolMailData.razrednik,
             grad: data.data.Mjesto,
             brMobPutnik: data.data.Mob,
             prezimePutnika: data.data.Prezime,
             ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
             razred: data.data.Razred,
-            prezimeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[1],
-            imeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[0],
+            prezimeUgovaratelja:
+              data.data.RoditeljSkrbnik.split(' ')[1] ||
+              data.data.RoditeljSkrbnik,
+            imeUgovaratelja:
+              data.data.RoditeljSkrbnik.split(' ')[0] ||
+              data.data.RoditeljSkrbnik,
             emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
             mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
-            spol: data.data.BrojPutneIsprave,
-            brMobPutnik: data.data.Tel,
+            spol: data.data.Spol,
+            brTelPutnik: data.data.Tel,
             vrstaPutne: data.data.VrstaPutneIsprave,
           },
           "86zfbFOOLfvWJuFWM"
@@ -167,6 +186,8 @@ export default function Overview(data) {
           "service_650o6of",
           "template_hkdcyir",
           {
+            aran: data.SchoolMailData.aranIme,
+            skola: data.SchoolMailData.skola,
             adresa: data.data.Adresa,
             brPutne: data.data.BrojPutneIsprave,
             placanje: data.data.NacinPlacanja,
@@ -175,18 +196,22 @@ export default function Overview(data) {
             emailPutnik: data.data.Email,
             fotoSugl: data.data.FotoVideoSuglasnost,
             imePutnika: data.data.Ime,
-            voditelj: data.data.KontaktOsobaId,
+            voditelj: data.SchoolMailData.razrednik,
             grad: data.data.Mjesto,
             brMobPutnik: data.data.Mob,
             prezimePutnika: data.data.Prezime,
             ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
             razred: data.data.Razred,
-            prezimeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[1],
-            imeUgovaratelja: data.data.RoditeljSkrbnik.split(" ")[0],
+            prezimeUgovaratelja:
+              data.data.RoditeljSkrbnik.split(" ")[1] ||
+              data.data.RoditeljSkrbnik,
+            imeUgovaratelja:
+              data.data.RoditeljSkrbnik.split(" ")[0] ||
+              data.data.RoditeljSkrbnik,
             emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
             mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
-            spol: data.data.BrojPutneIsprave,
-            brMobPutnik: data.data.Tel,
+            spol: data.data.Spol,
+            brTelPutnik: data.data.Tel,
             vrstaPutne: data.data.VrstaPutneIsprave,
           },
           "86zfbFOOLfvWJuFWM"

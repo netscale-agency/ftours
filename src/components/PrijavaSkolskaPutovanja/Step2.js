@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Step2({
   data,
@@ -6,11 +6,14 @@ export default function Step2({
   setActive,
   active,
   step2,
+  SchoolMailData,
   setStep2,
 }) {
   const [checked, setChecked] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-
+  const [razrednikIme, setRazrednikIme] = useState("");
+  const [skolaNaziv, setSkolaNaziv] = useState("");
+  const aranIme = data.GrupeRezervacije.filter((item) => item.GrupaId === aran);
   const [pickedRazred, setPickedRazred] = useState(
     JSON.parse(localStorage.getItem("step2")).Razred
   );
@@ -19,6 +22,20 @@ export default function Step2({
     localStorage.getItem("schoolId") || (skole.length === 1 && skole[0].skolaId)
   );
 
+  useEffect(() => {
+    setSkolaNaziv(
+      skole &&
+        skole.filter((item) => item.skolaId === pickedSchool)[0] &&
+        skole.filter((item) => item.skolaId === pickedSchool)[0].skola
+    );
+  }, [pickedSchool]);
+  useEffect(() => {
+    setSkolaNaziv(
+      skole &&
+        skole.filter((item) => item.skolaId === pickedSchool)[0] &&
+        skole.filter((item) => item.skolaId === pickedSchool)[0].skola
+    );
+  }, []);
   const aranData = data.GrupeRezervacije.filter(
     (item) => item.GrupaId === aran
   );
@@ -85,7 +102,9 @@ export default function Step2({
         })}
       </select>
       <div>
-        <span style={{color:'red'}}>Označite polje i pročitajte/preuzmite program putovanja</span>
+        <span style={{ color: "red" }}>
+          Označite polje i pročitajte/preuzmite program putovanja
+        </span>
         <div style={{ display: "flex", marginTop: 8, marginBottom: 20 }}>
           {" "}
           <a
@@ -96,7 +115,7 @@ export default function Step2({
             }
           >
             <input
-              style={{ width: 27 ,height:27 , marginRight:8}}
+              style={{ width: 27, height: 27, marginRight: 8 }}
               onChange={() => {
                 setChecked(!checked);
               }}
@@ -187,7 +206,15 @@ export default function Step2({
                 Razred: document.getElementById("razred").value,
               })
             );
-
+            SchoolMailData({
+              razrednik: data.GrupeKontaktOsobe.filter(
+                (item) =>
+                  item.KontaktOsobaId ==
+                  Number(document.getElementById("razrednik").value)
+              )[0].KontaktOsoba,
+              skola: skolaNaziv,
+              aranIme: aranIme[0].OpisAranzmana,
+            });
             setActive(active + 1);
           }}
         >

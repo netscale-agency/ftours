@@ -13,7 +13,6 @@ function Slider() {
         <Carousel.Caption>
           <h3 className="slide-heading">školska putovanja</h3>
           <p className="p-slide">
-            Nulla vitae elit libero, a pharetra augue mollis interdum.
           </p>
           <button
             onClick={() => {
@@ -31,7 +30,6 @@ function Slider() {
         <Carousel.Caption>
           <h3 className="slide-heading">europska putovanja</h3>
           <p className="p-slide">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <button
             onClick={() => {
@@ -49,7 +47,6 @@ function Slider() {
         <Carousel.Caption>
           <h3 className="slide-heading">daleka putovanja</h3>
           <p className="p-slide">
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
           <button
             onClick={() => {

@@ -11,7 +11,7 @@ export default function SuccessPop( props ) {
             ? "Dogodila se pogreška prilikom slanja maila molimo vas da pokušate ponovno kasnije"
             : "Zahvaljujemo na vašoj prijavi"}
         </div>
-        <button onClick={()=>window.location.href='/prijava-skolska-putovanja'} className="nextPrev">Povratak na prijavu </button>
+        <button onClick={()=>props.setIsOpen(false)} className="nextPrev">Zatvori</button>
       </div>
     </div>
   );

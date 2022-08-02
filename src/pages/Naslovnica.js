@@ -47,19 +47,14 @@ function Naslovnica() {
         <Container>
           <Row className="row-prijava">
             <Col className="col-prijava">
-              <a href="/prijava-skolska-putovanja" className="a-prijava">
-                <i className="fa fa-arrow-circle-right" aria-hidden="true" />
-                prijava za putovanje!
+              <a style={{fontSize:19}} href="/prijava-skolska-putovanja" className="a-prijava">
+            <i className="fa fa-arrow-circle-right" aria-hidden="true" />
+            <b> prijava za školska putovanja i jednodnevne izlete!</b>  
               </a>
             </Col>
+       
             <Col className="col-prijava">
-              <a href="/skolska-putovanja" className="a-prijava">
-                <i className="fa fa-arrow-circle-right" aria-hidden="true" />
-                školska putovanja i jednodnevni izleti
-              </a>
-            </Col>
-            <Col className="col-prijava">
-              <a href="/prijava-ostala-putovanja" className="a-prijava">
+              <a style={{fontSize:19}} href="/prijava-ostala-putovanja" className="a-prijava">
                 <i className="fa fa-arrow-circle-right" aria-hidden="true" />
                 ostala putovanja
               </a>

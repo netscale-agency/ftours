@@ -17,6 +17,7 @@ export default function PrijavaSkolskaPutovanja() {
   const [data, setData] = useState();
   const [aran, setAran] = useState();
   const [activateCheck, setactivateCheck] = useState(false);
+  const [SchoolMailData, setSchoolMailData] = useState({razrednik:'',skola:'',aranIme:''});
   const [step2, setStep2] = useState({
     KontaktOsobaId: 0,
     Razred: "",
@@ -100,15 +101,18 @@ export default function PrijavaSkolskaPutovanja() {
       })
     );
   }, []);
+  console.log(SchoolMailData)
   if (data)
     return (
       <>
-        <SuccessPop  isOpen={isOpen} isErr={isErr} />
+        <SuccessPop setIsOpen={setisOpen} isOpen={isOpen} isErr={isErr} />
         {activateCheck && (
           <Overview
             aran={aran}
             contentData={data.GrupeRezervacije}
+            ritamData={data}
             setStep4={setStep4}
+            SchoolMailData={SchoolMailData}
             setIsErr={setIsErr}
             setisOpen={setisOpen}
             setStep3={setStep3}
@@ -140,6 +144,7 @@ export default function PrijavaSkolskaPutovanja() {
                   aran={aran}
                   setActive={setActive}
                   active={active}
+                  SchoolMailData={setSchoolMailData}
                   setStep2={setStep2}
                   step2={step2}
                 />
