@@ -3,7 +3,7 @@ import InputMask from "react-input-mask";
 import { check, dateData } from "./util/check";
 import { cityData } from "./util/data";
 
-export default function Step3({ setActive, active, step3, setStep3 }) {
+export default function Step3({ setActive, active, step3, setStep3 ,setUgovaratelj}) {
   const [city, setCity] = useState(step3.Mjesto || "");
 
   useEffect(() => {
@@ -460,6 +460,7 @@ export default function Step3({ setActive, active, step3, setStep3 }) {
               Ime: document.getElementById("imePutnika").value,
             });
             setActive(active + 1);
+            setUgovaratelj({ ime: imeRoditelj, prezime: prezimeRoditelj });
           }}
         >
           Sljedeći korak

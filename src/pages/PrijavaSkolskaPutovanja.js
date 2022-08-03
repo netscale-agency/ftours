@@ -15,6 +15,7 @@ export default function PrijavaSkolskaPutovanja() {
   const [isOpen, setisOpen] = useState(false);
   const [isErr, setIsErr] = useState(false);
   const [data, setData] = useState();
+  const [ugovaratelj,setUgovaratelj]=useState({ime:'',prezime:''})
   const [aran, setAran] = useState();
   const [activateCheck, setactivateCheck] = useState(false);
   const [SchoolMailData, setSchoolMailData] = useState({razrednik:'',skola:'',aranIme:''});
@@ -101,7 +102,6 @@ export default function PrijavaSkolskaPutovanja() {
       })
     );
   }, []);
-  console.log(SchoolMailData)
   if (data)
     return (
       <>
@@ -111,6 +111,8 @@ export default function PrijavaSkolskaPutovanja() {
             aran={aran}
             contentData={data.GrupeRezervacije}
             ritamData={data}
+            ugovaratelj={ugovaratelj}
+            setUgovaratelj={setUgovaratelj}
             setStep4={setStep4}
             SchoolMailData={SchoolMailData}
             setIsErr={setIsErr}
@@ -155,6 +157,7 @@ export default function PrijavaSkolskaPutovanja() {
                   step3={step3}
                   setActive={setActive}
                   active={active}
+                  setUgovaratelj={setUgovaratelj}
                 />
               )}
               {active === 3 && (

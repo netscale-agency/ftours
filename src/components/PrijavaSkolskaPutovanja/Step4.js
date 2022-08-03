@@ -24,6 +24,7 @@ export default function Step4({
   const [dokument, setDokument] = useState("");
   const [price, setPrice] = useState("");
   const [date, setDate] = useState("");
+  const [foto, setFoto] = useState("Ne");
   const [month, setmonth] = useState("");
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
@@ -310,15 +311,17 @@ export default function Step4({
         <input
           id="suglasnost"
           type="radio"
+          onClick={() => setFoto("Da")}
           name="suglasnost"
           style={{ width: 17, height: 17 }}
           value={"Da"}
         />{" "}
-        <label style={{ marginLeft: 32}}>Ne</label>
+        <label style={{ marginLeft: 32 }}>Ne</label>
         <input
           id="suglasnost"
           type="radio"
           name="suglasnost"
+          onClick={() => setFoto("Ne")}
           value={"Ne"}
           style={{ width: 17, height: 17 }}
         />
@@ -369,8 +372,7 @@ export default function Step4({
                 BrojPutneIsprave: document.getElementById("docBroj").value,
                 Cijena: NacinPlacanja(price),
                 Email: document.getElementById("emailPutnika").value,
-                FotoVideoSuglasnost: JSON.parse(localStorage.getItem("step3"))
-                  .FotoVideoSuglasnost,
+                FotoVideoSuglasnost: foto,
                 Mob: document.getElementById("MobPutnika").value,
                 NacinPlacanja: price,
                 PutnaIspravaVrijediDo: date,
@@ -383,8 +385,7 @@ export default function Step4({
                   BrojPutneIsprave: document.getElementById("docBroj").value,
                   Cijena: NacinPlacanja(price),
                   Email: document.getElementById("emailPutnika").value,
-                  FotoVideoSuglasnost: document.getElementById("suglasnost")
-                    .value,
+                  FotoVideoSuglasnost: foto,
                   Mob: document.getElementById("MobPutnika").value,
                   NacinPlacanja: price,
                   PutnaIspravaVrijediDo: date,

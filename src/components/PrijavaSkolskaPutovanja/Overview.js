@@ -38,6 +38,8 @@ export default function Overview(data) {
   const [spol, setSpol] = useState(data.data.Spol);
   const [dokument, setDokument] = useState(data.data.VrstaPutneIsprave);
   const [date, setDate] = useState();
+  const [dateDoc, setDateDoc] = useState();
+
   const [city, setCity] = useState(data.data.Mjesto || "");
   const [price, setPrice] = useState(data.data.NacinPlacanja);
   const [uredi1, seturedi1] = useState(false);
@@ -70,12 +72,16 @@ export default function Overview(data) {
     }
   };
 
-  const [imeRoditelj, setImeRoditelj] = useState();
+  const [imeRoditelj, setImeRoditelj] = useState(
+    data.data.RoditeljSkrbnik && data.data.RoditeljSkrbnik.split(" ")[0]
+  );
 
   const activeAran = data.contentData.filter(
     (item) => item.GrupaId === data.aran
   )[0];
-  const [prezimeRoditelj, setPrezimeRoditelj] = useState();
+  const [prezimeRoditelj, setPrezimeRoditelj] = useState(
+    data.data.RoditeljSkrbnik && data.data.RoditeljSkrbnik.split(" ")[1]
+  );
   const [telRoditelj, setTelRoditelj] = useState(
     data.data.RoditeljSkrbnikMob || ""
   );
@@ -87,7 +93,9 @@ export default function Overview(data) {
   const [submit, setsubmit] = useState(false);
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
-  }, [year, month, day]);
+    setDateDoc(`${dayDoc}.${monthDoc}.${yearDoc}`);
+
+  }, [year, month, day,yearDoc,monthDoc,dayDoc]);
   useEffect(() => {
     if (window) {
       window.scrollTo(0, 0);
@@ -147,22 +155,18 @@ export default function Overview(data) {
             placanje: data.data.NacinPlacanja,
             skola: data.SchoolMailData.skola,
             datumRodjenja: data.data.DatumRodjenja,
-            država: "HR",
+            drzava: "HR",
             emailPutnik: data.data.Email,
             fotoSugl: data.data.FotoVideoSuglasnost,
-            imePutnika: data.data.Ime,
+            imePutnika: imePutnika,
             voditelj: data.SchoolMailData.razrednik,
             grad: data.data.Mjesto,
             brMobPutnik: data.data.Mob,
-            prezimePutnika: data.data.Prezime,
+            prezimePutnika: prezimePutnika,
             ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
             razred: data.data.Razred,
-            prezimeUgovaratelja:
-              data.data.RoditeljSkrbnik.split(' ')[1] ||
-              data.data.RoditeljSkrbnik,
-            imeUgovaratelja:
-              data.data.RoditeljSkrbnik.split(' ')[0] ||
-              data.data.RoditeljSkrbnik,
+            prezimeUgovaratelja: prezimeRoditelj,
+            imeUgovaratelja: imeRoditelj,
             emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
             mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
             spol: data.data.Spol,
@@ -189,25 +193,21 @@ export default function Overview(data) {
             aran: data.SchoolMailData.aranIme,
             skola: data.SchoolMailData.skola,
             adresa: data.data.Adresa,
-            brPutne: data.data.BrojPutneIsprave,
+            brPutne: `${data.data.BrojPutneIsprave}`,
             placanje: data.data.NacinPlacanja,
             datumRodjenja: data.data.DatumRodjenja,
-            država: "HR",
+            drzava: "HR",
             emailPutnik: data.data.Email,
             fotoSugl: data.data.FotoVideoSuglasnost,
-            imePutnika: data.data.Ime,
+            imePutnika: `${imePutnika}`,
             voditelj: data.SchoolMailData.razrednik,
             grad: data.data.Mjesto,
             brMobPutnik: data.data.Mob,
-            prezimePutnika: data.data.Prezime,
-            ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
+            prezimePutnika: `${prezimePutnika}`,
+            ispravaVrijediDo: `${data.data.PutnaIspravaVrijediDo}`,
             razred: data.data.Razred,
-            prezimeUgovaratelja:
-              data.data.RoditeljSkrbnik.split(" ")[1] ||
-              data.data.RoditeljSkrbnik,
-            imeUgovaratelja:
-              data.data.RoditeljSkrbnik.split(" ")[0] ||
-              data.data.RoditeljSkrbnik,
+            prezimeUgovaratelja: prezimeRoditelj,
+            imeUgovaratelja: imeRoditelj,
             emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
             mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
             spol: data.data.Spol,
@@ -229,6 +229,8 @@ export default function Overview(data) {
       data.setisOpen(true);
     }
   }, [submit]);
+  console.log(data.data,imePutnika,prezimePutnika)
+
   if (data)
     return (
       <div
@@ -291,7 +293,7 @@ export default function Overview(data) {
                 className="inputOver"
                 placeholder="Popunite Prezime (npr. Horvat)"
                 style={{ textTransform: "capitalize", fontSize: 13 }}
-                defaultValue={data.data.RoditeljSkrbnik.split(" ")[1]}
+                defaultValue={prezimeRoditelj}
                 onChange={(e) => {
                   setPrezimeRoditelj(e.target.value);
                 }}
@@ -318,7 +320,7 @@ export default function Overview(data) {
                 placeholder="Popunite Ime (npr. Ante)"
                 className="inputOver"
                 disabled={uredi2 ? false : true}
-                defaultValue={data.data.RoditeljSkrbnik.split(" ")[0]}
+                defaultValue={imeRoditelj}
                 style={{ textTransform: "capitalize", fontSize: 13 }}
                 onChange={(e) => {
                   setImeRoditelj(e.target.value);
@@ -759,7 +761,7 @@ export default function Overview(data) {
               <label
                 style={{
                   fontSize: 12,
-                  marginLeft:16,
+                  marginLeft: 16,
                   fontWeight: uredi12 === false ? 600 : 400,
                   marginTop: "auto",
                   marginBottom: "auto",
@@ -1055,6 +1057,10 @@ export default function Overview(data) {
             <button
               className="nextPrev"
               onClick={() => {
+                data.setUgovaratelj({
+                  ime: imeRoditelj,
+                  prezime: prezimeRoditelj,
+                });
                 data.setStep3({
                   RoditeljSkrbnik: `${imeRoditelj} ${prezimeRoditelj}`,
                   RoditeljSkrbnikEmail: document.getElementById("emailRoditelj")
@@ -1069,15 +1075,14 @@ export default function Overview(data) {
                   Ime: document.getElementById("imePutnika").value,
                 });
                 data.setStep4({
-                  BrojPutneIsprave: document.getElementById("docTrajanje")
+                  BrojPutneIsprave: document.getElementById("docBroj")
                     .value,
                   Cijena: NacinPlacanja(price),
                   Email: document.getElementById("emailPutnika").value,
                   FotoVideoSuglasnost: data.data.FotoVideoSuglasnost,
                   Mob: document.getElementById("MobPutnika").value,
                   NacinPlacanja: price,
-                  PutnaIspravaVrijediDo: document.getElementById("docTrajanje")
-                    .value,
+                  PutnaIspravaVrijediDo: dateDoc,
                   Tel: document.getElementById("telPutnika").value,
                   VrstaPutneIsprave: document.getElementById("dokument").value,
                 });
