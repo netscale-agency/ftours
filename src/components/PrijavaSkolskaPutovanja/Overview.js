@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { check, dateData, putovnicaYears } from "./util/check";
+import { check, checkPlacanje, dateData, putovnicaYears } from "./util/check";
 import { cityData } from "./util/data";
 import { postData } from "./util/post";
 import InputMask from "react-input-mask";
@@ -94,8 +94,7 @@ export default function Overview(data) {
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
     setDateDoc(`${dayDoc}.${monthDoc}.${yearDoc}`);
-
-  }, [year, month, day,yearDoc,monthDoc,dayDoc]);
+  }, [year, month, day, yearDoc, monthDoc, dayDoc]);
   useEffect(() => {
     if (window) {
       window.scrollTo(0, 0);
@@ -152,10 +151,20 @@ export default function Overview(data) {
             aran: data.SchoolMailData.aranIme,
             adresa: data.data.Adresa,
             brPutne: data.data.BrojPutneIsprave,
-            placanje: data.data.NacinPlacanja,
+            placanje: `${data.data.NacinPlacanja} ${checkPlacanje(
+              data.data.NacinPlacanja,
+              {
+                a: activeAran.CijenaA,
+                b: activeAran.CijenaB,
+                c: activeAran.CijenaC,
+                aD: activeAran.DatumZaCijenuA,
+                bD: activeAran.DatumZaCijenuB,
+                cD: activeAran.DatumZaCijenuC,
+              }
+            )}`,
             skola: data.SchoolMailData.skola,
             datumRodjenja: data.data.DatumRodjenja,
-            drzava: "HR",
+            drzava: "Hrvatska",
             emailPutnik: data.data.Email,
             fotoSugl: data.data.FotoVideoSuglasnost,
             imePutnika: imePutnika,
@@ -196,7 +205,7 @@ export default function Overview(data) {
             brPutne: `${data.data.BrojPutneIsprave}`,
             placanje: data.data.NacinPlacanja,
             datumRodjenja: data.data.DatumRodjenja,
-            drzava: "HR",
+            drzava: "Hrvatska",
             emailPutnik: data.data.Email,
             fotoSugl: data.data.FotoVideoSuglasnost,
             imePutnika: `${imePutnika}`,
@@ -229,7 +238,7 @@ export default function Overview(data) {
       data.setisOpen(true);
     }
   }, [submit]);
-  console.log(data.data,imePutnika,prezimePutnika)
+  console.log(data.data, imePutnika, prezimePutnika);
 
   if (data)
     return (
@@ -281,7 +290,7 @@ export default function Overview(data) {
               Pošalji prijavu.{" "}
             </p>
           </div>
-          <div style={{ maxWidth: 800 }}>
+          <div style={{ maxWidth: 655 }}>
             <label>
               Prezime ugovaratelja putovanja (roditelj/staratelj){" "}
               <b style={{ color: "#B11F23" }}>(obavezno)</b>
@@ -1075,8 +1084,7 @@ export default function Overview(data) {
                   Ime: document.getElementById("imePutnika").value,
                 });
                 data.setStep4({
-                  BrojPutneIsprave: document.getElementById("docBroj")
-                    .value,
+                  BrojPutneIsprave: document.getElementById("docBroj").value,
                   Cijena: NacinPlacanja(price),
                   Email: document.getElementById("emailPutnika").value,
                   FotoVideoSuglasnost: data.data.FotoVideoSuglasnost,

@@ -71,6 +71,7 @@ export default function Step4({
           value={"Putovnica"}
         />
       </div>
+      <br/>
       <label>Broj putne isprave putnika</label>
       <input
         id="docBroj"

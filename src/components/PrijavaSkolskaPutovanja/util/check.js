@@ -18,7 +18,7 @@ export const check = (val, id) => {
 
       break;
     case "emailRoditelj":
-      if(val.includes(' ')){
+      if (val.includes(" ")) {
         return "Polje nije popunjeno ili nije ispravan format";
       }
       if (!val.includes("@")) {
@@ -374,4 +374,21 @@ export const dateData = {
     2016,
     2020,
   ],
+};
+export const checkPlacanje = (i, cijena) => {
+  switch (i) {
+    case "A":
+      return `- ${cijena.a} (uplata do ${cijena.aD})`;
+      break;
+    case "B":
+      return `- ${cijena.b} (uplata do ${cijena.bD})`;
+
+      break;
+    case "C":
+      return `- ${cijena.c} (uplata do ${cijena.cD})`;
+
+      break;
+    default:
+      break;
+  }
 };

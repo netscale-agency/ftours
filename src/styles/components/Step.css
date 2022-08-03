@@ -5,9 +5,8 @@
 body {
   -webkit-font-smoothing: subpixel-antialiased;
 }
-input[type="radio"]:disabled
-{
-  background-color:black;
+input[type="radio"]:disabled {
+  background-color: black;
 }
 .stepContainer2 {
   display: flex;
@@ -184,7 +183,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .overlayShow {
   visibility: visible;
   opacity: 1;
-  
 }
 
 .popup {
