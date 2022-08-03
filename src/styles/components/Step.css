@@ -5,6 +5,10 @@
 body {
   -webkit-font-smoothing: subpixel-antialiased;
 }
+input[type="radio"]:disabled
+{
+  background-color:black;
+}
 .stepContainer2 {
   display: flex;
   text-align: start;

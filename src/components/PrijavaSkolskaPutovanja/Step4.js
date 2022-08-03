@@ -46,9 +46,11 @@ export default function Step4({
         <label>Vrsta putne isprave putnika</label>
       </b>
       <div style={{ display: "flex" }}>
-        <label>Osobna iskaznica</label>
+        <label style={{ marginTop: "auto", marginBottom: "auto" }}>
+          Osobna iskaznica
+        </label>
         <input
-          style={{ width: 20, marginTop: "auto" }}
+          style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
           id="dokument"
           type="radio"
           name="dokument"
@@ -56,9 +58,11 @@ export default function Step4({
           onClick={() => setDokument("Osobna iskaznica")}
           value={"Osobna iskaznica"}
         />
-        <label style={{ marginLeft: 16 }}>Putovnica</label>
+        <label style={{ marginTop: "auto", marginBottom: "auto" }}>
+          Putovnica
+        </label>
         <input
-          style={{ width: 20, marginTop: "auto" }}
+          style={{ width: 20, marginTop: "auto", marginBottom: "auto" }}
           id="dokument"
           type="radio"
           name="dokument"
