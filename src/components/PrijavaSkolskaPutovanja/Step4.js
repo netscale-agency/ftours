@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { postData } from "./util/post";
 import InputMask from "react-input-mask";
 import { dateData, putovnicaYears } from "./util/check";
 
 export default function Step4({
-  data,
   setActive,
   active,
-  step4,
   setStep4,
   contentData,
   setactivateCheck,
@@ -16,20 +13,33 @@ export default function Step4({
   const [activeAran, setActiveAran] = useState(
     contentData.filter((item) => item.GrupaId === aran)[0]
   );
+
   const [checked, setChecked] = useState(false);
-  const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
   const [day, setday] = useState("");
-  const [year, setYear] = useState();
+  const [year, setYear] = useState("");
   const [dokument, setDokument] = useState("");
   const [price, setPrice] = useState("");
+  const [brDoc, setbrDoc] = useState("");
+  const today = new Date();
   const [date, setDate] = useState("");
   const [foto, setFoto] = useState("Ne");
   const [month, setmonth] = useState("");
+  const checkPutna = (date, br) => {
+    if (date && br) {
+      return true;
+    } else if (!date && !br) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   useEffect(() => {
-    setDate(`${day}.${month}.${year}`);
+    if (day && month && year) setDate(`${day}.${month}.${year}`);
   }, [year, month, day]);
-
+  const dateA = activeAran.DatumZaCijenuA.split(".");
+  const dateB = activeAran.DatumZaCijenuB.split(".");
+  const dateC = activeAran.DatumZaCijenuC.split(".");
   const NacinPlacanja = (str) => {
     if (str === "A") {
       return activeAran.CijenaA;
@@ -71,12 +81,15 @@ export default function Step4({
           value={"Putovnica"}
         />
       </div>
-      <br/>
+      <br />
       <label>Broj putne isprave putnika</label>
       <input
         id="docBroj"
         type="text"
         style={{ maxWidth: 300 }}
+        onChange={(e) => {
+          setbrDoc(e.target.value);
+        }}
         placeholder="Popunite broj putne isprave"
       />{" "}
       {!day && (
@@ -95,6 +108,7 @@ export default function Step4({
       <label>Putna isprava vrijedi do</label>
       <div id="docTrajanje" style={{ display: "flex" }}>
         <select
+          disabled={brDoc ? false : true}
           style={{ maxWidth: "100px" }}
           id="god"
           onChange={(e) => {
@@ -111,6 +125,7 @@ export default function Step4({
           })}
         </select>
         <select
+          disabled={brDoc ? false : true}
           style={{ maxWidth: "100px" }}
           id="month"
           onChange={(e) => {
@@ -128,6 +143,7 @@ export default function Step4({
             })}
         </select>
         <select
+          disabled={brDoc ? false : true}
           style={{ maxWidth: "100px" }}
           id="day"
           onChange={(e) => {
@@ -247,16 +263,46 @@ export default function Step4({
         <option>---</option>
         {activeAran.CijenaAWebPrikaz === "True" && (
           <option
+            disabled={
+              new Date(`${dateA[2]}-${dateA[1]}-${dateA[0]}`) < today
+                ? new Date(`${dateA[2]}-${dateA[1]}-${dateA[0]}`).getDay() !==
+                    today.getDay() &&
+                  new Date(`${dateA[2]}-${dateA[1]}-${dateA[0]}`).getMonth() !==
+                    today.getMonth()
+                  ? true
+                  : false
+                : false
+            }
             value={"A"}
           >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
+            disabled={
+              new Date(`${dateB[2]}-${dateB[1]}-${dateB[0]}`) < today
+                ? new Date(`${dateB[2]}-${dateB[1]}-${dateB[0]}`).getDay() !==
+                    today.getDay() &&
+                  new Date(`${dateB[2]}-${dateB[1]}-${dateB[0]}`).getMonth() !==
+                    today.getMonth()
+                  ? true
+                  : false
+                : false
+            }
             value={"B"}
           >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
+            disabled={
+              new Date(`${dateC[2]}-${dateC[1]}-${dateC[0]}`) < today
+                ? new Date(`${dateC[2]}-${date[1]}-${dateC[0]}`).getDay() !==
+                    today.getDay() &&
+                  new Date(`${dateC[2]}-${dateC[1]}-${dateC[0]}`).getMonth() !==
+                    today.getMonth()
+                  ? true
+                  : false
+                : false
+            }
             value={"C"}
           >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
         )}
@@ -370,7 +416,18 @@ export default function Step4({
         </button>
         <button
           className="nextPrev"
-          disabled={checked && checked2 ? false : true}
+          disabled={
+            checked &&
+            checked2 &&
+            price &&
+            document.getElementById("emailPutnika").value &&
+            document.getElementById("telPutnika").value &&
+            document.getElementById("MobPutnika").value &&
+            checkPutna(date, brDoc) &&
+            price
+              ? false
+              : true
+          }
           onClick={() => {
             if (document.getElementById("MobPutnika").value) {
               setStep4({

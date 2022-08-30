@@ -19,6 +19,7 @@ export default function Step1({ data, active, setActive, setAran }) {
       }
     }
   }, [isString]);
+
   return (
     <div className="step1Cont" >
       <div className="inputCont input100" >

@@ -25,6 +25,8 @@ export default function Overview(data) {
       data.data.PutnaIspravaVrijediDo.split(".")[0]) ||
       ""
   );
+  const today = new Date();
+
   const [yearDoc, setYearDoc] = useState(
     (data.data.PutnaIspravaVrijediDo !== undefined &&
       data.data.PutnaIspravaVrijediDo.split(".")[2]) ||
@@ -79,6 +81,9 @@ export default function Overview(data) {
   const activeAran = data.contentData.filter(
     (item) => item.GrupaId === data.aran
   )[0];
+  const dateA = activeAran.DatumZaCijenuA.split(".");
+  const dateB = activeAran.DatumZaCijenuB.split(".");
+  const dateC = activeAran.DatumZaCijenuC.split(".");
   const [prezimeRoditelj, setPrezimeRoditelj] = useState(
     data.data.RoditeljSkrbnik && data.data.RoditeljSkrbnik.split(" ")[1]
   );
@@ -121,7 +126,11 @@ export default function Overview(data) {
               : "",
           NacinPlacanja: data.data.NacinPlacanja,
           Prezime: data.data.Prezime,
-          PutnaIspravaVrijediDo: data.data.PutnaIspravaVrijediDo,
+          PutnaIspravaVrijediDo: data.data.PutnaIspravaVrijediDo.includes(
+            "undefined"
+          )
+            ? ""
+            : data.data.PutnaIspravaVrijediDo,
           Razred: data.data.Razred,
           RoditeljSkrbnik: data.data.RoditeljSkrbnik,
           RoditeljSkrbnikEmail: data.data.RoditeljSkrbnikEmail,
@@ -181,6 +190,7 @@ export default function Overview(data) {
             spol: data.data.Spol,
             brTelPutnik: data.data.Tel,
             vrstaPutne: data.data.VrstaPutneIsprave,
+            potpis: data.data.Signature,
           },
           "86zfbFOOLfvWJuFWM"
         )
@@ -222,6 +232,7 @@ export default function Overview(data) {
             spol: data.data.Spol,
             brTelPutnik: data.data.Tel,
             vrstaPutne: data.data.VrstaPutneIsprave,
+            potpis: data.data.Signature,
           },
           "86zfbFOOLfvWJuFWM"
         )
@@ -238,7 +249,6 @@ export default function Overview(data) {
       data.setisOpen(true);
     }
   }, [submit]);
-  console.log(data.data, imePutnika, prezimePutnika);
 
   if (data)
     return (
@@ -1036,19 +1046,55 @@ export default function Overview(data) {
                   setPrice(e.target.value);
                 }}
               >
-                <option>---</option>
+                <option value="">---</option>
                 {activeAran.CijenaAWebPrikaz === "True" && (
                   <option
+                    disabled={
+                      new Date(`${dateA[2]}-${dateA[1]}-${dateA[0]}`) <= today
+                        ? new Date(
+                            `${dateA[2]}-${dateA[1]}-${dateA[0]}`
+                          ).getDay() !== today.getDay() &&
+                          new Date(
+                            `${dateA[2]}-${dateA[1]}-${dateA[0]}`
+                          ).getMonth() !== today.getMonth()
+                          ? true
+                          : false
+                        : false
+                    }
                     value={"A"}
                   >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
                 )}
                 {activeAran.CijenaBWebPrikaz === "True" && (
                   <option
+                    disabled={
+                      new Date(`${dateB[2]}-${dateB[1]}-${dateB[0]}`) <= today
+                        ? new Date(
+                            `${dateB[2]}-${dateB[1]}-${dateB[0]}`
+                          ).getDay() !== today.getDay() &&
+                          new Date(
+                            `${dateB[2]}-${dateB[1]}-${dateB[0]}`
+                          ).getMonth() !== today.getMonth()
+                          ? true
+                          : false
+                        : false
+                    }
                     value={"B"}
                   >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
                 )}
                 {activeAran.CijenaCWebPrikaz === "True" && (
                   <option
+                    disabled={
+                      new Date(`${dateC[2]}-${dateC[1]}-${dateC[0]}`) <= today
+                        ? new Date(
+                            `${dateC[2]}-${dateC[1]}-${dateC[0]}`
+                          ).getDay() !== today.getDay() &&
+                          new Date(
+                            `${dateC[2]}-${dateC[1]}-${dateC[0]}`
+                          ).getMonth() !== today.getMonth()
+                          ? true
+                          : false
+                        : false
+                    }
                     value={"C"}
                   >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
                 )}

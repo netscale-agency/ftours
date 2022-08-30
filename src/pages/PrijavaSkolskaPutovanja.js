@@ -9,16 +9,21 @@ import Step4 from "../components/PrijavaSkolskaPutovanja/Step4";
 import { activatedSteps } from "../components/PrijavaSkolskaPutovanja/util/stepsFormater";
 import Overview from "../components/PrijavaSkolskaPutovanja/Overview";
 import SuccessPop from "../components/PrijavaSkolskaPutovanja/SuccessPop";
+import crypto from "crypto";
 
 export default function PrijavaSkolskaPutovanja() {
   const [active, setActive] = useState(0);
   const [isOpen, setisOpen] = useState(false);
   const [isErr, setIsErr] = useState(false);
   const [data, setData] = useState();
-  const [ugovaratelj,setUgovaratelj]=useState({ime:'',prezime:''})
+  const [ugovaratelj, setUgovaratelj] = useState({ ime: "", prezime: "" });
   const [aran, setAran] = useState();
   const [activateCheck, setactivateCheck] = useState(false);
-  const [SchoolMailData, setSchoolMailData] = useState({razrednik:'',skola:'',aranIme:''});
+  const [SchoolMailData, setSchoolMailData] = useState({
+    razrednik: "",
+    skola: "",
+    aranIme: "",
+  });
   const [step2, setStep2] = useState({
     KontaktOsobaId: 0,
     Razred: "",
@@ -55,7 +60,6 @@ export default function PrijavaSkolskaPutovanja() {
     });
   };
   const [ip, setIP] = useState("");
-
   //creating function to load ip address from the API
   const getData = async () => {
     const res = await axios.get("https://geolocation-db.com/json/");
@@ -102,6 +106,7 @@ export default function PrijavaSkolskaPutovanja() {
       })
     );
   }, []);
+
   if (data)
     return (
       <>

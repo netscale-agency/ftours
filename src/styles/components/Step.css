@@ -88,6 +88,12 @@ input {
   border: 1px solid #9b9a9a;
   margin-bottom: 16px;
 }
+#nacinPlacanja option:disabled{
+  font-weight: 400;
+}
+#nacinPlacanja option{
+  font-weight: 700;
+}
 .selectOver {
   width: 100%;
   padding: 3px;

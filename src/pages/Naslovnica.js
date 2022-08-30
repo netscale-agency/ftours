@@ -43,11 +43,11 @@ function Naslovnica() {
   return (
     <>
       <Slider />
-      <section className="section-prijava">
+      <section className="section-prijava" style={{paddingTop:16}}>
         <Container>
           <Row className="row-prijava">
             <Col className="col-prijava">
-              <a style={{fontSize:19}} href="/prijava-skolska-putovanja" className="a-prijava">
+              <a style={{fontSize:19}} href="prijava-za-skolsko-putovanje" className="a-prijava">
             <i className="fa fa-arrow-circle-right" aria-hidden="true" />
             <b> prijava za školska putovanja i jednodnevne izlete!</b>  
               </a>

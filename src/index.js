@@ -38,7 +38,7 @@ root.render(
       <Route path="pravila-privatnosti" element={<PravilaPrivatnosti />} />
       <Route path="podnosenja-prigovora" element={<PodnosenjaPrigovora />} />
       <Route path="politika-kolacica" element={<PolitikaKolacica />} />
-      <Route path="prijava-skolska-putovanja" element={<PrijavaSkolskaPutovanja />} />
+      <Route path="prijava-za-skolsko-putovanje" element={<PrijavaSkolskaPutovanja />} />
       <Route path="/:slug" element={<SingleDestination/>} />
       <Route path="prijava-ostala-putovanja" element={<PrijavaOstalaPutovanja />} />
     </Routes>

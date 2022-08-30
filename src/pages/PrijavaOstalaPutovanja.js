@@ -1,8 +1,105 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import "../styles/pages/PrijavaOstalaPutovanja.css";
+import emailjs from "@emailjs/browser";
+import {
+  docCheck,
+  genderCheck,
+  slikeCheck,
+  sobaCheck,
+} from "../components/prijavaZaOstala/util/helperFunctions";
 
 function PrijavaOstalaPutovanja() {
+  const send = () => {
+    emailjs
+      .send(
+        "service_650o6of",
+        "template_8x7nari",
+        {
+          aran: document.getElementById("odrediste").value,
+          adresa: document.getElementById("adresaPutnika").value,
+          brPutne: document.getElementById("brPutne").value,
+          placanje: document.getElementById('placanje').value,
+          datumRodjenja: document.getElementById("datumRodjenja").value,
+          drzava: document.getElementById("drzava").value,
+          emailPutnik: document.getElementById('emailPutnik').value,
+          fotoSugl: slikeCheck(document.getElementById('yes').checked),
+          osiguranje:document.getElementById('paketOsiguranja').value,
+          imePutnika: document.getElementById("imePutnika").value,
+          grad: document.getElementById("grad").value,
+          brMobPutnik: document.getElementById('mobPutnik').value,
+          prezimePutnika: document.getElementById("prezimePutnika").value,
+          ispravaVrijediDo: document.getElementById("datumPutna").value,
+          prezimeUgovaratelja: document.getElementById("prezimeUgovaratelj")
+            .value,
+          tipSobe: sobaCheck({
+            jedno: document.getElementById("jednokrevetna").checked,
+            dvo: document.getElementById("dvokrevetna").checked,
+            tro: document.getElementById("trokrevetna").checked,
+          }),
+          osobaSoba:document.getElementById('imenaOsoba').value,
+          imeUgovaratelja: document.getElementById("imeUgovaratelj").value,
+          emailUgovaratelja: document.getElementById("emailUgovaratelj"),
+          mobitelUgovaratelja: document.getElementById("mobitelUgovaratelj"),
+          spol: genderCheck(document.getElementById("male").checked),
+          brTelPutnik: document.getElementById("telPutnika").value,
+          vrstaPutne: docCheck(document.getElementById("osobna").checked),
+        },
+        "86zfbFOOLfvWJuFWM"
+      )
+      .then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function(error) {
+          console.log("FAILED...", error);
+        }
+      );
+    emailjs
+      .send(
+        "service_650o6of",
+        "template_t5u7r62",
+        {
+          aran: document.getElementById("odrediste").value,
+          adresa: document.getElementById("adresaPutnika").value,
+          brPutne: document.getElementById("brPutne").value,
+          placanje: document.getElementById('placanje').value,
+          datumRodjenja: document.getElementById("datumRodjenja").value,
+          drzava: document.getElementById("drzava").value,
+          emailPutnik: document.getElementById('emailPutnik').value,
+          fotoSugl: slikeCheck(document.getElementById('yes').checked),
+          osiguranje:document.getElementById('paketOsiguranja').value,
+          imePutnika: document.getElementById("imePutnika").value,
+          grad: document.getElementById("grad").value,
+          brMobPutnik: document.getElementById('mobPutnik').value,
+          prezimePutnika: document.getElementById("prezimePutnika").value,
+          ispravaVrijediDo: document.getElementById("datumPutna").value,
+          prezimeUgovaratelja: document.getElementById("prezimeUgovaratelj")
+            .value,
+          tipSobe: sobaCheck({
+            jedno: document.getElementById("jednokrevetna").checked,
+            dvo: document.getElementById("dvokrevetna").checked,
+            tro: document.getElementById("trokrevetna").checked,
+          }),
+          osobaSoba:document.getElementById('imenaOsoba').value,
+          imeUgovaratelja: document.getElementById("imeUgovaratelj").value,
+          emailUgovaratelja: document.getElementById("emailUgovaratelj"),
+          mobitelUgovaratelja: document.getElementById("mobitelUgovaratelj"),
+          spol: genderCheck(document.getElementById("male").checked),
+          brTelPutnik: document.getElementById("telPutnika").value,
+          vrstaPutne: docCheck(document.getElementById("osobna").checked),
+        },
+        "86zfbFOOLfvWJuFWM"
+      )
+      .then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+        },
+        function(error) {
+          console.log("FAILED...", error);
+        }
+      );
+  };
   return (
     <>
       <div className="div-prijava-ostala-head">
@@ -12,69 +109,78 @@ function PrijavaOstalaPutovanja() {
         <p className="p-prijava-ostala">
           Za školska putovanja (ekskurzije) i jednodnevne izlete ova prijavnica
           je nevažeća. Potrebno je popuniti:{" "}
-          <a className="a-prijava-skolska" href="/prijava-skolska-putovanja">
+          <a className="a-prijava-skolska" href="/prijava-za-skolsko-putovanje">
             → PRIJAVNICU ZA ŠKOLSKA PUTOVANJA!
           </a>
         </p>
       </div>
       <Container className="container-prijava-ostala">
-        <div className="form-prijava">
+        <form onSubmit={() => send()} className="form-prijava">
           <p className="p-form">
             Prezime ugovaratelja putovanja <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required />
+          <input id="prezimeUgovaratelj" className="input-form" required />
           <br />
           <p className="p-form">
             Ime ugovaratelja putovanja <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="imeUgovaratelj" className="input-form" required></input>
           <br />
           <p className="p-form">
             E-mail ugovaratelja putovanja <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="emailUgovaratelj" className="input-form" required></input>
           <br />
           <p className="p-form">
             Mobitel ugovaratelja putovanja <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input
+            id="mobitelUgovaratelj"
+            className="input-form"
+            required
+          ></input>
           <br />
           <p className="p-form">
             Prezime putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="prezimePutnika" className="input-form" required></input>
           <br />
           <p className="p-form">
             Ime putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="imePutnika" className="input-form" required></input>
           <br />
           <p className="p-form">
             Adresa putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="adresaPutnika" className="input-form" required></input>
           <br />
           <p className="p-form">
             Grad/mjesto putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="grad" className="input-form" required></input>
           <br />
           <p className="p-form">
             Država putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="drzava" className="input-form" required></input>
           <br />
           <p className="p-form">
             Datum rođenja putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" type="date" required></input>
+          <input
+            id="datumRodjenja"
+            className="input-form"
+            type="date"
+            required
+          ></input>
           <br />
           <p className="p-form">
             Spol <strong>(obavezno)</strong>
           </p>
           <div className="div-radio">
             <input
-              checked
+              defaultChecked
               id="male"
               type="radio"
               name="gender"
@@ -82,7 +188,9 @@ function PrijavaOstalaPutovanja() {
               className="input-radio"
               required
             ></input>
-            <label for="male" className="label-radio">Muški</label>
+            <label for="male" className="label-radio">
+              Muški
+            </label>
           </div>
           <div className="div-radio">
             <input
@@ -92,15 +200,19 @@ function PrijavaOstalaPutovanja() {
               value="female"
               className="input-radio"
             ></input>
-            <label for="female" className="label-radio">Ženski</label>
+            <label for="female" className="label-radio">
+              Ženski
+            </label>
           </div>
           <br />
           <p className="p-form">
             Broj putne isprave putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="brPutne" className="input-form" required></input>
           <br></br>
-          <p className="p-form">Putna isprava vrijedi do</p>
+          <p id="datumPutna" className="p-form">
+            Putna isprava vrijedi do
+          </p>
           <input className="input-form" type="date" required></input>
           <br />
           <p className="p-form">
@@ -108,7 +220,7 @@ function PrijavaOstalaPutovanja() {
           </p>
           <div className="div-radio">
             <input
-              checked
+              defaultChecked
               id="osobna"
               className="input-radio"
               type="radio"
@@ -116,7 +228,9 @@ function PrijavaOstalaPutovanja() {
               value="osobna"
               required
             ></input>
-            <label for="osobna" className="label-radio">Osobna iskaznica</label>
+            <label for="osobna" className="label-radio">
+              Osobna iskaznica
+            </label>
           </div>
           <div className="div-radio">
             <input
@@ -126,26 +240,33 @@ function PrijavaOstalaPutovanja() {
               name="isprave"
               value="putovnica"
             ></input>
-            <label for="putovnica" className="label-radio">Putovnica</label>
+            <label for="putovnica" className="label-radio">
+              Putovnica
+            </label>
           </div>
           <br />
           <p className="p-form">Telefon putnika</p>
-          <input className="input-form" type="tel"></input>
+          <input id="telPutnik" className="input-form" type="tel"></input>
           <br />
           <p className="p-form">
             Mobitel putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" type="tel" required></input>
+          <input
+            id="mobPutnik"
+            className="input-form"
+            type="tel"
+            required
+          ></input>
           <br />
           <p className="p-form">
             E-mail putnika <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="emailPutnik" className="input-form" required></input>
           <br />
           <p className="p-form">
             Aranžman/odredište i datum putovanja <strong>(obavezno)</strong>
           </p>
-          <input className="input-form" required></input>
+          <input id="odrediste" className="input-form" required></input>
           <br />
           <div>
             <p className="p-form">
@@ -153,7 +274,7 @@ function PrijavaOstalaPutovanja() {
             </p>
             <div className="div-radio">
               <input
-                checked
+                defaultChecked
                 className="input-radio"
                 id="jednokrevetna"
                 type="radio"
@@ -161,7 +282,9 @@ function PrijavaOstalaPutovanja() {
                 value="jednokrevetna"
                 required
               ></input>
-              <label for="jednokrevetna" className="label-radio">Jednokrevetna</label>
+              <label for="jednokrevetna" className="label-radio">
+                Jednokrevetna
+              </label>
             </div>
             <div className="div-radio">
               <input
@@ -171,7 +294,9 @@ function PrijavaOstalaPutovanja() {
                 name="soba"
                 value="dvokrevetna"
               ></input>
-              <label for="dvokrevetna" className="label-radio">Dvokrevetna</label>
+              <label for="dvokrevetna" className="label-radio">
+                Dvokrevetna
+              </label>
             </div>
             <div className="div-radio">
               <input
@@ -181,7 +306,9 @@ function PrijavaOstalaPutovanja() {
                 name="soba"
                 value="trokrevetna"
               />
-              <label for="trokrevetna" className="label-radio">Trokrevetna</label>
+              <label for="trokrevetna" className="label-radio">
+                Trokrevetna
+              </label>
             </div>
             <div className="div-radio">
               <input
@@ -191,17 +318,19 @@ function PrijavaOstalaPutovanja() {
                 name="soba"
                 value="visekrevetna"
               />
-              <label for="visekrevetna" className="label-radio">Višekrevetna</label>
+              <label for="visekrevetna" className="label-radio">
+                Višekrevetna
+              </label>
             </div>
           </div>
           <br />
           <p className="p-form">Osoba/e s kojima dijelim sobu</p>
-          <input className="input-form"></input>
+          <input id="imenaOsoba" className="input-form"></input>
           <br />
           <p className="p-form">
             Uzimam paket dodatnog putnog osiguranja <strong>(obavezno)</strong>
           </p>
-          <input className="input-form"></input>
+          <input id="paketOsiguranja" className="input-form"></input>
           <br />
           <p className="p-form">
             Način plaćanja <strong>(obavezno)</strong>
@@ -221,7 +350,7 @@ function PrijavaOstalaPutovanja() {
             ugovora, te ostatka iznosa na maksimalni dopušteni broj obroka
             kreditnim karticama
           </p>
-          <select required className="input-form">
+          <select id="placanje" required className="input-form">
             <option value="">Odaberite naćin plaćanja...</option>
             <option value="A">A)</option>
             <option value="B">B)</option>
@@ -263,19 +392,23 @@ function PrijavaOstalaPutovanja() {
               type="radio"
               name="suglasnost"
               value="yes"
-              checked
+              defaultChecked
             ></input>
-            <label for="yes" className="label-radio">Da</label>
+            <label for="yes" className="label-radio">
+              Da
+            </label>
           </div>
           <div className="div-radio">
-          <input
-            id="no"
-            className="input-radio"
-            type="radio"
-            name="suglasnost"
-            value="no"
-          ></input>
-          <label for="no" className="label-radio">Ne</label>
+            <input
+              id="no"
+              className="input-radio"
+              type="radio"
+              name="suglasnost"
+              value="no"
+            ></input>
+            <label for="no" className="label-radio">
+              Ne
+            </label>
           </div>
           <br />
           <p className="p-form">
@@ -284,31 +417,35 @@ function PrijavaOstalaPutovanja() {
           <div className="div-radio">
             <input
               required
-              id="yes"
+              id="yesUvjeti"
               className="input-radio"
               type="radio"
               name="opci-uvjeti"
               value="yes"
-              checked
+              defaultChecked
             ></input>
-            <label for="yes" className="label-radio">Da</label>
+            <label for="yes" className="label-radio">
+              Da
+            </label>
           </div>
           <div className="div-radio">
             <input
-              id="no"
+              id="noUvjeti"
               className="input-radio"
               type="radio"
               name="opci-uvjeti"
               value="no"
             ></input>
-            <label for="no" className="label-radio">Ne</label>
+            <label for="no" className="label-radio">
+              Ne
+            </label>
           </div>
           <span className="span-btn">
-            <button className="btn btn-dark prijava-ostalo">
+            <button type="submit" className="btn btn-dark prijava-ostalo">
               Pošalji prijavu
             </button>
           </span>
-        </div>
+        </form>
       </Container>
     </>
   );

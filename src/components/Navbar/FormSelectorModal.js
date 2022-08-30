@@ -21,7 +21,7 @@ function FormSelectorModal() {
           <Button
             className="btn-modal-prijava"
             onClick={() => {
-              window.location.href = "/prijava-skolska-putovanja";
+              window.location.href = "/prijava-za-skolsko-putovanje";
             }}
           >
             školska putovanja
