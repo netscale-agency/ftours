@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { check, checkPlacanje, dateData, putovnicaYears } from "./util/check";
+import { check, checkPlacanje, checkPlacanjeCijena, dateData, putovnicaYears } from "./util/check";
 import { cityData } from "./util/data";
 import { postData } from "./util/post";
 import InputMask from "react-input-mask";
@@ -98,7 +98,7 @@ export default function Overview(data) {
   const [submit, setsubmit] = useState(false);
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
-    setDateDoc(`${dayDoc}.${monthDoc}.${yearDoc}`);
+    setDateDoc(`${dayDoc}${dayDoc&&'.'}${monthDoc}${monthDoc&&'.'}${yearDoc}`);
   }, [year, month, day, yearDoc, monthDoc, dayDoc]);
   useEffect(() => {
     if (window) {
@@ -111,7 +111,17 @@ export default function Overview(data) {
         zaglavlje: {
           Adresa: data.data.Adresa,
           BrojPutneIsprave: data.data.BrojPutneIsprave,
-          Cijena: data.data.Cijena,
+          Cijena: checkPlacanjeCijena(
+            data.data.NacinPlacanja,
+            {
+              a: activeAran.CijenaA,
+              b: activeAran.CijenaB,
+              c: activeAran.CijenaC,
+              aD: activeAran.DatumZaCijenuA,
+              bD: activeAran.DatumZaCijenuB,
+              cD: activeAran.DatumZaCijenuC,
+            }
+          ),
           DatumRodjenja: data.data.DatumRodjenja,
           Drzava: "HR",
           Email: data.data.Email,

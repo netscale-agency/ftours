@@ -1,6 +1,9 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "../styles/components/Footer.css";
+import master from "../assets/images/mastercard.svg";
+import maestro from "../assets/images/maestro.svg";
+import diners from "../assets/images/diners.svg";
 
 function Footer() {
   return (
@@ -60,15 +63,126 @@ function Footer() {
             </Col>
             <Col className="col-footer">
               <h5 className="h5-footer">korisni linkovi</h5>
-              <a className="a-pravila-uvjeti" href="opci-podaci-o-agenciji">Opći podaci o agenciji</a>
-              <a className="a-pravila-uvjeti" href="opci-uvjeti-poslovanja">Opći uvjeti poslovanja</a>
-              <a className="a-pravila-uvjeti" href="pravila-privatnosti">Pravila privatnosti</a>
-              <a className="a-pravila-uvjeti" href="podnosenja-prigovora">Način podnošenja prigovora</a>
-              <a className="a-pravila-uvjeti" href="politika-kolacica">Politike kolačića</a>
+              <a className="a-pravila-uvjeti" href="opci-podaci-o-agenciji">
+                Opći podaci o agenciji
+              </a>
+              <a className="a-pravila-uvjeti" href="opci-uvjeti-poslovanja">
+                Opći uvjeti poslovanja
+              </a>
+              <a className="a-pravila-uvjeti" href="pravila-privatnosti">
+                Pravila privatnosti
+              </a>
+              <a className="a-pravila-uvjeti" href="podnosenja-prigovora">
+                Način podnošenja prigovora
+              </a>
+              <a className="a-pravila-uvjeti" href="politika-kolacica">
+                Politike kolačića
+              </a>
+              <a className="a-pravila-uvjeti" href="uvjeti-placanja">
+                Uvjeti korištenja/uvjeti kupnje
+              </a>
             </Col>
           </Row>
         </div>
       </section>
+
+      <div className="logocont">
+        <div style={{ display: "flex" }}>
+          <div style={{ display: "flex" }}>
+            {" "}
+            <a
+              href="https://www.mastercard.com"
+              class="footer-logo-link"
+              target="_blank"
+            >
+              <img src={master} style={{ width: "14em", height: "auto" }} />
+            </a>
+            <a
+              href="https://brand.mastercard.com/brandcenter/more-about-our-brands.html"
+              class="footer-logo-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src={maestro}
+                alt={"maestro"}
+                style={{ width: "14em", height: "auto" }}
+              />
+            </a>
+          </div>
+          <a
+            href="https://www.visaeurope.com"
+            class="footer-logo-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src={
+                "https://www.modulos.hr/wp-content/uploads/2020/11/visa-seeklogo.com_.svg"
+              }
+              alt={"alttext"}
+              style={{ width: "14em", height: "auto" }}
+            />
+          </a>
+          <a
+            target="_blank"
+            class="footer-logo-link"
+            href="http://www.diners.com.hr"
+          >
+            <img
+              alt=""
+              src={diners}
+              style={{ width: "16em", height: "auto" }}
+            />
+          </a>
+        </div>
+        <div style={{ display: "flex" }}>
+          <div>
+            <img
+              src="https://3gproxy.com/wp/wp-content/uploads/2022/06/visa_secure.svg"
+              alt="Visa logo"
+              class="footer-logo-link"
+              style={{ width: "8em", height: "auto" }}
+            />
+            <p className="footer-logo-link" style={{ maxWidth: 110 }}>
+              <b>"vaše transakcije su sigurne sa Visa-om"</b>
+            </p>
+          </div>
+          <a class="footer-logo-link">
+            <img
+              src={
+                "https://www.modirum.com/wp-content/uploads/2020/12/MC-IDC-864x864-1-655x437.png"
+              }
+              alt={"alttext"}
+              style={{ width: "10em", height: "auto" }}
+            />
+          </a>
+          <a class="footer-logo-link">
+            <img
+              src={
+                "https://djecjakolica.eu/wp-content/uploads/2014/05/logo_sigurna-kupnja_2.1.png"
+              }
+              alt={"alttext"}
+              style={{ width: "10em", height: "auto" }}
+            />
+          </a>{" "}
+          <a
+            href="https://www.monri.com"
+            class="footer-logo-link"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              src={
+                "https://www.modulos.hr/wp-content/uploads/2020/11/monri_footer.png"
+              }
+              alt={"alttext"}
+              style={{ width: "10em", height: "auto" }}
+            />
+          </a>
+        </div>
+      </div>
+
       <div className="f-tours-dark-blue">
         <span className="copyright">Copyright &copy; 2022 Netscale Agency</span>
       </div>

@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import SingleDestination from "./components/SingleDestination";
 import OpciPodaci from "./pages/OpciPodaci";
 import OpciUvjeti from "./pages/OpciUvjeti";
+import UvjetiPlacanja from "./pages/UvjetiPlacanja"
 import PravilaPrivatnosti from "./pages/PravilaPrivatnosti";
 import PodnosenjaPrigovora from "./pages/PodnosenjaPrigovora";
 import PolitikaKolacica from "./pages/PolitikaKolacica";
@@ -41,6 +42,7 @@ root.render(
       <Route path="prijava-za-skolsko-putovanje" element={<PrijavaSkolskaPutovanja />} />
       <Route path="/:slug" element={<SingleDestination/>} />
       <Route path="prijava-ostala-putovanja" element={<PrijavaOstalaPutovanja />} />
+      <Route path="uvjeti-placanja" element={<UvjetiPlacanja />} />
     </Routes>
     <Footer />
   </BrowserRouter>

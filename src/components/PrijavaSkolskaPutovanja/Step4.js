@@ -35,7 +35,7 @@ export default function Step4({
     }
   };
   useEffect(() => {
-    if (day && month && year) setDate(`${day}.${month}.${year}`);
+    if (day && month && year) setDate(`${day}${day&&'.'}${month}${month&&'.'}${year}`);
   }, [year, month, day]);
   const dateA = activeAran.DatumZaCijenuA.split(".");
   const dateB = activeAran.DatumZaCijenuB.split(".");
@@ -274,7 +274,7 @@ export default function Step4({
                 : false
             }
             value={"A"}
-          >{`A - ${activeAran.CijenaA},00 ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
+          >{`A - ${activeAran.CijenaA},00 kn / ${Math.round((Number(activeAran.CijenaA)/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
@@ -289,7 +289,7 @@ export default function Step4({
                 : false
             }
             value={"B"}
-          >{`B - ${activeAran.CijenaB},00 ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
+          >{`B - ${activeAran.CijenaB},00 kn / ${Math.round((Number(activeAran.CijenaB)/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
@@ -304,7 +304,7 @@ export default function Step4({
                 : false
             }
             value={"C"}
-          >{`C - ${activeAran.CijenaC},00 ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
+          >{`C - ${activeAran.CijenaC},00 kn / ${Math.round((Number(activeAran.CijenaC)/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
         )}
       </select>
       <label>

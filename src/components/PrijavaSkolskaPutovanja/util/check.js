@@ -392,3 +392,15 @@ export const checkPlacanje = (i, cijena) => {
       break;
   }
 };
+export const checkPlacanjeCijena = (i, cijena) => {
+  switch (i) {
+    case "A":
+      return cijena.a;
+    case "B":
+      return cijena.b;
+    case "C":
+      return cijena.c;
+    default:
+      break;
+  }
+};
