@@ -10,96 +10,6 @@ import {
 } from "../components/prijavaZaOstala/util/helperFunctions";
 
 function PrijavaOstalaPutovanja() {
-  const send = () => {
-    emailjs
-      .send(
-        "service_650o6of",
-        "template_8x7nari",
-        {
-          aran: document.getElementById("odrediste").value,
-          adresa: document.getElementById("adresaPutnika").value,
-          brPutne: document.getElementById("brPutne").value,
-          placanje: document.getElementById('placanje').value,
-          datumRodjenja: document.getElementById("datumRodjenja").value,
-          drzava: document.getElementById("drzava").value,
-          emailPutnik: document.getElementById('emailPutnik').value,
-          fotoSugl: slikeCheck(document.getElementById('yes').checked),
-          osiguranje:document.getElementById('paketOsiguranja').value,
-          imePutnika: document.getElementById("imePutnika").value,
-          grad: document.getElementById("grad").value,
-          brMobPutnik: document.getElementById('mobPutnik').value,
-          prezimePutnika: document.getElementById("prezimePutnika").value,
-          ispravaVrijediDo: document.getElementById("datumPutna").value,
-          prezimeUgovaratelja: document.getElementById("prezimeUgovaratelj")
-            .value,
-          tipSobe: sobaCheck({
-            jedno: document.getElementById("jednokrevetna").checked,
-            dvo: document.getElementById("dvokrevetna").checked,
-            tro: document.getElementById("trokrevetna").checked,
-          }),
-          osobaSoba:document.getElementById('imenaOsoba').value,
-          imeUgovaratelja: document.getElementById("imeUgovaratelj").value,
-          emailUgovaratelja: document.getElementById("emailUgovaratelj"),
-          mobitelUgovaratelja: document.getElementById("mobitelUgovaratelj"),
-          spol: genderCheck(document.getElementById("male").checked),
-          brTelPutnik: document.getElementById("telPutnika").value,
-          vrstaPutne: docCheck(document.getElementById("osobna").checked),
-        },
-        "86zfbFOOLfvWJuFWM"
-      )
-      .then(
-        function(response) {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        function(error) {
-          console.log("FAILED...", error);
-        }
-      );
-    emailjs
-      .send(
-        "service_650o6of",
-        "template_t5u7r62",
-        {
-          aran: document.getElementById("odrediste").value,
-          adresa: document.getElementById("adresaPutnika").value,
-          brPutne: document.getElementById("brPutne").value,
-          placanje: document.getElementById('placanje').value,
-          datumRodjenja: document.getElementById("datumRodjenja").value,
-          drzava: document.getElementById("drzava").value,
-          emailPutnik: document.getElementById('emailPutnik').value,
-          fotoSugl: slikeCheck(document.getElementById('yes').checked),
-          osiguranje:document.getElementById('paketOsiguranja').value,
-          imePutnika: document.getElementById("imePutnika").value,
-          grad: document.getElementById("grad").value,
-          brMobPutnik: document.getElementById('mobPutnik').value,
-          prezimePutnika: document.getElementById("prezimePutnika").value,
-          ispravaVrijediDo: document.getElementById("datumPutna").value,
-          prezimeUgovaratelja: document.getElementById("prezimeUgovaratelj")
-            .value,
-          tipSobe: sobaCheck({
-            jedno: document.getElementById("jednokrevetna").checked,
-            dvo: document.getElementById("dvokrevetna").checked,
-            tro: document.getElementById("trokrevetna").checked,
-          }),
-          osobaSoba:document.getElementById('imenaOsoba').value,
-          imeUgovaratelja: document.getElementById("imeUgovaratelj").value,
-          emailUgovaratelja: document.getElementById("emailUgovaratelj"),
-          mobitelUgovaratelja: document.getElementById("mobitelUgovaratelj"),
-          spol: genderCheck(document.getElementById("male").checked),
-          brTelPutnik: document.getElementById("telPutnika").value,
-          vrstaPutne: docCheck(document.getElementById("osobna").checked),
-        },
-        "86zfbFOOLfvWJuFWM"
-      )
-      .then(
-        function(response) {
-          console.log("SUCCESS!", response.status, response.text);
-        },
-        function(error) {
-          console.log("FAILED...", error);
-        }
-      );
-  };
   return (
     <>
       <div className="div-prijava-ostala-head">
@@ -115,7 +25,7 @@ function PrijavaOstalaPutovanja() {
         </p>
       </div>
       <Container className="container-prijava-ostala">
-        <form onSubmit={() => send()} className="form-prijava">
+        <div className="form-prijava">
           <p className="p-form">
             Prezime ugovaratelja putovanja <strong>(obavezno)</strong>
           </p>
@@ -210,10 +120,10 @@ function PrijavaOstalaPutovanja() {
           </p>
           <input id="brPutne" className="input-form" required></input>
           <br></br>
-          <p id="datumPutna" className="p-form">
+          <p  className="p-form">
             Putna isprava vrijedi do
           </p>
-          <input className="input-form" type="date" required></input>
+          <input id="datumPutna" className="input-form" type="date" required></input>
           <br />
           <p className="p-form">
             Vrsta putne isprave putnika <strong>(obavezno)</strong>
@@ -246,7 +156,7 @@ function PrijavaOstalaPutovanja() {
           </div>
           <br />
           <p className="p-form">Telefon putnika</p>
-          <input id="telPutnik" className="input-form" type="tel"></input>
+          <input id="telPutnika" className="input-form" type="tel"></input>
           <br />
           <p className="p-form">
             Mobitel putnika <strong>(obavezno)</strong>
@@ -441,11 +351,141 @@ function PrijavaOstalaPutovanja() {
             </label>
           </div>
           <span className="span-btn">
-            <button type="submit" className="btn btn-dark prijava-ostalo">
+            <button
+              onClick={() => {
+                emailjs
+                  .send(
+                    "service_650o6of",
+                    "template_8x7nari",
+                    {
+                      aran: document.getElementById("odrediste").value||'',
+                      adresa: document.getElementById("adresaPutnika").value||'',
+                      brPutne: document.getElementById("brPutne").value||'',
+                      placanje: document.getElementById("placanje").value||'',
+                      datumRodjenja: document.getElementById("datumRodjenja")
+                        .value||'',
+                      drzava: document.getElementById("drzava").value||'',
+                      emailPutnik: document.getElementById("emailPutnik").value||'',
+                      fotoSugl: slikeCheck(
+                        document.getElementById("yes").checked
+                      )||'',
+                      osiguranje: document.getElementById("paketOsiguranja")
+                        .value||'',
+                      imePutnika: document.getElementById("imePutnika").value||'',
+                      grad: document.getElementById("grad").value||'',
+                      brMobPutnik: document.getElementById("mobPutnik").value||'',
+                      prezimePutnika: document.getElementById("prezimePutnika")
+                        .value||'',
+                      ispravaVrijediDo: document.getElementById("datumPutna")
+                        .value||'',
+                      prezimeUgovaratelja: document.getElementById(
+                        "prezimeUgovaratelj"
+                      ).value||'',
+                      tipSobe: sobaCheck({
+                        jedno: document.getElementById("jednokrevetna").checked,
+                        dvo: document.getElementById("dvokrevetna").checked,
+                        tro: document.getElementById("trokrevetna").checked,
+                      })||'',
+                      osobaSoba: document.getElementById("imenaOsoba").value||'',
+                      imeUgovaratelja: document.getElementById("imeUgovaratelj")
+                        .value||'',
+                      emailUgovaratelja: document.getElementById(
+                        "emailUgovaratelj"
+                      ).value||'',
+                      mobitelUgovaratelja: document.getElementById(
+                        "mobitelUgovaratelj"
+                      ).value||'',
+                      spol: genderCheck(
+                        document.getElementById("male").checked
+                      )||'',
+                      brTelPutnik: document.getElementById("telPutnika").value||'',
+                      vrstaPutne: docCheck(
+                        document.getElementById("osobna").checked
+                      )||'',
+                    },
+                    "86zfbFOOLfvWJuFWM"
+                  )
+                  .then(
+                    function(response) {
+                      console.log("SUCCESS!", response.status, response.text);
+                    },
+                    function(error) {
+                      console.log("FAILED...", error);
+                    }
+                  );
+                emailjs
+                  .send(
+                    "service_650o6of",
+                    "template_t5u7r62",
+                    {
+                      aran: document.getElementById("odrediste").value || "",
+                      adresa:
+                        document.getElementById("adresaPutnika").value || "",
+                      brPutne: document.getElementById("brPutne").value || "",
+                      placanje: document.getElementById("placanje").value || "",
+                      datumRodjenja:
+                        document.getElementById("datumRodjenja").value || "",
+                      drzava: document.getElementById("drzava").value || "",
+                      emailPutnik:
+                        document.getElementById("emailPutnik").value || "",
+                      fotoSugl:
+                        slikeCheck(document.getElementById("yes").checked) ||
+                        "",
+                      osiguranje:
+                        document.getElementById("paketOsiguranja").value || "",
+                      imePutnika:
+                        document.getElementById("imePutnika").value || "",
+                      grad: document.getElementById("grad").value || "",
+                      brMobPutnik:
+                        document.getElementById("mobPutnik").value || "",
+                      prezimePutnika:
+                        document.getElementById("prezimePutnika").value || "",
+                      ispravaVrijediDo:
+                        document.getElementById("datumPutna").value || "",
+                      prezimeUgovaratelja:
+                        document.getElementById("prezimeUgovaratelj").value ||
+                        "",
+                      tipSobe:
+                        sobaCheck({
+                          jedno: document.getElementById("jednokrevetna")
+                            .checked,
+                          dvo: document.getElementById("dvokrevetna").checked,
+                          tro: document.getElementById("trokrevetna").checked,
+                        }) || "",
+                      osobaSoba:
+                        document.getElementById("imenaOsoba").value || "",
+                      imeUgovaratelja:
+                        document.getElementById("imeUgovaratelj").value || "",
+                      emailUgovaratelja:
+                        document.getElementById("emailUgovaratelj").value || "",
+                      mobitelUgovaratelja:
+                        document.getElementById("mobitelUgovaratelj").value || "",
+                      spol:
+                        genderCheck(document.getElementById("male").checked) ||
+                        "",
+                      brTelPutnik:
+                        document.getElementById("telPutnika").value || "",
+                      vrstaPutne:
+                        docCheck(document.getElementById("osobna").checked) ||
+                        "",
+                    },
+                    "86zfbFOOLfvWJuFWM"
+                  )
+                  .then(
+                    function(response) {
+                      console.log("SUCCESS!", response.status, response.text);
+                    },
+                    function(error) {
+                      console.log("FAILED...", error);
+                    }
+                  );
+              }}
+              className="btn btn-dark prijava-ostalo"
+            >
               Pošalji prijavu
             </button>
           </span>
-        </form>
+        </div>
       </Container>
     </>
   );

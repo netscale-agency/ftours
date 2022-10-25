@@ -43,7 +43,7 @@ function UvjetiPlacanja() {
             potpunosti upoznat i suglasan s uvjetima navedenim na ovoj stranici
             kao i s uvjetima na stranici
             <a href="pravila-privatnosti"> Pravila privatnosti</a>. Ukoliko se
-            korisnik s uvjetima na slaže, ne bi trebao koristiti web stranice.
+            korisnik s uvjetima ne slaže, ne bi trebao koristiti web stranice.
             Destinations F-tours d.o.o. kao ni jedna treća osoba povezana s njim
             ne mogu ni na koji način jamčiti za točnost, pouzdanost ili sadržaj
             bilo koje informacije, usluge dane preko ovih internetskih
@@ -97,7 +97,7 @@ function UvjetiPlacanja() {
             <br />
           </p>
           <p className="p-terms-long-text">
-            <span className="span-terms-heading">Uvjeti kupnje</span>
+            <span className="span-terms-heading">Uvjeti kupovine usluga</span>
             <br />
             Uvjeti kupovine usluga definiraju postupak plaćanja, isporuke
             odnosno reklamacije usluge ponuđene na f-tours.hr web stranicama.
@@ -108,7 +108,7 @@ function UvjetiPlacanja() {
             <br />
           </p>
           <p className="p-terms-long-text">
-            <span className="span-terms-heading">Naručivanje </span>
+            <span className="span-terms-heading">Naručivanje usluga</span>
             <br />
             Popunjene Prijave bit će obrađene u roku 3 radna dana. Ukoliko
             postoje okolnosti zbog kojih bi ovaj period bio dulji, kupac će o
@@ -122,7 +122,7 @@ function UvjetiPlacanja() {
             <br />
           </p>
           <p className="p-terms-long-text">
-            <span className="span-terms-heading">Načini plaćanja</span>
+            <span className="span-terms-heading">Načini plaćanja usluga</span>
             <br />
             Uplata se obavlja nakon popunjene Prijave prema podacima koji su
             navedeni u toj istoj Prijavi odnosno u e-mail poruci koja generira

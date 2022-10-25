@@ -87,7 +87,14 @@ function Footer() {
       </section>
 
       <div className="logocont">
-        <div style={{ display: "flex" }}>
+        <div
+          className="redDoli"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <div style={{ display: "flex" }}>
             {" "}
             <a
@@ -95,7 +102,11 @@ function Footer() {
               class="footer-logo-link"
               target="_blank"
             >
-              <img src={master} style={{ width: "14em", height: "auto" }} />
+              <img
+                src={master}
+                className="bigLogo"
+                style={{ width: "14em", height: "auto" }}
+              />
             </a>
             <a
               href="https://brand.mastercard.com/brandcenter/more-about-our-brands.html"
@@ -104,6 +115,7 @@ function Footer() {
               rel="noopener"
             >
               <img
+                className="bigLogo"
                 src={maestro}
                 alt={"maestro"}
                 style={{ width: "14em", height: "auto" }}
@@ -117,6 +129,7 @@ function Footer() {
             rel="noopener"
           >
             <img
+              className="bigLogo"
               src={
                 "https://www.modulos.hr/wp-content/uploads/2020/11/visa-seeklogo.com_.svg"
               }
@@ -131,34 +144,47 @@ function Footer() {
           >
             <img
               alt=""
+              className="bigLogo"
               src={diners}
               style={{ width: "16em", height: "auto" }}
             />
           </a>
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="redDoli" style={{ display: "flex" }}>
           <div>
-            <img
-              src="https://3gproxy.com/wp/wp-content/uploads/2022/06/visa_secure.svg"
-              alt="Visa logo"
-              class="footer-logo-link"
-              style={{ width: "8em", height: "auto" }}
-            />
+            <a
+              target={"_blank"}
+              href="https://www.visa.com.hr/run-your-business/small-business-tools/payment-technology/visa-secure.html"
+            >
+              <img
+                className="smallLogo"
+                src="https://3gproxy.com/wp/wp-content/uploads/2022/06/visa_secure.svg"
+                alt="Visa logo"
+                class="footer-logo-link"
+                style={{ width: "8em", height: "auto" }}
+              />
+            </a>
             <p className="footer-logo-link" style={{ maxWidth: 110 }}>
               <b>"vaše transakcije su sigurne sa Visa-om"</b>
             </p>
           </div>
-          <a class="footer-logo-link">
+          <a
+            href="https://www-mastercard-com.translate.goog/global/en/business/overview/safety-and-security/identity-check.html?_x_tr_sl=en&_x_tr_tl=hr&_x_tr_hl=hr&_x_tr_pto=sc"
+            target={"_blank"}
+            class="footer-logo-link"
+          >
             <img
               src={
                 "https://www.modirum.com/wp-content/uploads/2020/12/MC-IDC-864x864-1-655x437.png"
               }
               alt={"alttext"}
+              className="smallLogo"
               style={{ width: "10em", height: "auto" }}
             />
           </a>
-          <a class="footer-logo-link">
+          <a href="" target={"_blank"} class="footer-logo-link">
             <img
+              className="smallLogo"
               src={
                 "https://djecjakolica.eu/wp-content/uploads/2014/05/logo_sigurna-kupnja_2.1.png"
               }

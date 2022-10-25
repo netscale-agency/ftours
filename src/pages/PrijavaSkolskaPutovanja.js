@@ -136,7 +136,7 @@ export default function PrijavaSkolskaPutovanja() {
           <div className="cont" style={{ width: "80%", margin: "auto" }}>
             <h1>Prijava za školsko putovanje</h1>
             <ProgressBar activeSteps={activatedSteps(active)} />
-            <div style={{ minHeight: 400 }} className="containerForm">
+            <form autoComplete="off" style={{ minHeight: 400 }} className="containerForm">
               {active === 0 && (
                 <Step1
                   setActive={setActive}
@@ -183,7 +183,7 @@ export default function PrijavaSkolskaPutovanja() {
                   }}
                 />
               )}
-            </div>
+            </form>
           </div>
         )}
       </>

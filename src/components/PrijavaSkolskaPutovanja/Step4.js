@@ -274,7 +274,7 @@ export default function Step4({
                 : false
             }
             value={"A"}
-          >{`A - ${activeAran.CijenaA},00 kn / ${Math.round((Number(activeAran.CijenaA)/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
+          >{`A - ${activeAran.CijenaA} kn / ${Math.round((Number(activeAran.CijenaA.replace(/,/g, "."))/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
@@ -289,7 +289,7 @@ export default function Step4({
                 : false
             }
             value={"B"}
-          >{`B - ${activeAran.CijenaB},00 kn / ${Math.round((Number(activeAran.CijenaB)/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
+          >{`B - ${activeAran.CijenaB} kn / ${Math.round((Number(activeAran.CijenaB.replace(/,/g, "."))/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
@@ -304,7 +304,7 @@ export default function Step4({
                 : false
             }
             value={"C"}
-          >{`C - ${activeAran.CijenaC},00 kn / ${Math.round((Number(activeAran.CijenaC)/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
+          >{`C - ${activeAran.CijenaC} kn / ${Math.round((Number(activeAran.CijenaC.replace(/,/g, "."))/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
         )}
       </select>
       <label>
@@ -380,7 +380,7 @@ export default function Step4({
       <a
         style={{ cursor: "pointer" }}
         target="blank"
-        href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EYlcvPyWVPxMnAAiSzO5DpQBIMZwKzXhH0_dBYvhCpP4zg?e=akM3HE"
+        href="https://destinationsftours-my.sharepoint.com/personal/marko_f-tours_hr/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fmarko%5Ff%2Dtours%5Fhr%2FDocuments%2FWEB%2F2023%2Ff%2Dtours%20opci%20uvjeti%202023%2Epdf&parent=%2Fpersonal%2Fmarko%5Ff%2Dtours%5Fhr%2FDocuments%2FWEB%2F2023"
       >
         {" "}
         <label style={{ cursor: "pointer" }}>

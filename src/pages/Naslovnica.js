@@ -69,7 +69,7 @@ function Naslovnica() {
             <h1 className="h3-putovanja">
               Putovanje nije samo naš posao, putovanje je naš način života
             </h1>
-            <p className="p-putovanja">prudruži nam se!</p>
+            <p className="p-putovanja">Pridruži nam se!</p>
           </div>
         </div>
         <div className="div-cards-kategorije">

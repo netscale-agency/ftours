@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { check, checkPlacanje, checkPlacanjeCijena, dateData, putovnicaYears } from "./util/check";
+import {
+  check,
+  checkPlacanje,
+  checkPlacanjeCijena,
+  dateData,
+  putovnicaYears,
+} from "./util/check";
 import { cityData } from "./util/data";
 import { postData } from "./util/post";
 import InputMask from "react-input-mask";
@@ -98,30 +104,29 @@ export default function Overview(data) {
   const [submit, setsubmit] = useState(false);
   useEffect(() => {
     setDate(`${day}.${month}.${year}`);
-    setDateDoc(`${dayDoc}${dayDoc&&'.'}${monthDoc}${monthDoc&&'.'}${yearDoc}`);
+    setDateDoc(
+      `${dayDoc}${dayDoc && "."}${monthDoc}${monthDoc && "."}${yearDoc}`
+    );
   }, [year, month, day, yearDoc, monthDoc, dayDoc]);
   useEffect(() => {
     if (window) {
       window.scrollTo(0, 0);
     }
   }, []);
-  useEffect(() => {
+  useEffect(async () => {
     if (submit === true) {
-      postData({
+      await postData({
         zaglavlje: {
           Adresa: data.data.Adresa,
           BrojPutneIsprave: data.data.BrojPutneIsprave,
-          Cijena: checkPlacanjeCijena(
-            data.data.NacinPlacanja,
-            {
-              a: activeAran.CijenaA,
-              b: activeAran.CijenaB,
-              c: activeAran.CijenaC,
-              aD: activeAran.DatumZaCijenuA,
-              bD: activeAran.DatumZaCijenuB,
-              cD: activeAran.DatumZaCijenuC,
-            }
-          ),
+          Cijena: checkPlacanjeCijena(data.data.NacinPlacanja, {
+            a: activeAran.CijenaA,
+            b: activeAran.CijenaB,
+            c: activeAran.CijenaC,
+            aD: activeAran.DatumZaCijenuA,
+            bD: activeAran.DatumZaCijenuB,
+            cD: activeAran.DatumZaCijenuC,
+          }),
           DatumRodjenja: data.data.DatumRodjenja,
           Drzava: "HR",
           Email: data.data.Email,
@@ -129,7 +134,7 @@ export default function Overview(data) {
           GrupaId: data.data.GrupaId,
           Ime: data.data.Ime,
           KontaktOsobaId: data.data.KontaktOsobaId,
-          Mjesto: data.data.Mjesto,
+          Mjesto: data.data.Mjesto.replace(/[0-9]/g, "").replace(/[{()}]/g, '').slice(0,-1),
           Mob:
             data.data.Mob[data.data.Mob.length - 2] != "_"
               ? data.data.Mob.replace("(0) ", "").replace("_", "")
@@ -162,7 +167,7 @@ export default function Overview(data) {
           VrstaPutneIsprave: data.data.VrstaPutneIsprave,
         },
       });
-      emailjs
+       emailjs
         .send(
           "service_650o6of",
           "template_9cj5ue9",
@@ -214,7 +219,7 @@ export default function Overview(data) {
             data.setIsErr(true);
           }
         );
-      emailjs
+       emailjs
         .send(
           "service_650o6of",
           "template_hkdcyir",

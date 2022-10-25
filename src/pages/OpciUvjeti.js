@@ -383,9 +383,9 @@ function OpciUvjeti() {
             „Putnička agencija DESTINATIONS F-TOURS D.O.O.“ je sukladno
             odredbama Zakona o pružanju usluga u turizmu (NN 130/2017) ugovorila
             osiguranje jamčevine za turistički paket-aranžman i povezani putni
-            aranžman kod UNIQA osiguranja d.d., .<br />Ovaj dokument omogućava
+            aranžman kod GENERALI osiguranja d.d., .<br />Ovaj dokument omogućava
             putniku neposredno ostvarenje prava na naknadu (osigurninu) zbog
-            nastalih troškova u skladu s odredbama Ugovora broj 45-7002816383 o
+            nastalih troškova u skladu s odredbama Ugovora broj 15-1020000792 o
             osiguranju jamčevine za turistički paket-aranžman i povezani putni
             aranžman i vrijedi kao potvrda o osiguranju za slučaj nesolventnosti
             (nesposobnosti za pravodobno plaćanje dospjelih obveza u iznosu i
@@ -394,10 +394,10 @@ function OpciUvjeti() {
             pravodobno plaćanje dospjelih obveza u iznosu i roku dospijeća) ili
             stečaja putničke agencije DESTINATIONS F-TOURS D.O.O. putnici koji
             se zateknu na putovanju kao i oni kojima je izostala usluga
-            putovanja trebaju kontaktirati Osiguratelja UNIQA osiguranje d.d.:<br />–
-            putem kontakt centra na telefon broj 01/6324 200<br />– putem e-maila na
-            adresu prijava.stete@uniqa.hr<br />– osobno na adresi prodajnih ureda
-            Uniqa osiguranja
+            putovanja trebaju kontaktirati Osiguratelja GENERALI osiguranje d.d.:<br />–
+            putem kontakt centra na telefon broj +385 (0)1 4600 400<br />– putem e-maila na
+            adresu stete.hr@generali.com<br />– osobno na adresi prodajnih ureda
+            Generali osiguranja
             <br />
           </p>
           <p className="p-terms-upper">
