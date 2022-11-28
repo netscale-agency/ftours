@@ -1,5 +1,6 @@
 export const cityData = [
   "Ada (31214)",
+  "Makarska (21300)",
   "Adamovec (10363)",
   "Adžamovci (35422)",
   "Alaginci (34000)",
