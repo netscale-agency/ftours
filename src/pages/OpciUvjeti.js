@@ -86,7 +86,7 @@ function OpciUvjeti() {
             uplaćuje najmanje 30% ukupne cijene aranžmana, dok razliku podmiruje
             najkasnije 30 dana prije početka korištenja aranžmana. Kada se radi
             o “rezervaciji na upit”, Putnik je dužan uplatiti iznos od minimalno
-            300 kuna koji je NEPOVRATAN u slučaju odustajanja od programa za
+            50 € koji je NEPOVRATAN u slučaju odustajanja od programa za
             kojeg je korisnik tražio rezervaciju. Prije uplate ovdje definiranog
             pologa, Agencija nije dužna obaviti rezervaciju za traženi program.
             Navedeno se ne primjenjuje ukoliko potencijalni Putnik samo
@@ -120,11 +120,8 @@ function OpciUvjeti() {
               5. Opis usluga i kategorizacija istih
             </span>
             <br />
-            Cijene Paket aranžmana/Individualna putovanja izražene su u kunama
-            na temelju odnosa vrijednosti kune i stranih valuta po prodajnom
-            tečaju Privredne Banke d.d., Zagreb važećem na dan zaključenja
-            Ugovora. Za tečajne promjene iznad 3% agencija ima pravo razmjernog
-            povišenja cijene. Cijena Paket aranžmana/Individualna putovanja u
+            Cijene Paket aranžmana/Individualna putovanja izražene su u eurima
+            Cijena Paket aranžmana/Individualna putovanja u
             pravilu ne uključuje, osim ako nije drugačije ugovoreno, pristojbe
             zračnih luka, troškove pribavljanja i izdavanja viza, ulaznice za
             objekte koji se posjećuju te neobvezatne sadržaje. Cijena Paket
@@ -219,7 +216,7 @@ function OpciUvjeti() {
             <br />
             PAKET ARANŽMANI
             <br />– za otkaz do 30 dana prije početka putovanja 20 % cijene
-            *(min. 300,- kn)
+            *(min. 50,00€)
             <br />– za otkaz 15-29 dan prije početka putovanja 50 % cijene
             <br />– za otkaz 08-14 dana prije početka putovanja 75 % cijene
             <br />– za otkaz 00-07 dana prije početka putovanja 100 % cijene

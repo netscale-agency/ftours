@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InputMask from "react-input-mask";
-import { dateData, putovnicaYears } from "./util/check";
+import { dateCheck, dateData, putovnicaYears } from "./util/check";
 
 export default function Step4({
   setActive,
@@ -34,12 +34,31 @@ export default function Step4({
       return false;
     }
   };
+
   useEffect(() => {
-    if (day && month && year) setDate(`${day}${day&&'.'}${month}${month&&'.'}${year}`);
+    if (day && month && year)
+      setDate(`${day}${day && "."}${month}${month && "."}${year}`);
   }, [year, month, day]);
   const dateA = activeAran.DatumZaCijenuA.split(".");
   const dateB = activeAran.DatumZaCijenuB.split(".");
   const dateC = activeAran.DatumZaCijenuC.split(".");
+  const dateObjectA = {
+    day: dateA[0],
+    month: dateA[1],
+    year: dateA[2],
+  };
+  const dateObjectB = {
+    day: dateB[0],
+    month: dateB[1],
+    year: dateB[2],
+  }; const dateObjectC = {
+    day: dateC[0],
+    month: dateC[1],
+    year: dateC[2],
+  };
+  console.log(dateObjectA,"ddd",dateObjectB,"dhddh",dateObjectC)
+
+
   const NacinPlacanja = (str) => {
     if (str === "A") {
       return activeAran.CijenaA;
@@ -263,48 +282,33 @@ export default function Step4({
         <option>---</option>
         {activeAran.CijenaAWebPrikaz === "True" && (
           <option
-            disabled={
-              new Date(`${dateA[2]}-${dateA[1]}-${dateA[0]}`) < today
-                ? new Date(`${dateA[2]}-${dateA[1]}-${dateA[0]}`).getDay() !==
-                    today.getDay() &&
-                  new Date(`${dateA[2]}-${dateA[1]}-${dateA[0]}`).getMonth() !==
-                    today.getMonth()
-                  ? true
-                  : false
-                : false
-            }
+            disabled={dateCheck(dateObjectA)}
             value={"A"}
-          >{`A - ${activeAran.CijenaA} kn / ${Math.round((Number(activeAran.CijenaA.replace(/,/g, "."))/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
+          >{`A - ${Number(activeAran.CijenaA.replace(/,/g, ".")).toFixed(
+            2
+          )} € / ${Math.round(
+            Number(activeAran.CijenaA.replace(/,/g, ".")) * 7.5345 * 100
+          ) / 100}kn ( uplata do ${activeAran.DatumZaCijenuA} )`}</option>
         )}
         {activeAran.CijenaBWebPrikaz === "True" && (
           <option
-            disabled={
-              new Date(`${dateB[2]}-${dateB[1]}-${dateB[0]}`) < today
-                ? new Date(`${dateB[2]}-${dateB[1]}-${dateB[0]}`).getDay() !==
-                    today.getDay() &&
-                  new Date(`${dateB[2]}-${dateB[1]}-${dateB[0]}`).getMonth() !==
-                    today.getMonth()
-                  ? true
-                  : false
-                : false
-            }
+            disabled={dateCheck(dateObjectB)}
             value={"B"}
-          >{`B - ${activeAran.CijenaB} kn / ${Math.round((Number(activeAran.CijenaB.replace(/,/g, "."))/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
+          >{`B - ${Number(activeAran.CijenaB.replace(/,/g, ".")).toFixed(
+            2
+          )} € / ${Math.round(
+            Number(activeAran.CijenaB.replace(/,/g, ".")) * 7.5345 * 100
+          ) / 100}kn ( uplata do ${activeAran.DatumZaCijenuB} )`}</option>
         )}
         {activeAran.CijenaCWebPrikaz === "True" && (
           <option
-            disabled={
-              new Date(`${dateC[2]}-${dateC[1]}-${dateC[0]}`) < today
-                ? new Date(`${dateC[2]}-${date[1]}-${dateC[0]}`).getDay() !==
-                    today.getDay() &&
-                  new Date(`${dateC[2]}-${dateC[1]}-${dateC[0]}`).getMonth() !==
-                    today.getMonth()
-                  ? true
-                  : false
-                : false
-            }
+            disabled={dateCheck(dateObjectC)}
             value={"C"}
-          >{`C - ${activeAran.CijenaC} kn / ${Math.round((Number(activeAran.CijenaC.replace(/,/g, "."))/7.5345)*100)/100}€ ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
+          >{`C - ${Number(activeAran.CijenaC.replace(/,/g, ".")).toFixed(
+            2
+          )} € / ${Math.round(
+            Number(activeAran.CijenaC.replace(/,/g, ".")) * 7.5345 * 100
+          ) / 100}kn ( uplata do ${activeAran.DatumZaCijenuC} )`}</option>
         )}
       </select>
       <label>
@@ -362,7 +366,8 @@ export default function Step4({
         <input
           id="suglasnost"
           type="radio"
-          onClick={() => setFoto("Da")}
+          onClick={() =>{ setFoto("Da")
+          console.log(foto)}}
           name="suglasnost"
           style={{ width: 17, height: 17 }}
           value={"Da"}
@@ -372,7 +377,8 @@ export default function Step4({
           id="suglasnost"
           type="radio"
           name="suglasnost"
-          onClick={() => setFoto("Ne")}
+          onClick={() => {setFoto("Ne")
+        console.log(foto)}}
           value={"Ne"}
           style={{ width: 17, height: 17 }}
         />
@@ -380,9 +386,8 @@ export default function Step4({
       <a
         style={{ cursor: "pointer" }}
         target="blank"
-        href="https://destinationsftours-my.sharepoint.com/personal/marko_f-tours_hr/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fmarko%5Ff%2Dtours%5Fhr%2FDocuments%2FWEB%2F2023%2Ff%2Dtours%20opci%20uvjeti%202023%2Epdf&parent=%2Fpersonal%2Fmarko%5Ff%2Dtours%5Fhr%2FDocuments%2FWEB%2F2023"
+        href="https://destinationsftours-my.sharepoint.com/:b:/g/personal/marko_f-tours_hr/EWBqFJPE7BNDs8qvAv1Ho7EBePKgdFSrqZXg2hMhtkPWNA?e=KKhopx"
       >
-        {" "}
         <label style={{ cursor: "pointer" }}>
           Pročitao/la sam i prihvaćam opće uvjete <br />
           <b style={{ color: "#B11F23" }}>(obavezno)</b>

@@ -17,6 +17,7 @@ export default function Overview(data) {
       data.data.DatumRodjenja.split(".")[0]) ||
       ""
   );
+  console.log(data)
   const [year, setYear] = useState(
     (data.data.DatumRodjenja !== undefined &&
       data.data.DatumRodjenja.split(".")[2]) ||
@@ -47,6 +48,7 @@ export default function Overview(data) {
   const [dokument, setDokument] = useState(data.data.VrstaPutneIsprave);
   const [date, setDate] = useState();
   const [dateDoc, setDateDoc] = useState();
+
 
   const [city, setCity] = useState(data.data.Mjesto || "");
   const [price, setPrice] = useState(data.data.NacinPlacanja);
@@ -113,157 +115,156 @@ export default function Overview(data) {
       window.scrollTo(0, 0);
     }
   }, []);
-  useEffect(async () => {
-    if (submit === true) {
-      await postData({
-        zaglavlje: {
-          Adresa: data.data.Adresa,
-          BrojPutneIsprave: data.data.BrojPutneIsprave,
-          Cijena: checkPlacanjeCijena(data.data.NacinPlacanja, {
-            a: activeAran.CijenaA,
-            b: activeAran.CijenaB,
-            c: activeAran.CijenaC,
-            aD: activeAran.DatumZaCijenuA,
-            bD: activeAran.DatumZaCijenuB,
-            cD: activeAran.DatumZaCijenuC,
-          }),
-          DatumRodjenja: data.data.DatumRodjenja,
-          Drzava: "HR",
-          Email: data.data.Email,
-          FotoVideoSuglasnost: data.data.FotoVideoSuglasnost,
-          GrupaId: data.data.GrupaId,
-          Ime: data.data.Ime,
-          KontaktOsobaId: data.data.KontaktOsobaId,
-          Mjesto: data.data.Mjesto.replace(/[0-9]/g, "").replace(/[{()}]/g, '').slice(0,-1),
-          Mob:
-            data.data.Mob[data.data.Mob.length - 2] != "_"
-              ? data.data.Mob.replace("(0) ", "").replace("_", "")
-              : "",
-          NacinPlacanja: data.data.NacinPlacanja,
-          Prezime: data.data.Prezime,
-          PutnaIspravaVrijediDo: data.data.PutnaIspravaVrijediDo.includes(
-            "undefined"
-          )
-            ? ""
-            : data.data.PutnaIspravaVrijediDo,
-          Razred: data.data.Razred,
-          RoditeljSkrbnik: data.data.RoditeljSkrbnik,
-          RoditeljSkrbnikEmail: data.data.RoditeljSkrbnikEmail,
-          RoditeljSkrbnikMob:
-            data.data.RoditeljSkrbnikMob[
-              data.data.RoditeljSkrbnikMob.length - 2
-            ] != "_"
-              ? data.data.RoditeljSkrbnikMob.replace("(0) ", "").replace(
-                  "_",
-                  ""
-                )
-              : "",
-          Signature: data.data.Signature,
-          Spol: data.data.Spol,
-          Tel:
-            data.data.Tel[data.data.Tel.length - 2] != "_"
-              ? data.data.Tel.replace("(0) ", "").replace("_", "")
-              : "",
-          VrstaPutneIsprave: data.data.VrstaPutneIsprave,
+  const handleSubmit = async () => {
+    await postData({
+      zaglavlje: {
+        Adresa: data.data.Adresa,
+        BrojPutneIsprave: data.data.BrojPutneIsprave,
+        Cijena: checkPlacanjeCijena(data.data.NacinPlacanja, {
+          a: activeAran.CijenaA,
+          b: activeAran.CijenaB,
+          c: activeAran.CijenaC,
+          aD: activeAran.DatumZaCijenuA,
+          bD: activeAran.DatumZaCijenuB,
+          cD: activeAran.DatumZaCijenuC,
+        }),
+        DatumRodjenja: data.data.DatumRodjenja,
+        Drzava: "HR",
+        Email: data.data.Email,
+        FotoVideoSuglasnost: data.data.FotoVideoSuglasnost,
+        GrupaId: data.data.GrupaId,
+        Ime: data.data.Ime,
+        KontaktOsobaId: data.data.KontaktOsobaId,
+        Mjesto: data.data.Mjesto.replace(/[0-9]/g, "")
+          .replace(/[{()}]/g, "")
+          .slice(0, -1),
+        Mob:
+          data.data.Mob[data.data.Mob.length - 2] != "_"
+            ? data.data.Mob.replace("(0) ", "").replace("_", "")
+            : "",
+        NacinPlacanja: data.data.NacinPlacanja,
+        Prezime: data.data.Prezime,
+        PutnaIspravaVrijediDo: data.data.PutnaIspravaVrijediDo.includes(
+          "undefined"
+        )
+          ? ""
+          : data.data.PutnaIspravaVrijediDo,
+        Razred: data.data.Razred,
+        RoditeljSkrbnik: data.data.RoditeljSkrbnik,
+        RoditeljSkrbnikEmail: data.data.RoditeljSkrbnikEmail,
+        RoditeljSkrbnikMob:
+          data.data.RoditeljSkrbnikMob[
+            data.data.RoditeljSkrbnikMob.length - 2
+          ] != "_"
+            ? data.data.RoditeljSkrbnikMob.replace("(0) ", "").replace("_", "")
+            : "",
+        Signature: data.data.Signature,
+        Spol: data.data.Spol,
+        Tel:
+          data.data.Tel[data.data.Tel.length - 2] != "_"
+            ? data.data.Tel.replace("(0) ", "").replace("_", "")
+            : "",
+        VrstaPutneIsprave: data.data.VrstaPutneIsprave,
+      },
+    });
+    emailjs
+      .send(
+        "service_650o6of",
+        "template_9cj5ue9",
+        {
+          aran: data.SchoolMailData.aranIme,
+          adresa: data.data.Adresa,
+          brPutne: data.data.BrojPutneIsprave,
+          placanje: `${data.data.NacinPlacanja} ${checkPlacanje(
+            data.data.NacinPlacanja,
+            {
+              a: activeAran.CijenaA,
+              b: activeAran.CijenaB,
+              c: activeAran.CijenaC,
+              aD: activeAran.DatumZaCijenuA,
+              bD: activeAran.DatumZaCijenuB,
+              cD: activeAran.DatumZaCijenuC,
+            }
+          )}`,
+          skola: data.SchoolMailData.skola,
+          datumRodjenja: data.data.DatumRodjenja,
+          drzava: "Hrvatska",
+          emailPutnik: data.data.Email,
+          fotoSugl: data.data.FotoVideoSuglasnost,
+          imePutnika: imePutnika,
+          voditelj: data.SchoolMailData.razrednik,
+          grad: data.data.Mjesto,
+          brMobPutnik: data.data.Mob,
+          prezimePutnika: prezimePutnika,
+          ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
+          razred: data.data.Razred,
+          prezimeUgovaratelja: prezimeRoditelj,
+          imeUgovaratelja: imeRoditelj,
+          emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
+          mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
+          spol: data.data.Spol,
+          brTelPutnik: data.data.Tel,
+          vrstaPutne: data.data.VrstaPutneIsprave,
+          potpis: data.data.Signature,
         },
-      });
-       emailjs
-        .send(
-          "service_650o6of",
-          "template_9cj5ue9",
-          {
-            aran: data.SchoolMailData.aranIme,
-            adresa: data.data.Adresa,
-            brPutne: data.data.BrojPutneIsprave,
-            placanje: `${data.data.NacinPlacanja} ${checkPlacanje(
-              data.data.NacinPlacanja,
-              {
-                a: activeAran.CijenaA,
-                b: activeAran.CijenaB,
-                c: activeAran.CijenaC,
-                aD: activeAran.DatumZaCijenuA,
-                bD: activeAran.DatumZaCijenuB,
-                cD: activeAran.DatumZaCijenuC,
-              }
-            )}`,
-            skola: data.SchoolMailData.skola,
-            datumRodjenja: data.data.DatumRodjenja,
-            drzava: "Hrvatska",
-            emailPutnik: data.data.Email,
-            fotoSugl: data.data.FotoVideoSuglasnost,
-            imePutnika: imePutnika,
-            voditelj: data.SchoolMailData.razrednik,
-            grad: data.data.Mjesto,
-            brMobPutnik: data.data.Mob,
-            prezimePutnika: prezimePutnika,
-            ispravaVrijediDo: data.data.PutnaIspravaVrijediDo,
-            razred: data.data.Razred,
-            prezimeUgovaratelja: prezimeRoditelj,
-            imeUgovaratelja: imeRoditelj,
-            emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
-            mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
-            spol: data.data.Spol,
-            brTelPutnik: data.data.Tel,
-            vrstaPutne: data.data.VrstaPutneIsprave,
-            potpis: data.data.Signature,
-          },
-          "86zfbFOOLfvWJuFWM"
-        )
-        .then(
-          function(response) {
-            console.log("SUCCESS!", response.status, response.text);
-            data.setIsErr(false);
-          },
-          function(error) {
-            console.log("FAILED...", error);
-            data.setIsErr(true);
-          }
-        );
-       emailjs
-        .send(
-          "service_650o6of",
-          "template_hkdcyir",
-          {
-            aran: data.SchoolMailData.aranIme,
-            skola: data.SchoolMailData.skola,
-            adresa: data.data.Adresa,
-            brPutne: `${data.data.BrojPutneIsprave}`,
-            placanje: data.data.NacinPlacanja,
-            datumRodjenja: data.data.DatumRodjenja,
-            drzava: "Hrvatska",
-            emailPutnik: data.data.Email,
-            fotoSugl: data.data.FotoVideoSuglasnost,
-            imePutnika: `${imePutnika}`,
-            voditelj: data.SchoolMailData.razrednik,
-            grad: data.data.Mjesto,
-            brMobPutnik: data.data.Mob,
-            prezimePutnika: `${prezimePutnika}`,
-            ispravaVrijediDo: `${data.data.PutnaIspravaVrijediDo}`,
-            razred: data.data.Razred,
-            prezimeUgovaratelja: prezimeRoditelj,
-            imeUgovaratelja: imeRoditelj,
-            emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
-            mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
-            spol: data.data.Spol,
-            brTelPutnik: data.data.Tel,
-            vrstaPutne: data.data.VrstaPutneIsprave,
-            potpis: data.data.Signature,
-          },
-          "86zfbFOOLfvWJuFWM"
-        )
-        .then(
-          function(response) {
-            console.log("SUCCESS!", response.status, response.text);
-            data.setIsErr(false);
-          },
-          function(error) {
-            console.log("FAILED...", error);
-            data.setIsErr(true);
-          }
-        );
-      data.setisOpen(true);
-    }
-  }, [submit]);
+        "86zfbFOOLfvWJuFWM"
+      )
+      .then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+          data.setIsErr(false);
+          setsubmit(true);
+        },
+        function(error) {
+          console.log("FAILED...", error);
+          data.setIsErr(true);
+        }
+      );
+    emailjs
+      .send(
+        "service_650o6of",
+        "template_hkdcyir",
+        {
+          aran: data.SchoolMailData.aranIme,
+          skola: data.SchoolMailData.skola,
+          adresa: data.data.Adresa,
+          brPutne: `${data.data.BrojPutneIsprave}`,
+          placanje: data.data.NacinPlacanja,
+          datumRodjenja: data.data.DatumRodjenja,
+          drzava: "Hrvatska",
+          emailPutnik: data.data.Email,
+          fotoSugl: data.data.FotoVideoSuglasnost,
+          imePutnika: `${imePutnika}`,
+          voditelj: data.SchoolMailData.razrednik,
+          grad: data.data.Mjesto,
+          brMobPutnik: data.data.Mob,
+          prezimePutnika: `${prezimePutnika}`,
+          ispravaVrijediDo: `${data.data.PutnaIspravaVrijediDo}`,
+          razred: data.data.Razred,
+          prezimeUgovaratelja: prezimeRoditelj,
+          imeUgovaratelja: imeRoditelj,
+          emailUgovaratelja: data.data.RoditeljSkrbnikEmail,
+          mobitelUgovaratelja: data.data.RoditeljSkrbnikMob,
+          spol: data.data.Spol,
+          brTelPutnik: data.data.Tel,
+          vrstaPutne: data.data.VrstaPutneIsprave,
+          potpis: data.data.Signature,
+        },
+        "86zfbFOOLfvWJuFWM"
+      )
+      .then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+          data.setIsErr(false);
+          setsubmit(true);
+        },
+        function(error) {
+          console.log("FAILED...", error);
+          data.setIsErr(true);
+        }
+      );
+    data.setisOpen(true);
+  };
 
   if (data)
     return (
@@ -1126,12 +1127,13 @@ export default function Overview(data) {
             <></>
             <button
               className="nextPrev"
-              onClick={() => {
-                data.setUgovaratelj({
+              disabled={submit}
+              onClick={async () => {
+                 data.setUgovaratelj({
                   ime: imeRoditelj,
                   prezime: prezimeRoditelj,
                 });
-                data.setStep3({
+                 data.setStep3({
                   RoditeljSkrbnik: `${imeRoditelj} ${prezimeRoditelj}`,
                   RoditeljSkrbnikEmail: document.getElementById("emailRoditelj")
                     .value,
@@ -1144,7 +1146,7 @@ export default function Overview(data) {
                   DatumRodjenja: date,
                   Ime: document.getElementById("imePutnika").value,
                 });
-                data.setStep4({
+                 data.setStep4({
                   BrojPutneIsprave: document.getElementById("docBroj").value,
                   Cijena: NacinPlacanja(price),
                   Email: document.getElementById("emailPutnika").value,
@@ -1155,7 +1157,7 @@ export default function Overview(data) {
                   Tel: document.getElementById("telPutnika").value,
                   VrstaPutneIsprave: document.getElementById("dokument").value,
                 });
-                setsubmit(true);
+               await handleSubmit();
 
                 window.localStorage.clear();
               }}

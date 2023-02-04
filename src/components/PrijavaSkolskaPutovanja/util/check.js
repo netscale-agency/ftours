@@ -404,3 +404,21 @@ export const checkPlacanjeCijena = (i, cijena) => {
       break;
   }
 };
+
+export const dateCheck = (date) => {
+  const today = new Date();
+  const aranDate = new Date(`${date.year}-${date.month}-${date.day}`);
+console.log(date)
+console.log(today.getDate(),today.getUTCMonth(),today.getFullYear())
+  if (
+    today.getDate() === Number(date.day) &&
+    today.getMonth()+1 === Number(date.month) &&
+    today.getFullYear() === Number(date.year)
+  ) {
+    return false;
+  } else if (aranDate > today) {
+    return false;
+  } else {
+    return true;
+  }
+};

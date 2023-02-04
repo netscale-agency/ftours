@@ -39,6 +39,7 @@ export default function Step2({
   const aranData = data.GrupeRezervacije.filter(
     (item) => item.GrupaId === aran
   );
+  console.log(data)
   const razredi = data.GrupeRazredi.filter((item) => item.GrupaId === aran);
   return (
     <div className="stepContainer2 ">

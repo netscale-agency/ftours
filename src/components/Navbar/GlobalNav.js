@@ -65,7 +65,7 @@ function GlobalNav() {
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link href="o-nama">O nama</Nav.Link>
-              <Nav.Link href="kontakt">Kontakt</Nav.Link>
+              {/* <Nav.Link href="kontakt">Kontakt</Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
